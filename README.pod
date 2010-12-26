@@ -1,7 +1,13 @@
 =pod
+
 =head1 Nothing to see here, move along.
+
 =head2 What is that ?
+
 Just some personal configuaration files
+
 =head2 Why is this here ?
+
 Because Real Men don't make backups, they put files in Git repos and let rest of the world clone it
+
 =cut
