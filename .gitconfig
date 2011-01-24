@@ -27,3 +27,6 @@
 	cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"
 [merge]
 	tool = meld
+[github]
+	user = xani666@gmail.com
+	token = f1558ec7b7e3881fe2fa475e4a731570
