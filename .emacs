@@ -45,7 +45,7 @@
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 ;;Auto-start on any markup modes
-(server-start)
+;; (server-start)
 ;; (dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
 ;;   (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation"))
 
