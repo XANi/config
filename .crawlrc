@@ -1,0 +1,39 @@
+# Fancy kill list
+lua_file = lua/kills.lua
+
+# Annotate for search
+lua_file = lua/stash.lua
+stash_filter = scroll of curse armour, scroll of curse weapon, scroll of noise
+stash_filter = scroll of immolation
+stash_filter = scroll of paper
+stash_filter = ring of hunger, amulet of inaccuracy
+
+
+
+messages_at_top = true
+pickup_thrown = true
+pickup_dropped = false
+drop_mode = multi
+easy_unequip = true
+equip_unequip = true
+hp_warning = 25
+mp_warning = 25
+tile_window_width = 1900
+tile_window_height = 1000
+rare_interesting = 7
+note_skill_max = true
+show_inventory_weights     = true
+force_more_message = You have reached level
+force_more_message = Your scales start
+force_more_message = You fall through a shaft
+force_more_message = You are starting to lose your buoyancy
+
+note_messages = You pass through the gate
+note_messages = cast .* Abyss
+note_messages = Your scales start
+note_messages = protects you from harm
+note_messages = You fall through a shaft
+note_monsters = orb of fire, ancient lich, Sigmund
+
+note_items    = rod of, acquirement, preservation, running, of Zot
+pizza            = Sausage
