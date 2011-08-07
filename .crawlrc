@@ -5,7 +5,7 @@ lua_file = lua/kills.lua
 lua_file = lua/stash.lua
 stash_filter = scroll of curse armour, scroll of curse weapon, scroll of noise
 stash_filter = scroll of immolation
-stash_filter = scroll of paper
+#stash_filter = scroll of paper
 stash_filter = ring of hunger, amulet of inaccuracy
 
 
