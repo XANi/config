@@ -27,6 +27,10 @@
 	cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"
 [merge]
 	tool = meld
-[github]
-	user = xani666@gmail.com
-	token = f1558ec7b7e3881fe2fa475e4a731570
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	file-view-vpane-position = 656
+	file-view-hpane-position = 474
+	history-view-vpane-position = 830
+	main-window-view = FileView
