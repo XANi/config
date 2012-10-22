@@ -41,8 +41,3 @@ repos:
     comment: dungeon crawl
     deb:
       - http://crawl.develz.org/debian crawl 0.8
-
-  puppet:
-    comment: Puppet 3.0 repo
-    deb:
-      - http://apt.puppetlabs.com wheezy main

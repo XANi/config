@@ -8,11 +8,10 @@ class puppet {
         owner   => root,
         group   => root,
     }
-#  puppetlabs packages decided to randomly change name of that
-#    package {
-#        'ruby-hiera-puppet':
-#            ensure => latest;
-#    }
+    package {
+        'ruby-hiera-puppet':
+            ensure => latest;
+    }
     file {
         '/etc/hiera.yaml':
             mode    => 600,
