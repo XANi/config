@@ -1,0 +1,17 @@
+# mapping of emails for use with git blame and for file tags
+# format:
+#   to_user <mail@address.com>
+# will map all usernames with <mail@address.com> to to_user
+#   to_user <mail1@address.com> from_user <mail2@address.com>
+# will map from_user <mail2@address.com> to  to_user <mail1@address.com>
+#   <mail1@address.com>  <mail2@address.com>
+# map mail2@address.com to mail1@address.com
+
+
+xani <mgronczewski@artegence.com>
+xani <mariusz.gronczewski@artegence.com>
+xani <xani666@gmail.com>
+xani <xani@devrandom.pl>
+xani <xani@devrandom.eu>
+
+

@@ -1,0 +1,26 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+---
+:backends: - yaml
+
+:logger: console
+
+:hierarchy: - host/%{hostname}/%{calling_module}
+            - host/%{hostname}/common
+            - project/%{projectname}/%{calling_module}
+            - project/%{projectname}/common
+            - platform/%{platformname}/%{calling_module}
+            - platform/%{platformname}/common
+            - site/%{site}/%{calling_module}
+            - site/%{site}/common
+            - env/%{environment}/%{calling_module}
+            - env/%{environment}/common
+            - common/%{calling_module}
+            - common/common
+
+:yaml:
+   :datadir: /var/lib/dpp/repo/hiera
+
+# :gpg:
+#   :datadir: /home/gitsync/puppet/%{environment}/hiera-gpg
+#   :key_dir: /var/lib/puppet/gpg
