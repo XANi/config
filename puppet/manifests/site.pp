@@ -12,6 +12,7 @@ node default {
     class {
         puppet:;
         apt::update:;
+		dpp:;
     }
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
