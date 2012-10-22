@@ -15,6 +15,7 @@ node default {
 		dpp:;
 		monit:;
     }
+	monit::monitor { dpp:; }
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
