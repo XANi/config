@@ -1,8 +1,8 @@
 class puppet {
-    $puppet_repo_path = hiera('repo_path','/var/lib/dpp/repo');
-    $puppet_fact_path = hiera('fact_path','/tmp/facts/');
+    $puppet_repo_path = hiera('repo_path','/var/lib/dpp/repo')
+    $puppet_fact_path = hiera('fact_path','/tmp/facts/')
 
-	file { puppet-conf:
+    file { puppet-conf:
         path    => '/etc/puppet/puppet.conf',
         content => template('puppet/puppet.conf.erb'),
         owner   => root,
