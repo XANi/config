@@ -1,25 +1,32 @@
 # <%= puppet_header %>
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
 ---
-:backends: - yaml
+:backends:
+  - yaml
 
 :logger: console
 
-:hierarchy: - host/%{hostname}/%{calling_module}
-            - host/%{hostname}/common
-            - project/%{projectname}/%{calling_module}
-            - project/%{projectname}/common
-            - platform/%{platformname}/%{calling_module}
-            - platform/%{platformname}/common
-            - site/%{site}/%{calling_module}
-            - site/%{site}/common
-            - env/%{environment}/%{calling_module}
-            - env/%{environment}/common
-            - common/%{calling_module}
-            - common/common
+# hack around not being able to specify more than one datadir, at least till they fix it
+:hierarchy:
+  - private/host/%{hostname}/%{calling_module}
+  - shared/host/%{hostname}/%{calling_module}
+  - private/host/%{hostname}/common
+  - shared/host/%{hostname}/common
+  - private/location/%{projectname}/%{calling_module}
+  - shared/location/%{projectname}/%{calling_module}
+  - private/location/%{projectname}/common
+  - shared/location/%{projectname}/common
+  - private/env/%{environment}/%{calling_module}
+  - shared/env/%{environment}/%{calling_module}
+  - private/env/%{environment}/common
+  - shared/env/%{environment}/common
+  - private/common/%{calling_module}
+  - shared/common/%{calling_module}
+  - private/common/common
+  - shared/common/common
 
 :yaml:
-   :datadir: /var/lib/dpp/repo/hiera
+   :datadir: /var/lib/dpp/hiera
 
 # :gpg:
 #   :datadir: /home/gitsync/puppet/%{environment}/hiera-gpg
