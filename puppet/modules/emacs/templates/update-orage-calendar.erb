@@ -1,0 +1,38 @@
+#!/bin/bash
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# get toplevel window process
+export DISPLAY=:0
+EMACS_REGEX='\s*(|/usr/bin/)emacs.*$'
+TOP_WINDOW=$(ps h -o args $(xprop -id $(xprop -root -f _NET_ACTIVE_WINDOW 0x " \$0\\n" _NET_ACTIVE_WINDOW | awk "{print \$2}") -f _NET_WM_PID 0c " \$0\\n" _NET_WM_PID | awk "{print \$2}"))
+
+
+
+if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
+    echo "EMACS ON TOP not running calendar tasks"
+    exit 0
+else
+    echo "TOP window is $TOP_WINDOW - running calendar task"
+fi
+
+SYNCFILE=~/emacs/org/cal.ics
+emacsclient -e '(org-export-icalendar-combine-agenda-files)'
+cd ~/.local/share/orage || exit 0
+cp orage.ics orage.ics.b
+mv $SYNCFILE orage.ics
+killall -HUP orage
+
+# get toplevel window process
+TOP_WINDOW=$(ps h -o args $(xprop -id $(xprop -root -f _NET_ACTIVE_WINDOW 0x " \$0\\n" _NET_ACTIVE_WINDOW | awk "{print \$2}") -f _NET_WM_PID 0c " \$0\\n" _NET_WM_PID | awk "{print \$2}"))
+
+if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
+    echo "EMACS ON TOP not running mobile task"
+    exit 0
+else
+    echo "TOP window is $TOP_WINDOW - running mobile task"
+fi
+
+if [ -e ~/emacs/org/mobile.org/remote ] ; then
+    emacsclient -e '(org-mobile-pull)'
+    emacsclient -e '(org-mobile-push)'
+fi

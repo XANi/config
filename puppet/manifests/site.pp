@@ -14,6 +14,9 @@ node default {
         apt::update:;
 		dpp:;
 		monit:;
+		emacs:;
+		emacs::org:;
+		emacs::org::sync:;
     }
 	monit::monitor { dpp:; }
     file { "/tmp/i_am_puppet":
