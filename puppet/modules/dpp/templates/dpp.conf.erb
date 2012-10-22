@@ -1,0 +1,34 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+---
+repo:
+<%-
+# ruby1.8 yaml dump randomly orders keys so we have to do it in predictable ways
+repo_config.keys.sort.each do |repo|
+-%>
+  <%= repo %>:
+<%- repo_config[repo].sort.each do |key| -%>
+    <%= key.join(': ') %>
+<% end %>
+<% end %>
+# in which order load repos in module/hiera path
+use_repos:
+  - private
+  - shared
+
+repo_dir: /var/lib/dpp/repos
+
+# minimum of seconds to wait between puppet runs
+on_change_min_wait: 60
+# how ofter puppet should be run if no config changes ?
+schedule_run: 120
+# how often we check for new commits
+poll_interval: 20
+
+# if defined will save pid in that file
+pid_file: /var/run/dpp.pid
+
+# shows if last poll gave us new commit or if it failed
+status_file: /tmp/dpp.status
+
+
