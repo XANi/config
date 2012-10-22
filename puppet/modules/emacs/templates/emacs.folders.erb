@@ -1,0 +1,35 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# Folder definition file
+# This file is generated automatically by Wanderlust/2.15.9 (Almost Unreal).
+#
+# If you edit this file by hand, be sure that comment lines
+# will be washed out by wl-fldmgr.
+#
+
+OTRS{
+	%OTRS.New
+	%OTRS.Calendar
+	%OTRS.To_me
+	%OTRS
+	%OTRS.reminders
+}
+SRV {
+	%srv.Bcp
+	%srv.Cacti
+	%srv.Cron
+	%srv.Logwatch
+	%srv.MySQL slow
+	%srv.Passwordless
+	%srv.router diff
+	%srv.Puppet
+	%srv.heartbeat
+	%srv.mailman
+}
+%/
+
+# petname definition (access group, folder in access group)
+=	%	"Arte"
+=	%INBOX	"0.INBOX"
+
+# end of file.

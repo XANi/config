@@ -65,6 +65,7 @@
          (green   "#728a05")            ; (0.4498 0.5412 0.0202)
          (foregrounds (list base1 base0 base00 base01))
          (backgrounds (list base03 base02))
+;;         (backgrounds (list "#000000" "#111111"))
          (contrast-backgrounds (list base3 base2)))
     (when (eq 'light mode)
       (rotatef backgrounds contrast-backgrounds)
