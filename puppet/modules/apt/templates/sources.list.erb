@@ -1,49 +1,16 @@
 # <%= puppet_header %>
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
-# deb http://ftp.pl.debian.org/debian/ squeeze main
-
-deb http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
-deb-src http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
-
-deb http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
-deb-src http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
-
-# deb http://ftp.pl.debian.org/debian/ unstable main non-free contrib
-# deb-src http://ftp.pl.debian.org/debian/ unstable main non-free contrib
-
-deb http://ftp.pl.debian.org/debian/ squeeze-updates main contrib non-free
-deb-src http://ftp.pl.debian.org/debian/ squeeze-updates main contrib non-free
-
-deb http://ftp.pl.debian.org/debian/ wheezy-updates main contrib non-free
-deb-src http://ftp.pl.debian.org/debian/ wheezy-updates main contrib non-free
-
-<% if hostname == 'hydra' -%>
-#deb http://ftp.pl.debian.org/debian/ experimental main non-free contrib
-#deb-src http://ftp.pl.debian.org/debian/ experimental main non-free contrib
-
-# crawl
-deb http://crawl.develz.org/debian crawl 0.8
+<%
+repos.keys.each do |repo| %>
+# <%= repo %>
+#   <%= repos[repo]['comment'] %>
+#
+<%  repo_types.each do |repo_type|
+        if repos[repo][repo_type] then
+            repos[repo][repo_type].each do |url|
+-%>
+<%= repo_type %> <%= url %>
+            <%- end -%>
+        <%- end -%>
+    <%- end -%>
 <% end %>
-
-# deb http://packages.asterisk.org/deb squeeze main
-
-# xtrabackup
-# deb http://repo.percona.com/apt squeeze main
-# deb http://repo.percona.com/apt lenny main
-
-# gcc for other archs
-deb http://ftp.pl.debian.org/debian wheezy main
-deb http://www.emdebian.org/debian wheezy main
-
-# backports
-deb http://backports.debian.org/debian-backports squeeze-backports main
-
-# chromium
-deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
-deb-src http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
-
-# firefox
-deb http://mozilla.debian.net/ squeeze-backports iceweasel-release
-deb http://mozilla.debian.net/ wheezy-backports iceweasel-release
-# deb http://mozilla.debian.net/ squeeze-backports iceweasel-beta
-# deb http://mozilla.debian.net/ squeeze-backports iceweasel-5.0

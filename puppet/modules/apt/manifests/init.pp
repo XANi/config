@@ -2,7 +2,10 @@ class apt {
 
 }
 
-class apt::source {
+class apt::source (
+    $repo_types = ['deb','deb-src'] # it allows for redefining it from calling node so we can for example exclude all src repos
+    ) {
+    $repos = hiera('repos')
     file { apt-sources:
         path => '/etc/apt/sources.list',
         owner => root,
