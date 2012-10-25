@@ -22,6 +22,7 @@ node default {
 		emacs::org::sync:;
     }
 	monit::monitor { dpp:; }
+	xfce::theme { 'Nodoka-Midnight-XANi':; }
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
