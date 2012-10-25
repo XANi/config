@@ -3,6 +3,7 @@
 
 (defalias 'perl-mode 'sepia-mode)
 (require 'sepia)
+(require 'perltidy)
 
 (custom-set-variables
  '(cperl-auto-newline nil)
