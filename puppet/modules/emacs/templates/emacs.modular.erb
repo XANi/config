@@ -10,7 +10,6 @@
 (require 'autoinsert)
 (require 'color-theme-sanityinc-solarized)
 (require 'perltidy)
-(require 'puppet-mode)
 (require 'magit)
 (require 'saveplace)
 (require 'uniquify)
@@ -28,6 +27,7 @@
 (require 'xani-tramp)
 (require 'xani-tabbar)
 (require 'xani-perl)
+(require 'xani-puppet)
 (require 'xani-vc)
 (require 'xani-jabber)
 (require 'xani-twittering)
@@ -69,6 +69,7 @@
 (add-to-list 'auto-mode-alist '(".*/hiera.*\\.\\(gpg\\)\\'" . yaml-mode))
 
 (add-to-list 'auto-mode-alist '("emacs.erb" . emacs-lisp-mode))
+(add-to-list 'auto-mode-alist '("emacs.modular.erb" . emacs-lisp-mode))
 
 
 ;; this part doesn't work well when done in provide/require
