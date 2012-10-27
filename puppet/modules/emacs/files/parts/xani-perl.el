@@ -7,7 +7,7 @@
 
 (custom-set-variables
  '(cperl-auto-newline nil)
- '(cperl-autoindent-on-semi t)
+ '(cperl-autoindent-on-semi nil)
  '(cperl-electric-backspace-untabify t)
  '(cperl-indent-level 4)
  '(cperl-close-paren-offset -4)
