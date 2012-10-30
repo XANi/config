@@ -35,7 +35,6 @@ repos:
     comment: Latest firefox releases backported from experimental
     deb:
       - http://mozilla.debian.net/ squeeze-backports iceweasel-release
-      - http://mozilla.debian.net/ wheezy-backports iceweasel-release
 
   crawl:
     comment: dungeon crawl
