@@ -83,14 +83,17 @@
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(uniquify-min-dir-content 2)
  '(whitespace-line-column 200)
+ '(whitespace-style (quote (face tabs trailing lines tab-mark)))
 )
 
 ;; Show tabs with the same color as trailing whitespace
-(add-hook 'font-lock-mode-hook
-  (lambda ()
-    (font-lock-add-keywords
-      nil
-      '(("\t" 0 'trailing-whitespace prepend)))))
+;; (add-hook 'font-lock-mode-hook
+;;   (lambda ()
+;;     (font-lock-add-keywords
+;;       nil
+;;       '(("\t" 0 'trailing-whitespace prepend)))))
+
+(global-whitespace-mode)
 
 (provide 'xani-common)
 
