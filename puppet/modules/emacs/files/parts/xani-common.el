@@ -85,5 +85,12 @@
  '(whitespace-line-column 200)
 )
 
+;; Show tabs with the same color as trailing whitespace
+(add-hook 'font-lock-mode-hook
+  (lambda ()
+    (font-lock-add-keywords
+      nil
+      '(("\t" 0 'trailing-whitespace prepend)))))
 
 (provide 'xani-common)
+
