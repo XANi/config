@@ -50,7 +50,6 @@
  kept-new-versions 4
  kept-old-versions 0
  tab-width 4
- indent-tabs-mode nil
  color-theme-is-global t
  version-control t)       ; use versioned backups
 
@@ -59,8 +58,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(indent-tabs-mode nil)
+ '(standard-indent 4)
+ '(tab-width 4)
  '(enable-recursive-minibuffers t)
-  '(case-fold-search t)
+ '(case-fold-search t)
  '(current-language-anvironment "UTF-8")
  '(display-time-mail-file (quote none))
  '(display-time-use-mail-icon t)
@@ -72,9 +74,6 @@
  '(ibuffer-default-sorting-reversep t)
  '(load-home-init-file t t)
  '(mouse-yank-at-point 1)
- '(setq-default indent-tabs-mode)
- '(standard-indent 4)
- '(tab-width 4)
  ;; magick needed to make jabber-mode work with gmail and arte jabber servers
  '(starttls-extra-arguments (quote ("--insecure")))
 ;; for wanderlust
