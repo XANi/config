@@ -55,9 +55,9 @@
   '(progn
      (message "Loading file cache...")
 <% if location == 'arte' %>
-     (file-cache-add-directory-using-locate "~/src/svn-puppet")
+     (file-cache-add-directory-using-locate  (expand-file-name "~/src/svn-puppet"))
 <% else %>
-     (file-cache-add-directory-using-locate "~/src/my/puppet")
+     (file-cache-add-directory-using-locate  (expand-file-name "~/src/my/puppet"))
 <% end %>
 ;;     (file-cache-add-directory-list load-path)
 ;;     (file-cache-add-directory "~/")
