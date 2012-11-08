@@ -15,14 +15,15 @@ node default {
     class {
         puppet:;
         apt::update:;
-		dpp:;
-		monit:;
-		emacs:;
-		emacs::org:;
-		emacs::org::sync:;
+        dpp:;
+        monit:;
+        emacs:;
+        emacs::org:;
+        emacs::org::sync:;
+        home::configs:;
     }
-	monit::monitor { dpp:; }
-	xfce::theme { 'Nodoka-Midnight-XANi':; }
+    monit::monitor { dpp:; }
+    xfce::theme { 'Nodoka-Midnight-XANi':; }
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
