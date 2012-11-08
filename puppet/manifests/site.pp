@@ -20,7 +20,7 @@ node default {
         emacs:;
         emacs::org:;
         emacs::org::sync:;
-        home::configs:;
+        home:;
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
