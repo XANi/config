@@ -21,6 +21,7 @@ node default {
         emacs:;
         emacs::org:;
         emacs::org::sync:;
+        xfce:;
         custom:;
     }
     monit::monitor { dpp:; }
