@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+
+use strict;
+use warnings;
+use Data::Dumper;
+use JSON;
+use Carp qw(cluck croak);
+
+
+print "\n";

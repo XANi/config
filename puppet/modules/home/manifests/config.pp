@@ -14,6 +14,12 @@ class home::config {
         screenrc:;
         toprc:;
     }
+    home::config::code_tmp {
+        erb:;
+        pl:;
+        pp:;
+        sh:;
+    }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
         ensure => directory,
@@ -35,3 +41,16 @@ define home::config::file (
         mode    => $mode,
     }
 }
+
+
+define home:config::code_tmp (
+    $source = "home/code_tmp/${title}.erb",
+    $target = "/tmp/1.${title}",
+    ) {
+    file { $target:
+        content => template($source),
+        mode    => 755,
+        owner   => xani,
+    }
+}
+
