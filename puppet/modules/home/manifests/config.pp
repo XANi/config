@@ -26,6 +26,14 @@ class home::config {
         owner  => xani,
         mode   => 700,
     }
+    file { 'xani-ssh-config':
+        path    => "$homedir/.ssh/config",
+        content => template('home/ssh_config.erb'),
+        owner   => xani,
+        group   => xani,
+        mode    => 600,
+        require => File['xani-ssh-config-dir'],
+    }
 
 }
 define home::config::file (
@@ -43,7 +51,7 @@ define home::config::file (
 }
 
 
-define home:config::code_tmp (
+define home::config::code_tmp (
     $source = "home/code_tmp/${title}.erb",
     $target = "/tmp/1.${title}",
     ) {

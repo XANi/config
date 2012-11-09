@@ -1,0 +1,26 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+ForwardAgent no
+StrictHostKeyChecking no
+ServerAliveInterval 10
+ConnectTimeout 30
+#ControlMaster auto
+#ControlPath /tmp/%l-%h-%r
+HashKnownHosts no
+CheckHostIP no
+<% if File.exists?(scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom') %>
+<%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom']) %>
+<% else %>
+
+ForwardX11 yes
+
+Host *.non.3dart.com
+    IdentityFile ~/.ssh/arte
+    User xani
+    ForwardAgent no
+    ForwardX11 no
+
+Host *
+     User root
+<% end %>
+
