@@ -7,7 +7,7 @@
  ecb-windows-width 0.1
 )
 
-(custom-ser-variables
+(custom-set-variables
  '(ecb-options-version "2.40")
 )
 
