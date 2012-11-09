@@ -29,3 +29,7 @@ node default {
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
 }
+
+node spare2 {
+    include home::config::svn
+}

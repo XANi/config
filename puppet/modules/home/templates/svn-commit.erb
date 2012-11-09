@@ -1,0 +1,151 @@
+#!/usr/bin/perl
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+use strict;
+use warnings;
+use File::Temp qw/tempfile :POSIX/;
+use Digest::SHA;
+use Term::ANSIColor;
+
+use lib '/home/xani/src/puppet/modules/artegence/files/lib/perl';
+use Arte::Puppet::Validate;
+
+my $v = Arte::Puppet::Validate->new({volatile_validation=>1},);
+my $last_commit_file = '/tmp/commit';
+my $commit_msg_end = '-- END COMMIT MSG --';
+my $input_msg = join(' ', @ARGV);
+my $conf = {};
+my @fail;
+$conf->{'notify'} = 1;
+
+# get tmp file for commit msg
+my ($editmsg_fh, $editmsg_file) = tempfile('svn-precommit_XXXXXX', SUFFIX => '.diff', DIR => File::Spec->tmpdir);
+if ( $input_msg !~ /^\s*$/) {
+    $input_msg =~ s/[^\#](\d{16})/ \#$1/g;
+    print $editmsg_fh "$input_msg\n";
+}
+elsif ( -e $last_commit_file) {
+    open(LAST_COMMIT, '<', $last_commit_file);
+    while(<LAST_COMMIT>) {
+        print $editmsg_fh $_
+    }
+    close(LAST_COMMIT);
+}
+else  {
+    print $editmsg_fh "\n";
+}
+print $editmsg_fh "<----------" .  $commit_msg_end . "------->\n";
+print $editmsg_fh "Anything below will be ignored in commit msg\n\n";
+my $changed_files = ();
+open(my $diff, '-|', 'svn diff');
+while(<$diff>) {
+    print $editmsg_fh $_;
+    if ($_ =~ /\+\+\+ (.+)\s+\((.+?)\)$/) {
+        push @$changed_files, $1;
+    }
+}
+close($diff);
+print $editmsg_fh "\n<---------- CHANGED FILES ------->\n";
+foreach my $file (@$changed_files) {
+    if ( ! -e $file) {
+        print color('yellow') . "DNE" . color('reset') . " (does not exist) - $file\n";
+        next;
+    }
+    my $valid=$v->file($file);
+    if (!defined $valid) {
+        print color('yellow') . "SKIP" . color('reset') . " (no validator avaliable) - $file\n";
+    } elsif ($valid->{'code'} == 0 ) {
+        print color('green') .  "OK" . color('reset') . " - $file\n";
+    } else {
+        print color('red bold') . "FAILED $file with:\n" . color('reset') . "$valid->{msg}\n";
+        push @fail, $file;
+    }
+    print $editmsg_fh "File $file\n";
+}
+close($editmsg_fh);
+if(scalar @fail > 0) {
+    print "FILE VALIDATION FAILED! bad files:\n";
+    print join("\n",@fail);
+    print "\n";
+    exit 1;
+}
+system($ENV{'EDITOR'}, $editmsg_file);
+open($editmsg_fh, '<', $editmsg_file);
+my ($commitmsg_fh, $commitmsg_file) = tempfile('svn-commit_XXXXXX', SUFFIX => '.diff', DIR => File::Spec->tmpdir);
+if (scalar @$changed_files < 1) {
+    print "No files to commit \n";
+}
+print "Going to commit " . scalar @$changed_files . " files with commit msg:\n";
+my $msg;
+while(<$editmsg_fh>) {
+    if($_ =~ /$commit_msg_end/) {
+        last;
+    }
+    print $commitmsg_fh $_;
+    print $_;
+    $msg .= $_;
+}
+close($commitmsg_fh);
+print "is that ok ? ";
+if ( defined($conf->{'notify'}) ) {
+#    system('notify-send', '-u', 'critical','Commit waiting!',"Commit with msg '$msg' waiting");
+    system('notify-send', 'Commit waiting!',"Commit with msg '$msg' waiting");
+}
+my $in = <STDIN>;
+my $commit_log_tmp = tmpnam();
+if( $in =~ /(y|t)/) {
+    print "Commiting\n";
+    system("svn commit -F $commitmsg_file 2>&1 |tee $commit_log_tmp");
+    # TODO make that use open not silly system
+    system("grep -P '(Committed revision|Zatwierdzona wersja)' $commit_log_tmp 2>&1 >/dev/null");
+    if ($? == 0)  {
+        print "All OK\n";
+        if ( defined($conf->{'notify'}) ) {
+            system('notify-send', 'Commited successfully!',"All OK");
+        }
+        if ( -e $last_commit_file ) {
+            print "Erasing old commit msg file\n";
+            unlink($last_commit_file);
+        }
+    }
+    else {
+        print "Commit failed, saving msg in /tmp/commit";
+        if ( defined($conf->{'notify'}) ) {
+            system('notify-send', '-u', 'critical', 'Commit failed!',"Go back and check what failed!");
+        }
+        system("cp $commitmsg_file /tmp/commit");
+    }
+} else {
+    print "Aborting\n";
+    system("cp $commitmsg_file /tmp/commit");
+}
+
+
+sub validate_file {
+    my $filepath = shift;
+    my $msg;
+    my $code;
+    my $target_repo_dir;
+    if ( $filepath =~ m{.*manifests.*\.pp$}) { #manifest
+        print "Syntax check of $filepath manifest: ";
+        ($msg, $code) = &sys("puppet parser validate " .
+                                 "--color=false --confdir=$target_repo_dir --vardir=$target_repo_dir " .
+                                     $filepath);
+    } elsif ( $filepath =~ m{.*templates/.*\.erb$}) { # ERB templates
+        print "Syntax check $filepath ERB template: ";
+        ($msg, $code) = &sys("erb -x -T '-' $filepath | ruby -c");
+    } elsif ( $filepath =~ m{.*(manifests|modules|lib/facter)/.*\.rb$}) {
+        print "Syntax check $filepath ruby script: ";
+        ($msg, $code) = &sys("ruby -rpuppet -c $filepath");
+    } else {
+        # not recognising file, doing nothing
+        return 1
+    }
+    if ($code == 0) {
+        print "$msg OK\n";
+        return 1;
+    } else {
+        print "Verify failed with msg:\n$msg";
+        return;
+    }
+}

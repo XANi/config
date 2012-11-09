@@ -62,3 +62,13 @@ define home::config::code_tmp (
     }
 }
 
+class home::config::svn {
+    file {'/usr/local/bin/svn-commit':
+        content => template('home/svn-commit.erb'),
+        owner   => xani,
+        mode    => 755,
+    }
+    package { 'subversion':
+        ensure => installed,
+    }
+}
