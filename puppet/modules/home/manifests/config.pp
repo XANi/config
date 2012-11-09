@@ -14,12 +14,6 @@ class home::config {
         screenrc:;
         toprc:;
     }
-    file {'xani-custom-bash-profile':
-        path   => "$homedir/.bash_prompt_custom",
-        ensure => present,
-        owner  => xani,
-        notify => Home::Configs::Config['bash_prompt'],
-    }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
         ensure => directory,

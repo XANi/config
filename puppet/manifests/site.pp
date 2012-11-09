@@ -13,6 +13,7 @@ node default {
     class {'apt::source': stage => init}
     $deploy_arte_config = false
     class {
+        home:;
         puppet:;
         apt::update:;
         dpp:;
@@ -20,7 +21,7 @@ node default {
         emacs:;
         emacs::org:;
         emacs::org::sync:;
-        home:;
+        custom:;
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
