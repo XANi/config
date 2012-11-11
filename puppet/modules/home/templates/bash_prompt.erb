@@ -162,6 +162,22 @@ export EDITOR=emacs
 export EDITOR='/usr/local/bin/e'
 alias emacs='echo use e $@'
 alias ytd='youtube-dl -t --console-title'
+alias aptitude="sudo aptitude"
+
+<%- if scope.lookupvar('home::common::http_proxy') -%>
+export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
+<%- end -%>
+
+<%- if scope.lookupvar('home::common::https_proxy') -%>
+export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
+<%- end -%>
+
+if [ -e '/usr/local/bin/token-agent.sh' ] ; then
+    #configure ssh agent for token, running it from session is for some reason broken
+    source /usr/local/bin/token-agent.sh >/dev/null 2>&1
+    alias pin='ssh-add -s /usr/lib/opensc-pkcs11.so'
+fi
+
 <% end -%>
 if [ ! -e /usr/local/bin/e ] && [ ! -e /usr/bin/e ]  ; then
     alias e='emacs'
