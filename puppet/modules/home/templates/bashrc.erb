@@ -73,3 +73,8 @@ if [ ! -z "$XAUTHORITY" ] ; then
    echo $DISPLAY >/tmp/${USER}_display
    umask 022
 fi
+if [ -e '/usr/local/bin/token-agent.sh' ] ; then
+    #configure ssh agent for token, running it from session is for some reason broken
+    source /usr/local/bin/token-agent.sh >/dev/null 2>&1
+    alias pin='ssh-add -s /usr/lib/opensc-pkcs11.so'
+fi
