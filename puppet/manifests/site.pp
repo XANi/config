@@ -22,6 +22,7 @@ node default {
         emacs::org:;
         emacs::org::sync:;
         xfce:;
+        token:;
         custom:;
     }
     monit::monitor { dpp:; }
