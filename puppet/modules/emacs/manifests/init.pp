@@ -104,15 +104,18 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-autoinsert:
-        path => "$homedir/emacs/autoinsert",
-        ensure => directory,
-        source => "$modules/emacs/files/emacs-autoinsert",
-        recurse => true,
-        purge => true,
-        force => true,
-        owner => xani,
-        group => xani,
+        path    => "$homedir/emacs/autoinsert",
+        ensure  => directory,
+        owner   => xani,
+        group   => xani,
         require => File['xani-emacs-dir'],
+    }
+    emacs::autoinsert {
+        'puppet':;
+        'perl':;
+        'perl_module':;
+        'erb':;
+        'sh':;
     }
     file { puppet-lint-wrapper:
         path    => '/usr/local/bin/puppet-lint-wrapper',
@@ -214,5 +217,14 @@ class emacs::org::sync ( $homedir = '/home/xani' ) {
             default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode $homedir/emacs/org/mobile.org/",
         },
         require   => [Package['sshfs'], Exec['xani-emacs-mobile-org'],]
+    }
+}
+
+define emacs::autoinsert {
+    $homedir = hiera('homedir','/home/xani')
+    file {"$homedir/emacs/autoinsert/${title}":
+        content => template("emacs/autoinsert/${title}.erb"),
+        mode    => 644,
+        owner   => xani,
     }
 }

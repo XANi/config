@@ -24,7 +24,12 @@
 
 ;; I edit configs a lot so if it's unknown file it's probably a config
 (setq-default major-mode 'conf-mode)
-(global-set-key [(control x) (k)] 'server-edit) ;; we always use server mode here do replace default kill with server-edit
+(global-set-key [(control x) (k)] '(lambda ()
+  (interactive)
+  (if server-buffer-clients
+      (server-edit)
+    (kill-this-buffer)))
+) ;; we always use server mode here do replace default kill with server-edit
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
