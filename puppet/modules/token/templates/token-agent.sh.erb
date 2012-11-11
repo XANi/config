@@ -1,0 +1,14 @@
+#!/bin/bash
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+
+AGENT_FILE="/tmp/.token-agent-$USER"
+if [ -e $AGENT_FILE ] ; then
+    source $AGENT_FILE >/dev/null 2>&1
+    if [ ! -e /proc/$SSH_AGENT_PID ] ; then
+        ssh-agent > $AGENT_FILE 2>&1
+    fi
+else
+    ssh-agent > $AGENT_FILE 2>&1
+fi
+cat $AGENT_FILE

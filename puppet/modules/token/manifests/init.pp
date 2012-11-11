@@ -24,4 +24,9 @@ class token {
         }
     }
 
+    file {'/usr/local/bin/token-agent.sh':
+        content => template('token/token-agent.sh.erb'),
+        mode    => 755,
+        owner   => root,
+    }
 }
