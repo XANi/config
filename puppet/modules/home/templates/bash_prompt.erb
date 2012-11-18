@@ -129,7 +129,7 @@ if [ -e /etc/redhat-release ] ; then # yum is yuck
     alias aptitude="yum"
     alias apt-cache="yum"
 fi
-alias d="if [ -e .svn ] ; then svn diff | colordiff |less -R ; else git diff ; fi"
+alias d="if [ -e .svn ] ; then svn diff | colordiff |less -R ; else git diff --word-diff ; fi"
 alias g='git'
 alias s='svn'
 alias svn-addprop="svn propset svn:keywords \"Revision LastChangedBy Date URL\""
