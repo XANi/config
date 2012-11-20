@@ -100,5 +100,15 @@
 
 (global-whitespace-mode)
 
+;; do not ask for kill confirmation on flymake process
+(defadvice flymake-start-syntax-check-process (after
+                                               cheeso-advice-flymake-start-syntax-check-1
+                                               (cmd args dir)
+                                               activate compile)
+  ;; set flag to allow exit without query on any
+  ;;active flymake processes
+  (set-process-query-on-exit-flag ad-return-value nil))
+
+
 (provide 'xani-common)
 

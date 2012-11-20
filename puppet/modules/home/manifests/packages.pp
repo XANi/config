@@ -34,6 +34,8 @@ class home::packages {
          libyaml-perl,
          libfile-slurp-perl,
          gdb-multiarch,
+         # R analysis tools
+         rkward,
         ]:
             ensure => installed,
 
