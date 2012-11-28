@@ -175,7 +175,7 @@ export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
 if [ -e '/usr/local/bin/token-agent.sh' ] ; then
     #configure ssh agent for token, running it from session is for some reason broken
     source /usr/local/bin/token-agent.sh >/dev/null 2>&1
-    alias pin='ssh-add -c -s /usr/lib/opensc-pkcs11.so'
+    alias pin='find ~/.ssh/keys/ -type f -name "*key" -exec ssh-add {} \;ssh-add -c -s /usr/lib/opensc-pkcs11.so'
 fi
 
 <% end -%>
