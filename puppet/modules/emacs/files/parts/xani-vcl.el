@@ -3,7 +3,7 @@
 
 (require 'vcl-mode)
 (setq
- '(vcl-indent-level 4)
+ vcl-indent-level 4
 )
 
 (provide 'xani-vcl)
