@@ -56,7 +56,10 @@
  kept-old-versions 0
  tab-width 4
  color-theme-is-global t
- version-control t)       ; use versioned backups
+ version-control t       ; use versioned backups
+ yaml-block-literal-search-lines 1000
+ yaml-indent-offset 4
+ )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
