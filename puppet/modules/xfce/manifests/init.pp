@@ -1,14 +1,14 @@
 class xfce {
   package {
-	['gtk2-engines-nodoka']:
-	  ensure => installed
+    ['gtk2-engines-nodoka']:
+      ensure => installed
   }
 }
 
 define xfce::theme {
   file { "/usr/share/themes/${title}":
-    ensure => directory,
+    ensure  => directory,
     recurse => true,
-    source => "$modules/xfce/files/themes/${title}",
+    source  => "puppet:///modules/xfce/themes/${title}",
   }
 }
