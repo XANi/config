@@ -13,6 +13,7 @@ class home::config {
         inputrc:;
         screenrc:;
         toprc:;
+        perlconsolerc:;
     }
     home::config::code_tmp {
         erb:;
