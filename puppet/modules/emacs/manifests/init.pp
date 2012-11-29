@@ -27,7 +27,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
 
     file { 'run_emacs':
         path => '/usr/local/bin/e',
-        source => "$modules/emacs/files/e",
+        source => "puppet:///modules/emacs/e",
         owner => root,
         mode => 755,
     }
@@ -71,7 +71,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-libs:
         path => "$homedir/emacs/lib",
         ensure => directory,
-        source => "$modules/emacs/files/emacs-libs",
+        source => "puppet:///modules/emacs/emacs-libs",
         recurse => true,
         purge => true,
         force => true,
@@ -83,7 +83,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-xani-libs:
         path => "$homedir/emacs/xani-lib",
         ensure => directory,
-        source => "$modules/emacs/files/parts",
+        source => "puppet:///modules/emacs/parts",
         recurse => true,
         purge => true,
         force => true,
@@ -95,7 +95,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-icons:
         path => "$homedir/emacs/icons",
         ensure => directory,
-        source => "$modules/emacs/files/emacs-icons",
+        source => "puppet:///modules/emacs/emacs-icons",
         recurse => true,
         purge => true,
         force => true,
