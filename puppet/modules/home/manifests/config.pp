@@ -14,6 +14,7 @@ class home::config {
         screenrc:;
         toprc:;
         perlconsolerc:;
+        xsessionrc:;
     }
     home::config::code_tmp {
         erb:;

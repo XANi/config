@@ -7,6 +7,13 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 (setq
+ org-agenda-restore-windows-after-quit t
+ org-agenda-skip-deadline-if-done t
+ org-agenda-skip-scheduled-if-deadline-is-shown t
+ org-agenda-skip-scheduled-if-done t
+ org-agenda-start-with-log-mode t
+ org-agenda-window-setup (quote current-window)
+ org-indirect-buffer-display (quote current-window)
  org-log-done t
  org-deadline-warning-days 7
  org-fontify-emphasized-text t
