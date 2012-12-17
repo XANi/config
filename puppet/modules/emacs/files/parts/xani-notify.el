@@ -17,6 +17,4 @@
       (notify-send (format "%s" (jabber-jid-displayname from))
              text)))
 
-(add-hook 'jabber-alert-message-hooks 'libnotify-jabber-notify)
-
 (provide 'xani-notify)

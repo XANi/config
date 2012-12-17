@@ -1,6 +1,5 @@
 ;;; xani-jabber.el ---
 ;;
-(require 'xani-notify)
 (custom-set-variables
  '(jabber-default-priority 100)
  '(jabber-default-status "\"...z grubsza rzecz biorąc,  ludzi można podzielić na dwie kategorie:  ailurophiles i ailurophobes -  miłośników kotów i  osoby poszkodowane przez los\"" )
@@ -37,4 +36,8 @@
        '(jabber-chat-text-local ((t (:foreground "#aaaaff"))))
        '(jabber-roster-user-online ((t (:foreground "#5577aa" :slant normal :weight bold))))
 )
+
+(require 'xani-notify)
+(add-hook 'jabber-alert-message-hooks 'libnotify-jabber-notify)
+
 (provide 'xani-jabber)
