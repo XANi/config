@@ -1,6 +1,8 @@
 ;; <%= puppet_header %>
 ;; <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
 
+;;(setq server-auth-dir "~/.emacs.d/server/")
+(setq server-use-tcp t)
 (server-start)
 ;; TODO test if that can be in xani-common
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
