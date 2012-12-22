@@ -20,6 +20,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'yaml-mode',
                'wl-beta',
                'bbdb',
+               'yasnippet',
                'xprintidle']:
         ensure  => installed,
         require => Package['emacs23'],
