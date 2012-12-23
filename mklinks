@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+use Cwd;
+my $dir = getcwd();
+my $links = {
+    '.emacs' => undef,
+    'zencoding' => undef,
+    '.crawlrc' => undef,
+    '.gitconfig' => undef,
+};
+while ( my ($key, $val) = each (%$links) ) {
+    if(!defined($value)) {
+	$val = $key;
+    }
+    if ( -e glob("~/$val")) {
+	print "Exists: $val\n";
+    } else {
+	symlink($dir . '/' . $key, glob("~/$val"));
+	print "Linking $key to $val\n";
+    }
+}
+
