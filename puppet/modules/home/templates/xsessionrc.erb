@@ -2,3 +2,6 @@
 # <%= puppet_header %>
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
 eval $(/usr/local/bin/token-agent.sh)
+if [ -e /usr/bin/nvidia-settings ] ; then
+    nvidia-settings -l
+fi
