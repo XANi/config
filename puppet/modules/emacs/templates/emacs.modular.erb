@@ -1,0 +1,132 @@
+;; <%= puppet_header %>
+;; <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+
+;;(setq server-auth-dir "~/.emacs.d/server/")
+(setq server-use-tcp t)
+(server-start)
+;; TODO test if that can be in xani-common
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+(add-to-list 'load-path "<%= homedir %>/emacs/lib")
+(add-to-list 'load-path (expand-file-name "~/emacs/xani-lib"))
+
+;; my customisations
+
+(require 'autoinsert)
+(require 'color-theme-sanityinc-solarized)
+(require 'magit)
+(require 'saveplace)
+(require 'uniquify)
+(require 'cisco-router-mode)
+
+
+(require 'xani-notify) ;; this have to be before modules using it
+(require 'xani-auto-insert)
+(require 'xani-common)
+(require 'xani-iedit)
+(require 'xani-iswitchb)
+(require 'xani-org-mode)
+(require 'xani-hs-mode)
+(require 'xani-html-mode)
+(require 'xani-tramp)
+(require 'xani-tabbar)
+(require 'xani-perl)
+(require 'xani-puppet)
+(require 'xani-vc)
+(require 'xani-vcl)
+(require 'xani-jabber)
+(require 'xani-twittering)
+(require 'xani-x)
+(require 'xani-ecb)
+(require 'xani-develock)
+
+<%- if location == 'arte' -%>
+(require 'xani-arte)
+(require 'xani-org-mode-arte)
+<%- else -%>
+(require 'xani-org-mode-home)
+;;(setq sepia-perl5lib (list (expand-file-name "~/sepia/lib")))
+<%- end -%>
+
+
+(setq custom-file "~/.emacs-custom.el.gpg")
+(load custom-file 'noerror)
+;; twitter
+(setq-default save-place t)
+
+;; file cache
+
+(eval-after-load
+    "xani-common"
+  '(progn
+     (message "Loading file cache...")
+<% if location == 'arte' %>
+     (file-cache-add-directory-using-locate  (expand-file-name "~/src/svn-puppet"))
+<% else %>
+     (file-cache-add-directory-using-locate  (expand-file-name "~/src/my"))
+<% end %>
+;;     (file-cache-add-directory-list load-path)
+;;     (file-cache-add-directory "~/")
+;;     (file-cache-add-file-list (list "~/foo/bar" "~/baz/bar"))
+))
+
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))
+(add-to-list 'auto-mode-alist '(".*/hiera.*\\.\\(gpg\\)\\'" . yaml-mode))
+
+(add-to-list 'auto-mode-alist '("emacs.erb" . emacs-lisp-mode))
+(add-to-list 'auto-mode-alist '("emacs.modular.erb" . emacs-lisp-mode))
+
+
+;; this part doesn't work well when done in provide/require
+(defun setup-window-system-frame-colours (&rest frame)
+(require 'color-theme-sanityinc-solarized)
+(if window-system
+    (progn
+      (custom-set-faces
+       '(default ((t (:inherit nil :stipple nil :background "#042028" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 88 :width normal :foundry "unknown" :family "Liberation Mono"))))
+       '(org-document-info ((((class color) (background light)) (:foreground "#555599"))))
+       '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
+       '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))
+       '(org-table ((((class color) (min-colors 88) (background light)) (:foreground "#ffffff"))))
+       '(whitespace-hspace ((((class color) (background light)) (:background "#444400" :foreground "lightgray"))))
+       '(whitespace-newline ((t (:foreground "lightgray" :weight bold))))
+       '(whitespace-space ((((class color) (background light)) (:background "#333377" :foreground "lightgray"))))
+       '(whitespace-tab ((((class color) (background light)) (:background "#551111" :foreground "lightgray"))))
+      )
+      (add-hook 'window-configuration-change-hook
+                (lambda ()
+                  (setq frame-title-format
+                        (concat ;;
+                         invocation-name ": "
+                         (replace-regexp-in-string
+                          (concat "/home/" user-login-name) "~"
+                          (or buffer-file-name "%b"))
+;;                        "[" system-name "]"
+                         ))))
+      )
+  )
+)
+(require 'server)
+ (defadvice server-create-window-system-frame
+   (after set-window-system-frame-colours ())
+;;   "Set custom frame colours when creating the first frame on a display"
+;;   (message "Running after frame-initialize")
+   (setup-window-system-frame-colours)
+   (color-theme-sanityinc-solarized-dark)
+
+;;   (tool-bar-mode -1)
+ ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
+   (defun maximize (&optional f)
+     (interactive)
+     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                            '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                            '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
+   ;;(maximize)
+   (global-set-key [f11] 'maximize)
+   )
+ (ad-activate 'server-create-window-system-frame)
+ (add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
+;;
+;; ---------------------------------------------
+;;

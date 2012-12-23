@@ -1,0 +1,6 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+
+file {'/tmp/asd':
+     content => template('/tmp/1.erb'),
+}

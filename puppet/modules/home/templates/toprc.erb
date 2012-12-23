@@ -1,0 +1,31 @@
+<%- if has_variable?('portable_config') -%>
+RCfile for "top with windows"		# <% puppet_header %>
+Id:a, Mode_altscr=0, Mode_irixps=1, Delay_time=3.000, Curwin=0
+Def	fieldscur=AEHIOQTWKNMbcdfgjplrsuvyzX
+	winflags=32696, sortindx=10, maxtasks=0
+	summclr=4, msgsclr=6, headclr=4, taskclr=2
+Job	fieldscur=ABcefgjlrstuvyzMKNHIWOPQDX
+	winflags=64825, sortindx=0, maxtasks=0
+	summclr=4, msgsclr=6, headclr=4, taskclr=2
+Mem	fieldscur=ANOPQRSTUVbcdefgjlmyzWHIKX
+	winflags=64825, sortindx=13, maxtasks=0
+	summclr=4, msgsclr=6, headclr=4, taskclr=2
+Usr	fieldscur=ABDECGfhijlopqrstuvyzMKNWX
+	winflags=64825, sortindx=4, maxtasks=0
+	summclr=4, msgsclr=6, headclr=4, taskclr=2
+<%- else -%>
+top's Config File (Linux processes with windows) # <% puppet_header %>
+Id:f, Mode_altscr=0, Mode_irixps=1, Delay_time=3,000, Curwin=0
+Def	fieldscur=¥¨³´»½ÀÄ·º¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=65524, sortindx=18, maxtasks=0
+	summclr=2, msgsclr=1, headclr=2, taskclr=4
+Job	fieldscur=¥¦¹·º³´Ä»¼½§Å()*+,-./012568>?@ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=64820, sortindx=0, maxtasks=0
+	summclr=6, msgsclr=6, headclr=7, taskclr=6
+Mem	fieldscur=¥º»¼½¾¿ÀÁÃÄ³´·Å&'()*+,-./0125689BFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=64820, sortindx=21, maxtasks=0
+	summclr=5, msgsclr=5, headclr=4, taskclr=5
+Usr	fieldscur=¥¦§¨ª°¹·ºÄÅ)+,-./1234568;<=>?@ABCFGHIJKLMNOPQRSTUVWXYZ[
+	winflags=64820, sortindx=3, maxtasks=0
+	summclr=3, msgsclr=3, headclr=2, taskclr=3
+<%- end -%>

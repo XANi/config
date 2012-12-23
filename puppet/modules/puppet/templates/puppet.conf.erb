@@ -1,0 +1,31 @@
+
+# <%= puppet_header %>
+[main]
+logdir=/var/log/puppet
+vardir=/var/lib/puppet
+ssldir=/var/lib/puppet/ssl
+rundir=/var/run/puppet
+factpath=<%= puppet_repo_path %>/puppet/facts:<%= puppet_fact_path %>
+factdest=<%= puppet_fact_path %>
+templatedir=$confdir/templates
+modulepath=<%= puppet_repo_path %>/puppet/modules
+prerun_command=<%= puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
+postrun_command=<%= puppet_repo_path %>/puppet/bin/etckeeper-commit-post
+config_version=<%= puppet_repo_path %>/puppet/bin/config_version /var/lib/dpp/repos/shared/
+dynamicfacts=memorysize,memoryfree,swapsize,swapfree,puppet_repo_version
+pluginsync=true
+factsync=true
+<% if has_variable?("puppet_reporturl") -%>
+report=true
+reports = store, http
+reporturl = <%= puppet_reporturl %>
+<% end -%>
+graph=true
+graphdir=/tmp
+
+[master]
+# These are needed when the puppetmaster is run by passenger
+# and can safely be removed if webrick is used.
+ssl_client_header = SSL_CLIENT_S_DN
+ssl_client_verify_header = SSL_CLIENT_VERIFY
+

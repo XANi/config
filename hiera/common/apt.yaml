@@ -1,0 +1,42 @@
+---
+repos:
+  main-squeeze:
+    comment: Main Debian repo - Squeeze
+    deb:
+      - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+    deb-src:
+      - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+
+  main-wheezy:
+    comment: Main Debian repo - Wheezy
+    deb:
+      - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+    deb-src:
+      - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+
+  emdebian:
+    comment: GCC for other archs
+    deb:
+      - http://www.emdebian.org/debian wheezy main
+
+  backports:
+    comment: squeeze backports
+    deb:
+      - http://backports.debian.org/debian-backports squeeze-backports main
+
+  chromium:
+    comment: Chromium repos from ubuntu
+    deb:
+      - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
+    deb-src:
+      - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
+
+  firefox:
+    comment: Latest firefox releases from experimental
+    deb:
+      - http://mozilla.debian.net/ experimental iceweasel-beta
+
+  crawl:
+    comment: dungeon crawl
+    deb:
+      - http://crawl.develz.org/debian crawl 0.8

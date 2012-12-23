@@ -1,0 +1,33 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+---
+:backends:
+  - yaml
+
+:logger: console
+
+# hack around not being able to specify more than one datadir, at least till they fix it
+:hierarchy:
+  - private/host/%{hostname}/%{calling_module}
+  - shared/host/%{hostname}/%{calling_module}
+  - private/host/%{hostname}/common
+  - shared/host/%{hostname}/common
+  - private/location/%{projectname}/%{calling_module}
+  - shared/location/%{projectname}/%{calling_module}
+  - private/location/%{projectname}/common
+  - shared/location/%{projectname}/common
+  - private/env/%{environment}/%{calling_module}
+  - shared/env/%{environment}/%{calling_module}
+  - private/env/%{environment}/common
+  - shared/env/%{environment}/common
+  - private/common/%{calling_module}
+  - shared/common/%{calling_module}
+  - private/common/common
+  - shared/common/common
+
+:yaml:
+   :datadir: /var/lib/dpp/hiera
+
+# :gpg:
+#   :datadir: /home/gitsync/puppet/%{environment}/hiera-gpg
+#   :key_dir: /var/lib/puppet/gpg
