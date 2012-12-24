@@ -30,6 +30,7 @@ class home::packages {
          youtube-dl,
          xtightvncviewer,
          #dev crap
+         cpanminus,
          libjson-perl,
          libyaml-perl,
          libfile-slurp-perl,
