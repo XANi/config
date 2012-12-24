@@ -1,6 +1,9 @@
 #!/usr/bin/perl
 use Mojolicious::Lite;
 
+app->secret(scalar time() . '<%= scope.function_md5([scope.function_fqdn_rand([1000000000000000])]) %>'
+);
+
 # Simple plain text response
 get '/' => {text => 'Hello World!'};
 
