@@ -1,11 +1,10 @@
-class home::config {
+class home::config ( $gpgid = hiera('gpgid',false) ) {
     include home::common
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
         shell  => '/bin/bash',
     }
-    $gpgid = hiera('gpgid',false)
     home::config::file {
         bash_prompt:;
         bashrc:;
