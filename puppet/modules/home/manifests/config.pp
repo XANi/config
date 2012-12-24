@@ -7,13 +7,14 @@ class home::config {
     }
 
     home::config::file {
-        bashrc:;
         bash_prompt:;
+        bashrc:;
+        gitconfig
         htoprc:;
         inputrc:;
+        perlconsolerc:;
         screenrc:;
         toprc:;
-        perlconsolerc:;
         xsessionrc:;
     }
     home::config::code_tmp {
