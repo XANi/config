@@ -9,7 +9,7 @@ class home::config {
     home::config::file {
         bash_prompt:;
         bashrc:;
-        gitconfig
+        gitconfig:;
         htoprc:;
         inputrc:;
         perlconsolerc:;
