@@ -21,6 +21,7 @@ class home::config {
         pl:;
         pp:;
         sh:;
+        mojo:;
     }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
