@@ -5,7 +5,7 @@ class home::config {
         ensure => present,
         shell  => '/bin/bash',
     }
-
+    $gpgid = hiera('gpgid',false)
     home::config::file {
         bash_prompt:;
         bashrc:;
