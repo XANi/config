@@ -1,5 +1,11 @@
-class apt {
-
+class apt (
+    $install_recommended = true,
+    $install_suggested = false, # baaaad idea to set it to true
+    {
+        file { '/etc/apt/apt.conf.d/99-zpuppet.conf':
+            content => template('apt/apt.conf.erb'),
+        }
+    }
 }
 
 class apt::source (

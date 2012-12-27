@@ -1,0 +1,17 @@
+# <%= puppet_header %>
+# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+<%
+  recommend = 0
+  suggest = 0
+  if has_variable?('install_recommended') && install_recommended
+    recommend = 1
+  end
+  if has_variable?('install_suggested') && install_suggested
+    suggest = 1
+  end
+%>
+
+APT::Install-Recommends "<%= recommend %>";
+APT::Install-Suggests "<%= suggest %>";
+
+
