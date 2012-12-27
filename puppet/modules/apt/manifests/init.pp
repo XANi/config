@@ -7,8 +7,8 @@ class apt (
             mode    => 644,
             owner   => root,
         }
-    }
 }
+
 
 class apt::source (
     $repo_types = ['deb','deb-src'] # it allows for redefining it from calling node so we can for example exclude all src repos
