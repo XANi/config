@@ -3,5 +3,5 @@
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
 eval $(/usr/local/bin/token-agent.sh)
 if [ -e /usr/bin/nvidia-settings ] ; then
-    nvidia-settings -l
+    echo $(sleep 30 ; /usr/bin/nvidia-settings -l) &
 fi

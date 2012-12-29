@@ -23,6 +23,6 @@
 (add-to-list 'interpreter-mode-alist '("perl5" . sepia-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . sepia-mode))
 
-
+(define-key sepia-mode-map [backtab] 'perltidy-dwim)
 
 (provide 'xani-perl)
