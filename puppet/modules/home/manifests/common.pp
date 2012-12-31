@@ -19,5 +19,9 @@ class home::common (
      $https_proxy = hiera('https_proxy',false),
      $socks_proxy = hiera('socks_proxy',false),
     ) {
-
+        util::add_user_to_group {
+            'xani-fuse':
+                user => 'xani',
+                group => 'fuse',
+        }
 }

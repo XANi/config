@@ -91,3 +91,10 @@ class home::config::svn {
         ensure => installed,
     }
 }
+
+define home::config::add_to_group ($group) {
+    exec { "add-${title}-to-group-${group)":
+        command => "useradd -G ${group} ${title}",
+        unless  => "id ${title} |grep -q ${group}",
+    }
+}
