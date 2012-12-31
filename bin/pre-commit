@@ -215,8 +215,8 @@ open(FILELIST, '-|', 'git diff --cached --name-only');
 while (my $f = <FILELIST>) {
     chomp($f);
     my $file= $topdir . '/' . $f;
-    #   print color('bold') . $f . ': ' . color('reset');
-    print $f . ': ';
+    #   print color('bold') . $f . ' => ' . color('reset');
+    print $f . ' => ';
     if ( ! -e $file ) {
         print color('magenta') . "REMOVED\n" . color('reset');
         next;
