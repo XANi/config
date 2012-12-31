@@ -11,11 +11,13 @@ package XANi::Validate {
     use JSON;
     use File::Slurp;
     use IPC::Open3;
+    use Symbol 'gensym';
+    $| = 1;
 
     our $validator->{'exec'} = {
-        manifest => [ qw[puppet parser validate --color=false] ],
-        ruby => [ qw[ruby -rpuppet -c] ],
-        perl => [ qw[perl -c] ],
+        manifest => [ qw[puppet parser validate --color=false --] ],
+        ruby => [ qw[ruby -rpuppet -c --] ],
+        perl => [ qw[perl -c --] ],
     };
 
     sub new {
@@ -54,6 +56,51 @@ package XANi::Validate {
         }
     }
 
+    sub _validate_erb {
+        my $self = shift;
+        my $file = shift;
+        my ($erbout,$erberr,$erbcode);
+        my ($rubyin, $rubyout,$rubycode);
+        $erberr = gensym;
+
+        my $pid_erb = open3( undef, $erbout, $erberr, (qw{erb -x -T - --}, $file));
+        my $pid_ruby = open3( $rubyin, $rubyout, undef, (qw{ruby -c}));
+        # FIXME Ugly hack
+        while(<$erbout>) {print $rubyin $_}
+        pipe($erbout, $rubyin);
+        my ($ruby_msg, $erb_msg);
+        while(<$erberr>) {
+            $erb_msg .= $_;
+        }
+        waitpid($pid_erb, 0);
+        $erbcode = $? >> 8;
+
+        while(<$rubyout>) {
+            $ruby_msg .= $_;
+        }
+        waitpid($pid_ruby, 0);
+        $rubycode = $? >> 8;
+
+        if ($rubycode || $erbcode ) {
+            my $msg = '';
+            if ($ruby_msg !~ /^\s*$/) {
+                $msg .= "Ruby err $rubycode:\n$ruby_msg";
+            }
+            if ($erb_msg !~ /^\s*$/) {
+                $msg .= "erb err $erbcode:\n$erb_msg";
+            }
+
+            return {
+                code => 1,
+                msg => $msg,
+            }
+        }
+        else {
+            return {
+                code => 0,
+            }
+        }
+    }
     sub _validate_exec {
         my $self    = shift;
         my $file    = shift;
@@ -80,7 +127,7 @@ package XANi::Validate {
         }
         elsif ( $self->can( '_validate_' . $type ) ) {
             my $meth ="_validate_$type";
-            return $self->$meth;
+            return $self->$meth($file);
         }
         else {
             confess('no specified validation method avaliable');
