@@ -16,6 +16,9 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         toprc:;
         xsessionrc:;
     }
+    home::config::exec {
+        git-wtf:;
+    }
     home::config::code_tmp {
         erb:;
         pl:;
@@ -57,6 +60,18 @@ define home::config::file (
 define home::config::code_tmp (
     $source = "home/code_tmp/${title}.erb",
     $target = "/tmp/1.${title}",
+    ) {
+    file { $target:
+        content => template($source),
+        mode    => 755,
+        owner   => xani,
+        replace => no,
+    }
+}
+
+define home::config::exec (
+    $source = "home/code_tmp/${title}.erb",
+    $target = "/usr/local/bin/${title}",
     ) {
     file { $target:
         content => template($source),

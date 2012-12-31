@@ -163,6 +163,8 @@ export EDITOR='/usr/local/bin/e'
 alias emacs='echo use e $@'
 alias ytd='youtube-dl -t --console-title'
 alias aptitude="sudo aptitude"
+alias cfg="cd ~/src/my/config"
+alias pup="cd ~/src/svn-puppet 2>/dev/null || cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster"
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 <%- if scope.lookupvar('home::common::http_proxy') -%>
 export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
