@@ -70,7 +70,7 @@ define home::config::code_tmp (
 }
 
 define home::config::exec (
-    $source = "home/code_tmp/${title}.erb",
+    $source = "home/exec/${title}.erb",
     $target = "/usr/local/bin/${title}",
     ) {
     file { $target:
@@ -82,11 +82,8 @@ define home::config::exec (
 }
 
 class home::config::svn {
-    file {'/usr/local/bin/svn-commit':
-        content => template('home/svn-commit.erb'),
-        owner   => xani,
-        mode    => 755,
-    }
+    home::config::exec { svn-commit:; }
+
     package { 'subversion':
         ensure => installed,
     }
