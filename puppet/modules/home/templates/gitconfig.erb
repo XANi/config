@@ -1,20 +1,20 @@
-# <%= puppet_header %> <%= gpgid %>
+# <%= puppet_header %>
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
 
 [user]
 <%- if deploy_arte_config == true -%>
-	name = Mariusz Gronczewski
-	email = mgronczewski@artegence.com
+    name = Mariusz Gronczewski
+    email = mgronczewski@artegence.com
 <%- else -%>
-	name = Mariusz Gronczewski
-	email = xani666@gmail.com
+    name = Mariusz Gronczewski
+    email = xani666@gmail.com
 <%- end -%>
 <%- if gpgid != false -%>
-	signingkey = <%= gpgid %>
+    signingkey = <%= gpgid %>
 <%- end -%>
 
 [color]
-	ui = auto
+    ui = auto
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -32,37 +32,28 @@
     untracked = cyan
 
 [core]
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	pager = less
-	editor = e
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    pager = less
+    editor = e
 
 [push]
-	default = current
+    default = current
 
 [svn]
-	authorsfile = /home/xani/src/users_svn.txt
+    authorsfile = /home/xani/src/users_svn.txt
 
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
 
 [alias]
-	publish = !/usr/local/bin/git-publish-branch 
-	wtf = !/usr/local/bin/git-wtf
-	l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset %s'
-	rss = !~/bin/getrss_spit
-	co = checkout
-	cx = commit <% if gpgid != false %> -S <% end %>
-	c = commit <% if gpgid != false %> -S <% end %>
-	p = !git pull && git push -u
-	cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\" -S
+    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset %s'
+    co = checkout
+    cx = commit <% if gpgid != false %> -S <% end %>
+    c = commit <% if gpgid != false %> -S <% end %>
+    s = status
+    p = !git pull && git push -u
+    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if gpgid != false %> -S <% end %>
 
 [merge]
-	tool = meld
+    tool = meld
 
-[giggle]
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
-	file-view-vpane-position = 656
-	file-view-hpane-position = 474
-	history-view-vpane-position = 830
-	main-window-view = FileView

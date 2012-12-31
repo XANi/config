@@ -2,20 +2,14 @@
 use Cwd;
 my $dir = getcwd();
 my $links = {
-    '.emacs' => undef,
-    'zencoding' => undef,
-    '.crawlrc' => undef,
-    '.gitconfig' => undef,
+    'bin/pre-commit' => '.git/hooks/pre-commit',
 };
 while ( my ($key, $val) = each (%$links) ) {
-    if(!defined($value)) {
-	$val = $key;
-    }
-    if ( -e glob("~/$val")) {
-	print "Exists: $val\n";
+    if ( -e $dir . '/' . $val) {
+        print "Exists: $val\n";
     } else {
-	symlink($dir . '/' . $key, glob("~/$val"));
-	print "Linking $key to $val\n";
+        symlink($dir . '/' . $key, $dir . '/' . $val);
+        print "Linking $key to $val\n";
     }
 }
 

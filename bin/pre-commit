@@ -1,0 +1,241 @@
+#!/usr/bin/perl
+
+
+package XANi::Validate {
+    use strict;
+    use warnings;
+    use Carp qw(cluck croak confess);
+    use Data::Dumper;
+    use Capture::Tiny qw(:all);
+    use YAML::XS;
+    use JSON;
+    use File::Slurp;
+    use IPC::Open3;
+    use Symbol 'gensym';
+    $| = 1;
+
+    our $validator->{'exec'} = {
+        manifest => [ qw[puppet parser validate --color=false --] ],
+        ruby => [ qw[ruby -rpuppet -c --] ],
+        perl => [ qw[perl -c --] ],
+    };
+
+    sub new {
+        my $proto = shift;
+        my $params = shift;
+        my $class = ref($proto) || $proto;
+        my $self = {
+            params => $params,
+        };
+        bless($self, $class);
+        return $self;
+    }
+
+    sub validate {
+        my $self = shift;
+        my $file = shift;
+        my $type =  $self->_get_type($file);
+        if ( !defined $type ) {
+            return
+        }
+        return $self->_validate($file, $type);
+    }
+
+    sub _validate_json {
+        my $self = shift;
+        my $file = shift;
+        eval { from_json( read_file($file) ); };
+        if ($@) {
+            return {
+                code => 1,
+                msg  => join( "\n", $@ ),
+            };
+        }
+        else {
+            return { code => 0 };
+        }
+    }
+
+    sub _validate_erb {
+        my $self = shift;
+        my $file = shift;
+        my ($erbout,$erberr,$erbcode);
+        my ($rubyin, $rubyout,$rubycode);
+        $erberr = gensym;
+
+        my $pid_erb = open3( undef, $erbout, $erberr, (qw{erb -x -T - --}, $file));
+        my $pid_ruby = open3( $rubyin, $rubyout, undef, (qw{ruby -c}));
+        # FIXME Ugly hack
+        while(<$erbout>) {print $rubyin $_}
+        pipe($erbout, $rubyin);
+        my ($ruby_msg, $erb_msg);
+        while(<$erberr>) {
+            $erb_msg .= $_;
+        }
+        waitpid($pid_erb, 0);
+        $erbcode = $? >> 8;
+
+        while(<$rubyout>) {
+            $ruby_msg .= $_;
+        }
+        waitpid($pid_ruby, 0);
+        $rubycode = $? >> 8;
+
+        if ($rubycode || $erbcode ) {
+            my $msg = '';
+            if ($ruby_msg !~ /^\s*$/) {
+                $msg .= "Ruby err $rubycode:\n$ruby_msg";
+            }
+            if ($erb_msg !~ /^\s*$/) {
+                $msg .= "erb err $erbcode:\n$erb_msg";
+            }
+
+            return {
+                code => 1,
+                msg => $msg,
+            }
+        }
+        else {
+            return {
+                code => 0,
+            }
+        }
+    }
+    sub _validate_exec {
+        my $self    = shift;
+        my $file    = shift;
+        my $command = shift;
+        my $cmdout;
+        my $pid     = open3( undef, $cmdout, undef, ( @$command, $file ) ) or croak($!);
+        my $msg;
+        while (<$cmdout>) {
+            $msg .= $_;
+        }
+        waitpid( $pid, 0 );
+        return {
+            code => $? >> 8,
+            msg  => $msg,
+        };
+    }
+
+    sub _validate {
+        my $self = shift;
+        my $file = shift;
+        my $type = shift;
+        if ( defined( $validator->{'exec'}{$type} ) ) {
+            return $self->_validate_exec( $file, $validator->{'exec'}{$type} );
+        }
+        elsif ( $self->can( '_validate_' . $type ) ) {
+            my $meth ="_validate_$type";
+            return $self->$meth($file);
+        }
+        else {
+            confess('no specified validation method avaliable');
+            return {
+                code => 255,
+                msg  => 'No specified validation method avaliable'
+            };
+        }
+    }
+
+    sub _validate_yaml {
+        my $self = shift;
+        my $file = shift;
+        eval { Load( read_file($file) ); };
+        if ($@) {
+            return {
+                code => 1,
+                msg  => join( "\n", $@ ),
+            };
+        }
+        else {
+            return { code => 0 };
+        }
+    }
+
+    sub _get_type {
+        my $self       = shift;
+        my $file   = shift;
+        my $match_path = {
+            qr{\.pp$}          => 'manifest',
+            qr{/templates/.*$} => 'erb',
+            qr{\.erb$}         => 'erb',
+            qr{\.rb$}          => 'ruby',
+            qr{\.yaml$}        => 'yaml',
+            qr{\.gpg$}         => 'gpg',
+            qr{\.json$}        => 'json',
+            qr{\.p[lm]$}       => 'perl',
+        };
+        while ( my ( $regexp, $type ) = each %$match_path ) {
+            if ( $file =~ $regexp ) {
+                return $type;
+            }
+        }
+        my $match_line = {
+            qr{\/bin\/perl} => 'perl',
+            qr{ruby}        => 'ruby',
+            qr{python}      => 'python',
+        };
+        open( F, '<', $file ) or croak("can't open $file: $!");
+        my $line = <F>;
+        close(F);
+        while ( my ( $regexp, $type ) = each %$match_line ) {
+            if ( $line =~ $regexp ) {
+                return $type;
+            }
+        }
+        return;
+    }
+    1;
+};
+
+use strict;
+use warnings;
+use Data::Dumper;
+
+# disable color for dumb/builtin terms
+# need to be before Term::ANSIColor to work
+if ($ENV{'TERM'} =~ /dumb/) {
+    $ENV{'ANSI_COLORS_DISABLED'} = 1;
+}
+
+use Term::ANSIColor;
+
+$| = 1;
+my $fail = 0;
+my $v = XANi::Validate->new();
+
+# get git toplevel dir
+open(GIT,'-|','git rev-parse --show-toplevel');
+my $topdir=<GIT>;
+chomp $topdir;
+close(GIT);
+
+open(FILELIST, '-|', 'git diff --cached --name-only');
+while (my $f = <FILELIST>) {
+    chomp($f);
+    my $file= $topdir . '/' . $f;
+    #   print color('bold') . $f . ' => ' . color('reset');
+    print $f . ' => ';
+    if ( ! -e $file ) {
+        print color('magenta') . "REMOVED\n" . color('reset');
+        next;
+    }
+    my $valid = $v->validate($file);
+    if (!defined $valid) {
+        print color('yellow') . "SKIP" . color('reset') . " (no validator avaliable)\n";
+    }
+    elsif ($valid->{'code'} == 0 ) {
+        print color('green') .  "OK\n" . color('reset');
+    }
+    else {
+        $fail=1;
+        print color('red bold') . "FAILED with:\n$valid->{msg}\n";
+        print "--------------\n" . color ('reset');
+    }
+}
+if ($fail == 0) {
+    print color('bold') . "File validation ok!\n" . color('reset');
+}
+
+exit $fail;

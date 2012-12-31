@@ -1,16 +1,9 @@
 class token {
-    exec {'add-to-card-group':
-        command => 'usermod -G scard xani',
-        unless  => 'id xani |grep scard',
-        path    => [
-                    '/sbin',
-                    '/bin',
-                    '/usr/sbin',
-                    '/usr/bin',
-                    '/usr/local/sbin',
-                    '/usr/local/bin',
-                    ],
-        require => Package['opensc'],
+    util::add_user_to_group {
+        'xani-scard':
+            user    => 'xani',
+            group   => 'scard',
+            require => Package['opensc'],
     }
     if $lsbdistid == 'Debian' {
         # for some retarded reason opensc 0.12 developers

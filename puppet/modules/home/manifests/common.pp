@@ -21,7 +21,7 @@ class home::common (
     ) {
         util::add_user_to_group {
             'xani-fuse':
-                user => 'xani',
+                user  => 'xani',
                 group => 'fuse',
         }
 }

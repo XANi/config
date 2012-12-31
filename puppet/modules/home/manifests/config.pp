@@ -16,6 +16,9 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         toprc:;
         xsessionrc:;
     }
+    home::config::exec {
+        git-wtf:;
+    }
     home::config::code_tmp {
         erb:;
         pl:;
@@ -66,20 +69,23 @@ define home::config::code_tmp (
     }
 }
 
-class home::config::svn {
-    file {'/usr/local/bin/svn-commit':
-        content => template('home/svn-commit.erb'),
-        owner   => xani,
+define home::config::exec (
+    $source = "home/exec/${title}.erb",
+    $target = "/usr/local/bin/${title}",
+    ) {
+    file { $target:
+        content => template($source),
         mode    => 755,
+        owner   => xani,
+        replace => no,
     }
+}
+
+class home::config::svn {
+    home::config::exec { svn-commit:; }
+
     package { 'subversion':
         ensure => installed,
     }
 }
 
-define home::config::add_to_group ($group) {
-    exec { "add-${title}-to-group-${group)":
-        command => "useradd -G ${group} ${title}",
-        unless  => "id ${title} |grep -q ${group}",
-    }
-}
