@@ -23,6 +23,7 @@ class home::packages {
          libnotify-bin,
          pkg-mozilla-archive-keyring,
          perlconsole,
+         perltidy,
          libcapture-tiny-perl,
          colordiff,
          gnome-gpg,
