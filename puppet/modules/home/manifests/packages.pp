@@ -11,6 +11,7 @@ class home::packages {
          fonts-liberation,  # font for emacs
          terminator,
          # utils
+         zile,
          meld,
          wireshark,
          scrot,
