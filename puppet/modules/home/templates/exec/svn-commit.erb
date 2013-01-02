@@ -111,7 +111,7 @@ if( $in =~ /(y|t)/) {
     else {
         print "Commit failed, saving msg in /tmp/commit";
         if ( defined($conf->{'notify'}) ) {
-            system('notify-send', '-u', 'critical', 'Commit failed!',"Go back and check what failed!");
+            system('notify-send', '-t', '60000', 'Commit failed!',"Go back and check what failed!");
         }
         system("cp $commitmsg_file /tmp/commit");
     }
