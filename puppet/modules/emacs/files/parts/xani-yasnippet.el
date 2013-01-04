@@ -1,10 +1,15 @@
 ;;; xani-yasnippet.el ---
 ;;
 (require 'yasnippet)
-(custom-set-variables
-'(yas/root-directory (quote ("/home/xani/emacs/yasnippet/vendor" "/home/xani/emacs/yasnippet/xani")) nil (yasnippet))
-)
-(yas/initialize)
-;;(yas/load-directory "/home/xani/emacs/yasnippet/xani")
 
+;; new snippets go to first dir on list
+(setq yas/root-directory
+      '(
+        "/home/xani/emacs/yasnippet/custom"
+        "/home/xani/emacs/yasnippet/vendor"
+        "/home/xani/emacs/yasnippet/xani"
+        ))
+
+(yas/initialize)
+(mapc 'yas/load-directory yas/root-directory)
 (provide 'xani-yasnippet)
