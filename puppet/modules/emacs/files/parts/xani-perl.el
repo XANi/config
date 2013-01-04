@@ -23,6 +23,6 @@
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
 
-(define-key cperl-mode-map [backtab] 'perltidy-dwim)
+;;(define-key cperl-mode-map [backtab] 'perltidy-dwim)
 
 (provide 'xani-perl)
