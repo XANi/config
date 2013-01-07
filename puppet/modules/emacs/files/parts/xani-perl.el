@@ -3,6 +3,7 @@
 
 (defalias 'perl-mode 'cperl-mode)
 ;;(require 'sepia)
+(require 'cperl-mode)
 (require 'perltidy)
 
 (custom-set-variables
