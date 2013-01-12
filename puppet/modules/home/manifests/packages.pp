@@ -11,6 +11,7 @@ class home::packages {
          fonts-liberation,  # font for emacs
          terminator,
          # utils
+         zile,
          meld,
          wireshark,
          scrot,
@@ -23,6 +24,7 @@ class home::packages {
          libnotify-bin,
          pkg-mozilla-archive-keyring,
          perlconsole,
+         perltidy,
          libcapture-tiny-perl,
          colordiff,
          gnome-gpg,

@@ -1,8 +1,9 @@
 ;;; xani-perl.el ---
 ;;
 
-(defalias 'perl-mode 'sepia-mode)
-(require 'sepia)
+(defalias 'perl-mode 'cperl-mode)
+;;(require 'sepia)
+(require 'cperl-mode)
 (require 'perltidy)
 
 (custom-set-variables
@@ -18,11 +19,11 @@
  '(cperl-mode-hook (quote (flymake-mode)))
 
 )
-(add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . sepia-mode))
-(add-to-list 'interpreter-mode-alist '("perl" . sepia-mode))
-(add-to-list 'interpreter-mode-alist '("perl5" . sepia-mode))
-(add-to-list 'interpreter-mode-alist '("miniperl" . sepia-mode))
+(add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
+(add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
+(add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
+(add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
 
-(define-key sepia-mode-map [backtab] 'perltidy-dwim)
+(define-key cperl-mode-map [backtab] 'perltidy-dwim)
 
 (provide 'xani-perl)

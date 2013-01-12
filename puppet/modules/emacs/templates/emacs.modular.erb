@@ -21,6 +21,7 @@
 
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-auto-insert)
+(require 'xani-undo-tree)
 (require 'xani-common)
 (require 'xani-iedit)
 (require 'xani-iswitchb)
@@ -38,6 +39,7 @@
 (require 'xani-x)
 (require 'xani-ecb)
 (require 'xani-develock)
+(require 'xani-yasnippet)
 
 <%- if location == 'arte' -%>
 (require 'xani-arte)
@@ -90,6 +92,7 @@
        '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
        '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))
        '(org-table ((((class color) (min-colors 88) (background light)) (:foreground "#ffffff"))))
+       '(undo-tree-visualizer-active-branch-face ((((class color) (background light)) (:foreground "#aaaaff" :weight bold))))
        '(whitespace-hspace ((((class color) (background light)) (:background "#444400" :foreground "lightgray"))))
        '(whitespace-newline ((t (:foreground "lightgray" :weight bold))))
        '(whitespace-space ((((class color) (background light)) (:background "#333377" :foreground "lightgray"))))

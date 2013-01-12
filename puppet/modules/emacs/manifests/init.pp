@@ -123,6 +123,16 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group   => xani,
         require => File['xani-emacs-dir'],
     }
+    file { xani-emacs-yasnippet-custom:
+        path    => "$homedir/emacs/yasnippet/custom",
+        ensure  => directory,
+        recurse => false,
+        purge   => false,
+        force   => false,
+        owner   => xani,
+        group   => xani,
+        require => File['xani-emacs-yasnippet'],
+    }
     emacs::autoinsert {
         'puppet':;
         'perl':;
@@ -207,7 +217,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     cron { 'xani-orage-update':
         command => "/usr/local/bin/update-orage-calendar",
         user    => xani,
-        minute  => '*/10',
+        minute  => fqdn_rand(60),
     }
 }
 

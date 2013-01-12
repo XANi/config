@@ -1,6 +1,6 @@
 # <%= puppet_header %>
 # <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
-
+<%- gpgid = scope.lookupvar('home::config::gpgid') -%>
 [user]
 <%- if deploy_arte_config == true -%>
     name = Mariusz Gronczewski
