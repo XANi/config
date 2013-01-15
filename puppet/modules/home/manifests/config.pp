@@ -15,6 +15,8 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         screenrc:;
         toprc:;
         xsessionrc:;
+        terminator:
+            target => "${homedir}/.config/terminator/config";
     }
     home::config::exec {
         git-wtf:;
@@ -25,6 +27,11 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         pp:;
         sh:;
         mojo:;
+    }
+    home::dir {
+        '.config':;,
+        '.config/terminator':;,
+        '.config/terminator/config':;,
     }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
@@ -56,6 +63,16 @@ define home::config::file (
     }
 }
 
+define home::dir ($mode = '755') {
+    include home::common
+    $homedir = $home::common::homedir
+    file { "${homedir}/${title}":
+        ensure => directory,
+        owner  => xani,
+        group  => xani,
+        mode   => $mode,
+    }
+}
 
 define home::config::code_tmp (
     $source = "home/code_tmp/${title}.erb",
