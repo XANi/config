@@ -8,7 +8,8 @@ class home::packages {
          xfonts-terminus,
          xfonts-terminus-dos,
          xfonts-terminus-oblique,
-         fonts-liberation,  # font for emacs
+         fonts-liberation,
+         fonts-droid,
          terminator,
          # utils
          zile,
