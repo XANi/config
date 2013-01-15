@@ -102,6 +102,7 @@ package XANi::Validate {
         }
     }
     sub _validate_exec {
+        my $self    = shift;
         my $file    = shift;
         my $command = shift;
         my $cmdout;

@@ -29,9 +29,9 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         mojo:;
     }
     home::dir {
-        '.config':;,
-        '.config/terminator':;,
-        '.config/terminator/config':;,
+        '.config':;
+        '.config/terminator':;
+        '.config/terminator/config':;
     }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
