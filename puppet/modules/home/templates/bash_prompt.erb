@@ -175,7 +175,7 @@ export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
 <%- end -%>
 
 <%- if scope.lookupvar('home::common::perl5lib') -%>
-export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib') %>"
+export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib').join(':') %>"
 <%- end -%>
 
 if [ -e '/usr/local/bin/token-agent.sh' ] ; then
