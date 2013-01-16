@@ -172,7 +172,11 @@ export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
 
 <%- if scope.lookupvar('home::common::https_proxy') -%>
 export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
-<%- end -%>cd
+<%- end -%>
+
+<%- if scope.lookupvar('home::common::perl5lib') -%>
+export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib') %>"
+<%- end -%>
 
 if [ -e '/usr/local/bin/token-agent.sh' ] ; then
     #configure ssh agent for token, running it from session is for some reason broken

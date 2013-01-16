@@ -14,10 +14,11 @@
 #
 #
 class home::common (
-     $homedir = hiera('homedir','/home/xani'),
-     $http_proxy = hiera('http_proxy',false),
-     $https_proxy = hiera('https_proxy',false),
-     $socks_proxy = hiera('socks_proxy',false),
+    $homedir     = hiera('homedir','/home/xani'),
+    $http_proxy  = hiera('http_proxy',false),
+    $https_proxy = hiera('https_proxy',false),
+    $socks_proxy = hiera('socks_proxy',false),
+    $perl5lib    = hiera('perl5lib',false),
     ) {
         util::add_user_to_group {
             'xani-fuse':
