@@ -16,7 +16,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         toprc:;
         xsessionrc:;
         terminator:
-            target => "${homedir}/.config/terminator/config";
+            target => ".config/terminator/config";
     }
     home::config::exec {
         git-wtf:;
