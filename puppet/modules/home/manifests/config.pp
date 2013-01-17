@@ -31,7 +31,6 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
     home::dir {
         '.config':;
         '.config/terminator':;
-        '.config/terminator/config':;
     }
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
