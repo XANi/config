@@ -20,6 +20,7 @@
 
 
 (require 'xani-notify) ;; this have to be before modules using it
+(require 'xani-cua)
 (require 'xani-auto-insert)
 (require 'xani-undo-tree)
 (require 'xani-common)
@@ -88,6 +89,7 @@
        '(default ((t (:inherit nil :stipple nil :background "#042028" :foreground "#708183" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 87 :width normal :foundry "unknown" :family "Droid Sans Mono"))))
        '(cperl-array-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
        '(cperl-hash-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
+       '(cua-rectangle ((default (:inherit region)) (((class color)) nil)))
        '(develock-long-line-2 ((t (:inherit secondary-selection :underline "#000000"))))
        '(develock-lonely-parentheses ((t (:inherit secondary-selection :foreground "PaleTurquoise"))))
        '(develock-reachable-mail-address ((t (:inherit font-lock-warning-face :underline "#775500"))))
