@@ -5,4 +5,9 @@ eval $(/usr/local/bin/token-agent.sh)
 if [ -e /usr/bin/nvidia-settings ] ; then
     echo $(sleep 30 ; /usr/bin/nvidia-settings -l) &
 fi
+if killall arbtt-capture >/dev/null 2>&1 ; then
+    sleep  1
+    killall -9 arbtt-capture >/dev/null 2>&1
+fi
 arbtt-capture --sample-rate 10 &
+true
