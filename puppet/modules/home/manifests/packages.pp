@@ -40,6 +40,8 @@ class home::packages {
          gdb-multiarch,
          # R analysis tools
          rkward,
+         #
+         arbtt,
         ]:
             ensure => installed,
 
