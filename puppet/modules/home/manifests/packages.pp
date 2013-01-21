@@ -46,6 +46,11 @@ class home::packages {
             ensure => installed,
 
     }
+    # for some bullshit reason a lot of packages recommend apache; fuck them
+    service { apache2:
+        ensure => stopped,
+        enable => false,
+    }
 }
 
 
