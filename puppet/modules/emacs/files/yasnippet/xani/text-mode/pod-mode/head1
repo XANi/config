@@ -1,0 +1,5 @@
+#name: pod =head1
+# --
+=head1 $1
+
+$0
