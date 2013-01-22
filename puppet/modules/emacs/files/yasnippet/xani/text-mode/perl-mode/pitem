@@ -1,0 +1,6 @@
+#name: pod =item
+# --
+=item B<$1> $2
+
+$0
+
