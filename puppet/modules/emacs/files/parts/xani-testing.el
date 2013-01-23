@@ -2,7 +2,7 @@
 ;;
 
 ;; random shit in testing
-(global-set-key "\M- " 'hippie-expand)
+(global-set-key [backtab] 'hippie-expand)
 
 
 (provide 'xani-testing)
