@@ -51,6 +51,14 @@ class home::packages {
         ensure => stopped,
         enable => false,
     }
+    # polish translations are crap and/or outdated
+    package {
+        [
+         manpages-pl,
+         manpages-pl-dev,
+         ]:
+             ensure => absent;
+    }
 }
 
 
