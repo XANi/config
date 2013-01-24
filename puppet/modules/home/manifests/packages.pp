@@ -1,6 +1,6 @@
 class home::packages {
     include home::common
-        package {
+    package {
         [
          # system
          anacron,
@@ -42,8 +42,8 @@ class home::packages {
          rkward,
          #
          arbtt,
-        ]:
-            ensure => installed,
+         ]:
+             ensure => installed,
 
     }
     # for some bullshit reason a lot of packages recommend apache; fuck them
