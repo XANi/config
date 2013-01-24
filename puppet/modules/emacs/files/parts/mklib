@@ -3,3 +3,4 @@ cp xani-template.el xani-$1.el
 perl -pi -e "s/placeholder/$1/g" xani-$1.el
 /usr/local/bin/e xani-$1.el &
 sleep 1 ; echo
+git add xani-$1.el
