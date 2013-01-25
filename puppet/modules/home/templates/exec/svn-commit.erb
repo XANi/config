@@ -27,7 +27,7 @@ if ( $input_msg !~ /^\s*$/) {
 elsif ( -e $last_commit_file) {
     open(LAST_COMMIT, '<', $last_commit_file);
     while(<LAST_COMMIT>) {
-        print $editmsg_fh $_
+        print $editmsg_fh $_;
     }
     close(LAST_COMMIT);
 }
@@ -122,30 +122,10 @@ if( $in =~ /(y|t)/) {
 
 
 sub validate_file {
-    my $filepath = shift;
-    my $msg;
-    my $code;
-    my $target_repo_dir;
-    if ( $filepath =~ m{.*manifests.*\.pp$}) { #manifest
-        print "Syntax check of $filepath manifest: ";
-        ($msg, $code) = &sys("puppet parser validate " .
-                                 "--color=false --confdir=$target_repo_dir --vardir=$target_repo_dir " .
-                                     $filepath);
-    } elsif ( $filepath =~ m{.*templates/.*\.erb$}) { # ERB templates
-        print "Syntax check $filepath ERB template: ";
-        ($msg, $code) = &sys("erb -x -T '-' $filepath | ruby -c");
-    } elsif ( $filepath =~ m{.*(manifests|modules|lib/facter)/.*\.rb$}) {
-        print "Syntax check $filepath ruby script: ";
-        ($msg, $code) = &sys("ruby -rpuppet -c $filepath");
-    } else {
-        # not recognising file, doing nothing
-        return 1
+    my $file = shift;
+    system("~/src/svn-puppet/helpers/remote_validate_files.pl $file");
+    if($?) {
+        return
     }
-    if ($code == 0) {
-        print "$msg OK\n";
-        return 1;
-    } else {
-        print "Verify failed with msg:\n$msg";
-        return;
-    }
+    return 1;
 }
