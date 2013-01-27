@@ -46,9 +46,8 @@ class home::packages {
 
     }
     # for some bullshit reason a lot of packages recommend apache; fuck them
-    service { apache2:
-        ensure => stopped,
-        enable => false,
+    package { 'apache2.2-common':
+        ensure => absent,
     }
     # polish translations are crap and/or outdated
     package {
