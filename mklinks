@@ -13,3 +13,6 @@ while ( my ($key, $val) = each (%$links) ) {
     }
 }
 
+system('git config user.name "Mariusz Gronczewski"');
+system('git config user.email "xani666@gmail.com"');
+
