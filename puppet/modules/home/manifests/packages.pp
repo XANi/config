@@ -8,8 +8,7 @@ class home::packages {
          xfonts-terminus,
          xfonts-terminus-dos,
          xfonts-terminus-oblique,
-         fonts-liberation,
-         fonts-droid,
+         ttf-dejavu,
          terminator,
          # utils
          zile,
