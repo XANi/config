@@ -1,6 +1,4 @@
 #!/usr/bin/perl
-
-
 package XANi::Validate {
     use strict;
     use warnings;
@@ -230,7 +228,7 @@ while (my $f = <FILELIST>) {
     }
     else {
         $fail=1;
-        print color('red bold') . "FAILED with:\n$valid->{msg}\n";
+        print color('red') . "FAILED with:\n$valid->{msg}\n";
         print "--------------\n" . color ('reset');
     }
 }
