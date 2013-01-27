@@ -4,7 +4,7 @@
 ;; auto GPG
 (epa-file-enable)
 
-
+;; expand comment to next line if previous line was a comment
 (global-set-key (kbd "RET") 'comment-indent-new-line)
 
 ;; fix yes no questions
