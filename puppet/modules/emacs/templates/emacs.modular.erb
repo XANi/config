@@ -6,8 +6,9 @@
 (server-start)
 ;; TODO test if that can be in xani-common
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-(add-to-list 'load-path "<%= homedir %>/emacs/lib")
+(add-to-list 'load-path (expand-file-name "~/emacs/lib"))
 (add-to-list 'load-path (expand-file-name "~/emacs/xani-lib"))
+(add-to-list 'load-path (expand-file-name "~/emacs/tmplib"))
 
 ;; my customisations
 

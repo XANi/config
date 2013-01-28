@@ -69,6 +69,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group  => xani,
     }
 
+    file { xani-emacs-test:
+        path   => "$homedir/emacs/tmplib",
+        ensure => directory,
+        purge  => false,
+        force  => false,
+        owner  => xani,
+        group  => xani,
+    }
+
     file { xani-emacs-libs:
         path    => "$homedir/emacs/lib",
         ensure  => directory,
