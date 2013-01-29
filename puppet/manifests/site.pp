@@ -27,6 +27,7 @@ node default {
         apt::update:;
         dpp:;
         monit:;
+        ntp::client:;
         emacs:;
         emacs::org:;
         emacs::org::sync:;
