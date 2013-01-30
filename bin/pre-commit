@@ -139,7 +139,11 @@ package XANi::Validate {
     sub _validate_yaml {
         my $self = shift;
         my $file = shift;
-        eval { Load( read_file($file) ); };
+        print "# $file\n";
+        eval {
+            my $f = read_file($file) ;
+            Load($f);
+        };
         if ($@) {
             return {
                 code => 1,
@@ -190,7 +194,6 @@ package XANi::Validate {
 use strict;
 use warnings;
 use Data::Dumper;
-
 # disable color for dumb/builtin terms
 # need to be before Term::ANSIColor to work
 if ($ENV{'TERM'} =~ /dumb/) {
