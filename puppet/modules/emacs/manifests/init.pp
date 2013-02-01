@@ -188,7 +188,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-secure-local-config:
         path    => "${homedir}/emacs/secure/local.el.gpg",
         ensure  => present,
-        mode    => 700,
+        mode    => 600,
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-libs-secure'],
