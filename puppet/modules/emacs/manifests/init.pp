@@ -177,7 +177,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     # storage for gpg-encrypted files
-    file { xani-emacs-libs:
+    file { xani-emacs-libs-secure:
         path    => "${homedir}/emacs/secure",
         ensure  => directory,
         owner   => xani,
@@ -185,7 +185,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         mode    => 0700,
         require => File['xani-emacs-dir'],
     }
-
+    file { xani-emacs-secure-local-config:
+        path    => "${homedir}/emacs/secure/local.el.gpg",
+        ensure  => present,
+        mode    => 700,
+        owner   => xani,
+        group   => xani,
+        require => File['xani-emacs-libs-secure'],
+    }
 
 }
 
