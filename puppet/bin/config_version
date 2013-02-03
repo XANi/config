@@ -1,4 +1,4 @@
 #!/bin/sh
 cd $1
-GIT_V=$(git log -1  --abbrev-commit --date=rfc --format="%h %ai %aN %s")
-echo "$GIT_V@$(hostname)"
+GIT_V=$(git log -1  --abbrev-commit --date=rfc --format="%h %ai %aN: \"%s\"")
+echo "$GIT_V @$(hostname)"
