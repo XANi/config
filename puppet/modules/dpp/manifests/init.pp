@@ -1,6 +1,6 @@
 class dpp {
     $repo_config = hiera('repo')
-    $manager_url = hiera('manager_url',false);
+    $manager_url = hiera('manager_url',false)
     file { '/etc/dpp.conf':
         content => template('dpp/dpp.conf.erb'),
         mode => 600,
