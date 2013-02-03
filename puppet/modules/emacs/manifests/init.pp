@@ -33,35 +33,35 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         mode   => 755,
     }
     file { emacs-config:
-        path    => "$homedir/.emacs-legacy",
+        path    => "${homedir}/.emacs-legacy",
         owner   => xani,
         group   => xani,
         mode    => 644,
         content => template('emacs/emacs.erb'),
     }
     file { emacs-config-modular:
-        path    => "$homedir/.emacs",
+        path    => "${homedir}/.emacs",
         owner   => xani,
         group   => xani,
         mode    => 644,
         content => template('emacs/emacs.modular.erb'),
     }
     file { emacs-wanderlust-config:
-        path    => "$homedir/.wl",
+        path    => "${homedir}/.wl",
         owner   => xani,
         group   => xani,
         mode    => 600,
         content => template('emacs/emacs.wl.erb'),
     }
     file { emacs-wanderlust-folder-config:
-        path    => "$homedir/.folders",
+        path    => "${homedir}/.folders",
         owner   => xani,
         group   => xani,
         mode    => 600,
         content => template('emacs/emacs.folders.erb'),
     }
     file { xani-emacs-dir:
-        path   => "$homedir/emacs",
+        path   => "${homedir}/emacs",
         ensure => directory,
         purge  => true,
         force  => true,
@@ -70,7 +70,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     file { xani-emacs-test:
-        path   => "$homedir/emacs/tmplib",
+        path   => "${homedir}/emacs/tmplib",
         ensure => directory,
         purge  => false,
         force  => false,
@@ -79,7 +79,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     file { xani-emacs-libs:
-        path    => "$homedir/emacs/lib",
+        path    => "${homedir}/emacs/lib",
         ensure  => directory,
         source  => "puppet:///modules/emacs/emacs-libs",
         recurse => true,
@@ -91,7 +91,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     file { xani-emacs-xani-libs:
-        path    => "$homedir/emacs/xani-lib",
+        path    => "${homedir}/emacs/xani-lib",
         ensure  => directory,
         source  => "puppet:///modules/emacs/parts",
         recurse => true,
@@ -102,8 +102,17 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
 
+    file { xani-emacs-local-customisation:
+        path    => "${homedir}/emacs/xani-lib/xani-local.el",
+        source  => "puppet:///modules/emacs/parts/xani-local.el",
+        replace => no,
+        owner   => xani,
+        group   => xani,
+        mode    => 700,
+    }
+
     file { xani-emacs-icons:
-        path    => "$homedir/emacs/icons",
+        path    => "${homedir}/emacs/icons",
         ensure  => directory,
         source  => "puppet:///modules/emacs/emacs-icons",
         recurse => true,
@@ -114,7 +123,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-autoinsert:
-        path    => "$homedir/emacs/autoinsert",
+        path    => "${homedir}/emacs/autoinsert",
         ensure  => directory,
         owner   => xani,
         group   => xani,
@@ -122,7 +131,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-yasnippet:
-        path    => "$homedir/emacs/yasnippet",
+        path    => "${homedir}/emacs/yasnippet",
         ensure  => directory,
         source  => "puppet:///modules/emacs/yasnippet",
         recurse => true,
@@ -133,7 +142,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-yasnippet-custom:
-        path    => "$homedir/emacs/yasnippet/custom",
+        path    => "${homedir}/emacs/yasnippet/custom",
         ensure  => directory,
         recurse => false,
         purge   => false,
@@ -159,18 +168,37 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     if $deploy_portable_config {
         $portable_config = 1
         file { emacs-config-arte:
-            path    => "$homedir/src/svn-puppet/modules/artegence/files/xani/emacs",
+            path    => "${homedir}/src/svn-puppet/modules/artegence/files/xani/emacs",
             owner   => xani,
             group   => xani,
             mode    => 644,
             content => template('emacs/emacs.erb'),
         }
     }
+
+    # storage for gpg-encrypted files
+    file { xani-emacs-libs-secure:
+        path    => "${homedir}/emacs/secure",
+        ensure  => directory,
+        owner   => xani,
+        group   => xani,
+        mode    => 0700,
+        require => File['xani-emacs-dir'],
+    }
+    file { xani-emacs-secure-local-config:
+        path    => "${homedir}/emacs/secure/local.el.gpg",
+        ensure  => present,
+        mode    => 600,
+        owner   => xani,
+        group   => xani,
+        require => File['xani-emacs-libs-secure'],
+    }
+
 }
 
 class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani' ) {
     file { xani-emacs-org-share:
-        path    => "$homedir/emacs/org/share",
+        path    => "${homedir}/emacs/org/share",
         ensure  => directory,
         owner   => xani,
         group   => xani,
@@ -178,7 +206,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
     if $::location == 'arte' {
         file { xani-emacs-org-arte:
-            path    => "$homedir/emacs/org/arte",
+            path    => "${homedir}/emacs/org/arte",
             ensure  => directory,
             owner   => xani,
             group   => xani,
@@ -192,7 +220,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
         }
     }
     file { xani-emacs-org:
-        path    => "$homedir/emacs/org",
+        path    => "${homedir}/emacs/org",
         ensure  => directory,
         owner   => xani,
         group   => xani,
@@ -200,8 +228,8 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
 
     exec { create-org-share:
-        cwd       => "$homedir/emacs/org",
-        creates   => "$homedir/emacs/org/share/.git",
+        cwd       => "${homedir}/emacs/org",
+        creates   => "${homedir}/emacs/org/share/.git",
         logoutput => true,
         command   => "/usr/bin/git clone ssh://git@devrandom.pl/org-todo.git $homedir/emacs/org/share",
         user      => xani,
@@ -234,14 +262,14 @@ class emacs::org::sync ( $homedir = '/home/xani' ) {
     exec { xani-emacs-mobile-org:
         command => "/bin/mkdir -p $homedir/emacs/org/mobile.org",
         user    => xani,
-        creates => "$homedir/emacs/org/mobile.org",
+        creates => "${homedir}/emacs/org/mobile.org",
         require => File['xani-emacs-org'],
     }
     if ! defined (Package['sshfs'])  {
       package { sshfs: ensure => installed }
     }
     exec { mount-orgshare:
-        #cwd      => "$homedir/emacs/org",
+        #cwd      => "${homedir}/emacs/org",
         unless    => "/usr/bin/sudo -u xani /usr/bin/test -e $homedir/emacs/org/mobile.org/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
         logoutput => true,
         command   => $hostname ? {
@@ -254,7 +282,7 @@ class emacs::org::sync ( $homedir = '/home/xani' ) {
 
 define emacs::autoinsert {
     $homedir = hiera('homedir','/home/xani')
-    file {"$homedir/emacs/autoinsert/${title}":
+    file {"${homedir}/emacs/autoinsert/${title}":
         content => template("emacs/autoinsert/${title}.erb"),
         mode    => 644,
         owner   => xani,
