@@ -47,7 +47,7 @@ node spare2 inherits default {
 }
 
 node vm-arte inherits default {
-    class { 'apt':
-        install_recommended => false,
-    }
+ #   class { 'apt':
+ #       install_recommended => false,
+ #   }
 }
