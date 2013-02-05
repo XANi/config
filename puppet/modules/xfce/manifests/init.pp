@@ -3,6 +3,10 @@ class xfce {
     ['gtk2-engines-nodoka']:
       ensure => installed
   }
+  package {
+      ['task-xfce-desktop']:
+          ensure => installed,
+  }
 }
 
 define xfce::theme {
