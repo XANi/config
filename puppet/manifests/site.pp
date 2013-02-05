@@ -45,3 +45,9 @@ node default {
 node spare2 inherits default {
     include home::config::svn
 }
+
+node vm-arte inherits default {
+    class { 'apt':
+        install_recommended => false,
+    }
+}
