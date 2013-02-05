@@ -34,6 +34,7 @@ node default {
         xfce:;
         token:;
         custom:;
+        util::packages;
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
@@ -46,8 +47,4 @@ node spare2 inherits default {
     include home::config::svn
 }
 
-node vm-arte inherits default {
-    class { 'apt':
-        install_recommended => false,
-    }
-}
+
