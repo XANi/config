@@ -15,6 +15,7 @@ class home::packages {
          meld,
          wireshark,
          scrot,
+         screen,
          shutter,
          git,
          mc,
