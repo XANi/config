@@ -19,6 +19,7 @@
  '(cperl-mode-hook (quote (flymake-mode)))
 
 )
+;; \\' (\' after escaping) matches end of string
 (add-to-list 'auto-mode-alist '("\\.\\([pP][Llm]\\|al\\)\\'" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
