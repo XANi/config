@@ -1,5 +1,5 @@
 ;; <%= puppet_header %>
-;; <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+;; <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 
 ;; hide-show mode
 (global-set-key (kbd "<C-tab>") 'hs-toggle-hiding)

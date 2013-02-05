@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 use strict;
 use warnings;
 use File::Temp qw/tempfile :POSIX/;

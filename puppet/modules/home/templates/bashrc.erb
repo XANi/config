@@ -1,5 +1,5 @@
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 HISTCONTROL=ignoredups
 HISTSIZE=10000
 # append to the history file, don't overwrite it

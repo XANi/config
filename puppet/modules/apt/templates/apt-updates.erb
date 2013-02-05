@@ -1,5 +1,5 @@
 #!/bin/bash
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 aptitude update
 aptitude full-upgrade --download-only -y

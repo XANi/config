@@ -1,6 +1,6 @@
 #!/bin/sh
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
  # TODO variable_scope-check should be enabled but all manifests are broken
 ruby1.8 /usr/bin/puppet-lint \
 --no-double_quoted_strings-check --no-unquoted_resource_title-check \
@@ -8,6 +8,6 @@ ruby1.8 /usr/bin/puppet-lint \
 --no-80chars-check --no-2sp_soft_tabs-check --no-trailing_whitespace-check \
 --no-unquoted_file_mode-check --no-file_mode-check \
 --no-variable_scope-check \
--no-selector_inside_resource-check \
+--no-selector_inside_resource-check \
 $@
 

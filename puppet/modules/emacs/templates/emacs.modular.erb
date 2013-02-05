@@ -1,5 +1,5 @@
 ;; <%= puppet_header %>
-;; <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+;; <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 
 ;;(setq server-auth-dir "~/.emacs.d/server/")
 (setq server-use-tcp t)
