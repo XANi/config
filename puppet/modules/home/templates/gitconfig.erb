@@ -1,5 +1,5 @@
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 <%- gpgid = scope.lookupvar('home::config::gpgid') -%>
 [user]
 <%- if deploy_arte_config == true -%>

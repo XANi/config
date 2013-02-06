@@ -1,6 +1,6 @@
 #!/bin/bash
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 # LOG
 echo `date` $@ >>/tmp/askpass.log
 echo -n `date`  >>/tmp/askpass.log

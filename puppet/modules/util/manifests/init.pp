@@ -4,3 +4,9 @@ define util::add_user_to_group ($user,$group) {
         unless  => "id ${user} |grep -q ${group}",
     }
 }
+
+class util::packages {
+    package {['sudo']:
+        ensure => installed,
+    }
+}

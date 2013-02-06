@@ -1,5 +1,5 @@
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 # Folder definition file
 # This file is generated automatically by Wanderlust/2.15.9 (Almost Unreal).
 #
@@ -26,7 +26,7 @@ SRV {
 	%srv.heartbeat
 	%srv.mailman
 }
-%/
+<%-%>%/
 
 # petname definition (access group, folder in access group)
 =	%	"Arte"

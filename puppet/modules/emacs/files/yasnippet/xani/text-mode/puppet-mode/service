@@ -1,0 +1,11 @@
+# name: service { ... }
+# key: service
+# --
+service { "${1:name}":
+    ensure    => ${2:\$downtime ? { true => undef, default => running } },
+    enable    => ${3:\$downtime ? { true => undef, default => true } },
+    tag       => ${4:\$downtime ? { true => "X-ignore-dont-change-state", default => undef } },
+    hasstatus => ${5:true},
+    require   => [ $6 ],
+}
+$0

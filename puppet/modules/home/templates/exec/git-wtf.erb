@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 HELP = <<EOS
 git-wtf displays the state of your repository in a readable, easy-to-scan
 format. It's useful for getting a summary of how a branch relates to a remote

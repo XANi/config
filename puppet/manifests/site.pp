@@ -51,3 +51,5 @@ node default {
 node spare2 inherits default {
     include home::config::svn
 }
+
+

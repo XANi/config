@@ -1,5 +1,5 @@
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %># comment test
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %># comment test
   enabled_plugins = CustomCommandsMenu, ActivityWatch, TerminalShot
   dbus = True
   handle_size = 3

@@ -1,6 +1,6 @@
 #!/bin/bash
 # <%= puppet_header %>
-# <%=  __FILE__.sub!(/.*?puppet\//,fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 # restore original term if its set to xterm-256, and save orig. term otherwise
 # needed for sudo passing $TERM in env
 # fixing centos 6 default crap
