@@ -34,7 +34,6 @@ node default {
         xfce:;
         token:;
         custom:;
-        util::packages;
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
