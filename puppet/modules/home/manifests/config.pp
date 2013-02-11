@@ -20,6 +20,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
     }
     home::config::exec {
         git-wtf:;
+        svn-commit:;
     }
     home::config::code_tmp {
         erb:;

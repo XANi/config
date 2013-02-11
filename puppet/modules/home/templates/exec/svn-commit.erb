@@ -47,18 +47,8 @@ while(<$diff>) {
 close($diff);
 print $editmsg_fh "\n<---------- CHANGED FILES ------->\n";
 foreach my $file (@$changed_files) {
-    if ( ! -e $file) {
-        print color('yellow') . "DNE" . color('reset') . " (does not exist) - $file\n";
-        next;
-    }
-    my $valid=$v->file($file);
-    if (!defined $valid) {
-        print color('yellow') . "SKIP" . color('reset') . " (no validator avaliable) - $file\n";
-    } elsif ($valid->{'code'} == 0 ) {
-        print color('green') .  "OK" . color('reset') . " - $file\n";
-    } else {
-        print color('red bold') . "FAILED $file with:\n" . color('reset') . "$valid->{msg}\n";
-        push @fail, $file;
+    if (! &validate_file($file)) {
+        push @fail, $file
     }
     print $editmsg_fh "File $file\n";
 }
