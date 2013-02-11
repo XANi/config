@@ -37,11 +37,19 @@ node default {
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
+
+    if $is_virtual {
+        include vm
+    }
+
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
+
 }
 
 node spare2 inherits default {
     include home::config::svn
 }
+
+
