@@ -46,10 +46,7 @@ node default {
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
 
+    if $deploy_arte_config {
+        include home::config::svn
+    }
 }
-
-node spare2 inherits default {
-    include home::config::svn
-}
-
-
