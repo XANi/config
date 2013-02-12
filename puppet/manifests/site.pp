@@ -42,6 +42,12 @@ node default {
     if $is_virtual {
         include vm
     }
+    else {
+        # most likely wont use spotify as music player
+        package {'spotify-client':
+            ensure => installed;
+        }
+    }
 
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
