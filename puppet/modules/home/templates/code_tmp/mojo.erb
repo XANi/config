@@ -44,22 +44,25 @@ app->start;
 __DATA__
 
 @@ clock.html.ep
-% use Time::Piece;
-% my $now = localtime;
+<%-%>% use Time::Piece;
+<%-%>% my $now = localtime;
 The time is "<%%= $now->hms %>"
 
 @@ ws.html.ep
+<%-%>% my $host = $self->req->headers->header('Host');
+<%-%>% $host ||= '127.0.0.1:3000';
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
 var start;
+var ws;
 function WebSocketTest()
 {
   if ("WebSocket" in window)
   {
      // Let us open a web socket
-     var ws = new WebSocket("ws://localhost:3000/echo");
+     ws = new WebSocket("ws://<%= $host %>/echo");
      ws.onopen = function()
      {
         // Web Socket is connected, send data using send()
@@ -76,7 +79,7 @@ function WebSocketTest()
      ws.onclose = function()
      {
         // websocket is closed.
-        alert("Connection is closed...");
+        $("#recv").html("<div style=\"color: red; size:30px\">Connection closed</div>");
      };
   }
   else
@@ -85,10 +88,16 @@ function WebSocketTest()
      $("#sent").html("Browser not supported");
   }
 }
+
+function WebSocketMsg() {
+    start = new Date().getTime();
+    ws.send(start);
+}
 </script>
 </head>
 <body>
 <a href="javascript:WebSocketTest()">Run WebSocket</a><br>
+<a href="javascript:WebSocketMsg()">Send msg</a><br>
 Sent:<div id='sent'></div><br>
 Recv:<div id='recv'></div>
 
