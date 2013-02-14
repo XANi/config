@@ -71,7 +71,7 @@
 ;; scroll/toolbar off
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; file cache
 
@@ -155,6 +155,7 @@
                             '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
    ;;(maximize)
    (global-set-key [f11] 'maximize)
+   (global-set-key [f12] 'menu-bar-mode)
    )
  (ad-activate 'server-create-window-system-frame)
  (add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)

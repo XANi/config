@@ -37,19 +37,23 @@ node default {
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
+    apt::key { 'spotify': keyid => '94558F59';}
 
-    if $is_virtual {
+    if $is_virtual == 'true' {
         include vm
+    }
+    else {
+        # most likely wont use spotify as music player
+        package {'spotify-client':
+            ensure => installed;
+        }
     }
 
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
 
+    if $deploy_arte_config {
+        include home::config::svn
+    }
 }
-
-node spare2 inherits default {
-    include home::config::svn
-}
-
-

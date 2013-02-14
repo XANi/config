@@ -1,5 +1,5 @@
 <%- if has_variable?('portable_config') -%>
-RCfile for "top with windows"		# <% puppet_header %>
+RCfile for "top with windows"		#  <%= puppet_header %>  <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 Id:a, Mode_altscr=0, Mode_irixps=1, Delay_time=3.000, Curwin=0
 Def	fieldscur=AEHIOQTWKNMbcdfgjplrsuvyzX
 	winflags=32696, sortindx=10, maxtasks=0
@@ -14,7 +14,7 @@ Usr	fieldscur=ABDECGfhijlopqrstuvyzMKNWX
 	winflags=64825, sortindx=4, maxtasks=0
 	summclr=4, msgsclr=6, headclr=4, taskclr=2
 <%- else -%>
-top's Config File (Linux processes with windows) # <% puppet_header %>
+top's Config File (Linux processes with windows) #  <%= puppet_header %>  <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 Id:f, Mode_altscr=0, Mode_irixps=1, Delay_time=3,000, Curwin=0
 Def	fieldscur=¥¨³´»½ÀÄ·º¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[
 	winflags=65524, sortindx=18, maxtasks=0
