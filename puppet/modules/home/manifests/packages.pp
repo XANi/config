@@ -11,6 +11,7 @@ class home::packages {
          ttf-dejavu,
          terminator,
          # utils
+         unrar,
          zile,
          meld,
          wireshark,
