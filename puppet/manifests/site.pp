@@ -56,4 +56,5 @@ node default {
     if $deploy_arte_config {
         include home::config::svn
     }
+    ssl::cert {'devrandom':;}
 }
