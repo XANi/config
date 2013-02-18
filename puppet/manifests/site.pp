@@ -39,7 +39,7 @@ node default {
     xfce::theme { 'Nodoka-Midnight-XANi':; }
     apt::key { 'spotify': keyid => '94558F59';}
 
-    if $is_virtual {
+    if $is_virtual == 'true' {
         include vm
     }
     else {
