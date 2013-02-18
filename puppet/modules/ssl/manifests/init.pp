@@ -2,6 +2,7 @@ class ssl {
     exec { 'update-ca-certificates':
         command     => 'update-ca-certificates',
         refreshonly => true,
+        logoutput   => true,
     }
 }
 
@@ -10,7 +11,7 @@ class ssl {
 
 define ssl::cert {
     include ssl
-    file { "/etc/ssl/certs/puppet-${title}.pem":
+    file { "/usr/local/share/ca-certificates/puppet-${title}.crt":
         source => "puppet:///modules/ssl/certs/${title}.pem",
         mode   => 644,
         owner  => root,
