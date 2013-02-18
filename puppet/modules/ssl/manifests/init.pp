@@ -1,5 +1,5 @@
 class ssl {
-    exec { 'update-ca-certificate':
+    exec { 'update-ca-certificates':
         command     => 'update-ca-certificates',
         refreshonly => true,
     }
