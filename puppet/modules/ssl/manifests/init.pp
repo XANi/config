@@ -11,7 +11,7 @@ class ssl {
 define ssl::cert {
     include ssl
     file { "/etc/ssl/certs/puppet-${title}.pem":
-        source => "file:///modules/ssl/certs/${title}.pem",
+        source => "puppet:///modules/ssl/certs/${title}.pem",
         mode   => 644,
         owner  => root,
         notify => Exec['update-ca-certificates'],
