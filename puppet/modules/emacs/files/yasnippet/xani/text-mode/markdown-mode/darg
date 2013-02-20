@@ -1,0 +1,4 @@
+# name: * __param__() - description
+# --
+ * __${1:param}__ - ${2:description}
+$0
