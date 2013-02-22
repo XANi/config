@@ -189,8 +189,6 @@ fi
 if [ ! -e /usr/local/bin/e ] && [ ! -e /usr/bin/e ]  ; then
     alias e='emacs'
 fi
-
-
 <% if File.exists?(scope.lookupvar('home::common::homedir') + '/.bash_prompt_custom') %>
 <%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.bash_prompt_custom']) %>
 <% end %>
