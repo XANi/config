@@ -1,16 +1,7 @@
 # <%= puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
----
-repo:
-<%-
-# ruby1.8 yaml dump randomly orders keys so we have to do it in predictable ways
-repo_config.keys.sort.each do |repo|
--%>
-  <%= repo %>:
-<%- repo_config[repo].sort.each do |key| -%>
-    <%= key.join(': ') %>
-<% end %>
-<% end %>
+<%= YAML.dump(repo_config) %>
+
 # in which order load repos in module/hiera path
 use_repos:
   - private
