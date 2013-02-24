@@ -1,6 +1,6 @@
 # <%= puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
-<%= YAML.dump(repo_config) %>
+<%= YAML.dump(repo_config).gsub(/---\n/,"---\nrepo:\n") %>
 
 # in which order load repos in module/hiera path
 use_repos:
