@@ -1,0 +1,4 @@
+# name: # $param = hiera('search',default);
+# --
+\$$1 = hiera('$2', $3)
+$0

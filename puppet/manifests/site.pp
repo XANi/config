@@ -20,7 +20,7 @@ $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY 
 
 node default {
     class {'apt::source': stage => init}
-    $deploy_arte_config = false
+    $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
         home:;
         puppet:;
@@ -52,8 +52,12 @@ node default {
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
+    ssl::cert {'devrandom':;}
 
     if $deploy_arte_config {
         include home::config::svn
+        ssl::cert {'arte':;}
+
     }
+
 }

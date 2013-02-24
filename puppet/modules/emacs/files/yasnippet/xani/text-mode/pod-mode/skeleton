@@ -1,0 +1,31 @@
+# name : doc skeleton
+# --
+=head1 NAME
+
+$1 - $2
+
+=head1 SYNOPSIS
+
+$1 $3
+
+=head1 OPTIONS
+
+parameters can be shortened if unique, like  --add -> -a
+
+=over 4
+
+=item B<--help>
+
+display full help
+
+$0
+
+=back
+
+=head1 EXAMPLES
+
+$1
+
+=back
+
+=cut

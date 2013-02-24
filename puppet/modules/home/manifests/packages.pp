@@ -24,6 +24,7 @@ class home::packages {
          mc,
          sshfs,
          gtklp,
+         rlwrap,
          cups-pdf,
          libnotify-bin,
          pkg-mozilla-archive-keyring,

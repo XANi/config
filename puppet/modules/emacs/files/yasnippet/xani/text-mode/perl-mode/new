@@ -1,0 +1,18 @@
+# name : sub new {..
+# --
+sub new {
+    my $proto = shift;
+    my $class = ref($proto) || $proto;
+    my $self = {};
+    bless($self, $class);
+    my $cfg;
+    if (ref($_[0]) eq 'ARRAY') {
+        $cfg = shift;
+    }
+    else {
+        $cfg = { @_ };
+    }
+    $self->{'cfg'} = $cfg;
+    return $self;
+}
+$0
