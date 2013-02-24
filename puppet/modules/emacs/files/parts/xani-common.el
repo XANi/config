@@ -93,24 +93,7 @@
  '(uniquify-min-dir-content 2)
  '(whitespace-line-column 200)
  '(whitespace-style (quote (face tabs trailing lines tab-mark)))
- '(diminished-minor-modes
-   (
-    quote (
-           (flymake-mode . "✈")
-           (global-whitespace-newline-mode . "")
-           (global-whitespace-mode . "")
-           (whitespace-newline-mode . "")
-           (whitespace-mode . "")
-           (undo-tree-mode . "")
-           (server-buffer-clients . "")
-           (yas/minor-mode . "𐤊")
-           (overwrite-mode . "✗")
-           )
-          )
-   )
-
 )
-
 ;; Show tabs with the same color as trailing whitespace
 ;; (add-hook 'font-lock-mode-hook
 ;;   (lambda ()
