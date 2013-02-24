@@ -24,12 +24,13 @@
 
 ;; I edit configs a lot so if it's unknown file it's probably a config
 (setq-default major-mode 'conf-mode)
+;; I always use server mode here do replace default kill with server-edit
 (global-set-key [(control x) (k)] '(lambda ()
   (interactive)
   (if server-buffer-clients
       (server-edit)
     (kill-this-buffer)))
-) ;; we always use server mode here do replace default kill with server-edit
+)
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
@@ -37,11 +38,11 @@
 ;; default printing program:
 (setq lpr-command "gtklp")
 
-
-(setq
- display-time-day-and-date t
- display-time-24hr-format t)
-(display-time)
+;; display time in modeline
+;; (setq
+;;  display-time-day-and-date t
+;;  display-time-24hr-format t)
+;; (display-time)
 
 (show-paren-mode) ;; show matching ()
 (column-number-mode 1) ;; and column at bot
@@ -56,7 +57,7 @@
  kept-old-versions 0
  tab-width 4
  color-theme-is-global t
- version-control t       ; use versioned backups
+ version-control t       ; use versioned backups]
  yaml-block-literal-search-lines 1000
  yaml-indent-offset 4
  )
@@ -92,6 +93,22 @@
  '(uniquify-min-dir-content 2)
  '(whitespace-line-column 200)
  '(whitespace-style (quote (face tabs trailing lines tab-mark)))
+ '(diminished-minor-modes
+   (
+    quote (
+           (hs-minor-mode . "")
+           (flymake-mode . " FM")
+           (global-whitespace-newline-mode . "")
+           (global-whitespace-mode . "") (whitespace-newline-mode . "")
+           (whitespace-mode . "")
+           (undo-tree-mode . "")
+           (server-buffer-clients . "")
+           (yas/minor-mode . "")
+           (overwrite-mode . "Ov")
+           )
+          )
+   )
+
 )
 
 ;; Show tabs with the same color as trailing whitespace
@@ -112,6 +129,9 @@
   ;;active flymake processes
   (set-process-query-on-exit-flag ad-return-value nil))
 
+;; display buffer position in modeline
+(require 'sml-modeline)
+(sml-modeline-mode 1)
 
 (provide 'xani-common)
 
