@@ -59,6 +59,7 @@
 <%- end -%>
 (require 'xani-local)
 
+
 (setq custom-file "~/.emacs-custom.el.gpg")
 (load custom-file 'noerror)
 
@@ -72,6 +73,10 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+;; for things that need other things
+(require 'xani-common-late)
+
 
 ;; file cache
 
