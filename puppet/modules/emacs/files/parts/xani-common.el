@@ -103,7 +103,7 @@
            (whitespace-mode . "")
            (undo-tree-mode . "")
            (server-buffer-clients . "")
-           (yas/minor-mode . "✫")
+           (yas/minor-mode . "𐤊")
            (overwrite-mode . "✗")
            )
           )
