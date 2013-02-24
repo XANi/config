@@ -18,5 +18,4 @@
 (custom-set-variables
   '(hs-isearch-open t)
 )
-
 (provide 'xani-hs-mode)

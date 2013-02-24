@@ -96,15 +96,15 @@
  '(diminished-minor-modes
    (
     quote (
-           (hs-minor-mode . "")
-           (flymake-mode . " FM")
+           (flymake-mode . "✈")
            (global-whitespace-newline-mode . "")
-           (global-whitespace-mode . "") (whitespace-newline-mode . "")
+           (global-whitespace-mode . "")
+           (whitespace-newline-mode . "")
            (whitespace-mode . "")
            (undo-tree-mode . "")
            (server-buffer-clients . "")
-           (yas/minor-mode . "")
-           (overwrite-mode . "Ov")
+           (yas/minor-mode . "✫")
+           (overwrite-mode . "✗")
            )
           )
    )
