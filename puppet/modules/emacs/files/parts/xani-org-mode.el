@@ -13,6 +13,7 @@
  org-agenda-skip-scheduled-if-done t
  org-agenda-start-with-log-mode t
  org-agenda-window-setup (quote current-window)
+ org-export-run-in-background t
  org-indirect-buffer-display (quote current-window)
  org-log-done t
  org-deadline-warning-days 7
@@ -21,9 +22,10 @@
  org-use-fast-todo-selection t
  org-track-ordered-property-with-tag t
  org-enforce-todo-dependencies t
- org-combined-agenda-icalendar-file "~/emacs/org/cal.ics"
+
 ;; org-icalendar-include-bbdb-anniversaries t
  org-icalendar-include-todo t
+ org-icalendar-alarm-time 10
 ;; org-icalendar-store-UID t
  org-icalendar-use-deadline (quote (event-if-todo todo-due))
  org-icalendar-use-scheduled (quote (event-if-todo todo-start))
