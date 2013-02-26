@@ -22,9 +22,9 @@ class apt::source (
         notify  => Exec['apt-update'],
     }
     file { local-apt-sources:
-        path    => '/etc/apt/local-sources-list',
+        path    => '/etc/apt/local-sources.list',
         replace => no,
-        content => "# /etc/apt/local-sources-list\n# put local, test or machine-specific repos here\n\n",
+        content => "# /etc/apt/local-sources.list\n# put local, test or machine-specific repos here\n\n",
         mode    => 644,
     }
 
