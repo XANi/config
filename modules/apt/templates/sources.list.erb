@@ -14,3 +14,7 @@ repos.keys.sort.each do |repo| %>
         <%- end -%>
     <%- end -%>
 <% end %>
+
+<% if File.exists?('/etc/apt/local-sources.list') %>
+<%= scope.function_template(['/etc/apt/local-sources.list']) %>
+<% end %>

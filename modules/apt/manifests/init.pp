@@ -15,17 +15,24 @@ class apt::source (
     ) {
     $repos = hiera('repos')
     file { apt-sources:
-        path => '/etc/apt/sources.list',
-        owner => root,
-        mode => 644,
+        path    => '/etc/apt/sources.list',
+        owner   => root,
+        mode    => 644,
         content => template('apt/sources.list.erb'),
-        notify => Exec['apt-update'],
+        notify  => Exec['apt-update'],
     }
+    file { local-apt-sources:
+        path    => '/etc/apt/local-sources.list',
+        replace => no,
+        content => "# /etc/apt/local-sources.list\n# put local, test or machine-specific repos here\n\n",
+        mode    => 644,
+    }
+
     exec { apt-update:
         refreshonly => true,
-        command => '/usr/bin/aptitude update',
-        logoutput => true,
-        timeout => 0,
+        command     => '/usr/bin/aptitude update',
+        logoutput   => true,
+        timeout     => 0,
     }
     package { 'emdebian-archive-keyring':
         ensure => latest,
@@ -34,10 +41,10 @@ class apt::source (
 
 class apt::update {
     file { apt-download-updates:
-        path => '/etc/cron.daily/puppet-apt-updates',
+        path    => '/etc/cron.daily/puppet-apt-updates',
         content => template('apt/apt-updates.erb'),
-        owner => root,
-        mode => 755,
+        owner   => root,
+        mode    => 755,
     }
 }
 define apt::key(

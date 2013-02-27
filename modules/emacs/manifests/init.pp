@@ -218,6 +218,14 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
             hour    => '*',
             minute  => '*/5',
         }
+        file { "${homedir}/emacs/org/cal.ics":
+            ensure => "${homedir}/emacs/org/arte.ics",
+        }
+    }
+    else {
+        file { "${homedir}/emacs/org/cal.ics":
+            ensure => "${homedir}/emacs/org/share.ics",
+        }
     }
     file { xani-emacs-org:
         path    => "${homedir}/emacs/org",
