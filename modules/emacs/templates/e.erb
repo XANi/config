@@ -7,9 +7,15 @@ my $prepend='/sudo::';
 my $v = {};
 foreach (@ARGV) {
     if ( my $st = stat($_) ) {
-        if ( !$st->cando(S_IWUSR)
-             || $ENV{'USER'} !~ /xani/
-         ) {
+        if ( $st->cando(S_IWUSR)
+             && $ENV{'USER'} =~ /xani/
+        ) {
+            $v->{'sudo'} = 0;
+        }
+        elsif ($st->uid > 10000) { #probably sshfs
+            $v->{'sudo'} = 0;
+        }
+        else {
             $v->{'sudo'} = 1;
             $_ = $prepend . $_;
         }
