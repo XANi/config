@@ -27,10 +27,10 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     file { 'run_emacs':
-        path   => '/usr/local/bin/e',
-        source => "puppet:///modules/emacs/e",
-        owner  => root,
-        mode   => 755,
+        path    => '/usr/local/bin/e',
+        content => template('emacs/e.erb'),
+        owner   => root,
+        mode    => 755,
     }
     file { emacs-config:
         path    => "${homedir}/.emacs-legacy",

@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+# <%= puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+use Fcntl qw(S_IWUSR);
+use File::stat;
+my $prepend='/sudo::';
+my $v = {};
+foreach (@ARGV) {
+    if ( my $st = stat($_) ) {
+        if ( !$st->cando(S_IWUSR)
+             || $ENV{'USER'} !~ /xani/
+         ) {
+            $v->{'sudo'} = 1;
+            $_ = $prepend . $_;
+        }
+    }
+}
+$xlsclients = qx{xlsclients -a};
+if ($xlsclients !~ /emacs/) {
+    $v->{'open_window'} = 1
+}
+if ($v->{'open_window'}) {
+    print "emacs window does not exists, creating new one";
+}
+else {
+    print "emacs window exists, using it";
+}
+if($v->{'sudo'}) { print ", using tramp->sudo, file not owned by us" }
+print "\n";
+
+if ($v->{'open_window'}) {
+    system('emacsclient', '-c', '--alternate-editor=', @ARGV);
+}
+else {
+    system('emacsclient', '--alternate-editor=', @ARGV);
+}

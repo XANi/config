@@ -1,9 +1,0 @@
-#!/bin/bash
-PS=$(ps aux)
-if xlsclients -a |grep emacs >/dev/null 2>&1 ;then
-    echo "emacsclient running, using existing window"
-    exec emacsclient --alternate-editor="" "$@"
-else
-    echo "emacsclient not running, creating new window"
-    exec emacsclient --alternate-editor="" -c "$@"
-fi
