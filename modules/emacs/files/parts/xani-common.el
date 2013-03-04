@@ -29,7 +29,10 @@
   (interactive)
   (if server-buffer-clients
       (server-edit)
-    (kill-this-buffer)))
+    (when (and (frame-live-p (selected-frame))
+               (kill-this-buffer))
+      (delete-frame))
+    ))
 )
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
