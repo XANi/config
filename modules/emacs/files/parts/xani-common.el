@@ -31,7 +31,7 @@
       (server-edit)
     (when (and (frame-live-p (selected-frame))
                (kill-this-buffer))
-      (delete-frame))
+      )
     ))
 )
 
