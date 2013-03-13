@@ -22,6 +22,7 @@ node default {
     class {'apt::source': stage => init}
     $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
+        bug:;
         home:;
         puppet:;
         apt::update:;
