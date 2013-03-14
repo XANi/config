@@ -2,6 +2,7 @@
 # <%= puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 # LOG
+notify-send 'ssh-agent' "auth request for $@"
 echo `date` $@ >>/tmp/askpass.log
 echo -n `date`  >>/tmp/askpass.log
 export >>/tmp/askpass.log
