@@ -32,6 +32,7 @@ node default {
         emacs:;
         emacs::org:;
         emacs::org::sync:;
+        util::generic:;
         xfce:;
         token:;
         custom:;
