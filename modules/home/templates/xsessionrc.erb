@@ -10,4 +10,9 @@ if killall arbtt-capture >/dev/null 2>&1 ; then
     killall -9 arbtt-capture >/dev/null 2>&1
 fi
 arbtt-capture --sample-rate 10 &
+touch /home/xani/env.xsession && chmod go-rwx /home/xani/env.xsession &&  export > /home/xani/env.xsession
+
+
+
+
 true
