@@ -2,7 +2,7 @@
 ;;
 (custom-set-variables
  '(jabber-default-priority 100)
- '(jabber-default-status "RIP {+} Google Reader. We will miss you" )
+ '(jabber-default-status "\"...z grubsza rzecz biorąc,  ludzi można podzielić na dwie kategorie:  ailurophiles i ailurophobes -  miłośników kotów i  osoby poszkodowane przez los\"" )
  '(jabber-activity-make-strings (quote jabber-activity-make-strings-shorten))
  '(jabber-activity-shorten-minimum 20)
  '(jabber-alert-message-hooks (quote (jabber-message-beep jabber-message-echo jabber-message-scroll)))
