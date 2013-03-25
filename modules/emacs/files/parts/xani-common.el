@@ -34,6 +34,10 @@
       )
     ))
 )
+;; workaround for menu-bar-non-minibuffer-window-p: Wrong type argument: frame-live-p
+(setq menu-updating-frame nil)
+
+
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
