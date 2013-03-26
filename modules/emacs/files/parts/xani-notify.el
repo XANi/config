@@ -46,5 +46,12 @@
       (notify-send (format "%s" (jabber-jid-displayname from))
              text))
 )
+;; set pidgin/libpurple status msg
+(defun set-purple-status (status msg)
+  (start-process "purple-remote" "purple-remote status" "/usr/bin/purple-remote"
+                 (concatenate 'string "setstatus?message=" msg "\&status=" status)
+                 )
+)
+
 
 (provide 'xani-notify)
