@@ -31,6 +31,7 @@ class home::packages {
          perlconsole,
          perltidy,
          libcapture-tiny-perl,
+         libdevel-nytprof-perl,
          colordiff,
          gnome-gpg,
          seahorse,

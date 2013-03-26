@@ -20,6 +20,13 @@ Host *.non.3dart.com
     ForwardAgent yes
     ForwardX11 no
 
+# if its not named host, it is most likely some rescue or other crap,
+#   dont save in known_hosts
+Host 172.16.*
+     UserKnownHostsFile /dev/null
+     User root
+     LogLevel QUIET
+
 Host *
      User root
 <% end %>

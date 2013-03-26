@@ -24,6 +24,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
     home::config::exec {
         git-wtf:;
         ssh-askpass-wrapper:;
+        notify-wrapper:;
     }
     home::config::code_tmp {
         erb:;
