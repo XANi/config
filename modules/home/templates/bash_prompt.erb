@@ -138,6 +138,8 @@ alias kj="killall -9 java"
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
+alias riak-admin="sudo -u riak riak-admin"
+
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
 disc() {
@@ -165,7 +167,6 @@ alias emacs='echo use e $@'
 alias ytd='youtube-dl -t --console-title'
 alias aptitude="sudo aptitude"
 alias cfg="cd ~/src/my/config"
-alias riak-admin="sudo -u riak riak-admin"
 alias pup="cd ~/src/svn-puppet 2>/dev/null || cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster"
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 <%- if scope.lookupvar('home::common::http_proxy') -%>
