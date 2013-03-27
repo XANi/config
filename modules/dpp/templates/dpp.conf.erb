@@ -26,6 +26,9 @@ manager_url: <%= manager_url %>
 # how often we should poll each url
 poll_interval: 20
 
+# pass notification (new commit/puppet run)
+exec_notify: /usr/local/bin/puppet-notify
+
 puppet:
    # wait that many seconds before first run
   start_wait: 60

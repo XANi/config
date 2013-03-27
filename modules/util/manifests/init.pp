@@ -10,3 +10,16 @@ class util::packages {
         ensure => installed,
     }
 }
+
+
+class util::generic {
+    # tmp mounts
+    file { [
+            '/mnt/tmp',
+            '/mnt/tmp1',
+            '/mnt/tmp2',
+            '/mnt/tmp3',
+            ]:
+                ensure => directory,
+    }
+}
