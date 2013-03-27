@@ -37,6 +37,7 @@ class home::packages {
          seahorse,
          youtube-dl,
          xtightvncviewer,
+         eog,
          #dev crap
          cpanminus,
          libjson-perl,
