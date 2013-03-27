@@ -3,7 +3,8 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 use Fcntl qw(S_IWUSR);
 use File::stat;
-my $prepend='/sudo::';
+#my $prepend='/sudo::';
+my $prepend='';
 my $v = {};
 foreach (@ARGV) {
     if ( my $st = stat($_) ) {
