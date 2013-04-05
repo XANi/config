@@ -2,7 +2,7 @@
 # Puppet: <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 use common::sense;
 my ($title, $body) = @ARGV;
-$icon ||= '/usr/share/icons/oxygen/128x128/categories/preferences-system-network.png';
+my $icon ||= '/usr/share/icons/oxygen/128x128/categories/preferences-system-network.png';
 $body =~ s/\&/\&amp\;/g;
 $body =~ s/</\&lt\;/g;
 $body =~ s/>/\&gt\;/g;
