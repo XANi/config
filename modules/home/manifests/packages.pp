@@ -38,6 +38,7 @@ class home::packages {
          youtube-dl,
          xtightvncviewer,
          eog,
+         zenity,
          #dev crap
          cpanminus,
          libjson-perl,

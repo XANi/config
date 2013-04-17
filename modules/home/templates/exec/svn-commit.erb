@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-# <%= puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+# Puppet: <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+
 use strict;
 use warnings;
 use File::Temp qw/tempfile :POSIX/;
@@ -59,31 +59,38 @@ if(scalar @fail > 0) {
     print "\n";
     exit 1;
 }
+if (scalar @$changed_files < 1) {
+    print "No files to commit \n";
+    exit 0;
+}
 system($ENV{'EDITOR'}, $editmsg_file);
 open($editmsg_fh, '<', $editmsg_file);
 my ($commitmsg_fh, $commitmsg_file) = tempfile('svn-commit_XXXXXX', SUFFIX => '.diff', DIR => File::Spec->tmpdir);
-if (scalar @$changed_files < 1) {
-    print "No files to commit \n";
-}
-print "Going to commit " . scalar @$changed_files . " files with commit msg:\n";
-my $msg;
+
+
+
+my $commitmsg;
 while(<$editmsg_fh>) {
     if($_ =~ /$commit_msg_end/) {
         last;
     }
     print $commitmsg_fh $_;
     print $_;
-    $msg .= $_;
+    $commitmsg .= $_;
 }
 close($commitmsg_fh);
-print "is that ok ? ";
-if ( defined($conf->{'notify'}) ) {
-#    system('notify-send', '-u', 'critical','Commit waiting!',"Commit with msg '$msg' waiting");
-    system('notify-send', 'Commit waiting!',"Commit with msg '$msg' waiting");
+if ($commitmsg =~ /^\s*$/ms) {
+    system('notify-send', 'Empty commit message',"Cancelling");
+    exit 0;
 }
-my $in = <STDIN>;
+my $msg = "Going to commit " . scalar @$changed_files . " files with commit msg:\n$commitmsg";
+$msg .= "is that ok ? ";
+if ( defined($conf->{'notify'}) && ! &is_x) {
+#    system('notify-send', '-u', 'critical','Commit waiting!',"Commit with msg '$msg' waiting");
+    system('notify-send', 'Commit waiting!',"Commit with msg '$' waiting");
+}
 my $commit_log_tmp = tmpnam();
-if( $in =~ /(y|t)/) {
+if( &ask($msg)) {
     print "Commiting\n";
     system("svn commit -F $commitmsg_file 2>&1 |tee $commit_log_tmp");
     # TODO make that use open not silly system
@@ -118,4 +125,36 @@ sub validate_file {
         return
     }
     return 1;
+}
+
+sub ask {
+    my $msg = shift;
+    if (&is_x) {
+        system('zenity','--question',
+               '--text', $msg,
+               '--ok-label', 'Commit',
+               '--cancel-label', 'Nope',
+           );
+        if($?) {
+            return undef;
+        }
+        else {
+            return 1;
+        }
+    }
+    else {
+        print $msg;
+        my $in = <STDIN>;
+        if( $in =~ /(y|t|u)/) { return 1; }
+        else { return undef}
+    }
+}
+
+sub is_x {
+    if (defined($ENV{'DISPLAY'}) && $ENV{'DISPLAY'} !~ /^\s*$/) {
+        return 1; # probably
+    }
+    else {
+        return undef; # nope
+    }
 }
