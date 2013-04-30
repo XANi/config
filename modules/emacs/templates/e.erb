@@ -3,9 +3,27 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 use Fcntl qw(S_IWUSR);
 use File::stat;
+my $home;
+if (defined($ENV{'HOME'}) && $ENV{'HOME'} !~ m{^(\s*|/root)$}) {
+    $home = $ENV{'HOME'};
+}
+else {
+    $home = '/home/xani';
+}
+my $puppet_path = [
+    $home . '/src/svn-puppet',
+    $home . '/src/puppet',
+    $home . '/src/my/cluster',
+    $home . '/src/my/puppet',
+    $home . '/src/my/xani-puppet',
+    $home . '/src/my/config',
+];
+
 #my $prepend='/sudo::';
 my $prepend='';
 my $v = {};
+
+
 foreach (@ARGV) {
     if ( my $st = stat($_) ) {
         if ( $st->cando(S_IWUSR)
@@ -19,6 +37,19 @@ foreach (@ARGV) {
         else {
             $v->{'sudo'} = 1;
             $_ = $prepend . $_;
+        }
+    }
+    elsif ($_ =~ m{puppet://(.*?)/(.+)}) {
+        my $puppet_file = $2;
+        $puppet_file =~ s{modules/(.+?)/}{modules/$1/files/};
+        foreach $path (@$puppet_path) {
+            my $file = $path . '/' . $puppet_file;
+            print "Checking $file \n";
+            if ( -e $file ) {
+                print "Found!\n";
+                $_ = $file;
+                last;
+            }
         }
     }
 }
