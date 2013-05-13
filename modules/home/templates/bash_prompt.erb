@@ -139,6 +139,7 @@ alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
 alias riak-admin="sudo -u riak riak-admin"
+alias tdump='tcpdump -i any -s 0 -n -U -w dump_$(date +%F_%T)'
 
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
