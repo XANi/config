@@ -39,6 +39,7 @@ class home::packages {
          xtightvncviewer,
          eog,
          zenity,
+         tilda,
          #dev crap
          cpanminus,
          libjson-perl,
