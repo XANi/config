@@ -103,7 +103,6 @@ define home::config::exec (
         content => template($source),
         mode    => 755,
         owner   => xani,
-        replace => no,
     }
 }
 
