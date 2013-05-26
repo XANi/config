@@ -19,7 +19,9 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
             target => ".config/terminator/config";
         arbtt:
             source => 'home/arbtt-categorize.cfg.erb',
-            target => '.arbtt/categorize.cfg'
+            target => '.arbtt/categorize.cfg';
+        tilda:
+            target => '.tilda/config_0';
     }
     home::config::exec {
         git-wtf:;
@@ -37,7 +39,9 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
     home::dir {
         '.config':;
         '.config/terminator':;
+        '.tilda':;
     }
+
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
         ensure => directory,
@@ -52,9 +56,8 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         mode    => 600,
         require => File['xani-ssh-config-dir'],
     }
-
-
 }
+
 define home::config::file (
         $source = "home/${title}.erb",
         $target = ".${title}",
@@ -100,7 +103,6 @@ define home::config::exec (
         content => template($source),
         mode    => 755,
         owner   => xani,
-        replace => no,
     }
 }
 

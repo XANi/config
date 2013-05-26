@@ -2,6 +2,7 @@
 *~
 .*.sw?
 .sw?
+.\#*
 \#*\#
 DEADJOE
 # compiled files

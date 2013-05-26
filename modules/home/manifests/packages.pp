@@ -38,12 +38,16 @@ class home::packages {
          youtube-dl,
          xtightvncviewer,
          eog,
+         zenity,
+         tilda,
          #dev crap
          cpanminus,
          libjson-perl,
          libyaml-perl,
          libfile-slurp-perl,
          gdb-multiarch,
+         # decent pdf viewer
+         evince,
          # R analysis tools
          rkward,
          #
@@ -54,6 +58,10 @@ class home::packages {
     }
     # for some bullshit reason a lot of packages recommend apache; fuck them
     package { 'apache2.2-common':
+        ensure => absent,
+    }
+    # epdfviewer cant even print correctly
+    package { 'epdfviewer':
         ensure => absent,
     }
     # polish translations are crap and/or outdated

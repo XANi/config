@@ -18,6 +18,8 @@ get '/ws' => 'ws';
 get '/list/:offset' => sub {
     my $self    = shift;
     my $numbers = [0 .. $self->param('offset')];
+    # add header
+    $self->res->headers->header('X-Random-Header' => scalar localtime(time));
     $self->respond_to(
         json => {json => $numbers},
         txt  => {text => join(',', @$numbers)}

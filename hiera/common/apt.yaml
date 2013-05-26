@@ -1,14 +1,14 @@
 ---
 repos:
     main-squeeze:
-        comment: Main Debian repo - Squeeze
+        comment: Main Debian repo - Squeeze (oldstable)
         deb:
             - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
         deb-src:
             - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
 
     main-wheezy:
-        comment: Main Debian repo - Wheezy
+        comment: Main Debian repo - Wheezy (stable)
         deb:
             - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
         deb-src:

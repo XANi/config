@@ -1,9 +1,19 @@
-#!/bin/bash
+#!/usr/bin/perl
 # <%= puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
-# LOG
-notify-send 'ssh-agent' "auth request for $@"
-echo `date` $@ >>/tmp/askpass.log
-echo -n `date`  >>/tmp/askpass.log
-export >>/tmp/askpass.log
-/usr/lib/seahorse/seahorse-ssh-askpass $@
+use common::sense;
+open(L,'>>','/tmp/askpass.log');
+my $msg = join(' ', @ARGV);
+print L localtime(time);
+print L ' ' . $msg . "\n";
+system('notify-send', 'ssh-agent', "auth request for $msg");
+if ($msg =~ /^Allow use of key/) { # key usage, no need for password dialog
+    exec('zenity','--question',
+           '--text', $msg,
+           '--ok-label', 'Allow',
+           '--cancel-label', 'Deny',
+       );
+}
+else {
+    exec('/usr/lib/seahorse/seahorse-ssh-askpass', @ARGV);
+}
