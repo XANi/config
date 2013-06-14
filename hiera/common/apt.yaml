@@ -32,9 +32,9 @@ repos:
             - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
 
     firefox:
-        comment: Latest firefox releases from experimental
+        comment: Latest firefox releases
         deb:
-            - http://mozilla.debian.net/ experimental iceweasel-beta
+            - http://mozilla.debian.net/ wheezy-backports iceweasel-release
 
     crawl:
         comment: dungeon crawl
