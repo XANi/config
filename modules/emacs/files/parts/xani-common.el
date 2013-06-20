@@ -90,9 +90,10 @@
  '(ibuffer-default-sorting-reversep t)
  '(load-home-init-file t t)
  '(mouse-yank-at-point 1)
+ '(save-abbrevs (quote silently))
  ;; magick needed to make jabber-mode work with gmail and arte jabber servers
  '(starttls-extra-arguments (quote ("--insecure")))
-;; for wanderlust
+ ;; for wanderlust
  '(ssl-certificate-verification-policy 0)
  '(ssl-program-arguments (quote ("--insecure" "-p" service host)))
  '(ssl-program-name "gnutls-cli")
