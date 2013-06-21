@@ -6,8 +6,9 @@
 (setq yas/root-directory
       '(
         "/home/xani/emacs/yasnippet/custom"
-        "/home/xani/emacs/yasnippet/vendor"
+        "/home/xani/emacs/yasnippet/import"
         "/home/xani/emacs/yasnippet/xani"
+        "/home/xani/emacs/yasnippet/vendor"
         )
 
       hippie-expand-try-functions-list (quote (

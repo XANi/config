@@ -151,6 +151,17 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group   => xani,
         require => File['xani-emacs-yasnippet'],
     }
+    # imported from other modules
+    file { 'xani-emacs-yasnippet-import':
+        path    => "${homedir}/emacs/yasnippet/import",
+        ensure  => directory,
+        recurse => true,
+        purge   => true,
+        force   => true,
+        owner   => xani,
+        group   => xani,
+        require => File['xani-emacs-yasnippet'],
+    }
     emacs::autoinsert {
         'puppet':;
         'perl':;
