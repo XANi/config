@@ -67,7 +67,7 @@
 
 
 ;; autosave org files directly to file
-(defun my-org-mode-autosave-settings
+(defun my-org-mode-autosave-settings ()
   ;; (auto-save-mode 1)   ; this is unecessary as it is on by default
   (set (make-local-variable 'auto-save-visited-file-name) t)
   (setq auto-save-interval 20)
