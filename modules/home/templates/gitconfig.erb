@@ -46,7 +46,7 @@
     autosetupmerge = true
 
 [alias]
-    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset %s'
+    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
     co = checkout
     cx = commit <% if gpgid != false %> -S <% end %>
     c = commit <% if gpgid != false %> -S <% end %>
