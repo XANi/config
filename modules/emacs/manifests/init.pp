@@ -32,6 +32,10 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => root,
         mode    => 755,
     }
+#    file { 'git-emacs':
+#        path    => '/usr/lib/git-core/emacs',
+#        ensure  => '/usr/local/bin/e',
+#    }
     file { emacs-config:
         path    => "${homedir}/.emacs-legacy",
         owner   => xani,
