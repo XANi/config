@@ -54,6 +54,7 @@
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if gpgid != false %> -S <% end %>
+    d = diff --word-diff -C -M
 
 [merge]
     tool = meld
