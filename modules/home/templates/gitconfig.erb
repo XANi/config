@@ -27,9 +27,9 @@
     new = green
     whitespace = red reverse
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+    added = bold yellow
+    changed = bold green
+    untracked = bold red
 
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -50,7 +50,7 @@
     co = checkout
     cx = commit <% if gpgid != false %> -S <% end %>
     c = commit <% if gpgid != false %> -S <% end %>
-    s = status
+    s = status -s -b
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if gpgid != false %> -S <% end %>
