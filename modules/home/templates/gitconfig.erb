@@ -23,13 +23,18 @@
     commit = cyan bold
     meta = yellow
     frag = magenta bold
-    old = red
-    new = green
+    old = bold red
+    new = bold green
     whitespace = red reverse
 [color "status"]
-    added = bold yellow
-    changed = bold green
-    untracked = bold red
+    # in index
+    added   = bold green
+    # changed but not in index
+    changed = bold yellow
+    #
+    untracked = bold magenta
+    branch = bold green
+    nobranch = bold red
 
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
