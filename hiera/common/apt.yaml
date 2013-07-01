@@ -49,4 +49,4 @@ repos:
     emacs-snapshot:
         comment: Emacs snapshots
         deb:
-            - http://emacs.naquadah.org/ stable
+            - http://emacs.naquadah.org stable/
