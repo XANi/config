@@ -1,14 +1,15 @@
 class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
     package { magit: # emacs git
         ensure  => installed,
-        require => Package['emacs23'],
+        require => Package['emacs'],
     }
 
-#    package { emacs23:
-#        ensure => installed,
-#    }
+    package { emacs-snapshot:
+	alias => 'emacs', # for deps
+        ensure => installed,
+    }
 
-    package { ['emacs-snapshot',
+    package { [
                'lua-mode',
                'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
@@ -21,6 +22,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'bbdb',
                'xprintidle']:
         ensure  => installed,
+	require => Package['emacs'],
     }
     # old packages that we now get from elpa
     package { [
