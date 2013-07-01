@@ -21,7 +21,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'bbdb',
                'xprintidle']:
         ensure  => installed,
-        require => Package['emacs23'],
     }
     # old packages that we now get from elpa
     package { [
