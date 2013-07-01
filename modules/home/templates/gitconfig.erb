@@ -53,8 +53,8 @@
 [alias]
     l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
     co = checkout
-    cx = commit <% if gpgid != false %> -S <% end %>
-    c = commit <% if gpgid != false %> -S <% end %>
+    cx = commit -v <% if gpgid != false %> -S <% end %>
+    c = commit -v <% if gpgid != false %> -S <% end %>
     s = status -s -b
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
