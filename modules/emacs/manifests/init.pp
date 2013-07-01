@@ -4,12 +4,11 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => Package['emacs23'],
     }
 
-    package { emacs23:
-        ensure => installed,
-    }
+#    package { emacs23:
+#        ensure => installed,
+#    }
 
-    package { ['emacs23-el',
-               'emacs-goodies-el',
+    package { ['emacs-snapshot',
                'lua-mode',
                'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
@@ -20,10 +19,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'yaml-mode',
                'wl-beta',
                'bbdb',
-               'yasnippet',
                'xprintidle']:
         ensure  => installed,
         require => Package['emacs23'],
+    }
+    # old packages that we now get from elpa
+    package { [
+               'yasnippet',
+               ]:
+                   ensure => absent,
     }
 
     file { 'run_emacs':
