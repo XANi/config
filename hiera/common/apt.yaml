@@ -39,10 +39,14 @@ repos:
     crawl:
         comment: dungeon crawl
         deb:
-            - http://crawl.develz.org/debian crawl 0.8
+            - http://crawl.develz.org/debian crawl 0.12
 
     spotify:
         comment: Spotify player
         deb:
             - http://repository.spotify.com stable non-free
 
+    emacs-snapshot:
+        comment: Emacs snapshots
+        deb:
+            - http://emacs.naquadah.org/ stable
