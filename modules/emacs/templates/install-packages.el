@@ -7,7 +7,7 @@
 (package-initialize)
 (package-refresh-contents)
 
-<% foreach @emacs_packages do |package| %>
+<% @emacs_packages.each do |package| %>
 (when (not (require '<%= package %> nil t))
   (package-install '<%= package %>)
 )
