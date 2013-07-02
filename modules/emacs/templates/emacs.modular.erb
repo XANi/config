@@ -23,6 +23,11 @@
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
 
+(custom-theme-set-variables
+ 'purple-haze
+ '(fringe-mode 1 nil (fringe))
+ '(linum-format "%4d")
+)
 ;; my customisations
 
 (require 'autoinsert)
