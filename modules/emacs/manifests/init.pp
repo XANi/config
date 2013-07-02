@@ -31,6 +31,19 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
 
+    $emacs_packages = [
+                       'rainbow-mode',
+                       'color-theme-sanityinc-tomorrow',
+                       'color-theme-solarized',
+                       'zencoding-mode',
+                       ]
+    file { "${homedir}/emacs/install-pkgs.el":
+        content => template('emacs/install-packages.el'),
+        owner   => xani,
+        group   => xani,
+        mode    => 644,
+    }
+
     file { 'run_emacs':
         path    => '/usr/local/bin/e',
         content => template('emacs/e.erb'),
