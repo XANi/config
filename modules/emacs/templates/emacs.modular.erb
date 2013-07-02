@@ -23,11 +23,15 @@
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
 
+;; with some customisation
+
 (custom-theme-set-variables
  'purple-haze
  '(fringe-mode 1 nil (fringe))
  '(linum-format "%4d")
 )
+
+(set-face-attribute 'default nil :height 90)
 ;; my customisations
 
 (require 'autoinsert)
