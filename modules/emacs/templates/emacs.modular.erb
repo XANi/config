@@ -161,7 +161,7 @@
    (message "Running after frame-initialize")
 ;;   (setup-window-system-frame-colours)
 ;;   (load-theme 'solarized-dark t)
-   (load-theme '<%= @emacs_theme %> t)
+   ;;(load-theme '<%= @emacs_theme %> t)
 ;;   (tool-bar-mode -1)
  ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
    (defun maximize (&optional f)
@@ -175,7 +175,7 @@
    (global-set-key [f12] 'menu-bar-mode)
    )
  (ad-activate 'server-create-window-system-frame)
- (add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
+ ;;(add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
 ;;
 ;; ---------------------------------------------
 ;;
