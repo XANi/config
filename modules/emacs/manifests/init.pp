@@ -43,9 +43,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => xani,
         group   => xani,
         notify  => Exec['refresh-emacs-packages'],
-        environment => [
-                        "HOME=${homedir}",
-                        ],
         mode    => 644,
     }
 
@@ -53,6 +50,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
         refreshonly => true,
         logoutput   => true,
+        environment => [
+                        "HOME=${homedir}",
+                        ],
         user        => 'xani',
     }
 
