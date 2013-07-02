@@ -43,6 +43,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => xani,
         group   => xani,
         notify  => Exec['refresh-emacs-packages'],
+        environment => [
+                        "HOME=${homedir}",
+                        ],
         mode    => 644,
     }
 
