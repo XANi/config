@@ -30,18 +30,27 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                ]:
                    ensure => absent,
     }
-
+    $emacs_theme    = 'purple-haze'
     $emacs_packages = [
                        'rainbow-mode',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
+                       'purple-haze',
                        'zencoding-mode',
                        ]
-    file { "${homedir}/emacs/install-pkgs.el":
+    file { "${homedir}/emacs/install-packages.el":
         content => template('emacs/install-packages.el'),
         owner   => xani,
         group   => xani,
+        notify  => Exec['refresh-emacs-packages'],
         mode    => 644,
+    }
+
+    exec { 'refresh-emacs-packages':
+        command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
+        refreshonly => true,
+        logoutput   => true,
+        user        => 'xani',
     }
 
     file { 'run_emacs':
