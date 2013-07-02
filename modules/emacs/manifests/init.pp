@@ -20,6 +20,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'yaml-mode',
                'wl-beta',
                'bbdb',
+               'wmctrl',
                'yasnippet',
                'xprintidle']:
         ensure  => installed,
