@@ -158,9 +158,9 @@
  (defadvice server-create-window-system-frame
    (after set-window-system-frame-colours ())
 ;;   "Set custom frame colours when creating the first frame on a display"
-;;   (message "Running after frame-initialize")
-   (setup-window-system-frame-colours)
-
+   (message "Running after frame-initialize")
+;;   (setup-window-system-frame-colours)
+   (load-theme 'solarized-dark t)
 ;;   (tool-bar-mode -1)
  ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
    (defun maximize (&optional f)
