@@ -124,5 +124,8 @@
 (require 'sml-modeline)
 (sml-modeline-mode 1)
 
-(provide 'xani-common)
+;; colors
+(rainbow-delimiters-mode)
+(rainbow-mode)
 
+(provide 'xani-common)

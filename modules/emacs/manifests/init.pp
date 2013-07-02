@@ -34,6 +34,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     $emacs_theme    = 'purple-haze'
     $emacs_packages = [
                        'rainbow-mode',
+                       'rainbow-delimiters',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'purple-haze-theme',
