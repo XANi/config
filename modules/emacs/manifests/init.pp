@@ -1,15 +1,15 @@
 class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
     package { magit: # emacs git
         ensure  => installed,
-        require => Package['emacs23'],
+        require => Package['emacs'],
     }
 
-    package { emacs23:
+    package { emacs-snapshot:
+	alias => 'emacs', # for deps
         ensure => installed,
     }
 
-    package { ['emacs23-el',
-               'emacs-goodies-el',
+    package { [
                'lua-mode',
                'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
@@ -21,10 +21,40 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'wl-beta',
                'bbdb',
                'wmctrl',
-               'yasnippet',
                'xprintidle']:
         ensure  => installed,
-        require => Package['emacs23'],
+	require => Package['emacs'],
+    }
+    # old packages that we now get from elpa
+    package { [
+               'yasnippet',
+               ]:
+                   ensure => absent,
+    }
+    $emacs_theme    = 'purple-haze'
+    $emacs_packages = [
+                       'rainbow-mode',
+                       'color-theme-sanityinc-tomorrow',
+                       'color-theme-solarized',
+                       'purple-haze',
+                       'zencoding-mode',
+                       ]
+    file { "${homedir}/emacs/install-packages.el":
+        content => template('emacs/install-packages.el'),
+        owner   => xani,
+        group   => xani,
+        notify  => Exec['refresh-emacs-packages'],
+        mode    => 644,
+    }
+
+    exec { 'refresh-emacs-packages':
+        command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
+        refreshonly => true,
+        logoutput   => true,
+        environment => [
+                        "HOME=${homedir}",
+                        ],
+        user        => 'xani',
     }
 
     file { 'run_emacs':
