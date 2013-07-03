@@ -13,7 +13,7 @@
            (whitespace-mode . "")
            (undo-tree-mode . "")
            (server-buffer-clients . "")
-;;           (yas/minor-mode . "𐤊")
+           (yas/minor-mode . "𐤊")
            (overwrite-mode . "✗")
            )
           )
