@@ -44,6 +44,22 @@ Mojo::IOLoop->stream($self->tx->connection)->timeout(300);
               });
 };
 
+get '/slow' => sub {
+    my $self = shift;
+
+    # Start recurring timer
+    my $i  = 1;
+    my $id = Mojo::IOLoop->recurring(
+        1 => sub {
+            $self->write_chunk($i);
+            $self->finish if $i++ == 5;
+        }
+    );
+
+    # Stop recurring timer
+    $self->on( finish => sub { Mojo::IOLoop->remove($id) } );
+};
+
 app->start;
 __DATA__
 
