@@ -174,6 +174,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         recurse => true,
         purge   => true,
         force   => true,
+        ignore  => '.yas-compiled-snippets.el',
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-dir'],
