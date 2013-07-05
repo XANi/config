@@ -192,6 +192,18 @@ if [ -e '/usr/local/bin/token-agent.sh' ] ; then
     alias pin='find ~/.ssh/keys/ -type f -name "*key" -exec ssh-add {} \; ;ssh-add -c -s /usr/lib/opensc-pkcs11.so'
 fi
 
+# load gpg agent info if shell (like anything in xsession) gets loaded before gpg-agent started
+if [ "z" == "z$GPG_AGENT_INFO" ] ; then
+ #   echo "no gpg agent in session!"
+    GPG_AGENT_FILE="/home/xani/.gnupg/gpg-agent-info-$HOSTNAME"
+    if [ -e $GPG_AGENT_FILE ] ; then
+#        echo "adding one from $GPG_AGENT_FILE"
+        source $GPG_AGENT_FILE
+        export GPG_AGENT_INFO
+    fi
+fi
+
+
 <% end -%>
 if [ ! -e /usr/local/bin/e ] && [ ! -e /usr/bin/e ]  ; then
     alias e='emacs'
