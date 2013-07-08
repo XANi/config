@@ -33,6 +33,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
     $emacs_theme    = 'purple-haze'
     $emacs_packages = [
+                       'flymake-yaml',
                        'rainbow-mode',
                        'rainbow-delimiters',
                        'color-theme-sanityinc-tomorrow',
