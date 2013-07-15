@@ -24,6 +24,7 @@
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
 
+<% if @emacs_theme =~ /purple-haze/ %>
 ;; with some customisation
 
 (custom-theme-set-variables
@@ -31,6 +32,7 @@
  '(fringe-mode 1 nil (fringe))
  '(linum-format "%4d")
 )
+<% end %>
 
 ;; smaller font with decent progreamming/pliterki
 (set-face-attribute 'default nil :height 90 :family "DejaVu Sans Mono")
