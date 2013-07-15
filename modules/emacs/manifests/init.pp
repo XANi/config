@@ -36,7 +36,8 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                ]:
                    ensure => absent,
     }
-    $emacs_theme    = 'purple-haze'
+ #   $emacs_theme    = 'purple-haze'
+       $emacs_theme    = 'twilight-anti-bright'
     $emacs_packages = [
                        'flymake-yaml',
                        'rainbow-mode',
@@ -44,6 +45,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'purple-haze-theme',
+                       'twilight-anti-bright-theme',
                        'yasnippet',
                        'zencoding-mode',
                        ]
