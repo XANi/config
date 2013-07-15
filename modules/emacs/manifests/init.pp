@@ -142,6 +142,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group   => xani,
         require => File['xani-emacs-dir'],
     }
+    file {"${homedir}/emacs/xani-lib/mklib":
+        mode    => 755,
+    }
 
     file { xani-emacs-xani-libs:
         path    => "${homedir}/emacs/xani-lib",
