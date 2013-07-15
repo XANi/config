@@ -1,11 +1,16 @@
 class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
+    File {
+        owner => xani,
+        group => xani,
+        mode  => 644,
+    }
     package { magit: # emacs git
         ensure  => installed,
         require => Package['emacs'],
     }
 
     package { emacs-snapshot:
-	alias => 'emacs', # for deps
+    alias => 'emacs', # for deps
         ensure => installed,
     }
 
@@ -23,7 +28,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'wmctrl',
                'xprintidle']:
         ensure  => installed,
-	require => Package['emacs'],
+    require => Package['emacs'],
     }
     # old packages that we now get from elpa
     package { [
@@ -58,6 +63,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                         "HOME=${homedir}",
                         ],
         user        => 'xani',
+    }
+
+    # main dirs
+    file {[
+           "${homedir}/emacs/autosave",
+           "${homedir}/emacs/backup",
+           ]:
+               ensure => directory,
+               mode   => 750,
     }
 
     file { 'run_emacs':
