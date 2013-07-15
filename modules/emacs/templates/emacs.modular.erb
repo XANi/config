@@ -24,7 +24,7 @@
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
 
-<% if @emacs_theme =~ /purple-haze/ %>
+<%- if @emacs_theme =~ /purple-haze/ -%>
 ;; with some customisation
 
 (custom-theme-set-variables
@@ -32,7 +32,7 @@
  '(fringe-mode 1 nil (fringe))
  '(linum-format "%4d")
 )
-<% end %>
+<%- end -%>
 
 ;; smaller font with decent progreamming/pliterki
 (set-face-attribute 'default nil :height 90 :family "DejaVu Sans Mono")
@@ -43,7 +43,6 @@
 (require 'saveplace)
 (require 'uniquify)
 (require 'cisco-router-mode)
-
 
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-cua)
