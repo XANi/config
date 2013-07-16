@@ -21,8 +21,18 @@
     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
+<%- if @rainbow && @rainbow !~ /over/ -%>
+;; load this before theme so it have chance to override it
+(require 'xani-rainbow)
+<%- end -%>
+
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
+
+<%- if @rainbow && @rainbow =~ /over/ -%>
+;; load this after theme so it will overwrite colors
+(require 'xani-rainbow)
+<%- end -%>
 
 <%- if @emacs_theme =~ /purple-haze/ -%>
 ;; with some customisation

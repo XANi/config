@@ -1,4 +1,11 @@
 class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
+    # default config
+    # Theme name
+    #   $emacs_theme    = 'purple-haze'
+    $emacs_theme    = 'twilight-anti-bright'
+    # activate rainbow-delimiters coloring, for themes that dont have it
+    $rainbow = true
+
     File {
         owner => xani,
         group => xani,
@@ -36,8 +43,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                ]:
                    ensure => absent,
     }
- #   $emacs_theme    = 'purple-haze'
-       $emacs_theme    = 'twilight-anti-bright'
     $emacs_packages = [
                        'flymake-yaml',
                        'rainbow-mode',
