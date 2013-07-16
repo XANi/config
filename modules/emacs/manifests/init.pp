@@ -194,7 +194,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         force   => true,
         owner   => xani,
         group   => xani,
-        purge   => true,
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-yasnippet:
