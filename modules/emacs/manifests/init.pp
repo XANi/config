@@ -189,6 +189,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-autoinsert:
         path    => "${homedir}/emacs/autoinsert",
         ensure  => directory,
+        recurse => true,
+        purge   => true,
+        force   => true,
         owner   => xani,
         group   => xani,
         purge   => true,

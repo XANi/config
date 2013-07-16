@@ -186,6 +186,10 @@
    ;;(load-theme '<%= @emacs_theme %> t)
 ;;   (tool-bar-mode -1)
  ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
+   (custom-set-faces
+    '(term-color-black ((t (:background "black" :foreground "dim gray"))))
+    '(term-color-blue ((t (:background "dark blue" :foreground "royal blue"))))
+    )
    (defun maximize (&optional f)
      (interactive)
      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32

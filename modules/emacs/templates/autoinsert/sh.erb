@@ -1,2 +1,9 @@
 #!/bin/bash
-
+<% if location == 'arte' -%>
+# puppet managed template, for more info 'puppet-find-resources $filename'
+# <%=  __FILE__.gsub(/.*?modules\//,'puppet://modules/') %>
+# BEFORE YOU MAKE ANY CHANGES, READ https://stonka.non.3dart.com/wiki/wiki/Puppet#Zarz.C4.85dzanie_konfiguracjami
+<% else %>
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+<% end %>
