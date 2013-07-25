@@ -39,7 +39,12 @@ node default {
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
-    apt::key { 'spotify': keyid => '94558F59';}
+    apt::key {
+        'spotify': 
+	    keyid => '94558F59';
+        'emacs-snapshot': 
+            keyid => '2A41B42C';
+    }
 
     if $is_virtual == 'true' {
         include vm
