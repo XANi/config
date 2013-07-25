@@ -44,6 +44,8 @@ node default {
 	    keyid => '94558F59';
         'emacs-snapshot': 
             keyid => '2A41B42C';
+	'crawl':
+            keyid => 'C965A6F4';
     }
 
     if $is_virtual == 'true' {
