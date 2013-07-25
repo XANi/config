@@ -1,15 +1,28 @@
 class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
+    # default config
+    # Theme name
+    #   $emacs_theme    = 'purple-haze'
+    $emacs_theme    = 'twilight-anti-bright'
+    # activate rainbow-delimiters coloring, for themes that dont have it
+    $rainbow = true
+    $deploy_arte_config = hiera('deploy_arte_config')
+
+    File {
+        owner => xani,
+        group => xani,
+        mode  => 644,
+    }
     package { magit: # emacs git
         ensure  => installed,
-        require => Package['emacs23'],
+        require => Package['emacs'],
     }
 
-    package { emacs23:
+    package { emacs-snapshot:
+    alias => 'emacs', # for deps
         ensure => installed,
     }
 
-    package { ['emacs23-el',
-               'emacs-goodies-el',
+    package { [
                'lua-mode',
                'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
@@ -20,10 +33,53 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'yaml-mode',
                'wl-beta',
                'bbdb',
-               'yasnippet',
+               'wmctrl',
                'xprintidle']:
         ensure  => installed,
-        require => Package['emacs23'],
+    require => Package['emacs'],
+    }
+    # old packages that we now get from elpa
+    package { [
+               'yasnippet',
+               ]:
+                   ensure => absent,
+    }
+    $emacs_packages = [
+                       'flymake-yaml',
+                       'rainbow-mode',
+                       'rainbow-delimiters',
+                       'color-theme-sanityinc-tomorrow',
+                       'color-theme-solarized',
+                       'purple-haze-theme',
+                       'twilight-anti-bright-theme',
+                       'yasnippet',
+                       'zencoding-mode',
+                       ]
+    file { "${homedir}/emacs/install-packages.el":
+        content => template('emacs/install-packages.el'),
+        owner   => xani,
+        group   => xani,
+        notify  => Exec['refresh-emacs-packages'],
+        mode    => 644,
+    }
+
+    exec { 'refresh-emacs-packages':
+        command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
+        refreshonly => true,
+        logoutput   => true,
+        environment => [
+                        "HOME=${homedir}",
+                        ],
+        user        => 'xani',
+    }
+
+    # main dirs
+    file {[
+           "${homedir}/emacs/autosave",
+           "${homedir}/emacs/backup",
+           ]:
+               ensure => directory,
+               mode   => 750,
     }
 
     file { 'run_emacs':
@@ -32,6 +88,10 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => root,
         mode    => 755,
     }
+#    file { 'git-emacs':
+#        path    => '/usr/lib/git-core/emacs',
+#        ensure  => '/usr/local/bin/e',
+#    }
     file { emacs-config:
         path    => "${homedir}/.emacs-legacy",
         owner   => xani,
@@ -85,9 +145,13 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         recurse => true,
         purge   => true,
         force   => true,
+        ignore  => '*.elc',
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-dir'],
+    }
+    file {"${homedir}/emacs/xani-lib/mklib":
+        mode    => 755,
     }
 
     file { xani-emacs-xani-libs:
@@ -97,6 +161,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         recurse => true,
         purge   => true,
         force   => true,
+        ignore  => '*.elc',
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-dir'],
@@ -125,9 +190,11 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { xani-emacs-autoinsert:
         path    => "${homedir}/emacs/autoinsert",
         ensure  => directory,
+        recurse => true,
+        purge   => true,
+        force   => true,
         owner   => xani,
         group   => xani,
-        purge   => true,
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-yasnippet:
@@ -137,6 +204,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         recurse => true,
         purge   => true,
         force   => true,
+        ignore  => '.yas-compiled-snippets.el',
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-dir'],
@@ -147,6 +215,17 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         recurse => false,
         purge   => false,
         force   => false,
+        owner   => xani,
+        group   => xani,
+        require => File['xani-emacs-yasnippet'],
+    }
+    # imported from other modules
+    file { 'xani-emacs-yasnippet-import':
+        path    => "${homedir}/emacs/yasnippet/import",
+        ensure  => directory,
+        recurse => true,
+        purge   => true,
+        force   => true,
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-yasnippet'],

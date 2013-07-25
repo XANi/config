@@ -55,13 +55,17 @@
 (column-number-mode 1) ;; and column at bot
 (setq-default fill-column 120)
 
+(defconst emacs-autosave-dir (format "%s/%s/%s/" "~" "emacs" "autosave"))
+
 (setq
   backup-by-copying t      ; don't clobber symlinks
  backup-directory-alist
- '(("." . "~/.saved"))    ; don't litter my fs tree
+ '(("." . "~/emacs/backup"))    ; don't litter my fs tree
  delete-old-versions t
  kept-new-versions 4
  kept-old-versions 0
+ auto-save-file-name-transforms `((".*" ,emacs-autosave-dir t))
+ auto-save-list-file-prefix emacs-autosave-dir
  tab-width 4
  color-theme-is-global t
  version-control t       ; use versioned backups]
@@ -124,5 +128,8 @@
 (require 'sml-modeline)
 (sml-modeline-mode 1)
 
-(provide 'xani-common)
+;; colors
+(global-rainbow-delimiters-mode)
+(rainbow-mode)
 
+(provide 'xani-common)

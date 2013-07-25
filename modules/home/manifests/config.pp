@@ -9,6 +9,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         bash_prompt:;
         bashrc:;
         gitconfig:;
+        gitignore_global:;
         htoprc:;
         inputrc:;
         perlconsolerc:;
@@ -113,4 +114,3 @@ class home::config::svn {
         ensure => installed,
     }
 }
-

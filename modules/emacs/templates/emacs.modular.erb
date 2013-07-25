@@ -10,15 +10,49 @@
 (add-to-list 'load-path (expand-file-name "~/emacs/xani-lib"))
 (add-to-list 'load-path (expand-file-name "~/emacs/tmplib"))
 
+
+;; init pkg mgr
+
+
+(setq package-archives '(
+    ("ELPA" . "http://tromey.com/elpa/")
+    ("gnu" . "http://elpa.gnu.org/packages/")
+    ("melpa" . "http://melpa.milkbox.net/packages/")
+    ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
+
+<%- if @rainbow && @rainbow !~ /over/ -%>
+;; load this before theme so it have chance to override it
+(require 'xani-rainbow)
+<%- end -%>
+
+;; and set theme
+(load-theme '<%= @emacs_theme %> t)
+
+<%- if @rainbow && @rainbow =~ /over/ -%>
+;; load this after theme so it will overwrite colors
+(require 'xani-rainbow)
+<%- end -%>
+
+<%- if @emacs_theme =~ /purple-haze/ -%>
+;; with some customisation
+
+(custom-theme-set-variables
+ 'purple-haze
+ '(fringe-mode 1 nil (fringe))
+ '(linum-format "%4d")
+)
+<%- end -%>
+
+;; smaller font with decent progreamming/pliterki
+(set-face-attribute 'default nil :height 90 :family "DejaVu Sans Mono")
 ;; my customisations
 
 (require 'autoinsert)
-(require 'color-theme-sanityinc-solarized)
 (require 'magit)
 (require 'saveplace)
 (require 'uniquify)
 (require 'cisco-router-mode)
-
 
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-cua)
@@ -45,11 +79,11 @@
 (require 'xani-jabber)
 (require 'xani-twittering)
 (require 'xani-x)
-(require 'xani-ecb)
+;;(require 'xani-ecb)
 (require 'xani-develock)
 (require 'xani-yasnippet)
 (require 'xani-testing)
-<%- if location == 'arte' -%>
+<%- if @deploy_arte_config -%>
 (require 'xani-arte)
 (require 'xani-org-mode-arte)
 (require 'xani-mediawiki)
@@ -80,19 +114,19 @@
 
 ;; file cache
 
-(eval-after-load
-    "xani-common"
-  '(progn
-     (message "Loading file cache...")
-<% if location == 'arte' %>
-     (file-cache-add-directory-using-locate  (expand-file-name "~/src/svn-puppet"))
-<% else %>
-     (file-cache-add-directory-using-locate  (expand-file-name "~/src/my"))
-<% end %>
-;;     (file-cache-add-directory-list load-path)
-;;     (file-cache-add-directory "~/")
-;;     (file-cache-add-file-list (list "~/foo/bar" "~/baz/bar"))
-))
+;; (eval-after-load
+;;     "xani-common"
+;;   '(progn
+;;      (message "Loading file cache...")
+;; <% if location == 'arte' %>
+;;      (file-cache-add-directory-using-locate  (expand-file-name "~/src/svn-puppet"))
+;; <% else %>
+;;      (file-cache-add-directory-using-locate  (expand-file-name "~/src/my"))
+;; <% end %>
+;; ;;     (file-cache-add-directory-list load-path)
+;; ;;     (file-cache-add-directory "~/")
+;; ;;     (file-cache-add-file-list (list "~/foo/bar" "~/baz/bar"))
+;; ))
 
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))
@@ -100,11 +134,11 @@
 
 (add-to-list 'auto-mode-alist '("emacs.erb" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("emacs.modular.erb" . emacs-lisp-mode))
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
 
 ;; this part doesn't work well when done in provide/require
 (defun setup-window-system-frame-colours (&rest frame)
-(require 'color-theme-sanityinc-solarized)
 (if window-system
     (progn
       (custom-set-faces
@@ -146,12 +180,16 @@
  (defadvice server-create-window-system-frame
    (after set-window-system-frame-colours ())
 ;;   "Set custom frame colours when creating the first frame on a display"
-;;   (message "Running after frame-initialize")
-   (setup-window-system-frame-colours)
-   (color-theme-sanityinc-solarized-dark)
-
+   (message "Running after frame-initialize")
+;;   (setup-window-system-frame-colours)
+;;   (load-theme 'solarized-dark t)
+   ;;(load-theme '<%= @emacs_theme %> t)
 ;;   (tool-bar-mode -1)
  ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
+   (custom-set-faces
+    '(term-color-black ((t (:background "black" :foreground "dim gray"))))
+    '(term-color-blue ((t (:background "dark blue" :foreground "royal blue"))))
+    )
    (defun maximize (&optional f)
      (interactive)
      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
@@ -163,7 +201,7 @@
    (global-set-key [f12] 'menu-bar-mode)
    )
  (ad-activate 'server-create-window-system-frame)
- (add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
+ ;;(add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
 ;;
 ;; ---------------------------------------------
 ;;

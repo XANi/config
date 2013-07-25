@@ -4,7 +4,7 @@
 [user]
 <%- if deploy_arte_config == true -%>
     name = Mariusz Gronczewski
-    email = mgronczewski@artegence.com
+    email = mgronczewski@efigence.com
 <%- else -%>
     name = Mariusz Gronczewski
     email = xani666@gmail.com
@@ -23,18 +23,25 @@
     commit = cyan bold
     meta = yellow
     frag = magenta bold
-    old = red
-    new = green
+    old = bold red
+    new = bold green
+    func = bold white
     whitespace = red reverse
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+    # in index
+    added   = bold green
+    # changed but not in index
+    changed = bold yellow
+    #
+    untracked = bold magenta
+    branch = bold green
+    nobranch = bold red
 
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     pager = less
     editor = e
+    excludesfile = ~/.gitignore_global
 
 [push]
     default = current
@@ -46,15 +53,15 @@
     autosetupmerge = true
 
 [alias]
-    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset %s'
+    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
     co = checkout
-    cx = commit <% if gpgid != false %> -S <% end %>
-    c = commit <% if gpgid != false %> -S <% end %>
-    s = status
+    cx = commit -v <% if gpgid != false %> -S <% end %>
+    c = commit -v <% if gpgid != false %> -S <% end %>
+    s = status -s -b
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if gpgid != false %> -S <% end %>
+    d = diff --word-diff -C -M
 
 [merge]
     tool = meld
-

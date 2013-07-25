@@ -53,8 +53,8 @@ foreach (@ARGV) {
         }
     }
 }
-$xlsclients = qx{xlsclients -a};
-if ($xlsclients !~ /emacs/) {
+$xlsclients = qx{wmctrl -l};
+if ($xlsclients !~ /emacs\@/) {
     $v->{'open_window'} = 1
 }
 if ($v->{'open_window'}) {
