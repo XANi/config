@@ -3,7 +3,7 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
-
+# Apt::Source <| |> -> Package <| |>
 Exec {
       path => [
                '/sbin',
@@ -19,7 +19,7 @@ $location = hiera('location','default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
 node default {
-    class {'apt::source': stage => init}
+    class {'apt::source':;}
     $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
         bug:;
@@ -39,7 +39,14 @@ node default {
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
-    apt::key { 'spotify': keyid => '94558F59';}
+    apt::key {
+        'spotify': 
+	    keyid => '94558F59';
+        'emacs-snapshot': 
+            keyid => '2A41B42C';
+#	'crawl':
+#            keyid => 'C965A6F4';
+    }
 
     if $is_virtual == 'true' {
         include vm

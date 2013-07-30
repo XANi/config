@@ -5,7 +5,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     $emacs_theme    = 'twilight-anti-bright'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
-    $deploy_arte_config = hiera('deploy_arte_config')
+    $deploy_arte_config = hiera('deploy_arte_config',false)
 
     File {
         owner => xani,
