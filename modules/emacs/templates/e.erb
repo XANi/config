@@ -19,40 +19,102 @@ my $puppet_path = [
     $home . '/src/my/config',
 ];
 
-#my $prepend='/sudo::';
-my $prepend='';
+my $prepend='/sudo::';
+#my $prepend='';
 my $v = {};
 
+my ($name, $pass, $uid, $gid, $quota, $comment, $gcos, $dir, $shell, $expire) = getpwnam('xani');
 
-foreach (@ARGV) {
-    if ( my $st = stat($_) ) {
+
+my @normal_files;
+my @sudo_files;
+my @no_access_files;
+my @puppet_files;
+# first, check if we can access files from our user
+foreach my $file (@ARGV) {
+    if ( my $st = stat($file) ) {
         if ( $st->cando(S_IWUSR)
              && $ENV{'USER'} =~ /xani/
         ) {
-            $v->{'sudo'} = 0;
+            push @normal_files, $file;
+            next;
         }
-        elsif ($st->uid > 10000) { #probably sshfs
-            $v->{'sudo'} = 0;
+        if ($st->cando(S_IWUSR)) {
+            push @sudo_files, $file;
+            next;
         }
         else {
-            $v->{'sudo'} = 1;
-            $_ = $prepend . $_;
+            push @no_access_files;
         }
     }
-    elsif ($_ =~ m{puppet://(.*?)/(.+)}) {
+    elsif ($file =~ m{puppet://(.*?)/(.+)}) {
         my $puppet_file = $2;
         $puppet_file =~ s{modules/(.+?)/}{modules/$1/files/};
         foreach $path (@$puppet_path) {
-            my $file = $path . '/' . $puppet_file;
-            print "Checking $file \n";
-            if ( -e $file ) {
+            my $pfile = $path . '/' . $puppet_file;
+            print "Checking $pfile \n";
+            if ( -e $pfile ) {
                 print "Found!\n";
-                $_ = $file;
+                push @puppet_files, $pfile;
                 last;
             }
         }
     }
+    else {
+        push @no_access_files, $file;
+    }
 }
+
+# drop privs to seee if we have access from user (in case of strange uid weirdness like when using sshfs)
+
+$< = $uid;
+$> = $uid;
+$( = $gid;
+$) = $gid;
+
+sub check_file_access {
+    my $file = shift;
+    my $have_access = shift;
+    my $no_access = shift;
+    my $st = stat($file);
+    my $writable=0;
+    if ( !defined($st) ) {
+        $writable = 0
+    }
+    elsif ($st->cando(S_IWUSR)) {
+        $writable = 1;
+    }
+    if ( -w $file ) {
+        $writable = 1;
+    }
+    if ($writable) {
+        print "$file writable\n";
+        if(defined($have_access)) {
+            push @$have_access, $file,
+        }
+        return 1;
+    } else {
+        if(defined($no_access)) {
+            push @$no_access, $file;
+        }
+        return 0;
+    }
+}
+@sudo_files = grep { !&check_file_access($_,\@normal_files) } @sudo_files;
+@no_access_files = grep { !&check_file_access($_,\@normal_files) } @no_access_files;
+
+
+if(@normal_files) {print "Accessable files: " . join(' ', @normal_files) . "\n"};
+if(@sudo_files) {print "Sudo files: " . join(' ', @sudo_files) . "\n"};
+if(@no_access_files) {print "No access files: " . join(' ', @no_access_files) . "\n"};
+
+foreach(@sudo_files) { $_ = $prepend . $_}
+
+my @params = ( @no_access_files, @normal_files, @sudo_files);
+
+
+
+
 $xlsclients = qx{wmctrl -l};
 if ($xlsclients !~ /emacs\@/) {
     $v->{'open_window'} = 1
@@ -67,8 +129,8 @@ if($v->{'sudo'}) { print ", using tramp->sudo, file not owned by us" }
 print "\n";
 
 if ($v->{'open_window'}) {
-    system('emacsclient', '-c', '--alternate-editor=', @ARGV);
+    system('emacsclient', '-c', '--alternate-editor=', @params);
 }
 else {
-    system('emacsclient', '--alternate-editor=', @ARGV);
+    system('emacsclient', '--alternate-editor=', @params);
 }
