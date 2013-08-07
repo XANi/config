@@ -6,11 +6,8 @@ class token {
             require => Package['opensc'],
     }
     if $lsbdistid == 'Debian' {
-        # for some retarded reason opensc 0.12 developers
-        # decided it would be a good idea to hardcode which backend to use
-        # and alladin is working only with openct, so we use squeeze version
         package {'opensc':
-            ensure => '0.11.13-1.1',
+            ensure => installed,
         }
         package {'openct':
             ensure => installed,
