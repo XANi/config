@@ -8,6 +8,12 @@ class token {
     package {'pcscd':
         ensure => installed,
     }
+    service {[
+              'pcscd',
+              'openct',
+              ]:
+                  enable => false, # we use gpg
+    }
     if $lsbdistid == 'Debian' {
         package {'opensc':
             ensure => installed,
