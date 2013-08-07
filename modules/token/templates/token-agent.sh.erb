@@ -3,13 +3,17 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 umask 077
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
-AGENT_FILE="/tmp/.token-agent-$USER"
-if [ -e $AGENT_FILE ] ; then
-    source $AGENT_FILE >/dev/null 2>&1
-    if [ ! -e /proc/$SSH_AGENT_PID ] ; then
-        ssh-agent > $AGENT_FILE 2>&1
-    fi
-else
-    ssh-agent > $AGENT_FILE 2>&1
+#AGENT_FILE="/tmp/.token-agent-$USER"
+if [ "z$SSH_AGENT_PID" == "z" ] ; then
+    source /home/xani/.gnupg/gpg-agent-info-$HOSTNAME
 fi
-cat $AGENT_FILE
+
+#if [ -e $AGENT_FILE ] ; then
+#    source $AGENT_FILE >/dev/null 2>&1
+#    if [ ! -e /proc/$SSH_AGENT_PID ] ; then
+#        ssh-agent > $AGENT_FILE 2>&1
+#    fi
+#else
+#    ssh-agent > $AGENT_FILE 2>&1
+#fi
+#cat $AGENT_FILE
