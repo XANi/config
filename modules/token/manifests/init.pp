@@ -2,8 +2,11 @@ class token {
     util::add_user_to_group {
         'xani-scard':
             user    => 'xani',
-            group   => 'scard',
-            require => Package['opensc'],
+            group   => 'pcscd',
+            require => Package['pcscd'],
+    }
+    package {'pcscd':
+        ensure => installed,
     }
     if $lsbdistid == 'Debian' {
         package {'opensc':
