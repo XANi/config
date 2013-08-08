@@ -138,7 +138,7 @@ alias ls='ls --color=auto'
 alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
 alias sqlite="sqlite3"
 alias riak-admin="sudo -u riak riak-admin"
-alias tdump='tcpdump -i any -s 0 -n -U -w dump_$(hostname)_$(date +%F_%T)'
+alias tdump='tcpdump -i any -s 0 -n -U -C 128 -W 8 -w dump_$(hostname)_$(date +%F_%T)'
 
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
