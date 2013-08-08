@@ -31,7 +31,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'texlive-latex-base',
                'puppet-lint',
                'yaml-mode',
-               'wl-beta',
+#               'wl-beta',
                'bbdb',
                'wmctrl',
                'xprintidle']:
