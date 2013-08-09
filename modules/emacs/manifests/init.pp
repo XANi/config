@@ -12,11 +12,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group => xani,
         mode  => 644,
     }
-    package { magit: # emacs git
-        ensure  => installed,
-        require => Package['emacs'],
-    }
-
     package { emacs-snapshot:
     alias => 'emacs', # for deps
         ensure => installed,
@@ -38,9 +33,10 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         ensure  => installed,
     require => Package['emacs'],
     }
-    # old packages that we now get from elpa
+    # old packages that we now get from elpa or dont use at all
     package { [
                'yasnippet',
+               'magit',
                ]:
                    ensure => absent,
     }
