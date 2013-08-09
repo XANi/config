@@ -1,0 +1,3 @@
+# <%= puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="1050",  ATTRS{idProduct}=="0010|0110|0111", OWNER="xani" # LABEL="yubikey"
