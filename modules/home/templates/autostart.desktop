@@ -1,0 +1,13 @@
+# <%= puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+[Desktop Entry]
+Version=1.0
+Name=<%= name %>
+GenericName=<%= description %>
+Comment=<%= comment %>
+Exec=<%= command %>
+Icon=<%= icon %>
+Terminal=<% if @terminal %>true<% else %>false<% end %>
+Type=Application
+Categories=Utility;Application;
+Hidden=false

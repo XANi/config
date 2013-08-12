@@ -1,5 +1,5 @@
 class home::config ( $gpgid = hiera('gpgid',false) ) {
-    include home::common
+    require home::common
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
@@ -42,6 +42,8 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         '.config/terminator':;
         '.tilda':;
     }
+
+    home::config::autostart {'tilda': command => 'tilda'}
 
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
@@ -112,5 +114,22 @@ class home::config::svn {
 
     package { 'subversion':
         ensure => installed,
+    }
+}
+define home::config::autostart (
+    $command,
+    $name = $title,
+    $description = $title,
+    $comment = "Comment not defined",
+    $icon = "",
+    $terminal = false,
+) {
+    require home::common
+    $homedir = $home::common::homedir
+    file {"${homedir}/.config/autostart/${title}.desktop":
+        content => template('home/autostart.desktop'),
+        mode    => 644,
+        owner   => xani,
+        group   => xani,
     }
 }
