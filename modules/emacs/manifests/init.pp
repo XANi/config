@@ -22,14 +22,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
                'twittering-mode',
-               'emacs-jabber',
                'texlive-latex-base',
                'puppet-lint',
                'yaml-mode',
 #               'wl-beta',
                'bbdb',
                'wmctrl',
-               'xprintidle']:
+               'xprintidle', # mostly for jabber mode
+               ]:
         ensure  => installed,
     require => Package['emacs'],
     }
@@ -37,11 +37,13 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     package { [
                'yasnippet',
                'magit',
+               'emacs-jabber',
                ]:
                    ensure => absent,
     }
     $emacs_packages = [
                        'flymake-yaml',
+                       'jabber',
                        'rainbow-mode',
                        'rainbow-delimiters',
                        'color-theme-sanityinc-tomorrow',
