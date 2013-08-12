@@ -118,7 +118,6 @@ class home::config::svn {
 }
 define home::config::autostart (
     $command,
-    $name = $title,
     $description = $title,
     $comment = "Comment not defined",
     $icon = "",
