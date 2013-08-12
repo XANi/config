@@ -50,9 +50,16 @@ fi
 TIME='[\D{%T}]'
 
 PROMPT_DIR='\[\033[1;34m\]\w\[\033[0m\]'
+
 if [ -e /etc/bash_completion.d/git ] ;then
-    PROMPT_GIT='\[\033[1;35m\]$(__git_ps1)\[\033[0m\]'
+
     source /etc/bash_completion.d/git
+    if [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ] ; then
+        source /usr/share/git-core/contrib/completion/git-prompt.sh
+    fi
+    if type __git_ps1 2>/dev/null |grep -q -P '(funct|funk)' ; then
+        PROMPT_GIT='\[\033[1;35m\]$(__git_ps1)\[\033[0m\]'
+    fi
 fi
 
 if [ "$USER" = "root" ] ; then
