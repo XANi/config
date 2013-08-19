@@ -35,6 +35,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
     # old packages that we now get from elpa or dont use at all
     package { [
+               'apel',
                'yasnippet',
                'magit',
                'emacs-jabber',
