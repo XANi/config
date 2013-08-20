@@ -50,3 +50,8 @@ repos:
         comment: Emacs snapshots
         deb:
             - http://emacs.naquadah.org stable/
+
+    rabbitmq:
+        comment: RabbitMQ
+        deb:
+            - http://www.rabbitmq.com/debian/ testing main

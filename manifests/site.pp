@@ -40,10 +40,12 @@ node default {
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
     apt::key {
-        'spotify': 
+        'spotify':
 	    keyid => '94558F59';
-        'emacs-snapshot': 
+        'emacs-snapshot':
             keyid => '2A41B42C';
+        'rabbitmq':
+            keyid => '056E8E56';
 #	'crawl':
 #            keyid => 'C965A6F4';
     }
