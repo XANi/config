@@ -3,6 +3,8 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 use Fcntl qw(S_IWUSR);
 use File::stat;
+use Cwd;
+my $cur_dir = getcwd;
 my $home;
 if (defined($ENV{'HOME'}) && $ENV{'HOME'} !~ m{^(\s*|/root)$}) {
     $home = $ENV{'HOME'};
@@ -108,7 +110,14 @@ if(@normal_files) {print "Accessable files: " . join(' ', @normal_files) . "\n"}
 if(@sudo_files) {print "Sudo files: " . join(' ', @sudo_files) . "\n"};
 if(@no_access_files) {print "No access files: " . join(' ', @no_access_files) . "\n"};
 
-foreach(@sudo_files) { $_ = $prepend . $_}
+foreach(@sudo_files) {
+    if ($_ =~ /^\//) {
+        $_ = $prepend . $_
+    }
+    else {
+        $_ = $prepend . $cur_dir . '/' . $_;
+    }
+}
 
 my @params = ( @no_access_files, @normal_files, @sudo_files);
 
