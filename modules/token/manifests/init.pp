@@ -1,26 +1,6 @@
 class token {
-    util::add_user_to_group {
-        'xani-pcscd':
-            user    => 'xani',
-            group   => 'pcscd',
-            require => Package['pcscd'],
-    }
-    package {'pcscd':
-        ensure => installed,
-    }
-    service {[
-              'pcscd',
-              'openct',
-              ]:
-                  enable => false, # we use gpg
-    }
-    if $lsbdistid == 'Debian' {
-        package {'opensc':
-            ensure => installed,
-        }
-        package {'openct':
-            ensure => installed,
-        }
+    package {['pcscd','openct','opensc']:
+        ensure => absent,
     }
 
     file {'/usr/local/bin/token-agent.sh':
