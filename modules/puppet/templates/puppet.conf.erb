@@ -1,5 +1,5 @@
-
 # <%= puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
 [main]
 logdir=/var/log/puppet
 vardir=/var/lib/puppet
@@ -28,4 +28,3 @@ graphdir=/tmp
 # and can safely be removed if webrick is used.
 ssl_client_header = SSL_CLIENT_S_DN
 ssl_client_verify_header = SSL_CLIENT_VERIFY
-

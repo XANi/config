@@ -33,7 +33,8 @@ class home::packages {
          libcapture-tiny-perl,
          libdevel-nytprof-perl,
          colordiff,
-         gnome-gpg,
+         gnupg,
+         gnupg-agent,
          seahorse,
          youtube-dl,
          xtightvncviewer,
@@ -73,5 +74,3 @@ class home::packages {
              ensure => absent;
     }
 }
-
-
