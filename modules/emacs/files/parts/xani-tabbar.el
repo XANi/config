@@ -1,9 +1,21 @@
 ;;; xani-tabbar.el ---
 ;;
-(tabbar-mode)
-(dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
-   (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation")
+;;(tabbar-mode)
+;;(dolist (func '(tabbar-mode tabbar-forward-tab tabbar-forward-group tabbar-backward-tab tabbar-backward-group))
+ ;;  (autoload func "tabbar" "Tabs at the top of buffers and easy control-tab navigation")
+;;)
+
+
+(setq
+ tabbar-ruler-global-tabbar t ; If you want tabbar
+ tabbar-ruler-global-ruler nil ; if you want a global ruler
+ tabbar-ruler-popup-menu nil ; If you want a popup menu.
+ tabbar-ruler-popup-toolbar nil ; If you want a popup toolbar
+ tabbar-ruler-popup-scrollbar nil ; If you want to only show the  scroll bar when your mouse is moving.
 )
+(require 'tabbar-ruler)
+
+
 
 (defmacro defun-prefix-alt (name on-no-prefix on-prefix &optional do-always)
    `(defun ,name (arg)
