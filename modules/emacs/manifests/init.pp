@@ -43,6 +43,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
     $emacs_packages = [
+                       'charmap',
                        'flymake-yaml',
                        'jabber',
                        'rainbow-mode',
@@ -50,6 +51,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'purple-haze-theme',
+                       'tabbar',
+                       'tabbar-ruler',
+                       'twittering-mode',
                        'twilight-anti-bright-theme',
                        'yasnippet',
                        'zencoding-mode',
