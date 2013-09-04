@@ -55,3 +55,8 @@ repos:
         comment: RabbitMQ
         deb:
             - http://www.rabbitmq.com/debian/ testing main
+
+    dropbox:
+        comment: Dropbox
+        deb:
+            - http://linux.dropbox.com/debian wheezy main
