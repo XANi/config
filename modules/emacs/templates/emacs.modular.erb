@@ -142,7 +142,6 @@
 (if window-system
     (progn
       (custom-set-faces
-       '(default ((t (:inherit nil :stipple nil :background "#042028" :foreground "#708183" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 87 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
        '(cperl-array-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
        '(cperl-hash-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
        '(cua-rectangle ((default (:inherit region)) (((class color)) nil)))
@@ -157,12 +156,14 @@
        '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
        '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))
        '(org-table ((((class color) (min-colors 88) (background light)) (:foreground "#ffffff"))))
+       '(tabbar-unselected ((t (:inherit mode-line-inactive))))
+       '(tabbar-unselected-modified ((t (:inherit shadow :weight bold))))
        '(undo-tree-visualizer-active-branch-face ((((class color) (background light)) (:foreground "#aaaaff" :weight bold))))
        '(whitespace-hspace ((((class color) (background light)) (:background "#444400" :foreground "lightgray"))))
        '(whitespace-newline ((t (:foreground "lightgray" :weight bold))))
        '(whitespace-space ((((class color) (background light)) (:background "#333377" :foreground "lightgray"))))
        '(whitespace-tab ((((class color) (background light)) (:background "#551111" :foreground "lightgray"))))
-      )
+     )
       (add-hook 'window-configuration-change-hook
                 (lambda ()
                   (setq frame-title-format
@@ -181,7 +182,7 @@
    (after set-window-system-frame-colours ())
 ;;   "Set custom frame colours when creating the first frame on a display"
    (message "Running after frame-initialize")
-;;   (setup-window-system-frame-colours)
+   (setup-window-system-frame-colours)
 ;;   (load-theme 'solarized-dark t)
    ;;(load-theme '<%= @emacs_theme %> t)
 ;;   (tool-bar-mode -1)
