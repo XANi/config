@@ -10,6 +10,13 @@
 ;; fix yes no questions
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; moving between frames
+
+
+(global-set-key [s-left] 'windmove-left)          ; move to left windnow
+(global-set-key [s-right] 'windmove-right)        ; move to right window
+(global-set-key [s-up] 'windmove-up)              ; move to upper window
+(global-set-key [s-down] 'windmove-down)          ; move to downer window
 
 ;; use ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
