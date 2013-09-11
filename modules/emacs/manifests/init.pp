@@ -43,6 +43,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
     $emacs_packages = [
+                       'buffer-move',
                        'charmap',
                        'flymake-yaml',
                        'jabber',
