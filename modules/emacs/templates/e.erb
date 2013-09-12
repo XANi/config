@@ -125,11 +125,12 @@ my @params = ( @no_access_files, @normal_files, @sudo_files);
 
 
 $xlsclients = qx{wmctrl -l -p};
+$v->{'open_window'} = 1;
 foreach(split(/\n/, $xlsclients)) {
     my($id, $desktop, $pid, $host, $program) = split(/\s+/,$_,4);
     if ($program =~ /emacs/) {
         if (readlink("/proc/$pid/exe") =~ /emacs/) {
-            $v->{'open_window'} = 1;
+            $v->{'open_window'} = 0;
             last;
         }
     }
