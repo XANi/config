@@ -124,9 +124,15 @@ my @params = ( @no_access_files, @normal_files, @sudo_files);
 
 
 
-$xlsclients = qx{wmctrl -l};
-if ($xlsclients !~ /emacs\@/) {
-    $v->{'open_window'} = 1
+$xlsclients = qx{wmctrl -l -p};
+foreach(split(/\n/, $xlsclients)) {
+    my($id, $desktop, $pid, $host, $program) = split(/\s+/,$_,4);
+    if ($program =~ /emacs/) {
+        if (readlink("/proc/$pid/exe") =~ /emacs/) {
+            $v->{'open_window'} = 1;
+            last;
+        }
+    }
 }
 if ($v->{'open_window'}) {
     print "emacs window does not exists, creating new one";
