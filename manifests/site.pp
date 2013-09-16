@@ -41,11 +41,13 @@ node default {
     xfce::theme { 'Nodoka-Midnight-XANi':; }
     apt::key {
         'spotify':
-	    keyid => '94558F59';
+            keyid => '94558F59';
         'emacs-snapshot':
             keyid => '2A41B42C';
         'rabbitmq':
             keyid => '056E8E56';
+        'puppetlabs':
+            keyid => '4BD6EC30';
 #	'crawl':
 #            keyid => 'C965A6F4';
     }
