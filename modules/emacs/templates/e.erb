@@ -25,6 +25,20 @@ my $prepend='/sudo::';
 #my $prepend='';
 my $v = {};
 
+# check if emacs window already exists, have to be done before dropping any privs.
+$xlsclients = qx{wmctrl -l -p};
+$v->{'open_window'} = 1;
+foreach(split(/\n/, $xlsclients)) {
+    my($id, $desktop, $pid, $host, $program) = split(/\s+/,$_,5);
+    if ($program =~ /emacs/) {
+        if (readlink("/proc/$pid/exe") =~ /emacs/) {
+            $v->{'open_window'} = 0;
+            last;
+        }
+    }
+}
+
+
 my ($name, $pass, $uid, $gid, $quota, $comment, $gcos, $dir, $shell, $expire) = getpwnam('xani');
 
 
@@ -121,20 +135,6 @@ foreach(@sudo_files) {
 
 my @params = ( @no_access_files, @normal_files, @sudo_files);
 
-
-
-
-$xlsclients = qx{wmctrl -l -p};
-$v->{'open_window'} = 1;
-foreach(split(/\n/, $xlsclients)) {
-    my($id, $desktop, $pid, $host, $program) = split(/\s+/,$_,5);
-    if ($program =~ /emacs/) {
-        if (readlink("/proc/$pid/exe") =~ /emacs/) {
-            $v->{'open_window'} = 0;
-            last;
-        }
-    }
-}
 if ($v->{'open_window'}) {
     print "emacs window does not exists, creating new one";
 }
