@@ -39,7 +39,9 @@
     (when (and (frame-live-p (selected-frame))
                (kill-this-buffer))
       )
-    ))
+    (kill-this-buffer)
+    )
+  )
 )
 ;; workaround for menu-bar-non-minibuffer-window-p: Wrong type argument: frame-live-p
 (setq menu-updating-frame nil)
