@@ -26,10 +26,10 @@ killall -HUP orage
 TOP_WINDOW=$(ps h -o args $(xprop -id $(xprop -root -f _NET_ACTIVE_WINDOW 0x " \$0\\n" _NET_ACTIVE_WINDOW | awk "{print \$2}") -f _NET_WM_PID 0c " \$0\\n" _NET_WM_PID | awk "{print \$2}"))
 
 if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
-    echo "EMACS ON TOP not running mobile task"
+    echo "EMACS ON TOP not running mobile task" |logger
     exit 0
 else
-    echo "TOP window is $TOP_WINDOW - running mobile task"
+    echo "TOP window is $TOP_WINDOW - running mobile task" |logger
 fi
 
 if [ -e ~/emacs/org/mobile.org/remote ] ; then
