@@ -129,10 +129,6 @@
   ;;active flymake processes
   (set-process-query-on-exit-flag ad-return-value nil))
 
-;; display buffer position in modeline
-(require 'sml-modeline)
-(sml-modeline-mode 1)
-
 ;; colors
 (global-rainbow-delimiters-mode)
 (rainbow-mode)
