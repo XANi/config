@@ -86,7 +86,6 @@
  '(indent-tabs-mode nil)
  '(standard-indent 4)
  '(tab-width 4)
- '(enable-recursive-minibuffers t)
  '(case-fold-search t)
  '(current-language-anvironment "UTF-8")
  '(display-time-mail-file (quote none))
