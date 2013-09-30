@@ -73,7 +73,7 @@ repos:
                 - http://linux.dropbox.com/debian wheezy main
     puppet:
         comment: Puppet repo
-        gpgkey: 4BD6EC30
+        keyid: 4BD6EC30
         url:
             deb:
                 - http://apt.puppetlabs.com wheezy main dependencies
