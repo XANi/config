@@ -14,7 +14,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         inputrc:;
         perlconsolerc:;
         screenrc:;
-        toprc:;
+#        toprc:; # broken with puppet 3.3.x coz not utf
         xsessionrc:;
         terminator:
             target => ".config/terminator/config";
