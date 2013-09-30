@@ -2,66 +2,78 @@
 repos:
     main-squeeze:
         comment: Main Debian repo - Squeeze (oldstable)
-        deb:
-            - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
-        deb-src:
-            - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+        url:
+            deb:
+                - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+            deb-src:
+                - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
 
     main-wheezy:
         comment: Main Debian repo - Wheezy (stable)
-        deb:
-            - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
-        deb-src:
-            - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+        url:
+            deb:
+                - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+            deb-src:
+                - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
 
     emdebian:
         comment: GCC for other archs
-        deb:
-            - http://www.emdebian.org/debian wheezy main
+        url:
+            deb:
+                - http://www.emdebian.org/debian wheezy main
 
     backports:
         comment: squeeze backports
-        deb:
-            - http://backports.debian.org/debian-backports squeeze-backports main
+        url:
+            deb:
+                - http://backports.debian.org/debian-backports squeeze-backports main
 
     chromium:
         comment: Chromium repos from ubuntu
-        deb:
-            - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
-        deb-src:
-            - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
+        url:
+            deb:
+                - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
+            deb-src:
+                - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
 
     firefox:
         comment: Latest firefox releases
-        deb:
-            - http://mozilla.debian.net/ wheezy-backports iceweasel-release
+        url:
+            deb:
+                - http://mozilla.debian.net/ wheezy-backports iceweasel-release
 
     crawl:
         comment: dungeon crawl
-        deb:
-            - http://crawl.develz.org/debian crawl 0.12
+        url:
+            deb:
+                - http://crawl.develz.org/debian crawl 0.12
 
     spotify:
         comment: Spotify player
-        deb:
-            - http://repository.spotify.com stable non-free
+        url:
+            deb:
+                - http://repository.spotify.com stable non-free
 
     emacs-snapshot:
         comment: Emacs snapshots
-        deb:
-            - http://emacs.naquadah.org stable/
+        url:
+            deb:
+                - http://emacs.naquadah.org stable/
 
     rabbitmq:
         comment: RabbitMQ
-        deb:
-            - http://www.rabbitmq.com/debian/ testing main
+        url:
+            deb:
+                - http://www.rabbitmq.com/debian/ testing main
 
     dropbox:
         comment: Dropbox
-        deb:
-            - http://linux.dropbox.com/debian wheezy main
+        url:
+            deb:
+                - http://linux.dropbox.com/debian wheezy main
     puppet:
         comment: Puppet repo
         gpgkey: 4BD6EC30
-        deb:
-            - http://apt.puppetlabs.com wheezy main dependencies
+        url:
+            deb:
+                - http://apt.puppetlabs.com wheezy main dependencies
