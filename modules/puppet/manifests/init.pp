@@ -9,7 +9,11 @@ class puppet {
         group   => root,
     }
     package {
-        'ruby-hiera-puppet':
+        'hiera-puppet':
+            ensure => absent;
+    }
+    package {
+        'puppet':
             ensure => latest;
     }
     file {
