@@ -2,15 +2,15 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 <%- gpgid = scope.lookupvar('home::config::gpgid') -%>
 [user]
-<%- if deploy_arte_config == true -%>
+<%- if @deploy_arte_config == true -%>
     name = Mariusz Gronczewski
     email = mgronczewski@efigence.com
 <%- else -%>
     name = Mariusz Gronczewski
     email = xani666@gmail.com
 <%- end -%>
-<%- if gpgid != false -%>
-    signingkey = <%= gpgid %>
+<%- if @gpgid != false -%>
+    signingkey = <%= @gpgid %>
 <%- end -%>
 
 [color]
@@ -60,7 +60,7 @@
     s = status -s -b
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
-    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if gpgid != false %> -S <% end %>
+    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
     d = diff --word-diff -C -M
 
 [merge]

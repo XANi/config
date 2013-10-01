@@ -12,7 +12,6 @@ modulepath=<%= @puppet_repo_path %>/puppet/modules
 prerun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
 postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
 config_version=<%= @puppet_repo_path %>/puppet/bin/config_version /var/lib/dpp/repos/shared/
-dynamicfacts=memorysize,memoryfree,swapsize,swapfree,puppet_repo_version
 pluginsync=true
 factsync=true
 <% if @puppet_reporturl -%>
