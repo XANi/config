@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-# <%= puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 use Fcntl qw(S_IWUSR);
 use File::stat;
 use Cwd;

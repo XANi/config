@@ -1,5 +1,5 @@
-;; <%= puppet_header %>
-;; <%=  __FILE__.gsub(/.*?puppet\//,fqdn + ':') %>
+;; <%= @puppet_header %>
+;; <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 (require 'bbdb-wl)
 (bbdb-wl-setup)
 (require 'mime-bbdb)
