@@ -100,7 +100,7 @@
  '(mouse-yank-at-point 1)
  '(save-abbrevs (quote silently))
  ;; magick needed to make jabber-mode work with gmail and arte jabber servers
- '(starttls-extra-arguments (quote ("--insecure")))
+ ;;'(starttls-extra-arguments (quote ("--insecure")))
  ;; for wanderlust
  '(ssl-certificate-verification-policy 0)
  '(ssl-program-arguments (quote ("--insecure" "-p" service host)))
