@@ -8,6 +8,7 @@ fi
 
 if [ -e /home/xani/.screenlayout/default.sh ] ; then
     bash -c 'sleep 20 ;  /home/xani/.screenlayout/default.sh' &
+    bash -c 'sleep 240 ;  /home/xani/.screenlayout/default.sh' &
 fi
 
 if killall arbtt-capture >/dev/null 2>&1 ; then
