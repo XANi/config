@@ -19,7 +19,7 @@ else
     export ORIGTERM=$TERM
 fi
 
-home_host_regex='^(spare2|erise|arkham|vm-debian|hydra)'
+home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
 if [[ $HOSTNAME =~ $home_host_regex ]] ; then
     SHOW_HOSTNAME=0
     if [ "$USER" = "root" ] ; then
