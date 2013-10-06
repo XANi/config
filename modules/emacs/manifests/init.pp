@@ -6,6 +6,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
+    apt::source {'emacs-snapshot':;}
 
     File {
         owner => xani,

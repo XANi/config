@@ -50,18 +50,21 @@ repos:
 
     spotify:
         comment: Spotify player
+        keyid: 94558F59
         url:
             deb:
                 - http://repository.spotify.com stable non-free
 
     emacs-snapshot:
         comment: Emacs snapshots
+        keyid: 2A41B42C
         url:
             deb:
                 - http://emacs.naquadah.org stable/
 
     rabbitmq:
         comment: RabbitMQ
+        keyid: 056E8E56
         url:
             deb:
                 - http://www.rabbitmq.com/debian/ testing main

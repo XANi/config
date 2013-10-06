@@ -22,6 +22,10 @@ node default {
     apt::source {
         'chromium':;
         'firefox':;
+        'spotify':;
+        'dropbox':;
+        'emdebian':;
+
     }
     $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
@@ -69,11 +73,7 @@ node default {
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
     ssl::cert {'devrandom':;}
-
-    if $deploy_arte_config {
-        include home::config::svn
-        ssl::cert {'arte':;}
-
-    }
-
+ }
+node efi inherits default {
+    ssl::cert {'arte':;}
 }
