@@ -30,6 +30,7 @@ repos:
 
     chromium:
         comment: Chromium repos from ubuntu
+        keyid: 4E5E17B5
         url:
             deb:
                 - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
