@@ -19,7 +19,10 @@ $location = hiera('location','default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
 node default {
-    class {'apt::source':;}
+    apt::source {
+        'chromium':;
+        'firefox':;
+    }
     $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
         bug:;
