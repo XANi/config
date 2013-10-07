@@ -67,3 +67,9 @@ node efi inherits default {
     ssl::cert {'arte':;}
 
 }
+
+node ghroth inherits efi {
+    apt::source {
+        'rabbitmq':;
+    }
+}
