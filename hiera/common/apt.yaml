@@ -30,6 +30,7 @@ repos:
 
     chromium:
         comment: Chromium repos from ubuntu
+        keyid: 4E5E17B5
         url:
             deb:
                 - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
@@ -50,18 +51,21 @@ repos:
 
     spotify:
         comment: Spotify player
+        keyid: 94558F59
         url:
             deb:
                 - http://repository.spotify.com stable non-free
 
     emacs-snapshot:
         comment: Emacs snapshots
+        keyid: 2A41B42C
         url:
             deb:
                 - http://emacs.naquadah.org stable/
 
     rabbitmq:
         comment: RabbitMQ
+        keyid: 056E8E56
         url:
             deb:
                 - http://www.rabbitmq.com/debian/ testing main
