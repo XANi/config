@@ -31,7 +31,7 @@ any '/status/#status' => sub {
     my $status = int($self->param('status'));
     if ($status < 100 || $status > 999) {
         $self->render(
-            text => "Status must be 100-9999"
+            text => "Status must be 100-9999",
         );
         return
     }
@@ -45,7 +45,7 @@ post '/title' => sub {
     my $self = shift;
     my $url  = $self->param('url') || 'http://mojolicio.us';
     $self->render(
-        text => $self->ua->get($url)->res->dom->html->head->title->text;
+        text => $self->ua->get($url)->res->dom->html->head->title->text,
     );
 };
 
