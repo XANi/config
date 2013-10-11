@@ -198,8 +198,8 @@ sshmount() {
     fi
     SSHFS_TARGET_DIR="/home/xani/mnt/$SSHFS_SERVER"
     echo "Mounting $SSHFS_SERVER:$SSHFS_SERVER_DIR into $SSHFS_TARGET_DIR"
-#    mkdir -p $SSHFS_TARGET_DIR
-#   sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR
+    mkdir -p $SSHFS_TARGET_DIR
+    sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR
 }
 
 <%- if scope.lookupvar('home::common::http_proxy') -%>
