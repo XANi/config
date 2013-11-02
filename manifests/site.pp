@@ -66,3 +66,8 @@ node default {
 node efi inherits default {
     ssl::cert {'arte':;}
 }
+node vm-debian inherits default {
+    apt::source {
+        'main-testing':;
+    }
+}

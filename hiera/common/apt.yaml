@@ -16,6 +16,14 @@ repos:
             deb-src:
                 - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
 
+    main-testing:
+        comment: Main Debian repo - Testing
+        url:
+            deb:
+                - http://ftp.pl.debian.org/debian/ testing main non-free contrib
+            deb-src:
+                - http://ftp.pl.debian.org/debian/ testing main non-free contrib
+
     emdebian:
         comment: GCC for other archs
         url:
