@@ -61,6 +61,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'rainbow-mode',
                        'tabbar',
                        'tabbar-ruler',
+                       'textile-mode',
                        'twilight-anti-bright-theme',
                        'twittering-mode',
                        'vcl-mode',

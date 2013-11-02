@@ -184,6 +184,24 @@ alias tsocks='http_proxy= https_proxy= tsocks'
 alias cfg='cd ~/src/my/config'
 alias pup='cd ~/src/svn-puppet 2>/dev/null || cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
+
+# shortcut for quick sshfs
+sshmount() {
+    SSHFS_SERVER_DIR='/home/xani'
+    if [ "z$1" == "z" ] ; then
+        echo "specify server [server_dir]"
+        return
+    fi
+    SSHFS_SERVER=$1
+    if [ "z$2" != "z" ] ; then
+        SSHFS_SERVER_DIR=$2
+    fi
+    SSHFS_TARGET_DIR="/home/xani/mnt/$SSHFS_SERVER"
+    echo "Mounting $SSHFS_SERVER:$SSHFS_SERVER_DIR into $SSHFS_TARGET_DIR"
+    mkdir -p $SSHFS_TARGET_DIR
+    sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR
+}
+
 <%- if scope.lookupvar('home::common::http_proxy') -%>
 export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
 <%- end -%>

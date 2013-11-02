@@ -26,12 +26,27 @@ get '/list/:offset' => sub {
     );
 };
 
+any '/status/#status' => sub {
+    my $self = shift;
+    my $status = int($self->param('status'));
+    if ($status < 100 || $status > 999) {
+        $self->render(
+            text => "Status must be 100-9999",
+        );
+        return
+    }
+    $self->respond_to(
+        any => Dump $self->tx->req,
+        status => $status,
+    )
+};
 # Scrape information from remote sites
 post '/title' => sub {
     my $self = shift;
     my $url  = $self->param('url') || 'http://mojolicio.us';
-    $self->render_text(
-        $self->ua->get($url)->res->dom->html->head->title->text);
+    $self->render(
+        text => $self->ua->get($url)->res->dom->html->head->title->text,
+    );
 };
 
 # WebSocket echo service

@@ -43,7 +43,7 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
         '.tilda':;
     }
 
-    home::config::autostart {'tilda': command => 'tilda'}
+    home::config::autostart {'tilda': command => 'bash -c "echo $(sleep 20 ; tilda) &"'}
 
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",

@@ -27,7 +27,6 @@ node default {
         'emdebian':;
 
     }
-    $deploy_arte_config = hiera('deploy_arte_config',false)
     class {
         bug:;
         home:;
@@ -47,6 +46,7 @@ node default {
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
 
+
     if $is_virtual == 'true' {
         include vm
     }
@@ -65,6 +65,13 @@ node default {
 
 node efi inherits default {
     ssl::cert {'arte':;}
+
+}
+
+node ghroth inherits efi {
+    apt::source {
+        'rabbitmq':;
+    }
 }
 node vm-debian inherits default {
     apt::source {
