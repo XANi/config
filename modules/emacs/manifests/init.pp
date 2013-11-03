@@ -119,20 +119,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         mode    => 644,
         content => template('emacs/emacs.modular.erb'),
     }
-    file { emacs-wanderlust-config:
-        path    => "${homedir}/.wl",
-        owner   => xani,
-        group   => xani,
-        mode    => 600,
-        content => template('emacs/emacs.wl.erb'),
-    }
-    file { emacs-wanderlust-folder-config:
-        path    => "${homedir}/.folders",
-        owner   => xani,
-        group   => xani,
-        mode    => 600,
-        content => template('emacs/emacs.folders.erb'),
-    }
     file { xani-emacs-dir:
         path   => "${homedir}/emacs",
         ensure => directory,
@@ -387,4 +373,30 @@ define emacs::autoinsert {
         mode    => 644,
         owner   => xani,
     }
+}
+
+
+class emacs::wl {
+    require emacs
+    $homedir = $emacs::homedir
+    $mail_domain = hiera('wl_mail_domain','devrandom.pl')
+    $mail_smtp_server = hiera('wl_mail_server','imap.gmail.com')
+    $mail_imap_server = hiera('wl_mail_server','smtp.gmail.com')
+    $mail_user = hiera('wl_mail_user',false)
+    $mail_pass = hiera('wl_mail_pass',false)
+    file { emacs-wanderlust-config:
+        path    => "${homedir}/.wl",
+        owner   => xani,
+        group   => xani,
+        mode    => 600,
+        content => template('emacs/emacs.wl.erb'),
+    }
+    file { emacs-wanderlust-folder-config:
+        path    => "${homedir}/.folders",
+        owner   => xani,
+        group   => xani,
+        mode    => 600,
+        content => template('emacs/emacs.folders.erb'),
+    }
+
 }

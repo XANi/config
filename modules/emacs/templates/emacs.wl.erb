@@ -50,8 +50,8 @@
 
 
    ;; IMAP
-   (setq elmo-imap4-default-server "imap.artegence.com")
-   (setq elmo-imap4-default-user "mgronczewski@artegence.com")
+   <% if @mail_imap_server %>(setq elmo-imap4-default-server "<=% @mail_imap_server %>")<% end %>
+   <% if @mail_user %>(setq elmo-imap4-default-user "<%= @mail_user %>")<% end %>
    (setq elmo-imap4-default-authenticate-type 'plain)
    (setq elmo-imap4-default-port '993)
    (setq elmo-imap4-default-stream-type 'ssl)
@@ -67,8 +67,8 @@
 (setq wl-smtp-posting-port 587)
 (setq wl-smtp-authenticate-type "plain")
 (setq wl-smtp-posting-user "<%= @mail_pass %>")
-(setq wl-smtp-posting-server "smtp.artegence.com")
-(setq wl-local-domain "artegence.com")
+<% if @mail_smtp_server %>(setq wl-smtp-posting-server "<%= @mail_smtp_server %>")<% end %>
+<% if @mail_domain %>(setq wl-local-domain "<%= @mail_domain %>")<% end %>
 (setq wl-default-folder "%INBOX")
 (setq wl-default-spec "%")
 (setq wl-draft-folder "%INBOX.Drafts") ; Gmail IMAP
@@ -91,5 +91,3 @@
       'wl-draft-send
       'wl-draft-kill
       'mail-send-hook))
-
-
