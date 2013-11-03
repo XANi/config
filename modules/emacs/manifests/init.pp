@@ -380,10 +380,12 @@ class emacs::wl {
     require emacs
     $homedir = $emacs::homedir
     $mail_domain = hiera('wl_mail_domain','devrandom.pl')
-    $mail_smtp_server = hiera('wl_mail_server','imap.gmail.com')
-    $mail_imap_server = hiera('wl_mail_server','smtp.gmail.com')
+    $mail_from = hiera('wl_mail_from')
+    $mail_smtp_server = hiera('wl_smtp_server','imap.gmail.com')
+    $mail_imap_server = hiera('wl_imap_server','smtp.gmail.com')
     $mail_user = hiera('wl_mail_user',false)
-    $mail_pass = hiera('wl_mail_pass',false)
+    $mail_smtp_user = hiera('wl_smtp_user',$mail_user)
+    $mail_address_list = hiera('wl_mail_pass',false)
     file { emacs-wanderlust-config:
         path    => "${homedir}/.wl",
         owner   => xani,

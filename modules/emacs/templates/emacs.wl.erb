@@ -59,14 +59,14 @@
 ;;(setq elmo-imap4-use-modified-utf7 t)
 
 ;; SMTP
-(setq wl-from "Mariusz Gronczewski <mgronczewski@artegence.com>")
+(setq wl-from "<%= mail_from %>")
 
 (setq wl-organization "Artegence")
-(setq wl-user-mail-address-list (quote ("xani@artegence.com" "mariusz.gronczewski@artegence.com" "mgronczewski@artegence.com")))
+(setq wl-user-mail-address-list (quote (<% Array(mail_address_list).each do |email| %>"<%= email %>" <% end %> )))
 (setq wl-smtp-connection-type 'starttls)
 (setq wl-smtp-posting-port 587)
 (setq wl-smtp-authenticate-type "plain")
-(setq wl-smtp-posting-user "<%= @mail_pass %>")
+(setq wl-smtp-posting-user "<%= @mail_smtp_user %>")
 <% if @mail_smtp_server %>(setq wl-smtp-posting-server "<%= @mail_smtp_server %>")<% end %>
 <% if @mail_domain %>(setq wl-local-domain "<%= @mail_domain %>")<% end %>
 (setq wl-default-folder "%INBOX")
