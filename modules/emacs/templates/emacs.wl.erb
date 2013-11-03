@@ -50,7 +50,7 @@
 
 
    ;; IMAP
-   <% if @mail_imap_server %>(setq elmo-imap4-default-server "<=% @mail_imap_server %>")<% end %>
+   <% if @mail_imap_server %>(setq elmo-imap4-default-server "<%= @mail_imap_server %>")<% end %>
    <% if @mail_user %>(setq elmo-imap4-default-user "<%= @mail_user %>")<% end %>
    (setq elmo-imap4-default-authenticate-type 'plain)
    (setq elmo-imap4-default-port '993)
