@@ -74,7 +74,11 @@ node ghroth inherits efi {
     }
 }
 node vm-debian inherits default {
+    include emacs::wl
     apt::source {
         'main-testing':;
     }
+}
+node hydra inherits default {
+    include emacs::wl
 }
