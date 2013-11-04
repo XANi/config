@@ -80,7 +80,6 @@ app->start;
 __DATA__
 
 @@ routes.html.ep
-Hello! Routing map:<br><br>
 <%= '%' %> my $walk = begin
   <%= '%' %> my ($walk, $route, $depth) = @_;
   <tr>
@@ -107,7 +106,7 @@ Hello! Routing map:<br><br>
     <th>Methods</th>
     <th>Name</th>
   </tr>
-  <%= '%' %>= $walk
+  <%= '%' %>= $walk->($walk, $_, 0) for @{app->routes->children};
 </table>
 
 @@ clock.html.ep
