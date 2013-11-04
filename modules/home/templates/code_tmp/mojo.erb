@@ -76,39 +76,40 @@ get '/slow' => sub {
 };
 
 app->start;
+
 __DATA__
+
 @@ routes.html.ep
 Hello! Routing map:<br><br>
-<%= '
-% my $walk = begin
-  % my ($walk, $route, $depth) = @_;
+<%= '%' %> my $walk = begin
+  <%= '%' %> my ($walk, $route, $depth) = @_;
   <tr>
     <td>
-      % my $pattern = $route->pattern->pattern || \'/\';
-      % $pattern = "+$pattern" if $depth;
-      <pre><%= \'  \' x $depth %><%= $pattern %></pre>
+      <%= '%' %> my $pattern = $route->pattern->pattern || '/';
+      <%= '%' %> $pattern = "+$pattern" if $depth;
+      <pre><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></pre>
     </td>
     <td>
-      <pre><%= uc(join \',\', @{$route->via || []}) || \'*\' %></pre>
+      <pre><<%= '%' %>= uc(join ',', @{$route->via || []}) || '*' <%= '%' %>></pre>
     </td>
     <td>
-      % my $name = $route->name;
-      <pre><%= $route->has_custom_name ? qq{"$name"} : $name %></pre>
+      <%= '%' %> my $name = $route->name;
+      <pre><<%= '%' %>= $route->has_custom_name ? qq{"$name"} : $name <%= '%' %>></pre>
     </td>
   </tr>
-  % $depth++;
-  %= $walk->($walk, $_, $depth) for @{$route->children};
-  % $depth--;
-% end
+  <%= '%' %> $depth++;
+  <%= '%' %>= $walk->($walk, $_, $depth) for @{$route->children};
+  <%= '%' %> $depth--;
+<%= '%' %> end
 <table border=1>
   <tr>
     <th>Pattern</th>
     <th>Methods</th>
     <th>Name</th>
   </tr>
-  %= $walk->($walk, $_, 0) for @{app->routes->children};
+  <%= '%' %>= $walk
 </table>
-' %>
+
 @@ clock.html.ep
 <%-%>% use Time::Piece;
 <%-%>% my $now = localtime;
