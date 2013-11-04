@@ -19,8 +19,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     package { [
-               'lua-mode',
-               'org-mode',
                'sepia', # Simple Emacs-Perl InterAction
                'twittering-mode',
                'texlive-latex-base',
@@ -36,10 +34,12 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
     # old packages that we now get from elpa or dont use at all
     package { [
+               'org-mode',
                'apel',
                'yasnippet',
                'magit',
                'emacs-jabber',
+               'lua-mode',
                ]:
                    ensure => absent,
     }
@@ -51,9 +51,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'flymake-yaml',
                        'haskell-mode',
                        'jabber',
+                       'lua-mode',
+                       'markdown-mode',
+                       'move-mode',
                        'multiple-cursors',
                        'nyan-mode',
                        'nyan-prompt',
+                       'org',
+                       'org-pandoc',
+                       'org2blog',
                        'phi-search',
                        'phi-search-mc',
                        'purple-haze-theme',
