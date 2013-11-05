@@ -3,7 +3,7 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
-# Apt::Source <| |> -> Package <| |>
+ Apt::Source <| |> -> Package <| |>
 Exec {
       path => [
                '/sbin',
