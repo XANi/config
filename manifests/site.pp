@@ -28,20 +28,21 @@ node default {
 
     }
     class {
-        bug:;
-        home:;
-        puppet:;
         apt::update:;
+        bug:;
+        custom:;
         dpp:;
+        emacs::org::sync:;
+        emacs::org:;
+        emacs:;
+        env:;
+        home:;
         monit:;
         ntp::client:;
-        emacs:;
-        emacs::org:;
-        emacs::org::sync:;
+        puppet:;
+        token:;
         util::generic:;
         xfce:;
-        token:;
-        custom:;
     }
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
