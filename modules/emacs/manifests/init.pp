@@ -357,9 +357,6 @@ class emacs::org::sync ( $homedir = '/home/xani' ) {
         creates => "${homedir}/emacs/org/mobile.org",
         require => File['xani-emacs-org'],
     }
-    if ! defined (Package['sshfs'])  {
-      package { sshfs: ensure => installed }
-    }
     exec { mount-orgshare:
         #cwd      => "${homedir}/emacs/org",
         unless    => "/usr/bin/sudo -u xani /usr/bin/test -e $homedir/emacs/org/mobile.org/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
