@@ -3,7 +3,7 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
- Apt::Source <| |> -> Package <| |>
+Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
 Exec {
       path => [
                '/sbin',
@@ -27,6 +27,9 @@ node default {
         'emdebian':;
 
     }
+    package {'emdebian-archive-keyring':
+        ensure => installed,
+    }
     class {
         apt::update:;
         bug:;
@@ -44,6 +47,7 @@ node default {
         util::generic:;
         xfce:;
     }
+
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
 
@@ -62,7 +66,21 @@ node default {
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
     ssl::cert {'devrandom':;}
-}
+    # disable things that might be installed for tools but autostart service
+    util::service_disable {
+        'mcollective':;
+        'wd_keepalive':;
+        'varnishlog':;
+        'varnishncsa':;
+        'prosody':;
+        'stunnel4':;
+        'sysstat':;
+        'ulogd':;
+        'openhpid':;
+        'saned':;
+        'watchdog':;
+        'apache':;
+    }
 
 node efi inherits default {
     ssl::cert {'arte':;}
