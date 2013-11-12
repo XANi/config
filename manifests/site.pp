@@ -82,10 +82,10 @@ node default {
         'apache':;
         'ntop':;
     }
+}
 
 node efi inherits default {
     ssl::cert {'arte':;}
-
 }
 
 node ghroth inherits efi {
