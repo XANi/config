@@ -58,6 +58,7 @@
     cx = commit -v <% if gpgid != false %> -S <% end %>
     c = commit -v <% if gpgid != false %> -S <% end %>
     s = status -s -b
+    st = !git fetch && git status -s -b
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
