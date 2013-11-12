@@ -80,6 +80,7 @@ node default {
         'saned':;
         'watchdog':;
         'apache':;
+        'ntop':;
     }
 
 node efi inherits default {
