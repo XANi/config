@@ -19,15 +19,16 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
 
     package { [
-               'sepia', # Simple Emacs-Perl InterAction
-               'twittering-mode',
-               'texlive-latex-base',
-               'puppet-lint',
-               'yaml-mode',
-#               'wl-beta',
                'bbdb',
+               'exuberant-ctags',
+               'puppet-lint',
+               'sepia', # Simple Emacs-Perl InterAction
+               'texlive-latex-base',
+               'twittering-mode',
                'wmctrl',
                'xprintidle', # mostly for jabber mode
+               'yaml-mode',
+#               'wl-beta',
                ]:
         ensure  => installed,
     require => Package['emacs'],
