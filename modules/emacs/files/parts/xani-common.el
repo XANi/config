@@ -132,4 +132,7 @@
 (global-rainbow-delimiters-mode)
 (rainbow-mode)
 
+;; minibuffer depth
+(minibuffer-depth-indicate-mode 99)
+
 (provide 'xani-common)
