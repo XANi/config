@@ -16,6 +16,7 @@ Exec {
 }
 
 $location = hiera('location','default')
+$project = hiera('location','default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
 node default {
