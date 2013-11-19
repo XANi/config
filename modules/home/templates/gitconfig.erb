@@ -54,6 +54,7 @@
 
 [alias]
     l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
+    lo = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s' --stat-count=7
     co = checkout
     cx = commit -v <% if gpgid != false %> -S <% end %>
     c = commit -v <% if gpgid != false %> -S <% end %>
