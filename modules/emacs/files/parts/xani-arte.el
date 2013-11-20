@@ -7,6 +7,6 @@
                       )
 )
 (setq tags-table-list
-           '("~src/puppet"))
+           '("~/src/puppet"))
 
 (provide 'xani-arte)
