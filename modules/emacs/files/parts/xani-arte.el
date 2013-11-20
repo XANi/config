@@ -6,6 +6,7 @@
                       (expand-file-name "~/src/puppet/modules/artegence/files/lib/perl-common")
                       )
 )
-
+(setq tags-table-list
+           '("~src/puppet"))
 
 (provide 'xani-arte)
