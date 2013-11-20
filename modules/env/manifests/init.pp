@@ -2,7 +2,7 @@ class env {
     $proxy_domain = hiera('proxy_domain',false)
     $proxy = hiera('proxy',false)
     $no_proxy = hiera('no_proxy',false)
-    if $proxy_in_domain and $fqdn =~ /$proxy_domain/ and $proxy {
+    if $proxy_domain and $fqdn =~ /$proxy_domain/ and $proxy {
         $env_content = template('env/env.erb')
     }
     else {
