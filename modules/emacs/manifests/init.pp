@@ -35,7 +35,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
     # old packages that we now get from elpa or dont use at all
     package { [
-               'org-mode',
+#               'org-mode',
                'apel',
                'yasnippet',
                'magit',
@@ -60,9 +60,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'multiple-cursors',
                        'nyan-mode',
                        'nyan-prompt',
-                       'org',
-                       'org-pandoc',
-                       'org2blog',
+ #                      'org',
+ #                      'org-pandoc',
+ #                      'org2blog',
                        'phi-search',
                        'phi-search-mc',
                        'purple-haze-theme',
