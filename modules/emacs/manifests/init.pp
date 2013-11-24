@@ -70,7 +70,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'phi-search',
                        'phi-search-mc',
                        'puppet-mode',
-                       'puppetfile-mode',
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
