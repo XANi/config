@@ -91,6 +91,11 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         notify  => Exec['refresh-emacs-packages'],
         mode    => 644,
     }
+    file { "${homedir}/emacs/install-packages.sh":
+	content => "emacs -Q --script /home/xani/emacs/install-packages.el",
+	mode    => 755,
+    }	
+
 
     exec { 'refresh-emacs-packages':
         command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
