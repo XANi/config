@@ -96,6 +96,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
 	mode    => 755,
     }	
 
+    exec { "create-emacs-packages":
+	command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
+	logoutput   => true,
+	creates     => "/tmp/emacs-install-done",
+        environment => [
+                        "HOME=${homedir}",
+                        ],
+        user        => 'xani',
+    }	
 
     exec { 'refresh-emacs-packages':
         command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
