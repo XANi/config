@@ -49,6 +49,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'charmap',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
+                       'diminish',
                        'ecb',
                        'flymake-puppet',
                        'flymake-yaml',
@@ -94,7 +95,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { "${homedir}/emacs/install-packages.sh":
 	content => "emacs -Q --script /home/xani/emacs/install-packages.el",
 	mode    => 755,
-    }	
+    }
 
     exec { "create-emacs-packages":
 	command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
@@ -104,7 +105,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                         "HOME=${homedir}",
                         ],
         user        => 'xani',
-    }	
+    }
 
     exec { 'refresh-emacs-packages':
         command     => "/usr/bin/emacs -Q --script ${homedir}/emacs/install-packages.el",
