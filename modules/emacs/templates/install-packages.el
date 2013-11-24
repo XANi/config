@@ -14,7 +14,7 @@
 ))
 (dolist (package package-list)
   (when (not (package-installed-p package))
-    (message "-----> Installing %s." (buffer-name))
+    (message "-----> Installing %s" package)
     (package-install package)
     )
 )
