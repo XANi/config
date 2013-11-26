@@ -49,14 +49,18 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'charmap',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
+                       'diminish',
                        'ecb',
+                       'flymake-puppet',
                        'flymake-yaml',
                        'haskell-mode',
+                       'iedit',
                        'impatient-mode',
                        'jabber',
                        'lua-mode',
                        'markdown-mode',
-                       'move-mode',
+                       'mediawiki',
+                       'move-text',
                        'multiple-cursors',
                        'nyan-mode',
                        'nyan-prompt',
@@ -65,14 +69,17 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
+                       'puppet-mode',
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
+                       'sml-modeline',
                        'tabbar',
                        'tabbar-ruler',
                        'textile-mode',
                        'twilight-anti-bright-theme',
                        'twittering-mode',
+                       'undo-tree',
                        'vcl-mode',
                        'yasnippet',
                        'zencoding-mode',
@@ -83,6 +90,20 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group   => xani,
         notify  => Exec['refresh-emacs-packages'],
         mode    => 644,
+    }
+    file { "${homedir}/emacs/install-packages.sh":
+	content => "emacs -Q --script /home/xani/emacs/install-packages.el",
+	mode    => 755,
+    }
+
+    exec { "create-emacs-packages":
+	command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
+	logoutput   => true,
+	creates     => "/tmp/emacs-install-done",
+        environment => [
+                        "HOME=${homedir}",
+                        ],
+        user        => 'xani',
     }
 
     exec { 'refresh-emacs-packages':

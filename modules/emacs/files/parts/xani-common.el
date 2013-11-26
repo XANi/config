@@ -51,6 +51,15 @@
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
 
+;; highlight while expression in parens
+(setq show-paren-style 'expression)
+
+;; break lines on words
+(global-visual-line-mode 1) ; 1 for on, 0 for off.
+(setq
+ visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))
+)
+
 ;; default printing program:
 (setq lpr-command "gtklp")
 
