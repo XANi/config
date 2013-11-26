@@ -135,4 +135,7 @@
 ;; minibuffer depth
 (minibuffer-depth-indicate-mode 99)
 
+;; do not ask to reload TAGS
+(setq tags-revert-without-query 1)
+
 (provide 'xani-common)
