@@ -433,9 +433,9 @@ class emacs::snapshot {
     }
     util::update_alternatives {
         emacs:
-            target  => 'usr/bin/emacs-snapshot',
+            target  => '/usr/bin/emacs-snapshot',
             require => Package['emacs-snapshot'];
-        emacs-snapshot:
+        emacsclient:
             target  => '/usr/bin/emacsclient.emacs-snapshot',
             require => Package['emacs-snapshot'];
     }
