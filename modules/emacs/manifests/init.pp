@@ -436,7 +436,7 @@ class emacs::snapshot {
             target  => 'usr/bin/emacs-snapshot',
             require => Package['emacs-snapshot'];
         emacs-snapshot:
-            target  => '/usr/bin/emacsclient.emacs-snapshot';
+            target  => '/usr/bin/emacsclient.emacs-snapshot',
             require => Package['emacs-snapshot'];
     }
 }
