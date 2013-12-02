@@ -89,6 +89,7 @@
  version-control t       ; use versioned backups]
  yaml-block-literal-search-lines 1000
  yaml-indent-offset 4
+ kill-read-only-ok t  ; allow yanking read-only lines
  )
 
 (custom-set-variables
@@ -146,5 +147,11 @@
 
 ;; do not ask to reload TAGS
 (setq tags-revert-without-query 1)
+
+;; do not kill scratch
+ (protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
+
+;; use emacs buffers, so we dont get read only crap from clipboard
+(global-set-key [mouse-2] 'mouse-yank-at-click)
 
 (provide 'xani-common)

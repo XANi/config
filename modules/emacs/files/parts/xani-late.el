@@ -15,6 +15,8 @@
            (server-buffer-clients . "")
            (yas-minor-mode . "𐤊")
            (overwrite-mode . "✗")
+           (protect-buffer-from-kill-mode . "ᛞ")
+
            )
           )
    )
