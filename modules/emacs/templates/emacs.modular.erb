@@ -205,7 +205,7 @@
      (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                             '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
    ;;(maximize)
-   (global-set-key [f11] 'maximize)
+   (global-set-key [f11] 'toggle-frame-fullscreen)
    (global-set-key [f12] 'menu-bar-mode)
    )
  (ad-activate 'server-create-window-system-frame)
