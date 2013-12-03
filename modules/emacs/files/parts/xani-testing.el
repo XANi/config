@@ -9,7 +9,7 @@
 (setq
  x-select-enable-clipboard t
  yank-pop-change-selection t
- setq select-active-regions t
+ select-active-regions t
 )
 
 
