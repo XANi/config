@@ -153,6 +153,6 @@
  (protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
 
 ;; use emacs buffers, so we dont get read only crap from clipboard
-(global-set-key [mouse-2] 'mouse-yank-at-click)
+;;(global-set-key [mouse-2] 'mouse-yank-at-click)
 
 (provide 'xani-common)
