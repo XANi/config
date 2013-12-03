@@ -54,6 +54,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'lua-mode',
                        'markdown-mode',
                        'mediawiki',
+                       'mouse+',
                        'move-text',
                        'multiple-cursors',
                        'nyan-mode',
