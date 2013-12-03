@@ -90,6 +90,7 @@
  yaml-block-literal-search-lines 1000
  yaml-indent-offset 4
  kill-read-only-ok t  ; allow yanking read-only lines
+ make-pointer-invisible nil ; dont hide pointer
  )
 
 (custom-set-variables
