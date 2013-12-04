@@ -130,7 +130,7 @@
                                                (cmd args dir)
                                                activate compile)
   ;; set flag to allow exit without query on any
-  ;;active flymake processes
+
   (set-process-query-on-exit-flag ad-return-value nil))
 
 ;; colors
@@ -144,9 +144,11 @@
 (setq tags-revert-without-query 1)
 
 ;; do not kill scratch
- (protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
+(protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
 
 ;; use emacs buffers, so we dont get read only crap from clipboard
 ;;(global-set-key [mouse-2] 'mouse-yank-at-click)
 
+;; mouse+ show position when holding paste
+(global-set-key [down-mouse-2]  'mouse-flash-position-or-M-x)
 (provide 'xani-common)
