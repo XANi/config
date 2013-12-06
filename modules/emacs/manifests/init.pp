@@ -35,6 +35,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'magit',
                'emacs-jabber',
                'lua-mode',
+	       'e2wm',
                ]:
                    ensure => absent,
     }
