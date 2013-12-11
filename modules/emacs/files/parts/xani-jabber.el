@@ -3,7 +3,7 @@
 (custom-set-variables
  '(jabber-activity-make-strings (quote jabber-activity-make-strings-shorten))
  '(jabber-activity-shorten-minimum 20)
- '(jabber-alert-message-hooks (quote (jabber-message-beep jabber-message-echo jabber-message-scroll)))
+ '(jabber-alert-message-hooks (quote (jabber-message-libnotify jabber-message-beep jabber-message-echo jabber-message-scroll)))
  '(jabber-alert-presence-hooks nil)
  '(jabber-auto-reconnect t)
  '(jabber-autoaway-method (quote jabber-xprintidle-get-idle-time))
@@ -37,8 +37,5 @@
        '(jabber-chat-text-local ((t (:foreground "#aaaaff"))))
        '(jabber-roster-user-online ((t (:foreground "#5577aa" :slant normal :weight bold))))
 )
-
-(require 'xani-notify)
-(add-hook 'jabber-alert-message-hooks 'libnotify-jabber-notify)
 
 (provide 'xani-jabber)
