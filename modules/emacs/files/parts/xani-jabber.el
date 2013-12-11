@@ -6,6 +6,8 @@
  '(jabber-alert-message-hooks (quote (jabber-message-libnotify jabber-message-beep jabber-message-echo jabber-message-scroll)))
  '(jabber-alert-presence-hooks nil)
  '(jabber-auto-reconnect t)
+ '(jabber-libnotify-timeout 20000)
+ '(jabber-libnotify-icon "/usr/share/icons/hicolor/128x128/apps/emacs-snapshot.png")
  '(jabber-autoaway-method (quote jabber-xprintidle-get-idle-time))
  '(jabber-autoaway-priority -10)
  '(jabber-autoaway-status "AFK")
