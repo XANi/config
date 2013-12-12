@@ -29,7 +29,7 @@
  '(jabber-history-dir "~/emacs/jabber-history")
  '(jabber-history-enable-rotation t)
  '(jabber-history-enabled t)
- '(jabber-history-size-limit 65535)
+ '(jabber-history-size-limit 1024)
  '(jabber-invalid-certificate-servers (quote ("artegence.com" "im.3dart.com")))
  '(jabber-mode-line-mode t)
  '(jabber-muc-default-nicknames nil)
