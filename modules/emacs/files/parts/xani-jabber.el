@@ -3,7 +3,15 @@
 (custom-set-variables
  '(jabber-activity-make-strings (quote jabber-activity-make-strings-shorten))
  '(jabber-activity-shorten-minimum 20)
- '(jabber-alert-message-hooks (quote (jabber-message-libnotify jabber-message-beep jabber-message-echo jabber-message-scroll)))
+ '(jabber-alert-info-message-hooks
+   (quote
+    (jabber-info-libnotify jabber-info-echo jabber-info-display)))
+ '(jabber-alert-message-hooks
+   (quote
+    (jabber-message-libnotify jabber-message-beep jabber-message-echo jabber-message-scroll)))
+ '(jabber-alert-muc-hooks
+   (quote
+    (jabber-muc-libnotify-personal jabber-muc-echo jabber-muc-scroll)))
  '(jabber-alert-presence-hooks nil)
  '(jabber-auto-reconnect t)
  '(jabber-libnotify-timeout 20000)
