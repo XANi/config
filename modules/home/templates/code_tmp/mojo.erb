@@ -128,7 +128,7 @@ function WebSocketTest()
   if ("WebSocket" in window)
   {
      // Let us open a web socket
-     ws = new WebSocket("ws://<%= '<%= $host %>'  %>/echo");
+     ws = new WebSocket("ws://<%%= $host %>/echo");
      ws.onopen = function()
      {
         // Web Socket is connected, send data using send()
