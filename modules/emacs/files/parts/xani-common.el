@@ -151,4 +151,8 @@
 
 ;; mouse+ show position when holding paste
 (global-set-key [down-mouse-2]  'mouse-flash-position-or-M-x)
+
+;; revert files if they changed on disk (git)
+(global-auto-revert-mode)
+
 (provide 'xani-common)
