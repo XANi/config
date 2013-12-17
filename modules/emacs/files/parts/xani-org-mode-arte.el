@@ -8,6 +8,7 @@
  ;; org-mobile-files '("~/emacs/org/arte/.agenda") ;; defaults to agenda
  org-mobile-directory "~/emacs/org/mobile.org/arte"
  org-mobile-inbox-for-pull "~/emacs/org/arte/mobile.org"
+ org-mobile-agendas (quote default)
  org-combined-agenda-icalendar-file "~/emacs/org/arte.ics"
 )
 
