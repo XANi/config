@@ -86,7 +86,7 @@ __DATA__
     <td>
       <%= '%' %> my $pattern = $route->pattern->pattern || '/';
       <%= '%' %> $pattern = "+$pattern" if $depth;
-      <pre><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></pre>
+      <pre><a href='<%%= $pattern %>'><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></a></pre>
     </td>
     <td>
       <pre><<%= '%' %>= uc(join ',', @{$route->via || []}) || '*' <%= '%' %>></pre>
@@ -128,7 +128,7 @@ function WebSocketTest()
   if ("WebSocket" in window)
   {
      // Let us open a web socket
-     ws = new WebSocket("ws://<%= $host %>/echo");
+     ws = new WebSocket("ws://<%%= $host %>/echo");
      ws.onopen = function()
      {
         // Web Socket is connected, send data using send()

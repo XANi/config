@@ -58,12 +58,6 @@
 )
 
 
-;; break lines on words
-(global-visual-line-mode 1) ; 1 for on, 0 for off.
-(setq
- visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow))
-)
-
 ;; default printing program:
 (setq lpr-command "gtklp")
 
@@ -93,6 +87,8 @@
  version-control t       ; use versioned backups]
  yaml-block-literal-search-lines 1000
  yaml-indent-offset 4
+ kill-read-only-ok t  ; allow yanking read-only lines
+ make-pointer-invisible nil ; dont hide pointer
  )
 
 (custom-set-variables
@@ -138,7 +134,7 @@
                                                (cmd args dir)
                                                activate compile)
   ;; set flag to allow exit without query on any
-  ;;active flymake processes
+
   (set-process-query-on-exit-flag ad-return-value nil))
 
 ;; colors
@@ -147,5 +143,20 @@
 
 ;; minibuffer depth
 (minibuffer-depth-indicate-mode 99)
+
+;; do not ask to reload TAGS
+(setq tags-revert-without-query 1)
+
+;; do not kill scratch
+(protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
+
+;; use emacs buffers, so we dont get read only crap from clipboard
+;;(global-set-key [mouse-2] 'mouse-yank-at-click)
+
+;; mouse+ show position when holding paste
+(global-set-key [down-mouse-2]  'mouse-flash-position-or-M-x)
+
+;; revert files if they changed on disk (git)
+(global-auto-revert-mode)
 
 (provide 'xani-common)

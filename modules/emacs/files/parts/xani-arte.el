@@ -9,4 +9,14 @@
 (setq tags-table-list
            '("~/src/puppet"))
 
+(setq
+ display-time-24hr-format t
+ display-time-day-and-date nil
+ display-time-format "" ;; no time, only mail icon
+ display-time-load-average-threshold 0.6
+ display-time-mail-directory "/home/xani/mail/claws/INBOX"
+ display-time-mail-file (quote none)
+ display-time-use-mail-icon t
+)
+
 (provide 'xani-arte)

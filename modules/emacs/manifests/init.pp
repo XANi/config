@@ -6,18 +6,12 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
-    apt::source {'emacs-snapshot':;}
-
+    include emacs::snapshot
     File {
         owner => xani,
         group => xani,
         mode  => 644,
     }
-    package { emacs-snapshot:
-    alias => 'emacs', # for deps
-        ensure => installed,
-    }
-
     package { [
                'bbdb',
                'exuberant-ctags',
@@ -41,6 +35,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'magit',
                'emacs-jabber',
                'lua-mode',
+	       'e2wm',
                ]:
                    ensure => absent,
     }
@@ -60,6 +55,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'lua-mode',
                        'markdown-mode',
                        'mediawiki',
+                       'mouse+',
                        'move-text',
                        'multiple-cursors',
                        'nyan-mode',
@@ -428,4 +424,21 @@ class emacs::wl {
         content => template('emacs/emacs.folders.erb'),
     }
 
+}
+
+
+class emacs::snapshot {
+    apt::source {'emacs-snapshot':;}
+    package { emacs-snapshot:
+        alias  => 'emacs', # for deps
+        ensure => installed,
+    }
+    util::update_alternatives {
+        emacs:
+            target  => '/usr/bin/emacs-snapshot',
+            require => Package['emacs-snapshot'];
+        emacsclient:
+            target  => '/usr/bin/emacsclient.emacs-snapshot',
+            require => Package['emacs-snapshot'];
+    }
 }

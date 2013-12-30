@@ -3,9 +3,19 @@
 (custom-set-variables
  '(jabber-activity-make-strings (quote jabber-activity-make-strings-shorten))
  '(jabber-activity-shorten-minimum 20)
- '(jabber-alert-message-hooks (quote (jabber-message-beep jabber-message-echo jabber-message-scroll)))
+ '(jabber-alert-info-message-hooks
+   (quote
+    (jabber-info-libnotify jabber-info-echo jabber-info-display)))
+ '(jabber-alert-message-hooks
+   (quote
+    (jabber-message-libnotify jabber-message-beep jabber-message-echo jabber-message-scroll)))
+ '(jabber-alert-muc-hooks
+   (quote
+    (jabber-muc-libnotify-personal jabber-muc-echo jabber-muc-scroll)))
  '(jabber-alert-presence-hooks nil)
  '(jabber-auto-reconnect t)
+ '(jabber-libnotify-timeout 20000)
+ '(jabber-libnotify-icon "/usr/share/icons/hicolor/128x128/apps/emacs-snapshot.png")
  '(jabber-autoaway-method (quote jabber-xprintidle-get-idle-time))
  '(jabber-autoaway-priority -10)
  '(jabber-autoaway-status "AFK")
@@ -19,7 +29,7 @@
  '(jabber-history-dir "~/emacs/jabber-history")
  '(jabber-history-enable-rotation t)
  '(jabber-history-enabled t)
- '(jabber-history-size-limit 65535)
+ '(jabber-history-size-limit 1024)
  '(jabber-invalid-certificate-servers (quote ("artegence.com" "im.3dart.com")))
  '(jabber-mode-line-mode t)
  '(jabber-muc-default-nicknames nil)
@@ -37,8 +47,5 @@
        '(jabber-chat-text-local ((t (:foreground "#aaaaff"))))
        '(jabber-roster-user-online ((t (:foreground "#5577aa" :slant normal :weight bold))))
 )
-
-(require 'xani-notify)
-(add-hook 'jabber-alert-message-hooks 'libnotify-jabber-notify)
 
 (provide 'xani-jabber)
