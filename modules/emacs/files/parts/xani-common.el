@@ -52,7 +52,11 @@
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
 
 ;; highlight while expression in parens
-(setq show-paren-style 'expression)
+(setq
+ show-paren-style 'expression
+ show-paren-delay 0.001
+)
+
 
 ;; break lines on words
 (global-visual-line-mode 1) ; 1 for on, 0 for off.
