@@ -148,6 +148,7 @@
 (setq tags-revert-without-query 1)
 
 ;; do not kill scratch
+(require 'protbuf)
 (protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
 
 ;; use emacs buffers, so we dont get read only crap from clipboard
