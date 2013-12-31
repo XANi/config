@@ -86,7 +86,7 @@ __DATA__
     <td>
       <%= '%' %> my $pattern = $route->pattern->pattern || '/';
       <%= '%' %> $pattern = "+$pattern" if $depth;
-      <pre><a href='<%%$= $pattern %>'><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></a></pre>
+      <pre><a href='<%%= $pattern %>'><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></a></pre>
     </td>
     <td>
       <pre><<%= '%' %>= uc(join ',', @{$route->via || []}) || '*' <%= '%' %>></pre>
