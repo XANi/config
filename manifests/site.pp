@@ -94,7 +94,7 @@ node ghroth inherits efi {
         'rabbitmq':;
     }
 }
-node vm-debian inherits default {
+node 'vm-debian' inherits default {
     include emacs::wl
     apt::source {
         'main-testing':;
