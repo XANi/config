@@ -217,15 +217,14 @@ export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib').join(':') %>"
 <%- end -%>
 
 # load gpg agent info if shell (like anything in xsession) gets loaded before gpg-agent started
-if [ "z" == "z$GPG_AGENT_INFO" ] ; then
-    if [ ! -r $GPG_AGENT_INFO ] ; then
-        #   echo "no gpg agent in session!"
-        GPG_AGENT_FILE="/home/xani/.gnupg/gpg-agent-info-$HOSTNAME"
-        if [ -e $GPG_AGENT_FILE ] ; then
-            #        echo "adding one from $GPG_AGENT_FILE"
-            source $GPG_AGENT_FILE
-            export GPG_AGENT_INFO
-        fi
+
+if [ ! -r $GPG_AGENT_INFO ] ; then
+    #   echo "no gpg agent in session!"
+    export GPG_AGENT_FILE="/home/xani/.gnupg/gpg-agent-info-$HOSTNAME"
+    if [ -e $GPG_AGENT_FILE ] ; then
+        #        echo "adding one from $GPG_AGENT_FILE"
+        source $GPG_AGENT_FILE
+        export GPG_AGENT_INFO
     fi
 fi
 
