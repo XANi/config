@@ -65,7 +65,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
-                       'puppet-mode',
+                       # 'puppet-mode', # provided in puppet repo
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
