@@ -52,7 +52,11 @@
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
 
 ;; highlight while expression in parens
-(setq show-paren-style 'expression)
+(setq
+ show-paren-style 'expression
+ show-paren-delay 0.001
+)
+
 
 ;; default printing program:
 (setq lpr-command "gtklp")
@@ -144,6 +148,7 @@
 (setq tags-revert-without-query 1)
 
 ;; do not kill scratch
+(require 'protbuf)
 (protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
 
 ;; use emacs buffers, so we dont get read only crap from clipboard
