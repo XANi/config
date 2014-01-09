@@ -3,6 +3,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
     $emacs_theme    = 'twilight-anti-bright'
+    $emacs_version  = 'emacs-snapshot'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
@@ -428,18 +429,20 @@ class emacs::wl {
 }
 
 
-class emacs::snapshot {
-    apt::source {'emacs-snapshot':;}
-    package { emacs-snapshot:
-        alias  => 'emacs', # for deps
-        ensure => installed,
+class emacs::version ($version = 'emacs-snapshot') {
+    if ($version =~ /snapshot/) {
+        apt::source {'emacs-snapshot':;}
     }
+        package { $version:
+            alias  => 'emacs', # for deps
+            ensure => installed,
+        }
     util::update_alternatives {
         emacs:
-            target  => '/usr/bin/emacs-snapshot',
-            require => Package['emacs-snapshot'];
+            target  => "/usr/bin/${version}",
+            require => Package[$version];
         emacsclient:
-            target  => '/usr/bin/emacsclient.emacs-snapshot',
+            target  => "/usr/bin/emacsclient.${version}",
             require => Package['emacs-snapshot'];
     }
 }
