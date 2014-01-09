@@ -7,7 +7,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
-    include emacs::snapshot
+    class { 'emacs::install':
+        version => $emacs_version,
+    }
     File {
         owner => xani,
         group => xani,
@@ -429,14 +431,14 @@ class emacs::wl {
 }
 
 
-class emacs::version ($version = 'emacs-snapshot') {
+class emacs::install ($version = 'emacs-snapshot') {
     if ($version =~ /snapshot/) {
         apt::source {'emacs-snapshot':;}
     }
-        package { $version:
-            alias  => 'emacs', # for deps
-            ensure => installed,
-        }
+    package { $version:
+        alias  => 'emacs', # for deps
+        ensure => installed,
+    }
     util::update_alternatives {
         emacs:
             target  => "/usr/bin/${version}",
