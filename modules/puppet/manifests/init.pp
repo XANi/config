@@ -24,5 +24,9 @@ class puppet {
         '/etc/puppet/hiera.yaml':
             ensure => '/etc/hiera.yaml';
     }
+    file {'/etc/cron.daily/clean-puppet-reports':
+        content => '/bin/find /var/lib/puppet/reports -mtime +30 -type f -delete',
+        mode    => 755,
+    }
 
 }
