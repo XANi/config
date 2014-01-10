@@ -434,7 +434,10 @@ class emacs::wl {
 
 class emacs::install ($version = 'emacs-snapshot') {
     if ($version =~ /snapshot/) {
+        $alternative = $version
         apt::source {'emacs-snapshot':;}
+    } else {
+        $alternative = "${version}-x"
     }
     package { $version:
         alias  => 'emacs', # for deps
@@ -442,10 +445,10 @@ class emacs::install ($version = 'emacs-snapshot') {
     }
     util::update_alternatives {
         emacs:
-            target  => "/usr/bin/${version}",
+            target  => "/usr/bin/${alternative}",
             require => Package[$version];
         emacsclient:
-            target  => "/usr/bin/emacsclient.${version}",
+            target  => "/usr/bin/emacsclient.${alternative}",
             require => Package[$version];
     }
 }
