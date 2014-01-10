@@ -448,7 +448,7 @@ class emacs::install ($version = 'emacs-snapshot') {
             target  => "/usr/bin/${alternative}",
             require => Package[$version];
         emacsclient:
-            target  => "/usr/bin/emacsclient.${alternative}",
+            target  => "/usr/bin/emacsclient.${version}",
             require => Package[$version];
     }
 }
