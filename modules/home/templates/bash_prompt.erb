@@ -1,5 +1,5 @@
 #!/bin/bash
-# <%= @puppet_header %>
+<% if ! @portable_config %># <%= @puppet_header %><% end %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 # restore original term if its set to xterm-256, and save orig. term otherwise
 # needed for sudo passing $TERM in env
