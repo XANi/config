@@ -2,7 +2,7 @@
 ;;
 (nyan-mode)
 (setq
- nyan-bar-length 16
+ nyan-bar-length 12
  nyan-wavy-trail t
  nyan-mode t
 )

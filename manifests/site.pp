@@ -3,7 +3,7 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
- Apt::Source <| |> -> Package <| |>
+Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
 Exec {
       path => [
                '/sbin',
@@ -16,6 +16,7 @@ Exec {
 }
 
 $location = hiera('location','default')
+$project = hiera('project','default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
 node default {
@@ -25,24 +26,29 @@ node default {
         'spotify':;
         'dropbox':;
         'emdebian':;
-
+        'main-testing':;
+    }
+    package {'emdebian-archive-keyring':
+        ensure => installed,
     }
     class {
-        bug:;
-        home:;
-        puppet:;
         apt::update:;
+        bug:;
+        custom:;
         dpp:;
+        emacs::org::sync:;
+        emacs::org:;
+        emacs:;
+        env:;
+        home:;
         monit:;
         ntp::client:;
-        emacs:;
-        emacs::org:;
-        emacs::org::sync:;
+        puppet:;
+        token:;
         util::generic:;
         xfce:;
-        token:;
-        custom:;
     }
+
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
 
@@ -61,11 +67,26 @@ node default {
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
     ssl::cert {'devrandom':;}
+    # disable things that might be installed for tools but autostart service
+    util::service_disable {
+        'mcollective':;
+        'wd_keepalive':;
+        'varnishlog':;
+        'varnishncsa':;
+        'prosody':;
+        'stunnel4':;
+        'sysstat':;
+        'ulogd':;
+        'openhpid':;
+        'saned':;
+        'watchdog':;
+        'apache':;
+        'ntop':;
+    }
 }
 
 node efi inherits default {
     ssl::cert {'arte':;}
-
 }
 
 node ghroth inherits efi {
@@ -73,11 +94,8 @@ node ghroth inherits efi {
         'rabbitmq':;
     }
 }
-node vm-debian inherits default {
+node 'vm-debian' inherits default {
     include emacs::wl
-    apt::source {
-        'main-testing':;
-    }
 }
 node hydra inherits default {
     include emacs::wl

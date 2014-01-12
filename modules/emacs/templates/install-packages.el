@@ -7,29 +7,14 @@
     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 (package-refresh-contents)
-
-(defmacro safe-wrap (fn &rest clean-up)
-  `(unwind-protect
-       (let (retval)
-	 (condition-case ex
-	     (setq retval (progn ,fn))
-	   ('error
-	    (message (format "Caught exception: [%s]" ex))
-	    (setq retval (cons 'exception (list ex)))))
-	 retval)
-     ,@clean-up))
-
-
-<% @emacs_packages.each do |package| %>
-(message "----> <%= package %>")
-(safe-wrap (
-    (lambda ()
-      (when (not (require '<%= package %> nil t))
-	(package-install '<%= package %>)
-	)
-      )
-    ) 
-    (message "----> <%=package %>")
-)
-
+(setq package-list '(
+<% @emacs_packages.each do |package| -%>
+                     <%= package %>
 <% end %>
+))
+(dolist (package package-list)
+  (when (not (package-installed-p package))
+    (message "-----> Installing %s" package)
+    (package-install package)
+    )
+)

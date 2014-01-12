@@ -51,6 +51,13 @@
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
 
+;; highlight while expression in parens
+(setq
+ show-paren-style 'expression
+ show-paren-delay 0.001
+)
+
+
 ;; default printing program:
 (setq lpr-command "gtklp")
 
@@ -80,6 +87,8 @@
  version-control t       ; use versioned backups]
  yaml-block-literal-search-lines 1000
  yaml-indent-offset 4
+ kill-read-only-ok t  ; allow yanking read-only lines
+ make-pointer-invisible nil ; dont hide pointer
  )
 
 (custom-set-variables
@@ -125,11 +134,30 @@
                                                (cmd args dir)
                                                activate compile)
   ;; set flag to allow exit without query on any
-  ;;active flymake processes
+
   (set-process-query-on-exit-flag ad-return-value nil))
 
 ;; colors
 (global-rainbow-delimiters-mode)
 (rainbow-mode)
+
+;; minibuffer depth
+(minibuffer-depth-indicate-mode 99)
+
+;; do not ask to reload TAGS
+(setq tags-revert-without-query 1)
+
+;; do not kill scratch
+(require 'protbuf)
+(protect-buffer-from-kill-mode nil (get-buffer "*scratch*"))
+
+;; use emacs buffers, so we dont get read only crap from clipboard
+;;(global-set-key [mouse-2] 'mouse-yank-at-click)
+
+;; mouse+ show position when holding paste
+(global-set-key [down-mouse-2]  'mouse-flash-position-or-M-x)
+
+;; revert files if they changed on disk (git)
+(global-auto-revert-mode)
 
 (provide 'xani-common)

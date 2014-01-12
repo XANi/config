@@ -3,31 +3,29 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
     $emacs_theme    = 'twilight-anti-bright'
+    $emacs_version  = 'emacs24'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
-    apt::source {'emacs-snapshot':;}
-
+    class { 'emacs::install':
+        version => $emacs_version,
+    }
     File {
         owner => xani,
         group => xani,
         mode  => 644,
     }
-    package { emacs-snapshot:
-    alias => 'emacs', # for deps
-        ensure => installed,
-    }
-
     package { [
-               'sepia', # Simple Emacs-Perl InterAction
-               'twittering-mode',
-               'texlive-latex-base',
-               'puppet-lint',
-               'yaml-mode',
-#               'wl-beta',
                'bbdb',
+               'exuberant-ctags',
+               'puppet-lint',
+               'sepia', # Simple Emacs-Perl InterAction
+               'texlive-latex-base',
+               'twittering-mode',
                'wmctrl',
                'xprintidle', # mostly for jabber mode
+               'yaml-mode',
+#               'wl-beta',
                ]:
         ensure  => installed,
     require => Package['emacs'],
@@ -40,6 +38,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'magit',
                'emacs-jabber',
                'lua-mode',
+	       'e2wm',
                ]:
                    ensure => absent,
     }
@@ -48,12 +47,19 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'charmap',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
+                       'diminish',
+                       'ecb',
+                       'flymake-puppet',
                        'flymake-yaml',
                        'haskell-mode',
+                       'iedit',
+                       'impatient-mode',
                        'jabber',
                        'lua-mode',
                        'markdown-mode',
-                       'move-mode',
+                       'mediawiki',
+                       'mouse+',
+                       'move-text',
                        'multiple-cursors',
                        'nyan-mode',
                        'nyan-prompt',
@@ -62,14 +68,19 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
+                       # 'puppet-mode', # provided in puppet repo
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
+                       'restclient',
+                       'rpm-spec-mode',
+                       'sml-modeline',
                        'tabbar',
                        'tabbar-ruler',
                        'textile-mode',
                        'twilight-anti-bright-theme',
                        'twittering-mode',
+                       'undo-tree',
                        'vcl-mode',
                        'yasnippet',
                        'zencoding-mode',
@@ -80,6 +91,20 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         group   => xani,
         notify  => Exec['refresh-emacs-packages'],
         mode    => 644,
+    }
+    file { "${homedir}/emacs/install-packages.sh":
+	content => "emacs -Q --script /home/xani/emacs/install-packages.el",
+	mode    => 755,
+    }
+
+    exec { "create-emacs-packages":
+	command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
+	logoutput   => true,
+	creates     => "/tmp/emacs-install-done",
+        environment => [
+                        "HOME=${homedir}",
+                        ],
+        user        => 'xani',
     }
 
     exec { 'refresh-emacs-packages':
@@ -357,9 +382,6 @@ class emacs::org::sync ( $homedir = '/home/xani' ) {
         creates => "${homedir}/emacs/org/mobile.org",
         require => File['xani-emacs-org'],
     }
-    if ! defined (Package['sshfs'])  {
-      package { sshfs: ensure => installed }
-    }
     exec { mount-orgshare:
         #cwd      => "${homedir}/emacs/org",
         unless    => "/usr/bin/sudo -u xani /usr/bin/test -e $homedir/emacs/org/mobile.org/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
@@ -407,4 +429,26 @@ class emacs::wl {
         content => template('emacs/emacs.folders.erb'),
     }
 
+}
+
+
+class emacs::install ($version = 'emacs-snapshot') {
+    if ($version =~ /snapshot/) {
+        $alternative = $version
+        apt::source {'emacs-snapshot':;}
+    } else {
+        $alternative = "${version}-x"
+    }
+    package { $version:
+        alias  => 'emacs', # for deps
+        ensure => installed,
+    }
+    util::update_alternatives {
+        emacs:
+            target  => "/usr/bin/${alternative}",
+            require => Package[$version];
+        emacsclient:
+            target  => "/usr/bin/emacsclient.${version}",
+            require => Package[$version];
+    }
 }

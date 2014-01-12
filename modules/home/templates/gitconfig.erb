@@ -53,15 +53,18 @@
     autosetupmerge = true
 
 [alias]
-    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
+    c = commit -v <% if gpgid != false %> -S <% end %>
+    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
     co = checkout
     cx = commit -v <% if gpgid != false %> -S <% end %>
-    c = commit -v <% if gpgid != false %> -S <% end %>
-    s = status -s -b
+    d = diff --word-diff -C -M
+    l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
+    lo = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s' --stat-count=7
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
-    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
-    d = diff --word-diff -C -M
+    pop = stash pop
+    s = status -s -b
+    st = !git fetch && git status -s -b
 
 [merge]
     tool = meld
