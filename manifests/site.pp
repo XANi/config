@@ -80,7 +80,7 @@ node default {
         'openhpid':;
         'saned':;
         'watchdog':;
-        'apache':;
+        'apache2':;
         'ntop':;
     }
 }
