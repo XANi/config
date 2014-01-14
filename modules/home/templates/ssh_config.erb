@@ -13,6 +13,15 @@ CheckHostIP no
 ControlPath <%= @homedir %>/.ssh/mux/%r@%h:%p
 ControlMaster auto
 ControlPersist yes
+
+Host github.com
+    ControlMaster no
+    ControlPersist no
+
+Host devrandom.pl
+    ControlMaster no
+    ControlPersist no
+
 <% end %>
 
 <% if File.exists?(scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom') %>
