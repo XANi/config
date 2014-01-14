@@ -1,9 +1,16 @@
-class home::config ( $gpgid = hiera('gpgid',false) ) {
+class home::config (
+    $gpgid = hiera('gpgid',false),
+    $multiplex_ssh = hiera('multiplex_ssh', false),
+) {
     require home::common
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
         shell  => '/bin/bash',
+    }
+    File {
+        owner => xani,
+        group => xani,
     }
     home::config::file {
         bash_prompt:;
@@ -48,14 +55,17 @@ class home::config ( $gpgid = hiera('gpgid',false) ) {
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
         ensure => directory,
-        owner  => xani,
         mode   => 700,
     }
+    if $multiplex_ssh {
+        file {"${homedir}/.ssh/mux":
+            ensure => directory,
+        }
+    }
+
     file { 'xani-ssh-config':
-        path    => "$homedir/.ssh/config",
+        path    => "${homedir}/.ssh/config",
         content => template('home/ssh_config.erb'),
-        owner   => xani,
-        group   => xani,
         mode    => 600,
         require => File['xani-ssh-config-dir'],
     }
