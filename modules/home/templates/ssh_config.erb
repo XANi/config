@@ -12,7 +12,7 @@ CheckHostIP no
 <% if @multiplex_ssh %>
 ControlPath <%= @homedir %>/.ssh/mux/%r@%h:%p
 ControlMaster auto
-ControlPersist on
+ControlPersist yes
 <% end %>
 
 <% if File.exists?(scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom') %>
