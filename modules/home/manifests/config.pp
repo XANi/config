@@ -2,7 +2,7 @@ class home::config (
     $gpgid = hiera('gpgid',false),
     $multiplex_ssh = hiera('multiplex_ssh', false),
 ) {
-    require home::common
+    include home::common
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
