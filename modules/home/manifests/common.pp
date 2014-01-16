@@ -25,4 +25,17 @@ class home::common (
                 user  => 'xani',
                 group => 'fuse',
         }
+        file {'/var/tmp/xani':
+            ensure => directory
+            owner  => xani,
+            mode   => 700,
+        }
+        file {'/tmp/xani':
+            ensure => '/var/tmp/xani',
+        }
+        file {'/etc/cron.daily/cleanup_tmp.sh':
+            content => template('home/cleanup_tmp.sh'),
+            mode    => 755,
+        }
+
 }
