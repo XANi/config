@@ -43,8 +43,12 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
     $emacs_packages = [
+                       # 'puppet-mode', # provided in puppet repo
                        'buffer-move',
                        'charmap',
+                       'clojure-cheatsheet',
+                       'clojure-mode',
+                       'clojure-snippets',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'diminish',
@@ -68,7 +72,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
-                       # 'puppet-mode', # provided in puppet repo
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
