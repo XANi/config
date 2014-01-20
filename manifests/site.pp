@@ -45,7 +45,7 @@ node default {
         ntp::client:;
         puppet:;
         token:;
-        util::etckeeper;
+        util::etckeeper:;
         util::generic:;
         xfce:;
     }
