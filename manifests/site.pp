@@ -70,19 +70,22 @@ node default {
     ssl::cert {'devrandom':;}
     # disable things that might be installed for tools but autostart service
     util::service_disable {
+        'apache2':;
+        'elasticsearch':;
+        'jetty':;
+        'jetty8':;
         'mcollective':;
-        'wd_keepalive':;
-        'varnishlog':;
-        'varnishncsa':;
+        'ntop':;
+        'openhpid':;
         'prosody':;
+        'saned':;
         'stunnel4':;
         'sysstat':;
         'ulogd':;
-        'openhpid':;
-        'saned':;
+        'varnishlog':;
+        'varnishncsa':;
         'watchdog':;
-        'apache2':;
-        'ntop':;
+        'wd_keepalive':;
     }
 }
 
