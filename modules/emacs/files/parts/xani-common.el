@@ -50,6 +50,8 @@
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
+;; never touch foreground when highlighting
+(set-face-foreground 'hl-line nil)
 
 ;; highlight while expression in parens
 (setq
