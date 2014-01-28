@@ -3,10 +3,13 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
     $emacs_theme    = 'twilight-anti-bright'
+    $emacs_version  = 'emacs24'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
-    include emacs::snapshot
+    class { 'emacs::install':
+        version => $emacs_version,
+    }
     File {
         owner => xani,
         group => xani,
@@ -40,8 +43,12 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
     $emacs_packages = [
+                       # 'puppet-mode', # provided in puppet repo
                        'buffer-move',
                        'charmap',
+                       'clojure-cheatsheet',
+                       'clojure-mode',
+                       'clojure-snippets',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'diminish',
@@ -65,10 +72,11 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
-                       'puppet-mode',
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
+                       'restclient',
+                       'rpm-spec-mode',
                        'sml-modeline',
                        'tabbar',
                        'tabbar-ruler',
@@ -427,18 +435,23 @@ class emacs::wl {
 }
 
 
-class emacs::snapshot {
-    apt::source {'emacs-snapshot':;}
-    package { emacs-snapshot:
+class emacs::install ($version = 'emacs-snapshot') {
+    if ($version =~ /snapshot/) {
+        $alternative = $version
+        apt::source {'emacs-snapshot':;}
+    } else {
+        $alternative = "${version}-x"
+    }
+    package { $version:
         alias  => 'emacs', # for deps
         ensure => installed,
     }
     util::update_alternatives {
         emacs:
-            target  => '/usr/bin/emacs-snapshot',
-            require => Package['emacs-snapshot'];
+            target  => "/usr/bin/${alternative}",
+            require => Package[$version];
         emacsclient:
-            target  => '/usr/bin/emacsclient.emacs-snapshot',
-            require => Package['emacs-snapshot'];
+            target  => "/usr/bin/emacsclient.${version}",
+            require => Package[$version];
     }
 }

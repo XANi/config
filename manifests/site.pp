@@ -26,7 +26,7 @@ node default {
         'spotify':;
         'dropbox':;
         'emdebian':;
-
+        'main-testing':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
@@ -45,6 +45,7 @@ node default {
         ntp::client:;
         puppet:;
         token:;
+        util::etckeeper:;
         util::generic:;
         xfce:;
     }
@@ -69,19 +70,22 @@ node default {
     ssl::cert {'devrandom':;}
     # disable things that might be installed for tools but autostart service
     util::service_disable {
+        'apache2':;
+        'elasticsearch':;
+        'jetty':;
+        'jetty8':;
         'mcollective':;
-        'wd_keepalive':;
-        'varnishlog':;
-        'varnishncsa':;
+        'ntop':;
+        'openhpid':;
         'prosody':;
+        'saned':;
         'stunnel4':;
         'sysstat':;
         'ulogd':;
-        'openhpid':;
-        'saned':;
+        'varnishlog':;
+        'varnishncsa':;
         'watchdog':;
-        'apache':;
-        'ntop':;
+        'wd_keepalive':;
     }
 }
 
@@ -96,9 +100,6 @@ node ghroth inherits efi {
 }
 node 'vm-debian' inherits default {
     include emacs::wl
-    apt::source {
-        'main-testing':;
-    }
 }
 node hydra inherits default {
     include emacs::wl

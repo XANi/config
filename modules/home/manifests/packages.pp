@@ -42,6 +42,7 @@ class home::packages {
          zenity,
          tilda,
          #dev crap
+         carton,
          cpanminus,
          libjson-perl,
          libyaml-perl,
