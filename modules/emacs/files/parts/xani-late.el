@@ -16,7 +16,7 @@
 (diminish 'undo-tree-mode "")
 (diminish 'server-buffer-clients "")
 (diminish 'overwrite-mode "✗")
-(diminish 'font-lock-mode "Ꮅ")
+;;(diminish 'font-lock-mode "Ꮅ")
 (diminish 'visual-line-mode "Ꮴ")
 
 (eval-after-load "hideshow" '(diminish 'hs-minor-mode "ዛ"))
