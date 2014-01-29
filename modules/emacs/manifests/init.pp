@@ -54,6 +54,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'diminish',
                        'ecb',
                        'flycheck',
+                       'flycheck-tip',
 #                       'flymake-puppet',
 #                       'flymake-yaml',
                        'haskell-mode',
