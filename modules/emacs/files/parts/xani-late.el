@@ -8,7 +8,7 @@
 (require 'diminish)
 (diminish 'protect-buffer-from-kill-mode "ᛞ")
 (diminish 'yas-minor-mode "𐤊")
-;;(diminish 'flymake-mode "✈")
+(diminish 'flycheck-mode "✈")
 (diminish 'global-whitespace-newline-mode "")
 (diminish 'global-whitespace-mode "")
 (diminish 'whitespace-newline-mode "")
