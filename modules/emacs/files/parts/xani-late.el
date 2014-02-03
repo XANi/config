@@ -12,7 +12,7 @@
 (diminish 'undo-tree-mode "")
 (diminish 'server-buffer-clients "")
 (diminish 'overwrite-mode "✗")
-;;(diminish 'font-lock-mode "Ꮅ")
+
 (diminish 'visual-line-mode "Ꮴ")
 
 (eval-after-load "hideshow" '(diminish 'hs-minor-mode "ዛ"))
@@ -26,10 +26,7 @@
   (lambda()
     (setq mode-name "LispInt")))
 
-(eval-after-load
-    "flycheck"
-  (diminish 'flycheck-mode "✈")
-  )
-
+(eval-after-load "flycheck" '(diminish 'flycheck-mode "✈"))
+(eval-after-load "develock" '(diminish 'font-lock-mode "Ꮅ"))
 
 (provide 'xani-late)
