@@ -2,13 +2,9 @@
 ;;
 
 
-
-
-
 (require 'diminish)
 (diminish 'protect-buffer-from-kill-mode "ᛞ")
 (diminish 'yas-minor-mode "𐤊")
-(diminish 'flycheck-mode "✈")
 (diminish 'global-whitespace-newline-mode "")
 (diminish 'global-whitespace-mode "")
 (diminish 'whitespace-newline-mode "")
@@ -29,5 +25,11 @@
 (add-hook 'lisp-interaction-mode-hook
   (lambda()
     (setq mode-name "LispInt")))
+
+(eval-after-load
+    "flycheck"
+  (diminish 'flycheck-mode "✈")
+  )
+
 
 (provide 'xani-late)
