@@ -133,7 +133,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
 
     file { 'run_emacs':
         path    => '/usr/local/bin/e',
-        content => template('emacs/e.erb'),
+        content => template('emacs/e'),
         owner   => root,
         mode    => 755,
     }
@@ -146,14 +146,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => xani,
         group   => xani,
         mode    => 644,
-        content => template('emacs/emacs.erb'),
+        content => template('emacs/emacs.legacy.el'),
     }
     file { emacs-config-modular:
         path    => "${homedir}/.emacs",
         owner   => xani,
         group   => xani,
         mode    => 644,
-        content => template('emacs/emacs.modular.erb'),
+        content => template('emacs/emacs.modular.el'),
     }
     file { xani-emacs-dir:
         path   => "${homedir}/emacs",
@@ -276,7 +276,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         path    => '/usr/local/bin/puppet-lint-wrapper',
         mode    => 755,
         owner   => root,
-        content => template('emacs/puppet-lint-wrapper.erb'),
+        content => template('emacs/puppet-lint-wrapper'),
     }
     # this have to be at end
     if $deploy_portable_config {
@@ -286,7 +286,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
             owner   => xani,
             group   => xani,
             mode    => 644,
-            content => template('emacs/emacs.erb'),
+            content => template('emacs/emacs.legacy.el'),
         }
     }
 
@@ -368,7 +368,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     # Orage sync
     file { update-orage-calendar:
         path    => '/usr/local/bin/update-orage-calendar',
-        content => template('emacs/update-orage-calendar.erb'),
+        content => template('emacs/update-orage-calendar'),
         mode    => 755,
         owner   => root,
     }
@@ -424,14 +424,14 @@ class emacs::wl {
         owner   => xani,
         group   => xani,
         mode    => 600,
-        content => template('emacs/emacs.wl.erb'),
+        content => template('emacs/emacs.wl.el'),
     }
     file { emacs-wanderlust-folder-config:
         path    => "${homedir}/.folders",
         owner   => xani,
         group   => xani,
         mode    => 600,
-        content => template('emacs/emacs.folders.erb'),
+        content => template('emacs/emacs.folders'),
     }
 
 }
