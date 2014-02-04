@@ -50,6 +50,13 @@
 
 (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
+;; never touch foreground when highlighting
+(custom-set-faces
+ '(show-paren-match ((t (:inherit region))))
+;; '(hl-line ((t (:inherit fringe))))
+ '(hl-line  ((t nil)))
+)
+(set-face-foreground 'hl-line nil)
 
 ;; highlight while expression in parens
 (setq
@@ -128,15 +135,8 @@
 
 (global-whitespace-mode)
 
-;; do not ask for kill confirmation on flymake process
-(defadvice flymake-start-syntax-check-process (after
-                                               cheeso-advice-flymake-start-syntax-check-1
-                                               (cmd args dir)
-                                               activate compile)
-  ;; set flag to allow exit without query on any
-
-  (set-process-query-on-exit-flag ad-return-value nil))
-
+;; autoload flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;; colors
 (global-rainbow-delimiters-mode)
 (rainbow-mode)

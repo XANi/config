@@ -120,19 +120,19 @@
 
 ;; file cache
 
-;; (eval-after-load
-;;     "xani-common"
-;;   '(progn
-;;      (message "Loading file cache...")
-;; <% if @location == 'arte' %>
-;;      (file-cache-add-directory-using-locate  (expand-file-name "~/src/svn-puppet"))
-;; <% else %>
-;;      (file-cache-add-directory-using-locate  (expand-file-name "~/src/my"))
-;; <% end %>
-;; ;;     (file-cache-add-directory-list load-path)
-;; ;;     (file-cache-add-directory "~/")
-;; ;;     (file-cache-add-file-list (list "~/foo/bar" "~/baz/bar"))
-;; ))
+ (eval-after-load
+     "xani-late"
+   '(progn
+      (message "Loading file cache...")
+ <% if @location == 'arte' %>
+      (file-cache-add-directory-using-locate  (expand-file-name "~/src/puppet"))
+ <% else %>
+      (file-cache-add-directory-using-locate  (expand-file-name "~/src/my"))
+ <% end %>
+ ;;     (file-cache-add-directory-list load-path)
+ ;;     (file-cache-add-directory "~/")
+ ;;     (file-cache-add-file-list (list "~/foo/bar" "~/baz/bar"))
+ ))
 
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))

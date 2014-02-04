@@ -3,10 +3,13 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
     $emacs_theme    = 'twilight-anti-bright'
+    $emacs_version  = 'emacs24'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
-    include emacs::snapshot
+    class { 'emacs::install':
+        version => $emacs_version,
+    }
     File {
         owner => xani,
         group => xani,
@@ -40,14 +43,20 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                    ensure => absent,
     }
     $emacs_packages = [
+                       # 'puppet-mode', # provided in puppet repo
                        'buffer-move',
                        'charmap',
+                       'clojure-cheatsheet',
+                       'clojure-mode',
+                       'clojure-snippets',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
                        'diminish',
                        'ecb',
-                       'flymake-puppet',
-                       'flymake-yaml',
+                       'flycheck',
+                       'flycheck-tip',
+#                       'flymake-puppet',
+#                       'flymake-yaml',
                        'haskell-mode',
                        'iedit',
                        'impatient-mode',
@@ -65,10 +74,11 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
-                       'puppet-mode',
                        'purple-haze-theme',
                        'rainbow-delimiters',
                        'rainbow-mode',
+                       'restclient',
+                       'rpm-spec-mode',
                        'sml-modeline',
                        'tabbar',
                        'tabbar-ruler',
@@ -123,7 +133,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
 
     file { 'run_emacs':
         path    => '/usr/local/bin/e',
-        content => template('emacs/e.erb'),
+        content => template('emacs/e'),
         owner   => root,
         mode    => 755,
     }
@@ -136,14 +146,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => xani,
         group   => xani,
         mode    => 644,
-        content => template('emacs/emacs.erb'),
+        content => template('emacs/emacs.legacy.el'),
     }
     file { emacs-config-modular:
         path    => "${homedir}/.emacs",
         owner   => xani,
         group   => xani,
         mode    => 644,
-        content => template('emacs/emacs.modular.erb'),
+        content => template('emacs/emacs.modular.el'),
     }
     file { xani-emacs-dir:
         path   => "${homedir}/emacs",
@@ -266,7 +276,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         path    => '/usr/local/bin/puppet-lint-wrapper',
         mode    => 755,
         owner   => root,
-        content => template('emacs/puppet-lint-wrapper.erb'),
+        content => template('emacs/puppet-lint-wrapper'),
     }
     # this have to be at end
     if $deploy_portable_config {
@@ -276,7 +286,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
             owner   => xani,
             group   => xani,
             mode    => 644,
-            content => template('emacs/emacs.erb'),
+            content => template('emacs/emacs.legacy.el'),
         }
     }
 
@@ -358,7 +368,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     # Orage sync
     file { update-orage-calendar:
         path    => '/usr/local/bin/update-orage-calendar',
-        content => template('emacs/update-orage-calendar.erb'),
+        content => template('emacs/update-orage-calendar'),
         mode    => 755,
         owner   => root,
     }
@@ -414,31 +424,36 @@ class emacs::wl {
         owner   => xani,
         group   => xani,
         mode    => 600,
-        content => template('emacs/emacs.wl.erb'),
+        content => template('emacs/emacs.wl.el'),
     }
     file { emacs-wanderlust-folder-config:
         path    => "${homedir}/.folders",
         owner   => xani,
         group   => xani,
         mode    => 600,
-        content => template('emacs/emacs.folders.erb'),
+        content => template('emacs/emacs.folders'),
     }
 
 }
 
 
-class emacs::snapshot {
-    apt::source {'emacs-snapshot':;}
-    package { emacs-snapshot:
+class emacs::install ($version = 'emacs-snapshot') {
+    if ($version =~ /snapshot/) {
+        $alternative = $version
+        apt::source {'emacs-snapshot':;}
+    } else {
+        $alternative = "${version}-x"
+    }
+    package { $version:
         alias  => 'emacs', # for deps
         ensure => installed,
     }
     util::update_alternatives {
         emacs:
-            target  => '/usr/bin/emacs-snapshot',
-            require => Package['emacs-snapshot'];
+            target  => "/usr/bin/${alternative}",
+            require => Package[$version];
         emacsclient:
-            target  => '/usr/bin/emacsclient.emacs-snapshot',
-            require => Package['emacs-snapshot'];
+            target  => "/usr/bin/emacsclient.${version}",
+            require => Package[$version];
     }
 }

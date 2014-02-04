@@ -16,7 +16,7 @@
  '(cperl-indent-parens-as-block t)
  '(cperl-tab-always-indent t)
  '(cperl-merge-trailing-else nil) ;; this makes newline after }, so else not '} else {'
- '(cperl-mode-hook (quote (flymake-mode)))
+; '(cperl-mode-hook (quote (flymake-mode)))
 
 )
 ;; \\' (\' after escaping) matches end of string
