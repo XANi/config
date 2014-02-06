@@ -89,3 +89,29 @@ repos:
         url:
             deb:
                 - http://apt.puppetlabs.com wheezy main dependencies
+
+    mopidy:
+        comment: Mopidy APT archive
+        keyid: 271D2943
+        url:
+            deb:
+                - http://apt.mopidy.com/ stable main contrib non-free
+            deb-src:
+                - http://apt.mopidy.com/ stable main contrib non-free
+    longview:
+        comment: Linode longview client
+        url:
+            deb:
+                - http://apt-longview.linode.com/ wheezy main
+    raspbian:
+        comment: Rasbian repo
+        url:
+            deb:
+                - http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
+
+    oracle_java:
+        comment: oracle java downloader
+        keyid: EEA14886
+        url:
+            deb:
+                - http://ppa.launchpad.net/webupd8team/java/ubuntu precise main
