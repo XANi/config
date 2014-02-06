@@ -11,10 +11,10 @@ class puppet {
     package {
         'hiera-puppet':
             ensure => absent;
-    }
-    package {
         'puppet':
             ensure => latest;
+        'ruby-deep-merge':
+            ensure => installed;
     }
     file {
         '/etc/hiera.yaml':
