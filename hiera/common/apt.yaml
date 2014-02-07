@@ -30,3 +30,9 @@ repos:
                 - http://ftp.pl.debian.org/debian/ testing main non-free contrib
             deb-src:
                 - http://ftp.pl.debian.org/debian/ testing main non-free contrib
+    puppet:
+        comment: Puppet repo
+        keyid: 4BD6EC30
+        url:
+            deb:
+                - http://apt.puppetlabs.com wheezy main dependencies
