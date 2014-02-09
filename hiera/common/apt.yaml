@@ -1,5 +1,12 @@
 ---
 repos:
+
+    oracle_java:
+        comment: oracle java downloader
+        keyid: EEA14886
+        url:
+            deb:
+                - http://ppa.launchpad.net/webupd8team/java/ubuntu precise main
     main-squeeze:
         comment: Main Debian repo - Squeeze (oldstable)
         url:
@@ -23,66 +30,6 @@ repos:
                 - http://ftp.pl.debian.org/debian/ testing main non-free contrib
             deb-src:
                 - http://ftp.pl.debian.org/debian/ testing main non-free contrib
-
-    emdebian:
-        comment: GCC for other archs
-        url:
-            deb:
-                - http://www.emdebian.org/debian wheezy main
-
-    backports:
-        comment: squeeze backports
-        url:
-            deb:
-                - http://backports.debian.org/debian-backports squeeze-backports main
-
-    chromium:
-        comment: Chromium repos from ubuntu
-        keyid: 4E5E17B5
-        url:
-            deb:
-                - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
-            deb-src:
-                - http://ppa.launchpad.net/chromium-daily/ppa/ubuntu lucid main
-
-    firefox:
-        comment: Latest firefox releases
-        url:
-            deb:
-                - http://mozilla.debian.net/ wheezy-backports iceweasel-release
-
-    crawl:
-        comment: dungeon crawl
-        url:
-            deb:
-                - http://crawl.develz.org/debian crawl 0.12
-
-    spotify:
-        comment: Spotify player
-        keyid: 94558F59
-        url:
-            deb:
-                - http://repository.spotify.com stable non-free
-
-    emacs-snapshot:
-        comment: Emacs snapshots
-        keyid: 2A41B42C
-        url:
-            deb:
-                - http://emacs.naquadah.org stable/
-
-    rabbitmq:
-        comment: RabbitMQ
-        keyid: 056E8E56
-        url:
-            deb:
-                - http://www.rabbitmq.com/debian/ testing main
-
-    dropbox:
-        comment: Dropbox
-        url:
-            deb:
-                - http://linux.dropbox.com/debian wheezy main
     puppet:
         comment: Puppet repo
         keyid: 4BD6EC30

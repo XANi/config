@@ -52,6 +52,7 @@
 (require 'saveplace)
 (require 'uniquify)
 (require 'cisco-router-mode)
+(add-to-list 'magic-mode-alist '("\\!RANCID-CONTENT" . cisco-router-mode) )
 
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-functions)
