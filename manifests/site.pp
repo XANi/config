@@ -27,6 +27,7 @@ node default {
         'dropbox':;
         'emdebian':;
         'main-testing':;
+        'main-wheezy':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
