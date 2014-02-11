@@ -90,7 +90,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'undo-tree',
                        'vcl-mode',
                        'yasnippet',
-                       'zenburn-theme'
+                       'zenburn-theme',
                        'zencoding-mode',
                        ]
     file { "${homedir}/emacs/install-packages.el":
