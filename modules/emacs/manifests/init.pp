@@ -56,8 +56,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'ecb',
                        'flycheck',
                        'flycheck-tip',
-#                       'flymake-puppet',
-#                       'flymake-yaml',
                        'haskell-mode',
                        'iedit',
                        'impatient-mode',
@@ -65,6 +63,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'lua-mode',
                        'markdown-mode',
                        'mediawiki',
+                       'minimap',
                        'mouse+',
                        'move-text',
                        'multiple-cursors',
@@ -89,8 +88,8 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'undo-tree',
                        'vcl-mode',
                        'yasnippet',
-                       'zencoding-mode',
                        'zenburn-theme'
+                       'zencoding-mode',
                        ]
     file { "${homedir}/emacs/install-packages.el":
         content => template('emacs/install-packages.el'),
