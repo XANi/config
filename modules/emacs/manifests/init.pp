@@ -60,6 +60,8 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'iedit',
                        'impatient-mode',
                        'jabber',
+                       'js2-mode',
+                       'json-mode',
                        'lua-mode',
                        'markdown-mode',
                        'mediawiki',
