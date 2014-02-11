@@ -46,6 +46,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        # 'puppet-mode', # provided in puppet repo
                        'buffer-move',
                        'charmap',
+                       'cider',
                        'clojure-cheatsheet',
                        'clojure-mode',
                        'clojure-snippets',
@@ -89,6 +90,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'vcl-mode',
                        'yasnippet',
                        'zencoding-mode',
+                       'zenburn-theme'
                        ]
     file { "${homedir}/emacs/install-packages.el":
         content => template('emacs/install-packages.el'),
