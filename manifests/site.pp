@@ -32,22 +32,22 @@ node default {
         ensure => installed,
     }
     class {
-        apt::update:;
-        bug:;
-        custom:;
-        dpp:;
-        emacs::org::sync:;
-        emacs::org:;
-        emacs:;
-        env:;
-        home:;
-        monit:;
-        ntp::client:;
-        puppet:;
-        token:;
-        util::etckeeper:;
-        util::generic:;
-        xfce:;
+        'apt::update':;
+        'bug':;
+        'custom':;
+        'dpp':;
+        'emacs::org::sync':;
+        'emacs::org':;
+        'emacs':;
+        'env':;
+        'home':;
+        'monit':;
+        'ntp::client':;
+        'puppet':;
+        'token':;
+        'util::etckeeper':;
+        'util::generic':;
+        'xfce':;
     }
 
     monit::monitor { dpp:; }
