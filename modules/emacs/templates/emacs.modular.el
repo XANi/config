@@ -1,6 +1,12 @@
 ;; <%= @puppet_header %>
 ;; <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
+<% if @memorysize_mb > 1024 %>
+;; gc less to work more
+(setq gc-cons-threshold (* 10 1024 1024))
+<% end %>
+
+
 ;;(setq server-auth-dir "~/.emacs.d/server/")
 (setq server-use-tcp t)
 (server-start)
