@@ -17,7 +17,7 @@ class dota2::itembuilds {
     $dotauser = $dota2::vars::dota_user
     file { "${dotadir}/dota/itembuilds/":
         ensure => directory,
-        source => 'puppet:///dota2/itembuilds',
+        source => 'puppet:///modules/dota2/itembuilds',
         recurse => true,
         owner  => $dotauser
     }
