@@ -1,0 +1,40 @@
+itembuilds/default_tidehunter.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_tidehunter"
+	"Title"			"Recommended items for Tidehunter"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_courier"
+			"item"		"item_ward_observer"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_arcane_boots"
+			"item"		"item_urn_of_shadows"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_pipe"
+			"item"		"item_ward_observer"
+			"item"		"item_shivas_guard"
+			"item"		"item_refresher"
+			"item"		"item_blink"
+			"item"		"item_force_staff"
+		}
+		
+	}
+}

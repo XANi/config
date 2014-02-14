@@ -1,0 +1,41 @@
+itembuilds/default_elder_titan.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_elder_titan"
+	"Title"			"Recommended items for Elder Titan"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_quelling_blade"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_tango"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_bottle"
+			"item"		"item_urn_of_shadows"
+			"item"		"item_power_treads"
+			"item"		"item_arcane_boots"
+			"item"		"item_vanguard"
+			"item"		"item_hood_of_defiance"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_assault"
+			"item"		"item_satanic"
+			"item"		"item_black_king_bar"
+			"item"		"item_shivas_guard"
+			"item"		"item_refresher"
+			"item"		"item_pipe"
+		}
+		
+	}
+}

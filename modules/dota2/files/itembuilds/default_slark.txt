@@ -1,0 +1,38 @@
+itembuilds/default_slark.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_slark"
+	"Title"			"Recommended items for Slark"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_stout_shield"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_poor_mans_shield"
+			"item"		"item_power_treads"
+			"item"		"item_vitality_booster"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_sange_and_yasha"
+			"item"		"item_black_king_bar"
+			"item"		"item_basher"
+			"item"		"item_armlet"
+			"item"		"item_butterfly"
+			"item"		"item_skadi"
+		}
+		
+	}
+}

@@ -1,0 +1,36 @@
+itembuilds/default_furion.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_furion"
+	"Title"			"Recommended items for Nature's Prophet"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_ring_of_basilius"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+		}
+		
+		"Core"
+		{
+			"item"		"item_power_treads"
+			"item"		"item_magic_wand"
+			"item"		"item_urn_of_shadows"
+			"item"		"item_medallion_of_courage"
+			"item"		"item_hand_of_midas"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_mekansm"
+			"item"		"item_sheepstick"
+			"item"		"item_force_staff"
+			"item"		"item_necronomicon"
+			"item"		"item_desolator"
+			"item"		"item_ultimate_scepter"
+		}
+		
+	}
+}

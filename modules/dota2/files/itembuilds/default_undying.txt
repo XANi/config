@@ -1,0 +1,37 @@
+itembuilds/default_undying.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_undying"
+	"Title"			"Recommended items for Undying"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_ring_of_protection"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_ring_of_basilius"
+			"item"		"item_vanguard"
+			"item"		"item_arcane_boots"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_pipe"
+			"item"		"item_bloodstone"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_shivas_guard"
+			"item"		"item_blade_mail"
+		}
+		
+	}
+}

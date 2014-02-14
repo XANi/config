@@ -1,0 +1,36 @@
+itembuilds/default_naga_siren.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_naga_siren"
+	"Title"			"Recommended items for Naga Siren"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_quelling_blade"
+			"item"		"item_arcane_boots"
+			"item"		"item_vitality_booster"
+			"item"		"item_diffusal_blade"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_heart"
+			"item"		"item_manta"
+			"item"		"item_butterfly"
+			"item"		"item_greater_crit"
+		}
+		
+	}
+}

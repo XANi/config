@@ -1,0 +1,37 @@
+itembuilds/default_lycan.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_lycan"
+	"Title"			"Recommended items for Lycanthrope"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_ring_of_protection"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_ring_of_basilius"
+			"item"		"item_medallion_of_courage"
+			"item"		"item_vladmir"
+			"item"		"item_power_treads"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_basher"
+			"item"		"item_necronomicon"
+			"item"		"item_heart"
+			"item"		"item_assault"
+		}
+		
+	}
+}

@@ -1,0 +1,40 @@
+itembuilds/default_witch_doctor.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_witch_doctor"
+	"Title"			"Recommended items for Witch Doctor"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_tango"
+			"item"		"item_tango"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+		}
+		
+		"Core"
+		{
+			"item"		"item_phase_boots"
+			"item"		"item_magic_wand"
+			"item"		"item_urn_of_shadows"
+			"item"		"item_point_booster"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_medallion_of_courage"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_black_king_bar"
+			"item"		"item_force_staff"
+			"item"		"item_blink"
+			"item"		"item_sheepstick"
+		}
+		
+	}
+}

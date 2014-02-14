@@ -1,0 +1,37 @@
+itembuilds/default_silencer.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_silencer"
+	"Title"			"Recommended items for Silencer"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_mantle"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_power_treads"
+			"item"		"item_mekansm"
+			"item"		"item_force_staff"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_rod_of_atos"
+			"item"		"item_cyclone"
+			"item"		"item_pipe"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+		}
+		
+	}
+}

@@ -1,0 +1,35 @@
+itembuilds/default_ursa.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_ursa"
+	"Title"			"Recommended items for Ursa"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_flask"
+			"item"		"item_tango"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_tranquil_boots"
+			"item"		"item_vladmir"
+			"item"		"item_phase_boots"
+			"item"		"item_blink"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_heart"
+			"item"		"item_sheepstick"
+			"item"		"item_blade_mail"
+		}
+		
+	}
+}

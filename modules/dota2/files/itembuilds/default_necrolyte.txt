@@ -1,0 +1,46 @@
+itembuilds/default_necrolyte.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_necrolyte"
+	"Title"			"Recommended items for Necrolyte"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_ring_of_protection"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_tango"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_ring_of_basilius"
+			"item"		"item_magic_wand"
+			"item"		"item_power_treads"
+			"item"		"item_mekansm"
+		}
+		
+		"Survivability"
+		{
+			"item"		"item_cloak"
+			"item"		"item_platemail"
+			"item"		"item_ancient_janggo"
+			"item"		"item_ghost"
+			"item"		"item_vitality_booster"
+		}
+		
+		"Mana and damage"
+		{
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_assault"
+			"item"		"item_travel_boots"
+		}
+		
+	}
+}

@@ -1,0 +1,44 @@
+itembuilds/default_faceless_void.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_faceless_void"
+	"Title"			"Recommended items for Faceless Void"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_poor_mans_shield"
+			"item"		"item_power_treads"
+			"item"		"item_bfury"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_butterfly"
+			"item"		"item_greater_crit"
+			"item"		"item_satanic"
+		}
+		
+		"Optional"
+		{
+			"item"		"item_vanguard"
+			"item"		"item_mask_of_madness"
+			"item"		"item_hand_of_midas"
+			"item"		"item_necronomicon"
+			"item"		"item_ultimate_scepter"
+		}
+		
+	}
+}

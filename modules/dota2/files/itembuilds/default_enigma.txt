@@ -1,0 +1,33 @@
+itembuilds/default_enigma.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_enigma"
+	"Title"			"Recommended items for Enigma"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_courier"
+			"item"		"item_ward_observer"
+			"item"		"item_sobi_mask"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+		}
+		
+		"Core"
+		{
+			"item"		"item_soul_ring"
+			"item"		"item_boots"
+			"item"		"item_blink"
+			"item"		"item_mekansm"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_travel_boots"
+		}
+		
+	}
+}

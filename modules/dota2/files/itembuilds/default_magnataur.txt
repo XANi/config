@@ -1,0 +1,37 @@
+itembuilds/default_magnataur.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_magnataur"
+	"Title"			"Recommended items for Magnus"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_bottle"
+			"item"		"item_magic_wand"
+			"item"		"item_arcane_boots"
+			"item"		"item_blink"
+			"item"		"item_refresher"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_mask_of_madness"
+			"item"		"item_black_king_bar"
+			"item"		"item_vladmir"
+			"item"		"item_greater_crit"
+		}
+		
+	}
+}

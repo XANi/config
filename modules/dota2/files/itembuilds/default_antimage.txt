@@ -1,0 +1,38 @@
+itembuilds/default_antimage.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_antimage"
+	"Title"			"Recommended items for Anti-Mage"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_ring_of_health"
+			"item"		"item_power_treads"
+			"item"		"item_vanguard"
+			"item"		"item_bfury"
+			"item"		"item_manta"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_heart"
+			"item"		"item_butterfly"
+			"item"		"item_basher"
+			"item"		"item_black_king_bar"
+			"item"		"item_vladmir"
+		}
+		
+	}
+}

@@ -107,5 +107,6 @@ node 'vm-debian' inherits default {
     include emacs::wl
 }
 node hydra inherits default {
+    include dota2
     include emacs::wl
 }

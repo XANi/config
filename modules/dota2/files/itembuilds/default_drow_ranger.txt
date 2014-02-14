@@ -1,0 +1,37 @@
+itembuilds/default_drow_ranger.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_drow_ranger"
+	"Title"			"Recommended items for Drow Ranger"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_slippers"
+			"item"		"item_slippers"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_power_treads"
+			"item"		"item_invis_sword"
+			"item"		"item_manta"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_helm_of_the_dominator"
+			"item"		"item_butterfly"
+			"item"		"item_greater_crit"
+			"item"		"item_heart"
+			"item"		"item_ethereal_blade"
+		}
+		
+	}
+}

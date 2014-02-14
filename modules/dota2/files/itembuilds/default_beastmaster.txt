@@ -1,0 +1,37 @@
+itembuilds/default_beastmaster.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_beastmaster"
+	"Title"			"Recommended items for Beastmaster"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_soul_ring"
+			"item"		"item_magic_wand"
+			"item"		"item_boots"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_necronomicon"
+			"item"		"item_arcane_boots"
+			"item"		"item_travel_boots"
+			"item"		"item_vladmir"
+			"item"		"item_pipe"
+		}
+		
+	}
+}

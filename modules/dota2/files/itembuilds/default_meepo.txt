@@ -1,0 +1,41 @@
+itembuilds/default_meepo.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_meepo"
+	"Title"			"Recommended items for Meepo"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_ring_of_protection"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_tranquil_boots"
+			"item"		"item_mekansm"
+			"item"		"item_ultimate_scepter"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_travel_boots"
+			"item"		"item_heart"
+			"item"		"item_pipe"
+			"item"		"item_vladmir"
+			"item"		"item_assault"
+		}
+		
+		"Optional"
+		{
+			"item"		"item_blink"
+		}
+		
+	}
+}

@@ -1,0 +1,34 @@
+itembuilds/default_spectre.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_spectre"
+	"Title"			"Recommended items for Spectre"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_quelling_blade"
+			"item"		"item_flask"
+			"item"		"item_tango"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_poor_mans_shield"
+			"item"		"item_magic_wand"
+			"item"		"item_power_treads"
+			"item"		"item_radiance"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_manta"
+			"item"		"item_heart"
+			"item"		"item_diffusal_blade"
+			"item"		"item_blade_mail"
+		}
+		
+	}
+}

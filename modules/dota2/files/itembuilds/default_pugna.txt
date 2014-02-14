@@ -1,0 +1,37 @@
+itembuilds/default_pugna.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_pugna"
+	"Title"			"Recommended items for Pugna"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_flask"
+		}
+		
+		"Core"
+		{
+			"item"		"item_bottle"
+			"item"		"item_phase_boots"
+			"item"		"item_ancient_janggo"
+			"item"		"item_void_stone"
+			"item"		"item_mekansm"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_sheepstick"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_travel_boots"
+			"item"		"item_black_king_bar"
+		}
+		
+	}
+}

@@ -1,0 +1,34 @@
+itembuilds/default_invoker.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_invoker"
+	"Title"			"Recommended items for Invoker"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_blades_of_attack"
+			"item"		"item_branches"
+			"item"		"item_flask"
+		}
+		
+		"Core"
+		{
+			"item"		"item_phase_boots"
+			"item"		"item_ancient_janggo"
+			"item"		"item_cyclone"
+			"item"		"item_force_staff"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_ultimate_scepter"
+			"item"		"item_sheepstick"
+			"item"		"item_assault"
+			"item"		"item_black_king_bar"
+			"item"		"item_skadi"
+		}
+		
+	}
+}

@@ -1,0 +1,37 @@
+itembuilds/default_bounty_hunter.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_bounty_hunter"
+	"Title"			"Recommended items for Bounty Hunter"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_stout_shield"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_poor_mans_shield"
+			"item"		"item_bottle"
+			"item"		"item_phase_boots"
+			"item"		"item_ancient_janggo"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_desolator"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_butterfly"
+			"item"		"item_medallion_of_courage"
+		}
+		
+	}
+}

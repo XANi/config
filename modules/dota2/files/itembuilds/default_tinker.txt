@@ -1,0 +1,39 @@
+itembuilds/default_tinker.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_tinker"
+	"Title"			"Recommended items for Tinker"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_mantle"
+			"item"		"item_mantle"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_bottle"
+			"item"		"item_travel_boots"
+			"item"		"item_soul_ring"
+			"item"		"item_null_talisman"
+			"item"		"item_null_talisman"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_force_staff"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_manta"
+			"item"		"item_ethereal_blade"
+			"item"		"item_dagon"
+		}
+		
+	}
+}

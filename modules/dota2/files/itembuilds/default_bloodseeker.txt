@@ -1,0 +1,37 @@
+itembuilds/default_bloodseeker.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_bloodseeker"
+	"Title"			"Recommended items for Bloodseeker"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_quelling_blade"
+			"item"		"item_slippers"
+			"item"		"item_branches"
+			"item"		"item_flask"
+		}
+		
+		"Core"
+		{
+			"item"		"item_poor_mans_shield"
+			"item"		"item_phase_boots"
+			"item"		"item_radiance"
+			"item"		"item_hand_of_midas"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_force_staff"
+			"item"		"item_dagon"
+			"item"		"item_monkey_king_bar"
+			"item"		"item_desolator"
+			"item"		"item_diffusal_blade"
+			"item"		"item_black_king_bar"
+			"item"		"item_butterfly"
+		}
+		
+	}
+}

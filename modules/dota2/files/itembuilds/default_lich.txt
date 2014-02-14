@@ -1,0 +1,45 @@
+itembuilds/default_lich.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_lich"
+	"Title"			"Recommended items for Lich"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_courier"
+			"item"		"item_ward_observer"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_boots"
+			"item"		"item_magic_wand"
+			"item"		"item_mekansm"
+			"item"		"item_ward_observer"
+			"item"		"item_flying_courier"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_bracer"
+			"item"		"item_bracer"
+			"item"		"item_force_staff"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_sheepstick"
+			"item"		"item_vladmir"
+		}
+		
+		"Optional"
+		{
+			"item"		"item_urn_of_shadows"
+		}
+		
+	}
+}

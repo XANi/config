@@ -1,0 +1,38 @@
+itembuilds/default_tusk.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_tusk"
+	"Title"			"Recommended items for Tusk"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_stout_shield"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_orb_of_venom"
+			"item"		"item_phase_boots"
+			"item"		"item_arcane_boots"
+			"item"		"item_ancient_janggo"
+			"item"		"item_invis_sword"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_desolator"
+			"item"		"item_pipe"
+			"item"		"item_heart"
+			"item"		"item_shivas_guard"
+		}
+		
+	}
+}

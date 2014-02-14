@@ -1,0 +1,33 @@
+itembuilds/default_broodmother.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_broodmother"
+	"Title"			"Recommended items for Broodmother"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_ring_of_regen"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+		}
+		
+		"Core"
+		{
+			"item"		"item_soul_ring"
+			"item"		"item_power_treads"
+			"item"		"item_orchid"
+			"item"		"item_black_king_bar"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_butterfly"
+			"item"		"item_manta"
+			"item"		"item_greater_crit"
+		}
+		
+	}
+}

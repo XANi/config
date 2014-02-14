@@ -1,0 +1,37 @@
+itembuilds/default_bane.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_bane"
+	"Title"			"Recommended items for Bane"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_clarity"
+			"item"		"item_clarity"
+		}
+		
+		"Core"
+		{
+			"item"		"item_soul_ring"
+			"item"		"item_arcane_boots"
+			"item"		"item_magic_wand"
+			"item"		"item_necronomicon"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_force_staff"
+			"item"		"item_sheepstick"
+			"item"		"item_mekansm"
+			"item"		"item_pipe"
+		}
+		
+	}
+}

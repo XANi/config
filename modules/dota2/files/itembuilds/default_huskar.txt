@@ -1,0 +1,44 @@
+itembuilds/default_huskar.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_huskar"
+	"Title"			"Recommended items for Huskar"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_gauntlets"
+			"item"		"item_gauntlets"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_power_treads"
+			"item"		"item_ghost"
+			"item"		"item_ultimate_scepter"
+		}
+		
+		"Damage"
+		{
+			"item"		"item_black_king_bar"
+			"item"		"item_armlet"
+			"item"		"item_greater_crit"
+			"item"		"item_ethereal_blade"
+		}
+		
+		"Survivability"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_helm_of_the_dominator"
+			"item"		"item_hood_of_defiance"
+			"item"		"item_heavens_halberd"
+			"item"		"item_assault"
+		}
+		
+	}
+}

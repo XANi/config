@@ -1,0 +1,38 @@
+itembuilds/default_puck.txt
+{
+	"author"		"Generated for dota2alttab.com by Ninguem"
+	"hero"			"npc_dota_hero_puck"
+	"Title"			"Recommended items for Puck"
+	
+	"Items"
+	{
+		"Starting"
+		{
+			"item"		"item_mantle"
+			"item"		"item_mantle"
+			"item"		"item_branches"
+			"item"		"item_branches"
+			"item"		"item_flask"
+			"item"		"item_tango"
+		}
+		
+		"Core"
+		{
+			"item"		"item_magic_wand"
+			"item"		"item_bottle"
+			"item"		"item_arcane_boots"
+			"item"		"item_blink"
+		}
+		
+		"Extension"
+		{
+			"item"		"item_mekansm"
+			"item"		"item_cyclone"
+			"item"		"item_sheepstick"
+			"item"		"item_shivas_guard"
+			"item"		"item_ghost"
+			"item"		"item_skadi"
+		}
+		
+	}
+}
