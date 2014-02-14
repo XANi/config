@@ -10,24 +10,34 @@
 :merge_behavior: deeper
 
 
+
 # hack around not being able to specify more than one datadir, at least till they fix it
 :hierarchy:
   - private/host/%{hostname}/%{calling_module}
   - shared/host/%{hostname}/%{calling_module}
+  - public/host/%{hostname}/%{calling_module}
   - private/host/%{hostname}/common
   - shared/host/%{hostname}/common
+  - public/host/%{hostname}/common
   - private/location/%{projectname}/%{calling_module}
   - shared/location/%{projectname}/%{calling_module}
+  - public/location/%{projectname}/%{calling_module}
   - private/location/%{projectname}/common
   - shared/location/%{projectname}/common
+  - public/location/%{projectname}/common
   - private/env/%{environment}/%{calling_module}
   - shared/env/%{environment}/%{calling_module}
+  - public/env/%{environment}/%{calling_module}
   - private/env/%{environment}/common
   - shared/env/%{environment}/common
+  - public/env/%{environment}/common
   - private/common/%{calling_module}
   - shared/common/%{calling_module}
+  - public/common/%{calling_module}
   - private/common/common
   - shared/common/common
+  - public/common/common
+
 
 :yaml:
    :datadir: /var/lib/dpp/hiera
