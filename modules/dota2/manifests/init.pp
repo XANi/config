@@ -18,9 +18,11 @@ class dota2::itembuilds {
     file { "${dotadir}/dota/itembuilds/":
         ensure => directory,
         source => 'puppet:///dota2/itembuilds',
+        recurse => true,
         owner  => $dotauser
     }
 }
 class dota2::autoexec {
+    notify {"Autoexec goes here":;}
 
 }
