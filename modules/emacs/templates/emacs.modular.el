@@ -60,7 +60,7 @@
 (require 'cisco-router-mode)
 (add-to-list 'magic-mode-alist '("\\!RANCID-CONTENT" . cisco-router-mode) )
 
-(require 'xani-ido)
+;;(require 'xani-ido)
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-functions)
 (require 'xani-cua)
