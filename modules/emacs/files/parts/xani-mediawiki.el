@@ -7,7 +7,7 @@
 
 (add-hook 'mediawiki-mode-hook
           (lambda ()
-            (if (string-match "itsalltext" buffer-file-name)
+            (if (string-match "/home/xani" buffer-file-name)
             (local-set-key (kbd "C-x C-s") 'save-buffer)
             nil
             )
