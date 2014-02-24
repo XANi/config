@@ -12,6 +12,6 @@
  puppet-comment-column 64
  puppet-include-indent 4
  puppet-indent-level 4
-;; flymake-puppet-executable "puppet-lint-emacs"
+ flycheck-puppet-lint-executable "/usr/local/bin/puppet-lint-wrapper"
 )
 (provide 'xani-puppet)

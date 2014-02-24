@@ -145,6 +145,7 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))
 (add-to-list 'auto-mode-alist '(".*/hiera.*\\.\\(gpg\\)\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '(".*/apache/.*httpd.*" . apache-mode))
 
 (add-to-list 'auto-mode-alist '("emacs.erb" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("emacs.modular.erb" . emacs-lisp-mode))
