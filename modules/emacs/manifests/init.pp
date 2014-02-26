@@ -85,6 +85,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'restclient',
                        'rpm-spec-mode',
                        'sml-modeline',
+                       'shift-text',
                        'tabbar',
                        'tabbar-ruler',
                        'textile-mode',
