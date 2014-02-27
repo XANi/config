@@ -12,6 +12,7 @@ class home::config (
         owner => xani,
         group => xani,
     }
+    $git = hiera('git')
     home::config::file {
         bash_prompt:;
         bashrc:;
