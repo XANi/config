@@ -9,7 +9,7 @@ class puppet {
         group   => root,
     }
     file { '/tmp/puppet.yaml':
-     content => template('puppet/info.conf.erb'),
+     content => template('puppet/info.yaml'),
     }
     package {
         'hiera-puppet':
