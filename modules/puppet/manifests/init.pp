@@ -8,6 +8,9 @@ class puppet {
         owner   => root,
         group   => root,
     }
+    file { '/tmp/puppet.yaml':
+     content => template('puppet/info.conf.erb'),
+    }
     package {
         'hiera-puppet':
             ensure => absent;
