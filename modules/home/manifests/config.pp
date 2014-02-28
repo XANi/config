@@ -50,6 +50,11 @@ class home::config (
         '.tilda':;
     }
 
+    # disable ssh's own agent, preferring GPG one
+    file {'/etc/X11/Xsession.d/90x11-common_ssh-agent':
+        ensure => absent,
+    }
+
     home::config::autostart {'tilda': command => 'bash -c "echo $(sleep 20 ; tilda) &"'}
 
     file {'xani-ssh-config-dir':
