@@ -12,6 +12,7 @@ class home::config (
         owner => xani,
         group => xani,
     }
+    $git = $home::common::git
     home::config::file {
         bash_prompt:;
         bashrc:;

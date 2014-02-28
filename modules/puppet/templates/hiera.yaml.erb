@@ -19,12 +19,18 @@
   - private/host/%{hostname}/common
   - shared/host/%{hostname}/common
   - public/host/%{hostname}/common
-  - private/location/%{projectname}/%{calling_module}
-  - shared/location/%{projectname}/%{calling_module}
-  - public/location/%{projectname}/%{calling_module}
-  - private/location/%{projectname}/common
-  - shared/location/%{projectname}/common
-  - public/location/%{projectname}/common
+  - private/project/%{project}/%{calling_module}
+  - shared/project/%{project}/%{calling_module}
+  - public/project/%{project}/%{calling_module}
+  - private/project/%{project}/common
+  - shared/project/%{project}/common
+  - public/project/%{project}/common
+  - private/location/%{location}/%{calling_module}
+  - shared/location/%{location}/%{calling_module}
+  - public/location/%{location}/%{calling_module}
+  - private/location/%{location}/common
+  - shared/location/%{location}/common
+  - public/location/%{location}/common
   - private/env/%{environment}/%{calling_module}
   - shared/env/%{environment}/%{calling_module}
   - public/env/%{environment}/%{calling_module}

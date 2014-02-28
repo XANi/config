@@ -1,2 +1,10 @@
 ---
 location: default
+
+git:
+    committer:
+        name: Mariusz Gronczewski
+        email: xani666@gmail.com
+    author:
+        name: Mariusz Gronczewski
+        email: xani666@gmail.com

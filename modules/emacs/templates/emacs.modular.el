@@ -76,6 +76,7 @@
 (require 'xani-modeline)
 (require 'xani-minibuffer)
 (require 'xani-multicursor)
+(require 'xani-shift-text)
 
 
 ;; Languages

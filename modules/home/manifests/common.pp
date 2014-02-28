@@ -19,6 +19,7 @@ class home::common (
     $https_proxy = hiera('https_proxy',false),
     $socks_proxy = hiera('socks_proxy',false),
     $perl5lib    = hiera('perl5lib',false),
+    $git         = hiera_hash('git'),
 )  {
     util::add_user_to_group {
         'xani-fuse':
@@ -37,4 +38,5 @@ class home::common (
         content => template('home/cleanup_tmp.sh'),
         mode    => 755,
     }
+
 }
