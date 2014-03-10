@@ -38,7 +38,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'magit',
                'emacs-jabber',
                'lua-mode',
-	       'e2wm',
+               'e2wm',
                ]:
                    ensure => absent,
     }
@@ -81,7 +81,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'phi-search',
                        'phi-search-mc',
                        'purple-haze-theme',
-		       'rainbow-blocks',
+                       'rainbow-blocks',
                        'rainbow-delimiters',
                        'rainbow-mode',
                        'restclient',
@@ -106,15 +106,20 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         notify  => Exec['refresh-emacs-packages'],
         mode    => 644,
     }
+    file { "${homedir}/.emacs.d/.gitignore":
+        content => template('emacs/emacs.d.gitignore'),
+        mode    => 644,
+    }
     file { "${homedir}/emacs/install-packages.sh":
-	content => "emacs -Q --script /home/xani/emacs/install-packages.el",
-	mode    => 755,
+        content => template('emacs/install-packages.sh'),
+        mode    => 755,
+        require => File["${homedir}/.emacs.d/.gitignore"]:
     }
 
     exec { "create-emacs-packages":
-	command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
-	logoutput   => true,
-	creates     => "/tmp/emacs-install-done",
+    command     => "${homedir}/emacs/install-packages.sh && touch /tmp/emacs-install-done",
+    logoutput   => true,
+    creates     => "/tmp/emacs-install-done",
         environment => [
                         "HOME=${homedir}",
                         ],
