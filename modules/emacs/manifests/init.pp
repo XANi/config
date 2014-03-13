@@ -81,6 +81,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org2blog',
                        'phi-search',
                        'phi-search-mc',
+                       'puppet-mode',
                        'purple-haze-theme',
                        'rainbow-blocks',
                        'rainbow-delimiters',
