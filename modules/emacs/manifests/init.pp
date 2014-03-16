@@ -115,7 +115,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     file { "${homedir}/emacs/install-packages.sh":
         content => template('emacs/install-packages.sh'),
         mode    => 755,
-        require => File["${homedir}/.emacs.d/.gitignore"]:
+        require => File["${homedir}/.emacs.d/.gitignore"],
     }
 
     exec { "create-emacs-packages":
