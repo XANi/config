@@ -65,6 +65,8 @@
     pop = stash pop
     s = status -s -b
     st = !git fetch && git status -s -b
+    # cleanup everything but tags, ask
+    cleanup = -i -x -e "TAGS" -e 'tags'
 
 [merge]
     tool = meld
