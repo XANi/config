@@ -57,6 +57,9 @@ class home::config (
     }
 
     home::config::autostart {'tilda': command => 'bash -c "echo $(sleep 20 ; tilda) &"'}
+    if ($location == 'arte') {
+        home::config::autostart {'shutter': command => 'bash -c "echo $(sleep 60 ; shutter  --min_at_startup) &"'}
+    }
 
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
