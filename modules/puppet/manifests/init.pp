@@ -31,5 +31,5 @@ class puppet {
         content => '/usr/bin/find /var/lib/puppet/reports -mtime +30 -type f -delete',
         mode    => 755,
     }
-    util::service_disable {'puppet':;}
+
 }
