@@ -12,8 +12,6 @@ class puppet {
      content => template('puppet/info.yaml'),
     }
     package {
-        'hiera-puppet':
-            ensure => absent;
         'puppet':
             ensure => latest;
         'ruby-deep-merge':
@@ -33,5 +31,5 @@ class puppet {
         content => '/usr/bin/find /var/lib/puppet/reports -mtime +30 -type f -delete',
         mode    => 755,
     }
-
+    util::service_disable {'puppet':;}
 }
