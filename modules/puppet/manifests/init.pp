@@ -12,8 +12,6 @@ class puppet {
      content => template('puppet/info.yaml'),
     }
     package {
-        'hiera-puppet':
-            ensure => absent;
         'puppet':
             ensure => latest;
         'ruby-deep-merge':

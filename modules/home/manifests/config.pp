@@ -22,12 +22,12 @@ class home::config (
         inputrc:;
         perlconsolerc:;
         screenrc:;
-#        toprc:; # broken with puppet 3.3.x coz not utf
+        toprc:; # broken with puppet 3.3.x coz not utf
         xsessionrc:;
         terminator:
             target => ".config/terminator/config";
         arbtt:
-            source => 'home/arbtt-categorize.cfg.erb',
+            source => 'home/config/arbtt-categorize.cfg',
             target => '.arbtt/categorize.cfg';
         tilda:
             target => '.tilda/config_0';
@@ -74,14 +74,14 @@ class home::config (
 
     file { 'xani-ssh-config':
         path    => "${homedir}/.ssh/config",
-        content => template('home/ssh_config.erb'),
+        content => template('home/config/ssh_config'),
         mode    => 600,
         require => File['xani-ssh-config-dir'],
     }
 }
 
 define home::config::file (
-        $source = "home/${title}.erb",
+        $source = "home/config/${title}",
         $target = ".${title}",
         $mode   = 644,
     ) {
