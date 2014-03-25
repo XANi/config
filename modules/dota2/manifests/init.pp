@@ -14,7 +14,7 @@ class dota2::autoexec {
     require dota2::vars
     $basedir = $dota2::vars::dotadir
     file { "${basedir}//dota/cfg/autoexec.cfg":
-        content => template('dota/autoexec.cfg'),
+        content => template('dota2/autoexec.cfg'),
         owner   => xani,
         mode    => 644,
     }
