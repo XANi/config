@@ -11,6 +11,7 @@ class home::packages {
          ttf-dejavu,
          terminator,
          # utils
+         ack-grep,
          colordiff,
          cups-pdf,
          eog,
