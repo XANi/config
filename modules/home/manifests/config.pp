@@ -22,8 +22,9 @@ class home::config (
         inputrc:;
         perlconsolerc:;
         screenrc:;
-        toprc:; # broken with puppet 3.3.x coz not utf
+        toprc:;
         xsessionrc:;
+        xmodmap:;
         terminator:
             target => ".config/terminator/config";
         arbtt:
