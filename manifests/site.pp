@@ -102,6 +102,9 @@ node ghroth inherits efi {
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
     }
+}
+
+node yidhra inherits efi {
 
 }
 node 'vm-debian' inherits default {
