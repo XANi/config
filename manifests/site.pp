@@ -48,6 +48,7 @@ node default {
         'token':;
         'util::etckeeper':;
         'util::generic':;
+        'util::packages':;
         'xfce':;
     }
 
