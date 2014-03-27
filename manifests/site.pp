@@ -105,7 +105,7 @@ node ghroth inherits efi {
 }
 
 node yidhra inherits efi {
-
+    include hw::vaiopro
 }
 node 'vm-debian' inherits default {
     include emacs::wl
