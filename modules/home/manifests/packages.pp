@@ -15,6 +15,7 @@ class home::packages {
          colordiff,
          cups-pdf,
          eog,
+         strace,
          git,
          gnupg,
          gnupg-agent,
