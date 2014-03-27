@@ -106,6 +106,7 @@ node ghroth inherits efi {
 }
 
 node yidhra inherits efi {
+    include dota2
     include hw::vaiopro
 }
 node 'vm-debian' inherits default {
