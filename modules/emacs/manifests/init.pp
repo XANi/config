@@ -399,20 +399,20 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
 }
 
-class emacs::org::sync ( $homedir = '/home/xani' ) {
+class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/emacs/org/mobile.org' ) {
     exec { xani-emacs-mobile-org:
-        command => "/bin/mkdir -p $homedir/emacs/org/mobile.org",
+        command => "/bin/mkdir -p ${mountpoint}",
         user    => xani,
-        creates => "${homedir}/emacs/org/mobile.org",
+        creates => "${mountpoint}",
         require => File['xani-emacs-org'],
     }
     exec { mount-orgshare:
         #cwd      => "${homedir}/emacs/org",
-        unless    => "/usr/bin/sudo -u xani /usr/bin/test -e $homedir/emacs/org/mobile.org/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
+        unless    => "/usr/bin/sudo -u xani /usr/bin/test -e ${mountpoint}/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
         logoutput => true,
         command   => $hostname ? {
-            'ghroth' => "/usr/bin/sudo -u xani -i /usr/bin/tsocks /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode $homedir/emacs/org/mobile.org/",
-            default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode $homedir/emacs/org/mobile.org/",
+            'ghroth' => "/usr/bin/sudo -u xani -i /usr/bin/tsocks /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
+            default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
         },
         require   => [Package['sshfs'], Exec['xani-emacs-mobile-org'],]
     }
