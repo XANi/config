@@ -400,11 +400,15 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
 }
 
 class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/emacs/org/mobile.org' ) {
-    exec { xani-emacs-mobile-org:
-        command => "/bin/mkdir -p ${mountpoint}",
-        user    => xani,
-        creates => "${mountpoint}",
-        require => File['xani-emacs-org'],
+    file { $mountpoint:
+        ensure => directory,
+        mode   => 750,
+        owner  => xani,
+        group  => xani,
+    }
+    file { $target:
+        ensure => link,
+        target => $mountpoint,
     }
     exec { mount-orgshare:
         #cwd      => "${homedir}/emacs/org",

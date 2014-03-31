@@ -49,6 +49,7 @@ node default {
         'util::etckeeper':;
         'util::generic':;
         'util::packages':;
+        'util::fuse':;
         'xfce':;
     }
 
