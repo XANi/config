@@ -418,7 +418,7 @@ class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/
             'ghroth' => "/usr/bin/sudo -u xani -i /usr/bin/tsocks /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
             default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
         },
-        require   => [Package['sshfs'], Exec['xani-emacs-mobile-org'],]
+        require   => [Package['sshfs'],]
     }
 }
 
