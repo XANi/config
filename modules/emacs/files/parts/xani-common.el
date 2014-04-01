@@ -137,7 +137,7 @@
 
 ;; autoload flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(customize-set-face
+(custom-set-faces
  '(flycheck-error ((t (:background "#440000"))))
  '(flycheck-warning ((t (:underline "DarkOrange"))))
 )
