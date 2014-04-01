@@ -416,7 +416,7 @@ class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/
         logoutput => true,
         command   => $hostname ? {
             'ghroth' => "/usr/bin/sudo -u xani -i /usr/bin/tsocks /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
-            default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs -o user_allow_root orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
+            default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs -o allow_root orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
         },
         require   => [Package['sshfs'],]
     }
