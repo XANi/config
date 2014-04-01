@@ -137,6 +137,11 @@
 
 ;; autoload flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(customize-set-face
+ '(flycheck-error ((t (:background "#440000"))))
+ '(flycheck-warning ((t (:underline "DarkOrange"))))
+)
+
 ;; colors
 (global-rainbow-delimiters-mode)
 (rainbow-mode)
