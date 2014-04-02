@@ -479,4 +479,10 @@ class emacs::install ($version = 'emacs-snapshot') {
             target  => "/usr/bin/emacsclient.${version}",
             require => Package[$version];
     }
+    if $version =~ /emacs24/ {
+        file {'/usr/share/emacs/24.3/lisp/org/':
+            ensure => absent,
+            force  => true,
+        }
+    }
 }
