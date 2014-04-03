@@ -55,6 +55,10 @@ class home::packages {
          evince,
          # R analysis tools
          rkward,
+         # network
+         nmap,
+         hping3,
+         mtr-tiny,
          #
          arbtt,
          ]:
