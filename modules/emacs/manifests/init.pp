@@ -82,6 +82,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'org',
                        'org-pandoc',
                        'org2blog',
+                       'org-trello',
                        'phi-search',
                        'phi-search-mc',
                        'puppet-mode',
@@ -478,5 +479,11 @@ class emacs::install ($version = 'emacs-snapshot') {
         emacsclient:
             target  => "/usr/bin/emacsclient.${version}",
             require => Package[$version];
+    }
+    if $version =~ /emacs24/ {
+        file {'/usr/share/emacs/24.3/lisp/org/':
+            ensure => absent,
+            force  => true,
+        }
     }
 }
