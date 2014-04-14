@@ -38,6 +38,7 @@ class home::config (
         ssh-askpass-wrapper:;
         notify-wrapper:;
         puppet-notify:;
+        fetch-repos:;
     }
     home::config::code_tmp {
         erb:;
