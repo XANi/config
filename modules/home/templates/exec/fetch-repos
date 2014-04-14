@@ -14,7 +14,7 @@ use Pod::Usage;
 
 my $cfg = { # default config values go here
     'repo-root'  => '/home/xani/src',
-    'ignore-regexp' => '(src/os/)',
+    'ignore-regexp' => '(src/os/|src/old)',
     'depth'         => 4,
 };
 my $help;
