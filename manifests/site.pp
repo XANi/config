@@ -1,4 +1,4 @@
-ha# defaults
+# defaults
 stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
