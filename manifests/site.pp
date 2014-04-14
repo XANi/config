@@ -1,4 +1,4 @@
-# defaults
+ha# defaults
 stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
@@ -100,6 +100,7 @@ node ghroth inherits efi {
     apt::source {
         'rabbitmq':;
         'oracle_java':;
+        'elasticsearch10':;
     }
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
