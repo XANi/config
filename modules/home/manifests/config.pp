@@ -119,7 +119,7 @@ define home::config::code_tmp (
 }
 
 define home::config::exec (
-    $source = "home/exec/${title}.erb",
+    $source = "home/exec/${title}",
     $target = "/usr/local/bin/${title}",
     ) {
     file { $target:
