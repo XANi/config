@@ -108,6 +108,7 @@ node ghroth inherits efi {
 }
 
 node yidhra inherits efi {
+    include util::mobile::laptop
     include dota2
     include hw::vaiopro
 }
