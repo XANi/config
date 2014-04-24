@@ -187,7 +187,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
 
-<% if has_variable?('portable_config') then -%>
+<% if @portable_config -%>
 # fix another c6 fucktardness
 if [ "$SUDO_USER" = "xani" ] ; then
     if [ "$SUDO_COMMAND" != "/bin/su" ]; then
@@ -222,7 +222,9 @@ sshmount() {
     mkdir -p $SSHFS_TARGET_DIR
     sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR && cd $SSHFS_TARGET_DIR
 }
-
+if [ -e /etc/environment ] ; then
+    source /etc/environment
+fi
 <%- if scope.lookupvar('home::common::http_proxy') -%>
 export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
 <%- end -%>
