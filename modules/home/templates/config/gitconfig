@@ -66,7 +66,7 @@
     s = status -s -b
     st = !git fetch -p && git status -s -b
     # cleanup everything but tags, ask
-    cleanup = !git clean -i -x -e "TAGS" -e 'tags' ; git fetch -p
+    cleanup = !git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
 
 [merge]
     tool = meld
