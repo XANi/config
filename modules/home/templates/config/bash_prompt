@@ -187,7 +187,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
 
-<% if has_variable?('portable_config') then -%>
+<% if @portable_config -%>
 # fix another c6 fucktardness
 if [ "$SUDO_USER" = "xani" ] ; then
     if [ "$SUDO_COMMAND" != "/bin/su" ]; then
@@ -229,6 +229,10 @@ export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
 
 <%- if scope.lookupvar('home::common::https_proxy') -%>
 export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
+<%- end -%>
+
+<%- if scope.lookupvar('home::common::no_proxy') -%>
+export no_proxy="<%= scope.lookupvar('home::common::no_proxy') %>"
 <%- end -%>
 
 <%- if scope.lookupvar('home::common::perl5lib') -%>

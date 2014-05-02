@@ -18,6 +18,7 @@ class home::common (
     $http_proxy  = hiera('http_proxy',false),
     $https_proxy = hiera('https_proxy',false),
     $socks_proxy = hiera('socks_proxy',false),
+    $no_proxy    = hiera('no_proxy',false),
     $perl5lib    = hiera('perl5lib',false),
     $git         = hiera_hash('git'),
 )  {

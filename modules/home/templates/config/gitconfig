@@ -64,9 +64,9 @@
     p = !git pull --no-commit && git push -u
     pop = stash pop
     s = status -s -b
-    st = !git fetch && git status -s -b
+    st = !git fetch -p && git status -s -b
     # cleanup everything but tags, ask
-    cleanup = clean -i -x -e "TAGS" -e 'tags'
+    cleanup = !git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
 
 [merge]
     tool = meld

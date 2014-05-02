@@ -14,6 +14,7 @@ postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
 config_version=<%= @puppet_repo_path %>/puppet/bin/config_version /var/lib/dpp/repos/shared/
 pluginsync=true
 factsync=true
+trusted_node_data=true
 <% if @puppet_reporturl -%>
 report=true
 reports = store, http
