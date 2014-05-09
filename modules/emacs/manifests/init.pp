@@ -350,7 +350,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
             command => "/home/xani/emacs/org/arte/c",
             user    => xani,
             hour    => '*',
-            minute  => '*/5',
+            minute  => '*/30',
         }
         file { "${homedir}/emacs/org/cal.ics":
             ensure => "${homedir}/emacs/org/arte.ics",
