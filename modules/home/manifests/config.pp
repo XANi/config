@@ -39,6 +39,7 @@ class home::config (
         notify-wrapper:;
         puppet-notify:;
         fetch-repos:;
+        meta:;
     }
     home::config::code_tmp {
         erb:;
