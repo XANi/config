@@ -191,3 +191,4 @@
  '(".*/haproxy.*\\.\\(erb\\|cfg\\)")
       nil
       "Generic mode for HAProxy files.")
+(provide 'haproxy-mode)
