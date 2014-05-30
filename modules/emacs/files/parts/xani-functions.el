@@ -61,7 +61,7 @@ BEG and END (region to sort)."
   (let ((b (if mark-active (min (point) (mark)) (point-min)))
         (e (if mark-active (max (point) (mark)) (point-max))))
     (shell-command-on-region b e
-     "/usr/local/bin/meta --out-json" (current-buffer) t)))
+     "/usr/local/bin/meta --out=json" (current-buffer) t)))
 (defun to-perl ()
   (interactive)
   (let ((b (if mark-active (min (point) (mark)) (point-min)))
