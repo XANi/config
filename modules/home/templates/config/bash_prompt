@@ -155,10 +155,8 @@ if [ -e /etc/redhat-release ] ; then # yum is yuck
     alias aptitude="yum"
     alias apt-cache="yum"
 fi
-alias d="if [ -e .svn ] ; then svn diff | colordiff |less -R ; else git diff --word-diff --no-prefix; fi"
+alias d="git diff --word-diff --no-prefix"
 alias g='git'
-alias s='svn'
-alias svn-addprop="svn propset svn:keywords \"Revision LastChangedBy Date URL\""
 alias man="LC_ALL=C man"
 alias kj="killall -9 java"
 alias ll='ls -l --color=auto'
@@ -166,7 +164,6 @@ alias ls='ls --color=auto'
 alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
 alias va='vagrant'
 alias sqlite="sqlite3"
-alias riak-admin="sudo -u riak riak-admin"
 alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
 
 chmod go-rwx ~/.saved >/dev/null 2>&1
@@ -203,7 +200,7 @@ alias emacs='echo use e $@'
 alias ytd='youtube-dl -t --console-title'
 alias aptitude='sudo aptitude'
 alias cfg='cd ~/src/my/config'
-alias pup='cd ~/src/svn-puppet 2>/dev/null || cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
+alias pup='cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
 alias noproxy='unset http_proxy ; unset https_proxy ; unset ftp_proxy ; unset no_proxy'
 alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; echo "no /etc/environment!" ; fi'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
