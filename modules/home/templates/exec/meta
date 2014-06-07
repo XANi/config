@@ -1,0 +1,67 @@
+#!/usr/bin/perl
+# DPP/Puppet managed file at location arte, DO NOT EDIT BY HAND, changes will be overwritten.
+# spare2.non.3dart.com:modules/home/templates/1.pl.erb
+
+use strict;
+use warnings;
+use Data::Dumper;
+use JSON::XS;
+use YAML::XS;
+use XML::Simple;
+use Carp qw(cluck croak);
+use Getopt::Long qw(:config auto_help);
+use Pod::Usage;
+my $help;
+my $cfg = {
+    out => 'yaml',
+};
+GetOptions(
+    'out=s', \$cfg->{'out'},
+    'ugly',  \$cfg->{'ugly'},
+) or pod2usage(
+    -verbose => 2,  #2 is "full man page" 1 is usage + options ,0/undef is only usage
+    -exitval => 1,   #exit with error code if there is something wrong with arguments so anything depending on exit code fails too
+);
+
+my $tmp;
+while(<>) {
+    $tmp .= $_;
+}
+# yaml should also catch json
+my $data;
+eval {
+    $data = Load($tmp);
+};
+
+# try again with real json parser
+if (!defined($data)) {
+    eval {
+        $data =  decode_json($tmp)
+    };
+}
+
+# try again with xml
+if (!defined($data)) {
+    eval {
+        $data =  XMLin($tmp)
+    };
+}
+
+if (lc($cfg->{'out'}) eq 'yaml') {
+    print Dump($data);
+}
+elsif (lc($cfg->{'out'}) eq 'json' ) {
+   my $json = JSON::XS->new->ascii->allow_nonref;
+   if (! $cfg->{'ugly'} ) {
+       $json->pretty
+   }
+   print $json->encode($data);
+}
+elsif (lc($cfg->{'out'}) eq 'xml' ) {
+    print XMLout($data)
+}
+else {
+    print Dumper $data;
+}
+
+print "\n";

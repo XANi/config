@@ -48,4 +48,37 @@ BEG and END (region to sort)."
   "Remove duplicate adjacent lines in the current buffer."
   (interactive)
   (uniquify-region-lines (point-min) (point-max)))
+
+
+(defun to-yaml ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "/usr/local/bin/meta" (current-buffer) t)))
+(defun to-json ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "/usr/local/bin/meta --out=json" (current-buffer) t)))
+(defun to-perl ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "/usr/local/bin/meta --out=dump" (current-buffer) t)))
+(defun to-xml ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "/usr/local/bin/meta --out=xml" (current-buffer) t)))
+(defun to-ugly-json ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "/usr/local/bin/meta --out=json --ugly" (current-buffer) t)))
+
 (provide 'xani-functions)

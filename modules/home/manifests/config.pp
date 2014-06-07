@@ -39,6 +39,7 @@ class home::config (
         notify-wrapper:;
         puppet-notify:;
         fetch-repos:;
+        meta:;
     }
     home::config::code_tmp {
         erb:;
@@ -59,6 +60,12 @@ class home::config (
     }
 
     home::config::autostart {'tilda': command => 'bash -c "echo $(sleep 20 ; tilda) &"'}
+    file {'/home/xani/autostart.sh':
+        mode   => 700,
+        owner  => xani,
+        ensure => present,
+    }
+    home::config::autostart {'autostart': command => 'bash -c "/home/xani/autostart.sh &"'}
     if ($location == 'arte') {
         home::config::autostart {'shutter': command => 'bash -c "echo $(sleep 60 ; shutter  --min_at_startup) &"'}
     }

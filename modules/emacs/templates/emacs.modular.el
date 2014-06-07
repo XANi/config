@@ -107,7 +107,7 @@
 ;;(setq sepia-perl5lib (list (expand-file-name "~/sepia/lib")))
 <%- end -%>
 (require 'xani-local)
-
+(require 'haproxy-mode)
 
 (setq custom-file "~/.emacs-custom.el.gpg")
 (load custom-file 'noerror)
