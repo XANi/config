@@ -182,7 +182,7 @@
  '(
    ("\\(^\s+\\|^\\)\\(frontend\\|listen\\|backend\\|defaults\\|global\\|description\\).*" . 'font-lock-constant-face)
 ;;   ("\\(option\\)" . 'font-lock-keyword-face)
-   ("\\(if\\|unless\\)" . 'font-lock-string-face)
+   ("\\(if\\|unless\\|\s-[a-zA-Z]\s\\)" . 'font-lock-string-face)
    ("\\(acl\\)" . 'font-lock-builtin-face)
 ;;   ("\\^.+" . 'font-lock-keyword-face)
    ("\\(use_backend\\|default-server\\|server\\)" . font-lock-variable-name-face)
