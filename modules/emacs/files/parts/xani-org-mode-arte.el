@@ -10,6 +10,7 @@
  org-mobile-inbox-for-pull "~/emacs/org/arte/mobile.org"
  org-mobile-agendas (quote default)
  org-combined-agenda-icalendar-file "~/emacs/org/arte.ics"
+ org-icalendar-combined-agenda-file "~/emacs/org/arte.ics"
 )
 
 

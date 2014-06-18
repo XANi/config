@@ -11,12 +11,15 @@ TOP_WINDOW=$(ps h -o args $(xprop -id $(xprop -root -f _NET_ACTIVE_WINDOW 0x " \
 if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
     echo "EMACS ON TOP not running calendar tasks"
     exit 0
+elif [ $(xprintidle) -lt 60000 ] ; then
+    echo "not idle, not running"
+    exit 0
 else
     echo "TOP window is $TOP_WINDOW - running calendar task"
 fi
 
 SYNCFILE=~/emacs/org/cal.ics
-emacsclient -e '(org-export-icalendar-combine-agenda-files)'
+emacsclient -e '(org-icalendar-export-agenda-files)'
 cd ~/.local/share/orage || exit 0
 cp orage.ics orage.ics.b
 mv $SYNCFILE orage.ics
@@ -33,10 +36,6 @@ else
 fi
 
 if [ -e ~/emacs/org/mobile.org/remote ] ; then
-    if [ $(xprintidle) -gt 60000 ] ; then
         emacsclient -e '(org-mobile-pull)'
         emacsclient -e '(org-mobile-push)'
-    else
-        echo "not idle, not running" |logger
-    fi
 fi

@@ -9,6 +9,7 @@
   org-mobile-directory "~/emacs/org/mobile.org/share"
   org-mobile-inbox-for-pull "~/emacs/org/share/mobile.org"
   org-combined-agenda-icalendar-file "~/emacs/org/share.ics"
+  org-icalendar-combined-agenda-file "~/emacs/org/share.ics"
 
 )
 
