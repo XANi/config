@@ -33,6 +33,10 @@ else
 fi
 
 if [ -e ~/emacs/org/mobile.org/remote ] ; then
-    emacsclient -e '(org-mobile-pull)'
-    emacsclient -e '(org-mobile-push)'
+    if [ $(xprintidle) -gt 60000 ] ; then
+        emacsclient -e '(org-mobile-pull)'
+        emacsclient -e '(org-mobile-push)'
+    else
+        echo "not idle, not running" |logger
+    fi
 fi
