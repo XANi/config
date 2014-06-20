@@ -396,7 +396,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     cron { 'xani-orage-update':
         command => "/usr/local/bin/update-orage-calendar",
         user    => xani,
-        minute  => '*/20',
+        minute  => '*/5',
     }
 }
 

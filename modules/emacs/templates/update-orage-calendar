@@ -13,7 +13,9 @@ SYNCFILE=~/emacs/org/cal.ics
 <% end %>
 
 
-if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
+if  find $SYNCFILE -mmin -30   ; then
+    exit 0;
+elif [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
     echo "EMACS ON TOP not running calendar tasks"
     exit 0
 elif [ ! -e $SYNCFILE ] ; then
