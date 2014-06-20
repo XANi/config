@@ -6,22 +6,26 @@ export DISPLAY=:0
 EMACS_REGEX='\s*(|/usr/bin/)emacs.*$'
 TOP_WINDOW=$(ps h -o args $(xprop -id $(xprop -root -f _NET_ACTIVE_WINDOW 0x " \$0\\n" _NET_ACTIVE_WINDOW | awk "{print \$2}") -f _NET_WM_PID 0c " \$0\\n" _NET_WM_PID | awk "{print \$2}"))
 
+<% if @location == 'arte' %>
+SYNCFILE=~/emacs/org/arte.ics
+<% else %>
+SYNCFILE=~/emacs/org/cal.ics
+<% end %>
 
 
 if [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
     echo "EMACS ON TOP not running calendar tasks"
     exit 0
+elif [ ! -e $SYNCFILE ] ; then
+    echo "cal $SYNCFILE does not exist, running sync"
+elif find $SYNCFILE -mmin +180   ;then
+    echo "cal too old, syncing"
 elif [ $(xprintidle) -lt 60000 ] ; then
     echo "not idle, not running"
     exit 0
 else
     echo "TOP window is $TOP_WINDOW - running calendar task"
 fi
-<% if @location == 'arte' %>
-SYNCFILE=~/emacs/org/arte.ics
-<% else %>
-SYNCFILE=~/emacs/org/cal.ics
-<% end %>
 emacsclient -e '(org-icalendar-combine-agenda-files)'
 cd ~/.local/share/orage || exit 0
 cp orage.ics orage.ics.b
