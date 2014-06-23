@@ -184,7 +184,6 @@ export GIT_PS1_SHOWSTASHSTATE=1
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
 
-
 <% if @portable_config -%>
 # fix another c6 fucktardness
 if [ "$SUDO_USER" = "xani" ] ; then
