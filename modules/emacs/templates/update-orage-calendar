@@ -13,14 +13,16 @@ SYNCFILE=~/emacs/org/cal.ics
 <% end %>
 
 
-if  find $SYNCFILE -mmin -30   ; then
+if [ ! -e $SYNCFILE ]; then
+    echo "cal file does not exist, creating"
+elif  [ $(find $SYNCFILE -mmin -30 |wc -l) -gt 0 ]   ; then
     exit 0;
 elif [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
     echo "EMACS ON TOP not running calendar tasks"
     exit 0
 elif [ ! -e $SYNCFILE ] ; then
     echo "cal $SYNCFILE does not exist, running sync"
-elif find $SYNCFILE -mmin +180   ;then
+elif  [ $(find $SYNCFILE -mmin +180 |wc -l) -gt 0 ]   ; then
     echo "cal too old, syncing"
 elif [ $(xprintidle) -lt 60000 ] ; then
     echo "not idle, not running"
@@ -31,7 +33,7 @@ fi
 emacsclient -e '(org-icalendar-combine-agenda-files)'
 cd ~/.local/share/orage || exit 0
 cp orage.ics orage.ics.b
-mv $SYNCFILE orage.ics
+cp $SYNCFILE orage.ics
 killall -HUP orage
 
 # get toplevel window process
