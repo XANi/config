@@ -203,6 +203,7 @@ alias cfg='cd ~/src/my/config'
 alias pup='cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
 alias noproxy='unset http_proxy ; unset https_proxy ; unset ftp_proxy ; unset no_proxy'
 alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; echo "no /etc/environment!" ; fi'
+alias docker='docker.io'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
 # shortcut for quick sshfs
