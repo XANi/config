@@ -109,6 +109,7 @@
 (require 'xani-backports)
 (require 'xani-local)
 (require 'haproxy-mode)
+(require 'dota2-mode)
 
 (setq custom-file "~/.emacs-custom.el.gpg")
 (load custom-file 'noerror)
