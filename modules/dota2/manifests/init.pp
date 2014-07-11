@@ -6,7 +6,7 @@ class dota2 {
 
 
 class dota2::vars {
-    $steamdir = '/var/xani/steam'
+    $steamdir = '/var/steam'
     $dotadir = "${steamdir}/SteamApps/common/dota 2 beta"
     $dota_user = 'xani'
 }
