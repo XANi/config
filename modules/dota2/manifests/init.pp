@@ -26,6 +26,7 @@ class dota2::icons {
     $basedir = $dota2::vars::dotadir
     File {
         owner => xani,
+        group => xani,
         mode  => 644,
     }
     file { "${basedir}/dota/resource/flash3/images":
