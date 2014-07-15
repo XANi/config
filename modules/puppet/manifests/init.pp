@@ -1,7 +1,6 @@
 class puppet {
     $puppet_repo_path = hiera('repo_path','/var/lib/dpp/repos/shared')
     $puppet_fact_path = hiera('fact_path','/tmp/facts/')
-
     file { puppet-conf:
         path    => '/etc/puppet/puppet.conf',
         content => template('puppet/puppet.conf.erb'),
@@ -17,6 +16,12 @@ class puppet {
         'ruby-deep-merge':
             ensure => installed;
     }
+    service { 'puppet':
+        ensure  => stopped,
+        enable  => false,
+        require => Package['puppet'],
+    }
+
     file {
         '/etc/hiera.yaml':
             mode    => 600,
