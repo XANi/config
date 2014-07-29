@@ -23,6 +23,7 @@
  '(jabber-backlog-days 90.0)
  '(jabber-backlog-number 1000)
  '(jabber-chat-buffer-show-avatar nil)
+ '(jabber-chat-buffer-format "*-chat-%n-*")
  '(jabber-default-priority 10)
  '(jabber-default-priority 100)
  '(jabber-default-status "\"...z grubsza rzecz biorąc,  ludzi można podzielić na dwie kategorie:  ailurophiles i ailurophobes -  miłośników kotów i  osoby poszkodowane przez los\"" )
