@@ -175,3 +175,21 @@ style "titlebar"
 widget "xfwm"                      style "titlebar"
 class "MetaFrames"                 style "titlebar"
 widget_class "MetaFrames"          style "titlebar"
+
+
+# claws mail tree view fix (they use fg instead of text color)
+style "clawsfix"
+
+{
+    fg[ACTIVE]      = "#000000"
+    fg[INSENSITIVE] = "#222244"
+    fg[NORMAL]      = "#000000"
+    fg[PRELIGHT]    = "#000000"
+    fg[SELECTED]    = "#000000"
+
+
+}
+
+class "*Tree*"     style "clawsfix"
+widget_class "*Tree*"     style "clawsfix"
+
