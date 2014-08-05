@@ -45,7 +45,7 @@ style "default"
     base[INSENSITIVE] = "#202020"
     base[NORMAL]      = "#979797"
     base[PRELIGHT]    = "#304889"
-    base[SELECTED]    = "#205283"
+    base[SELECTED]    = "#4072a3"
 
     bg[ACTIVE]        = "#252545"
     bg[INSENSITIVE]   = "#202020"

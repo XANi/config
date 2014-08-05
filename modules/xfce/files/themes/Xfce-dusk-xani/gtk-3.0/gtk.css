@@ -3,13 +3,13 @@
 @define-color base_insensitive #606060;
 @define-color base_normal #979797;
 @define-color base_prelight #304889;
-@define-color base_selected #205283;
+@define-color base_selected #4072a3;
 
 @define-color bg_active #252545;
 @define-color bg_insensitive #202020;
 @define-color bg_normal #333333;
 @define-color bg_prelight #104273;
-@define-color bg_selected #205283;
+@define-color bg_selected #103859;
 
 @define-color fg_active #dadada;
 @define-color fg_insensitive #656585;
