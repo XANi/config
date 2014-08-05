@@ -33,7 +33,7 @@ style "default"
     GtkEntry::cursor_aspect_ratio                = 0.1
     GtkEntry::cursor_aspect_ratio                = 0.1
     # shade alternates
-    GtkTreeView::odd_row_color                   = shade (0.929458256, @base_color)
+    GtkTreeView::odd_row_color                   = "#878787"
     # fix crappy URL coloring
     GtkWidget::link-color = "#569cc1"
     GtkWidget::visited-link-color = "#f2f2f2"
