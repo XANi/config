@@ -55,6 +55,7 @@ node default {
 
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
+    xfce::theme { 'Xfce-dusk-xani':; }
 
 
     if $is_virtual == 'true' {

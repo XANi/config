@@ -26,32 +26,36 @@ style "default"
     GtkWidget::focus_padding                     = 1
     GtkWidget::interior_focus                    = 1
     GtkWidget::internal_padding                  = 2
-    GtkEntry::cursor_color                       = "#fcfcfc"
-    GtkEntry::secondary_cursor_color             = "#fcfcfc"
-    GtkTextView::cursor_color                    = "#fcfcfc"
-    GtkTextView::secondary_cursor_color          = "#fcfcfc"
+    GtkEntry::cursor_color                       = "#4c4cac"
+    GtkEntry::secondary_cursor_color             = "#ac4cac"
+    GtkTextView::cursor_color                    = "#4c4cac"
+    GtkTextView::secondary_cursor_color          = "#ac4cac"
     GtkEntry::cursor_aspect_ratio                = 0.1
     GtkEntry::cursor_aspect_ratio                = 0.1
-
+    # shade alternates
+    GtkTreeView::odd_row_color                   = shade (0.929458256, @base_color)
+    # fix crappy URL coloring
+    GtkWidget::link-color = "#569cc1"
+    GtkWidget::visited-link-color = "#f2f2f2"
     xthickness             = 1
     ythickness             = 1
 
 
     base[ACTIVE]      = "#4f71aa"
-    base[INSENSITIVE] = "#606060"
+    base[INSENSITIVE] = "#202020"
     base[NORMAL]      = "#979797"
     base[PRELIGHT]    = "#304889"
     base[SELECTED]    = "#205283"
 
     bg[ACTIVE]        = "#252525"
-    bg[INSENSITIVE]   = "#404040"
+    bg[INSENSITIVE]   = "#101010"
     bg[NORMAL]        = "#333333"
     bg[PRELIGHT]      = "#104273"
     bg[SELECTED]      = "#103859"
 
     fg[ACTIVE]        = "#dadada"
-    fg[INSENSITIVE]   = "#151515"
-    fg[NORMAL]        = "#ffffff"
+    fg[INSENSITIVE]   = "#858585"
+    fg[NORMAL]        = "#afafdf"
     fg[PRELIGHT]      = "#fcfcfc"
     fg[SELECTED]      = "#fcfcfc"
 
@@ -166,7 +170,7 @@ style "titlebar"
     bg[SELECTED]      = "#003263"
     fg[SELECTED]      = "#ffffff"
     bg[INSENSITIVE]   = "#002849"
-    fg[INSENSITIVE]   = "#9a9ada"
+    fg[INSENSITIVE]   = "#aa9ada"
 }
 widget "xfwm"                      style "titlebar"
 class "MetaFrames"                 style "titlebar"
