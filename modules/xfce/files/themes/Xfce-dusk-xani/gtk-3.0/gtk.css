@@ -11,9 +11,9 @@
 @define-color bg_prelight #104273;
 @define-color bg_selected #103859;
 
-@define-color fg_active #dadada;
+@define-color fg_active #babafa;
 @define-color fg_insensitive #656585;
-@define-color fg_normal #afafdf; /*generic text color (that is not in textbox)*/
+@define-color fg_normal #9f9fbf; /*generic text color (that is not in textbox)*/
 @define-color fg_prelight #fcfcfc;
 @define-color fg_selected #fcfcfc;
 
