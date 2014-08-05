@@ -55,7 +55,7 @@ style "default"
 
     fg[ACTIVE]        = "#dadada"
     fg[INSENSITIVE]   = "#858585"
-    fg[NORMAL]        = "#afafdf"
+    fg[NORMAL]        = "#afafaf"
     fg[PRELIGHT]      = "#fcfcfc"
     fg[SELECTED]      = "#fcfcfc"
 
