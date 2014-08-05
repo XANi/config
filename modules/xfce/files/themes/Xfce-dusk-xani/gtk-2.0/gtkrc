@@ -36,7 +36,7 @@ style "default"
     GtkTreeView::odd_row_color                   = "#878787"
     # fix crappy URL coloring
     GtkWidget::link-color = "#569cc1"
-    GtkWidget::visited-link-color = "#f2f2f2"
+    GtkWidget::visited-link-color = "#c2c2f2"
     xthickness             = 1
     ythickness             = 1
 
@@ -47,20 +47,20 @@ style "default"
     base[PRELIGHT]    = "#304889"
     base[SELECTED]    = "#205283"
 
-    bg[ACTIVE]        = "#252525"
-    bg[INSENSITIVE]   = "#101010"
+    bg[ACTIVE]        = "#252545"
+    bg[INSENSITIVE]   = "#202020"
     bg[NORMAL]        = "#333333"
     bg[PRELIGHT]      = "#104273"
     bg[SELECTED]      = "#103859"
 
     fg[ACTIVE]        = "#dadada"
-    fg[INSENSITIVE]   = "#858585"
-    fg[NORMAL]        = "#afafaf"
+    fg[INSENSITIVE]   = "#656585"
+    fg[NORMAL]        = "#afafdf"
     fg[PRELIGHT]      = "#fcfcfc"
     fg[SELECTED]      = "#fcfcfc"
 
     text[ACTIVE]      = "#000000"
-    text[INSENSITIVE] = "#000000"
+    text[INSENSITIVE] = "#222244"
     text[NORMAL]      = "#000000"
     text[PRELIGHT]    = "#000000"
     text[SELECTED]    = "#000000"

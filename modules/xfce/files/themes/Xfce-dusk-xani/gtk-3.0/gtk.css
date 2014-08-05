@@ -1,21 +1,21 @@
 
-@define-color fg_active #dadada;
-@define-color fg_insensitive #858585;
-@define-color fg_normal #afafdf; /*generic text color (that is not in textbox)*/
-@define-color fg_prelight #fcfcfc;
-@define-color fg_selected #fcfcfc;
-
-@define-color bg_active #252545;
-@define-color bg_insensitive #404040;
-@define-color bg_normal #333333;
-@define-color bg_prelight #104273;
-@define-color bg_selected #103859;
-
 @define-color base_active #4f71aa;
 @define-color base_insensitive #606060;
 @define-color base_normal #979797;
 @define-color base_prelight #304889;
 @define-color base_selected #205283;
+
+@define-color bg_active #252545;
+@define-color bg_insensitive #202020;
+@define-color bg_normal #333333;
+@define-color bg_prelight #104273;
+@define-color bg_selected #103859;
+
+@define-color fg_active #dadada;
+@define-color fg_insensitive #656585;
+@define-color fg_normal #afafdf; /*generic text color (that is not in textbox)*/
+@define-color fg_prelight #fcfcfc;
+@define-color fg_selected #fcfcfc;
 
 @define-color text_active #000000;
 @define-color text_insensitive #222244;
@@ -52,7 +52,7 @@
     -GtkWidget-focus-padding         : 1;
     -GtkWidget-interior-focus        : true;
     -GtkWidget-cursor-color          : #4c4cac;
-    -GtkWidget-secondary-cursor-color: #ac4cac;
+    -GtkWidget-secondary-cursor-color: #7c4cac;
     -GtkWidget-cursor-aspect-ratio   : 0.1;
     -GtkWidget-link-color: @link_color;
     -GtkWidget-visited-link-color: @link_color;
