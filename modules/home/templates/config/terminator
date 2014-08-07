@@ -9,6 +9,9 @@
   go_down = <Super>Down
   go_right = <Super>Right
   go_left = <Super>Left
+  # as of current version terminator cant confugure  that correctly, it tries to do <Control><Shift>bar, have to fix it manually
+  split_horiz = <Control>underscore
+  split_vert = <Control>bar
   switch_to_tab_1 = <Alt>1
   switch_to_tab_2 = <Alt>2
   switch_to_tab_3 = <Alt>3
@@ -19,6 +22,7 @@
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>9
   switch_to_tab_10 = <Alt>0
+
 
 [profiles]
   [[default]]
