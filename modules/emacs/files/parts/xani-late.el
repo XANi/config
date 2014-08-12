@@ -12,6 +12,8 @@
 (diminish 'undo-tree-mode "")
 (diminish 'server-buffer-clients "")
 (diminish 'overwrite-mode "✗")
+(diminish 'company-mode "ᴒ")
+
 
 (diminish 'visual-line-mode "Ꮴ")
 
