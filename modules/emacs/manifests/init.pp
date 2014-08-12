@@ -52,6 +52,8 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'clojure-snippets',
                        'color-theme-sanityinc-tomorrow',
                        'color-theme-solarized',
+                       'company',
+                       'company-go',
                        'diminish',
                        'ecb',
                        'flycheck',
