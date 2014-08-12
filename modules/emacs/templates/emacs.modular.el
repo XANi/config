@@ -108,6 +108,7 @@
 ;;(setq sepia-perl5lib (list (expand-file-name "~/sepia/lib")))
 <%- end -%>
 (require 'xani-backports)
+(require 'xani-nethack)
 (require 'xani-local)
 (require 'haproxy-mode)
 (require 'dota2-mode)
