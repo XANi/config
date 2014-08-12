@@ -2,14 +2,12 @@
 ;;
 
 ;; random shit in testing
-(global-set-key "\M-`" 'hippie-expand)
-
 
 ;; test clipboard fix
-(setq
- x-select-enable-clipboard t
- yank-pop-change-selection t
- select-active-regions t
+;; (setq
+;;  x-select-enable-clipboard t
+;;  yank-pop-change-selection t
+;;  select-active-regions t
 )
 
 

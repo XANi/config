@@ -25,6 +25,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'wmctrl',
                'xprintidle', # mostly for jabber mode
                'yaml-mode',
+               'nethack-el',
 #               'wl-beta',
                ]:
         ensure  => installed,
@@ -42,6 +43,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                ]:
                    ensure => absent,
     }
+
     $emacs_packages = [
                        # 'puppet-mode', # provided in puppet repo
                        'buffer-move',

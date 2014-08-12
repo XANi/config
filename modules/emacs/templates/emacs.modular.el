@@ -96,6 +96,7 @@
 (require 'xani-x)
 (require 'xani-ecb)
 (require 'xani-develock)
+(require 'xani-company)
 (require 'xani-yasnippet)
 (require 'xani-testing)
 <%- if @deploy_arte_config -%>
