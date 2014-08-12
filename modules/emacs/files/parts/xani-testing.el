@@ -8,7 +8,7 @@
 ;;  x-select-enable-clipboard t
 ;;  yank-pop-change-selection t
 ;;  select-active-regions t
-)
+;;)
 
 
 
