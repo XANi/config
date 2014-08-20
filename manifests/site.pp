@@ -28,6 +28,7 @@ node default {
         'emdebian':;
         'main-testing':;
         'bareos':;
+        'f_lux':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,

@@ -36,3 +36,9 @@ repos:
         url:
             deb:
                 - http://apt.puppetlabs.com wheezy main dependencies
+    f_lux:
+        comment: f.lux fluxgui
+        keyid: 9BD4ED25
+        url:
+            deb:
+                - http://ppa.launchpad.net/kilian/f.lux/ubuntu trusty main
