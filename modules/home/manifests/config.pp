@@ -31,7 +31,7 @@ class home::config (
             source => 'home/config/arbtt-categorize.cfg',
             target => '.arbtt/categorize.cfg';
         tilda:
-            target => '.tilda/config_0';
+            target => '.config/tilda/config_0';
     }
     home::config::exec {
         git-wtf:;
