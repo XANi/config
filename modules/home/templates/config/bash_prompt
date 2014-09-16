@@ -1,4 +1,4 @@
-#!/bin/bash
+]#!/bin/bash
 <%- if ! @portable_config -%>
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
@@ -181,6 +181,11 @@ disc() {
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWCOLORHINTS=1
+# branch - in relation to current branch/tag, best in repo with no tags
+# contains - how many commits behind tag
+# descrive - git describe format
+export GIT_PS1_DESCRIBE_STYLE=branch
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
 
@@ -196,7 +201,6 @@ export EDITOR=emacs
 export GOPATH=/home/xani/lib/go
 export PATH=$PATH:/home/xani/lib/go:/usr/games
 export EDITOR='/usr/local/bin/e'
-alias emacs='echo use e $@'
 alias ytd='youtube-dl -t --console-title'
 alias aptitude='sudo aptitude'
 alias cfg='cd ~/src/my/config'
