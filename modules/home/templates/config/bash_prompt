@@ -1,4 +1,4 @@
-]#!/bin/bash
+#!/bin/bash
 <%- if ! @portable_config -%>
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
@@ -181,7 +181,8 @@ disc() {
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWCOLORHINTS=1
+# this only works with prompt cmd
+#export GIT_PS1_SHOWCOLORHINTS=1
 # branch - in relation to current branch/tag, best in repo with no tags
 # contains - how many commits behind tag
 # descrive - git describe format
