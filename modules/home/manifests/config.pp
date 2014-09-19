@@ -51,6 +51,9 @@ class home::config (
     home::dir {
         '.config':;
         '.config/terminator':;
+        'src':;
+        'src/lib':;
+        'src/lib/go':;
         '.tilda':;
     }
 
