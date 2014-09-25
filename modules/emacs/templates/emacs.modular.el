@@ -75,6 +75,8 @@
 (require 'xani-buffer-move)
 (require 'xani-modeline)
 (require 'xani-minibuffer)
+(require 'xani-minimap)
+
 (require 'xani-multicursor)
 (require 'xani-shift-text)
 
