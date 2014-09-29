@@ -19,4 +19,8 @@
  display-time-use-mail-icon t
 )
 
+;; Bindings for r.a.t 5 scrollwheel
+(global-set-key [(mouse-10)]           'next-buffer)
+(global-set-key [(mouse-11)]           'previous-buffer)
+
 (provide 'xani-arte)
