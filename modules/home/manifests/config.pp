@@ -6,7 +6,7 @@ class home::config (
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
-        shell  => '/bin/bash',
+#        shell  => '/bin/bash',
     }
     File {
         owner => xani,
