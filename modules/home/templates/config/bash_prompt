@@ -165,6 +165,7 @@ alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
 alias va='vagrant'
 alias sqlite="sqlite3"
 alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
+alias se='service'
 
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
