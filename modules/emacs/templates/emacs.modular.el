@@ -174,6 +174,8 @@
        '(develock-whitespace-1 ((t (:background "#550000"))))
        '(develock-whitespace-2 ((t (:background "#440000"))))
        '(develock-whitespace-3 ((t (:background "#333300"))))
+       '(diff-added ((t (:inherit diff-changed :background "#114411"))))
+       '(diff-removed ((t (:inherit diff-changed :background "#441111"))))
        '(org-document-info ((((class color) (background light)) (:foreground "#555599"))))
        '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
        '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))

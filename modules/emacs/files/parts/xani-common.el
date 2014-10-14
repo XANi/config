@@ -123,6 +123,7 @@
  '(ssl-program-name "gnutls-cli")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(uniquify-min-dir-content 2)
+ '(whitespace-global-modes (quote (not go-mode)))
  '(whitespace-line-column 200)
  '(whitespace-style (quote (face tabs trailing lines tab-mark)))
 )
