@@ -77,6 +77,7 @@ P2='%{$reset_color%}
 $(get_load_color)->%{$fg_bold[blue]%} $(user_prompt)%{$reset_color%} '
 precmd () { __git_ps1 $P1 $P2 '{%s}' }
 
+PS2="%{$fg_bold[blue]%}%_> %{$reset_color%}"
 
 RPROMPT='$(pipe_status)'
 
