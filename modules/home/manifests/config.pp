@@ -25,6 +25,7 @@ class home::config (
         toprc:;
         xsessionrc:;
         xmodmap:;
+        zshrc:;
         terminator:
             target => ".config/terminator/config";
         arbtt:

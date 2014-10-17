@@ -82,9 +82,6 @@ export PATH="/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:
 export GOPATH=/home/xani/src/lib/go:/home/xani/src/my/zeroctl
 export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
 export EDITOR='/usr/local/bin/e'
-alias apt-get="yum"
-alias aptitude="yum"
-alias apt-cache="yum"
 alias d="git diff --word-diff --no-prefix"
 alias g='git'
 alias man="LC_ALL=C man"
