@@ -52,6 +52,7 @@ node default {
         'util::packages':;
         'util::fuse':;
         'xfce':;
+        'zsh':;
     }
 
     monit::monitor { dpp:; }
