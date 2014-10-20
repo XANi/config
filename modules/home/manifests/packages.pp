@@ -66,13 +66,11 @@ class home::packages {
 
     }
     # for some bullshit reason a lot of packages recommend apache; fuck them
-    package { 'apache2.2-common':
-        ensure => absent,
-    }
+    package { 'apache2.2-common': ensure => absent }
     # epdfviewer cant even print correctly
-    package { 'epdfviewer':
-        ensure => absent,
-    }
+    package { 'epdfviewer': ensure => absent }
+    # another software that tries to open PDFs but fails at doing that correctly
+    package { 'vprerex': ensure => absent }
     # polish translations are crap and/or outdated
     package {
         [
