@@ -1,0 +1,26 @@
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+
+disc() {
+    if [ "z$1" = "zall" ] ; then
+        lshw -short
+        free -m -t
+    fi
+    ip addr show| grep 'inet '
+}
+
+sshmount() {
+    SSHFS_SERVER_DIR='/home/xani'
+    if [ "z$1" == "z" ] ; then
+        echo "specify server [server_dir]"
+        return
+    fi
+    SSHFS_SERVER=$1
+    if [ "z$2" != "z" ] ; then
+        SSHFS_SERVER_DIR=$2
+    fi
+    SSHFS_TARGET_DIR="/home/xani/mnt/$SSHFS_SERVER"
+    echo "Mounting $SSHFS_SERVER:$SSHFS_SERVER_DIR into $SSHFS_TARGET_DIR"
+    mkdir -p $SSHFS_TARGET_DIR
+    sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR && cd $SSHFS_TARGET_DIR
+}

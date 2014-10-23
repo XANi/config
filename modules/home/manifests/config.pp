@@ -15,6 +15,7 @@ class home::config (
     $git = $home::common::git
     home::config::file {
         bash_prompt:;
+        bash_functions:;
         bashrc:;
         gitconfig:;
         gitignore_global:;
