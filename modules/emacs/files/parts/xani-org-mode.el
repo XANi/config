@@ -42,6 +42,7 @@
    ("Meeting" "~/emacs/icons/trip.png" nil nil :ascent center)
    ("RItLater" "~/emacs/icons/logbook.png" nil nil :ascent center)
    ("Reading" "~/emacs/icons/book.png" nil nil :ascent center)
+   ("DOTA2" "~/emacs/icons/dota.png" nil nil :ascent center)
    ("Tasks" "~/emacs/icons/rect-scarlet.png" nil nil :ascent center)
    ("Arte-Support" "~/emacs/icons/important.png" nil nil :ascent center)
    (".*" '(space . (:width (16)))))
