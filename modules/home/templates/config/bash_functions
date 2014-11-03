@@ -11,7 +11,7 @@ disc() {
 
 sshmount() {
     SSHFS_SERVER_DIR='/home/xani'
-    if [ "z$1" == "z" ] ; then
+    if [ "z$1" = "z" ] ; then
         echo "specify server [server_dir]"
         return
     fi
