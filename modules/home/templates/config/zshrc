@@ -82,6 +82,10 @@ export PATH="/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:
 export GOPATH=/home/xani/src/lib/go:/home/xani/src/my/zeroctl
 export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
 export EDITOR='/usr/local/bin/e'
+export TERM="xterm-256color"
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
 alias d="git diff --word-diff --no-prefix"
 alias g='git'
 alias man="LC_ALL=C man"

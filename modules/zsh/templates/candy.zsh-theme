@@ -5,7 +5,6 @@ export GIT_PS1_SHOWUPSTREAM="verbose name"
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_DESCRIBE_STYLE=branch
-export TERM="xterm-256color"
 source  /usr/lib/git-core/git-sh-prompt
 setopt PROMPT_SUBST
 autoload -U regexp-replace
