@@ -22,7 +22,7 @@ elif [[ $TOP_WINDOW =~ $EMACS_REGEX ]] ; then
     exit 0
 elif [ ! -e $SYNCFILE ] ; then
     echo "cal $SYNCFILE does not exist, running sync"
-elif  [ $(find $SYNCFILE -mmin +180 |wc -l) -gt 0 ]   ; then
+elif  [ $(find $SYNCFILE -mmin +60 |wc -l) -gt 0 ]   ; then
     echo "cal too old, syncing"
 elif [ $(xprintidle) -lt 60000 ] ; then
     echo "not idle, not running"
