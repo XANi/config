@@ -342,6 +342,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
         group   => xani,
         require => File['xani-emacs-org'],
     }
+    $deploy_arte_config = hiera('deploy_arte_config',false)
     if $::location == 'arte' {
         file { xani-emacs-org-arte:
             path    => "${homedir}/emacs/org/arte",
@@ -396,7 +397,12 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
         mode    => 755,
         owner   => root,
     }
-
+    file { update-ical:
+        path    => "${homedir}/emacs/ical-export.el",
+        content => template('emacs/ical_export.el'),
+        owner  => xani,
+        group  => xani,
+    }
     cron { 'xani-orage-update':
         command => "/usr/local/bin/update-orage-calendar",
         user    => xani,
