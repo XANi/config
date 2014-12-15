@@ -399,7 +399,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
     file { update-ical:
         path    => "${homedir}/emacs/ical-export.el",
-        content => template('emacs/ical_export.el'),
+        content => template('emacs/ical-export.el'),
         owner  => xani,
         group  => xani,
     }
