@@ -32,9 +32,6 @@ node default {
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
-    package {'unattended-upgrade':
-        ensure => absent,
-    }
     class {
         'apt::update':;
         'bug':;
