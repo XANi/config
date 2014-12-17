@@ -78,3 +78,6 @@
     relativePaths = true
 [grep]
 	patternType = perl
+
+[branch "stable"]
+    mergeoptions = --no-ff
