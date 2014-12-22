@@ -120,5 +120,6 @@ node 'vm-debian' inherits default {
 }
 node hydra inherits default {
     include dota2
+    include util::deb::pkgmaker
     include emacs::wl
 }
