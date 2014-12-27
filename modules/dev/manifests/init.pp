@@ -2,7 +2,13 @@
 
 class dev::haproxy (
     $ip = '127.0.0.1',
- {
+    $errors_are_200 = true, #replace every error with 200 + refresh equivalent
+)  {
+    if $errors_are_200 {
+        $errorfile_prefix = '200-'
+    } else {
+        $errorfile_prefix = ''
+    }
     package { 'haproxy':
         ensure => installed,
     }
@@ -14,6 +20,14 @@ class dev::haproxy (
         content => template("${module_name}/haproxy.cfg"),
         mode    => 644,
         notify  => Service['haproxy'],
+    }
+    file {'/etc/haproxy/errors/':
+        ensure  => directory,
+        mode    => 644,
+        source  => "puppet:///modules/${module_name}/haproxy/errors",
+        recurse => true,
+        force   => true,
+        purge   => true,
     }
     if ($ip =~ /^127.0.0/) {
         $host_ip = $ip
