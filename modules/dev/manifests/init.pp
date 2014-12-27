@@ -13,7 +13,7 @@ class dev::haproxy (
     file {'/etc/haproxy/haproxy.cfg':
         content => template("${module_name}/haproxy.cfg"),
         mode    => 644,
-        notify  => Service['haptoxy'],
+        notify  => Service['haproxy'],
     }
     if ($ip =~ /^127.0.0/) {
         $host_ip = $ip
