@@ -36,6 +36,7 @@ node default {
         'apt::update':;
         'bug':;
         'custom':;
+        'dev::haproxy':;
         'dpp':;
         'emacs::org::sync':;
         'emacs::org':;
