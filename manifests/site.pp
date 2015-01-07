@@ -36,6 +36,7 @@ node default {
         'apt::update':;
         'bug':;
         'custom':;
+        'dev::haproxy':;
         'dpp':;
         'emacs::org::sync':;
         'emacs::org':;
@@ -120,5 +121,6 @@ node 'vm-debian' inherits default {
 }
 node hydra inherits default {
     include dota2
+    include util::deb::pkgmaker
     include emacs::wl
 }

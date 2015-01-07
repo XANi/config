@@ -1,0 +1,10 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/html
+
+<html><head><META HTTP-EQUIV="refresh" CONTENT="15"></head>
+<body><h1>502 Bad Gateway</h1>
+The server returned an invalid or incomplete response.
+</body></html>
+

@@ -11,9 +11,9 @@
   (interactive)
   (c-mode)
   (c-set-style "K&R")
-  (setq tab-width 4)
+  (setq tab-width 8)
   (setq indent-tabs-mode t)
-  (setq c-basic-offset 4)
+;  (setq c-basic-offset 8)
 )
 
 (setq auto-mode-alist (cons '("*.c" . linux-c-mode)
