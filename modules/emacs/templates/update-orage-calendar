@@ -11,6 +11,7 @@ SYNCFILE=~/emacs/org/arte.ics
 <% else %>
 SYNCFILE=~/emacs/org/cal.ics
 <% end %>
+emacs -Q --script ~/emacs/ical-export.el
 
 
 if [ ! -e $SYNCFILE ]; then
@@ -30,7 +31,6 @@ elif [ $(xprintidle) -lt 60000 ] ; then
 else
     echo "TOP window is $TOP_WINDOW - running calendar task"
 fi
-emacs -Q --script ~/emacs/ical-export.el
 #emacsclient -e '(org-icalendar-combine-agenda-files)'
 cd ~/.local/share/orage || exit 0
 cp orage.ics orage.ics.b
