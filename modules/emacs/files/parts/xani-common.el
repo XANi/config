@@ -18,6 +18,12 @@
 (global-set-key [s-up] 'windmove-up)              ; move to upper window
 (global-set-key [s-down] 'windmove-down)          ; move to downer window
 
+;; super(winkey)+wsad
+(global-set-key (kbd "s-w") 'previous-line)
+(global-set-key (kbd "s-s") 'next-line)
+(global-set-key (kbd "s-d") 'forward-char)
+(global-set-key (kbd "s-a") 'backward-char)
+
 ;; use ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
