@@ -23,6 +23,8 @@
 (global-set-key (kbd "s-s") 'next-line)
 (global-set-key (kbd "s-d") 'forward-char)
 (global-set-key (kbd "s-a") 'backward-char)
+(global-set-key (kbd "M-s-d") 'forward-word)
+(global-set-key (kbd "M-s-a") 'backward-word)
 
 ;; use ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
