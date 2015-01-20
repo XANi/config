@@ -155,18 +155,7 @@ if [ -e /etc/redhat-release ] ; then # yum is yuck
     alias aptitude="yum"
     alias apt-cache="yum"
 fi
-alias d="git diff --word-diff --no-prefix"
-alias g='git'
-alias man="LC_ALL=C man"
-alias kj="killall -9 java"
-alias ll='ls -l --color=auto'
-alias ls='ls --color=auto'
-alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
-alias va='vagrant'
-alias sqlite="sqlite3"
-alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
-alias se='service'
-
+<%= scope.function_template(['config/sh-alias-portable.erb']) %>
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
 disc() {
@@ -203,14 +192,10 @@ export EDITOR=emacs
 export GOPATH=/home/xani/src/lib/go:/home/xani/src/my/zeroctl
 export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
 export EDITOR='/usr/local/bin/e'
-alias ytd='youtube-dl -t --console-title'
-alias aptitude='sudo aptitude'
-alias cfg='cd ~/src/my/config'
-alias halt='sudo poweroff'
-alias pup='cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
-alias noproxy='unset http_proxy ; unset https_proxy ; unset ftp_proxy ; unset no_proxy'
-alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; echo "no /etc/environment!" ; fi'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
+
+<%= scope.function_template(['config/sh-alias-desktop.erb']) %>
+
 
 # shortcut for quick sshfs
 sshmount() {
