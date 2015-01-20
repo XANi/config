@@ -155,7 +155,7 @@ if [ -e /etc/redhat-release ] ; then # yum is yuck
     alias aptitude="yum"
     alias apt-cache="yum"
 fi
-<%= scope.function_template(['config/sh-alias-portable.erb']) %>
+<%= scope.function_template(['home/config/sh-alias-portable']) %>
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
 disc() {
@@ -194,7 +194,7 @@ export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
 export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
-<%= scope.function_template(['config/sh-alias-desktop.erb']) %>
+<%= scope.function_template(['home/config/sh-alias-desktop']) %>
 
 
 # shortcut for quick sshfs

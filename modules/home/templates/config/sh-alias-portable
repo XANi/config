@@ -1,4 +1,4 @@
-# sh-alias-portable.erb
+# sh-alias-portable
 
 alias d="git diff --word-diff --no-prefix"
 alias g='git'
