@@ -11,4 +11,4 @@ alias va='vagrant'
 alias sqlite="sqlite3"
 alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
 alias se='service'
-alias do='docker'
+alias dk='docker'
