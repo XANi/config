@@ -43,6 +43,12 @@ class dev::haproxy (
             '3001.localhost',
             '3002.localhost',
             '3003.localhost',
+            '3004.localhost',
+            '3005.localhost',
+            '3006.localhost',
+            '3007.localhost',
+            '3008.localhost',
+            '3009.localhost',
             '8080.localhost',
             '8081.localhost',
                ]:
