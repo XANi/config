@@ -5,18 +5,14 @@ use strict;
 use warnings;
 use Carp qw(cluck croak carp);
 use Data::Dumper;
+use Moo;
 
 our $VERSION = '0.01';
 
-sub new {
-    my $proto = shift;
-    my $class = ref($proto) || $proto;
-    my $self = {};
-    bless($self, $class);
-    my %cfg = @_;
-    $self->{'cfg'} = \%cfg;
-    return $self
-};
+sub BUILD {
+    my $self = shift;
+}
+
 
 1;
 __END__

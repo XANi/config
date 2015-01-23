@@ -290,9 +290,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-yasnippet'],
     }
     emacs::autoinsert {
-        'puppet':;
-        'perl':;
-        'perl_module':;
+        'puppet.pp':;
+        'perl.pl':;
+        'perl.pm':;
         'erb':;
         'sh':;
     }
@@ -436,7 +436,7 @@ class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/
 define emacs::autoinsert {
     $homedir = hiera('homedir','/home/xani')
     file {"${homedir}/emacs/autoinsert/${title}":
-        content => template("emacs/autoinsert/${title}.erb"),
+        content => template("emacs/autoinsert/${title}"),
         mode    => 644,
         owner   => xani,
     }
