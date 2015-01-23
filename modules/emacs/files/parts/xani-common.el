@@ -33,7 +33,7 @@
 ;; remove trailing whitespace xcept on some "special" paths
 (defun auto-whitespace-remove ()
   ;; haproxy needs spaces in some edge cases
-  (if (string-match "\\(haproxy\\|.c\\|.h\\)" buffer-file-name) nil (delete-trailing-whitespace))
+  (if (string-match "\\(haproxy\\|\\\.c$\\|\\\.h$\\)" buffer-file-name) nil (delete-trailing-whitespace))
 )
 (add-hook 'before-save-hook 'auto-whitespace-remove)
 
