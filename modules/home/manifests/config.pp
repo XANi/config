@@ -34,6 +34,9 @@ class home::config (
             target => '.arbtt/categorize.cfg';
         tilda:
             target => '.config/tilda/config_0';
+        "i3status.conf":;
+        "i3-config":
+            target => '.i3/config';
     }
     home::config::exec {
         git-wtf:;

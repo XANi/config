@@ -3,3 +3,6 @@
 # 135 is menu key
 -%>
 keycode 135 = Hyper_L
+clear Mod4
+add Mod4 = Super_L Super_R
+add Mod5 = Hyper_L Hyper_R

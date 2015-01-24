@@ -60,6 +60,7 @@ class home::packages {
          hping3,
          mtr-tiny,
          #
+         i3,
          arbtt,
          ]:
              ensure => installed,

@@ -18,10 +18,15 @@ fi
 arbtt-capture --sample-rate 10 &
 touch /home/xani/env.xsession && chmod go-rwx /home/xani/env.xsession &&  export > /home/xani/env.xsession
 
+if [ -e ~/mouse.sh ] ; then
+    ~/mouse.sh
+fi
+
 # grep cap /usr/share/X11/xkb/rules/xorg.lst
 # "setxkbmap -option" to clear
 # capslock as ctrl
 # setxkbmap -option ctrl:nocaps
 # capslock as super
 setxkbmap -option caps:super
+xmodmap ~/.xmodmap
 true
