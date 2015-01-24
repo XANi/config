@@ -21,6 +21,13 @@ font pango:DejaVu Sans Mono 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+#new_window <normal|1pixel|none|pixel>
+new_window normal
+#new_float <normal|1pixel|none|pixel>
+new_float normal
+# hide_edge_borders <none|vertical|horizontal|both>
+hide_edge_borders both
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
@@ -29,6 +36,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $alt+F4 kill
+
+bindsym $alt+F1 scratchpad show
 
 # start dmenu (a program launcher)
 bindsym $alt+F2 exec dmenu_run
@@ -146,12 +155,27 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        output HDMI-0
-        output LVDS1
         status_command i3status
         position top
         workspace_buttons yes
 }
 
+bindsym $mod+Next move workspace to output left
+bindsym $mod+Delete move workspace to output right
+bindsym $mod+Home move workspace to output top
+bindsym $mod+End move workspace to output bottom
+
 
 for_window [class=".*Pidgin.*"] floating enable
+for_window [class="Emacs"] border 1pixel
+
+for_window [class="(Firefox|Iceweasel)" instance="Dialog"] floating enable
+for_window [class="(Firefox|Iceweasel)" instance="Extension"] floating enable
+for_window [class="(Firefox|Iceweasel)" instance="Abp"] floating enable
+for_window [class="(Firefox|Iceweasel)" instance="Febe"] floating enable
+for_window [class="(Krita|Gimp)"] floating enable
+
+# autostart
+
+exec --no-startup-id dropboxd
+exec --no-startup-id nm-applet
