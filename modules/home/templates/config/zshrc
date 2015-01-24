@@ -86,24 +86,11 @@ export TERM="xterm-256color"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-alias d="git diff --word-diff --no-prefix"
-alias g='git'
-alias man="LC_ALL=C man"
-alias kj="killall -9 java"
-alias ll='ls -l --color=auto'
-alias ls='ls --color=auto'
-alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
-alias va='vagrant'
-alias sqlite="sqlite3"
-alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
-alias ytd='youtube-dl -t --console-title'
-alias aptitude='sudo aptitude'
-alias cfg='cd ~/src/my/config'
-alias halt='sudo poweroff'
-alias pup='cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
-alias noproxy='unset http_proxy ; unset https_proxy ; unset ftp_proxy ; unset no_proxy'
-alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; echo "no /etc/environment!" ; fi'
-alias docker='docker.io'
+
+<%= scope.function_template(['home/config/sh-alias-portable']) %>
+
+<%= scope.function_template(['home/config/sh-alias-desktop']) %>
+
 
 
 source  /usr/lib/git-core/git-sh-prompt

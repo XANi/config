@@ -18,6 +18,14 @@
 (global-set-key [s-up] 'windmove-up)              ; move to upper window
 (global-set-key [s-down] 'windmove-down)          ; move to downer window
 
+;; super(winkey)+wsad
+(global-set-key (kbd "s-w") 'previous-line)
+(global-set-key (kbd "s-s") 'next-line)
+(global-set-key (kbd "s-d") 'forward-char)
+(global-set-key (kbd "s-a") 'backward-char)
+(global-set-key (kbd "M-s-d") 'forward-word)
+(global-set-key (kbd "M-s-a") 'backward-word)
+
 ;; use ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
@@ -25,7 +33,7 @@
 ;; remove trailing whitespace xcept on some "special" paths
 (defun auto-whitespace-remove ()
   ;; haproxy needs spaces in some edge cases
-  (if (string-match "\\(haproxy\\|.c\\|.h\\)" buffer-file-name) nil (delete-trailing-whitespace))
+  (if (string-match "\\(haproxy\\|\\\.c$\\|\\\.h$\\)" buffer-file-name) nil (delete-trailing-whitespace))
 )
 (add-hook 'before-save-hook 'auto-whitespace-remove)
 
