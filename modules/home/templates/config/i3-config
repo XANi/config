@@ -4,8 +4,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# note: need some set up in xmodmap; I mapped hyper to Menu key and made hyper an Mod5
+
 set $mod Mod5
 
 set $alt Mod1
@@ -23,13 +22,13 @@ font pango:DejaVu Sans Mono 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier $alt
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $alt+F2 exec dmenu_run
@@ -147,5 +146,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        output HDMI-0
+        output LVDS1
         status_command i3status
+        position top
+        workspace_buttons yes
 }
+
+
+for_window [class=".*Pidgin.*"] floating enable
