@@ -39,6 +39,10 @@ bindsym $alt+F4 kill
 
 bindsym $alt+F1 scratchpad show
 
+
+bindsym $alt+Tab focus right
+bindsym $alt+Shift+Tab focus left
+
 # start dmenu (a program launcher)
 bindsym $alt+F2 exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
