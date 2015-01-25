@@ -37,8 +37,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $alt+F4 kill
 
-bindsym $alt+F1 scratchpad show
-
+bindsym F1 scratchpad show
+bindsym $alt+F1 move scratchpad
 
 bindsym $alt+Tab focus right
 bindsym $alt+Shift+Tab focus left
