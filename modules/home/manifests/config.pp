@@ -38,7 +38,8 @@ class home::config (
         "i3-config":
             target => '.i3/config';
         "gtkrc-2.0":;
-        "gtkrc-3.0":;
+        "gtkrc-3.0":
+            target => '.config/gtk-3.0/settings.ini';
     }
     home::config::exec {
         git-wtf:;
