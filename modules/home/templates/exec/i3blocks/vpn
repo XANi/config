@@ -3,6 +3,10 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 if [ -e /var/run/vpnc.pid ] ; then
    /usr/share/i3blocks/network
+elif [ -e /usr/sbin/vpnc ] ; then
+    echo "↓"
+    echo "↓"
+    echo "#FF0000"
 else
     echo ""
     echo ""
