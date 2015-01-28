@@ -144,11 +144,11 @@ define home::config::code_tmp (
 }
 
 define home::config::exec (
-    $source = "home/exec/${title}",
+    $source = $title,
     $target = "/usr/local/bin/${title}",
     ) {
     file { $target:
-        content => template($source),
+        content => template("home/exec/${source}"),
         mode    => 755,
         owner   => xani,
     }
