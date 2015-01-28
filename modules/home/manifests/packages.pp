@@ -61,6 +61,7 @@ class home::packages {
          mtr-tiny,
          #
          i3,
+         i3blocks,
          arbtt,
          ]:
              ensure => installed,

@@ -34,7 +34,8 @@ class home::config (
             target => '.arbtt/categorize.cfg';
         tilda:
             target => '.config/tilda/config_0';
-        "i3status.conf":;
+#        "i3status.conf":;
+        "i3blocks.conf":;
         "i3-config":
             target => '.i3/config';
         "gtkrc-2.0":;
