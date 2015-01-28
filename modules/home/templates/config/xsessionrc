@@ -2,7 +2,7 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
-if [ "z$GPG_AGENT_INFO" = "z"] ; then
+if [ "z$GPG_AGENT_INFO" = "z" ] ; then
     /usr/bin/gpg-agent --sh --daemon --enable-ssh-support --write-env-file /home/xani/.cache/gpg-agent-info
     source  /home/xani/.cache/gpg-agent-info
     export GPG_AGENT_INFO
