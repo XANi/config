@@ -4,5 +4,5 @@
 -%>
 keycode 135 = Hyper_L
 clear Mod4
+add Mod3 = Hyper_L Hyper_R
 add Mod4 = Super_L Super_R
-add Mod5 = Hyper_L Hyper_R

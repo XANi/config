@@ -5,7 +5,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod5
+set $mod Mod3
 
 set $alt Mod1
 
