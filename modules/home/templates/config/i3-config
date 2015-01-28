@@ -104,16 +104,16 @@ bindsym $mod+z focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number 1 sh
+bindsym $mod+2 workspace number 2 ff
+bindsym $mod+3 workspace number 3 emacs
+bindsym $mod+4 workspace number 4 chrome
+bindsym $mod+5 workspace number 5 @
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9 music
+bindsym $mod+0 workspace number 10 wireshark
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -181,6 +181,8 @@ for_window [class="^(Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Extension"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Abp"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Febe"] floating enable
+for_window [class="^(Firefox|Iceweasel)" name="^Remote Console"] floating enable
+
 for_window [class="^Gimp"] floating enable
 for_window [class="^Krita" instance="Dialog"] floating enable
 for_window [class="^(pinentry|Pinentry)"] floating enable
@@ -188,6 +190,13 @@ for_window [class="^(pinentry|Pinentry)"] floating enable
 # fix realvnc shittines
 for_window [class="^Vncviewer$"] floating enable
 assign [class="^Vncviewer$"] 2
+
+# Music on separate workspace
+assign [class="Spotify"] 9
+
+# wireshark on separate workspace
+
+assign [class="Wireshark"] 10
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
