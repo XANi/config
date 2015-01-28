@@ -51,7 +51,7 @@ class home::config (
         fetch-repos:;
         meta:;
         'i3blocks/vpn':
-            target => "$homedir/.config/i3blocks.vpn";
+            target => "$homedir/.config/i3blocks/blocks/vpn";
     }
     home::config::code_tmp {
         erb:;
