@@ -27,6 +27,9 @@ fi
 # capslock as ctrl
 # setxkbmap -option ctrl:nocaps
 # capslock as super
+if [ -e ~/.screenlayout/default.sh ]; then
+    ~/.screenlayout/default.sh
+fi
 setxkbmap -option caps:super
 xmodmap ~/.xmodmap
 true
