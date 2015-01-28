@@ -1,0 +1,10 @@
+#!/bin/sh
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+if [ -e /var/run/vpnc.pid ] ; then
+   /usr/share/i3blocks/network
+else
+    echo ""
+    echo ""
+    echo "#FF0000"
+fi

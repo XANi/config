@@ -50,6 +50,8 @@ class home::config (
         puppet-notify:;
         fetch-repos:;
         meta:;
+        'i3blocks/vpn':
+            target => "$homedir/.config/i3blocks.vpn";
     }
     home::config::code_tmp {
         erb:;
