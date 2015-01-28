@@ -180,6 +180,7 @@ for_window [class="(Firefox|Iceweasel)" instance="Abp"] floating enable
 for_window [class="(Firefox|Iceweasel)" instance="Febe"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="Krita" instance="Dialog"] floating enable
+for_window [class="(pinentry|Pinentry)"] floating enable
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
