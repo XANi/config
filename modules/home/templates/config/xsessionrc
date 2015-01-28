@@ -1,7 +1,16 @@
 #!/bin/bash
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
-#eval $(/usr/local/bin/token-agent.sh)
+
+if [ "z$GPG_AGENT_INFO" = "z"] ; then
+    /usr/bin/gpg-agent --sh --daemon --enable-ssh-support --write-env-file /home/xani/.cache/gpg-agent-info
+    source  /home/xani/.cache/gpg-agent-info
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
+fi
+echo $STARTUP >~/tmp/.xsesssion_basestartup
+
 if [ -e /usr/bin/nvidia-settings ] && [ /home/xani/.nvidia-settings-rc ] ; then
     echo $(sleep 30 ; /usr/bin/nvidia-settings -l) &
 fi
