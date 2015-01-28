@@ -9,6 +9,9 @@ set $mod Mod3
 
 set $alt Mod1
 
+set $screen_left <%= scope.hiera(["xrandr_left","HDMI-0"]) %>
+set $screen_right <%= scope.hiera(["xrandr_right","DVI-I-1"]) %>
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -103,9 +106,20 @@ bindsym $mod+z focus parent
 # focus the child container
 bindsym $mod+c focus child
 
+<% screen_left = @screen_left || 'HDMI-0' %>
+<% screen_right = @screen_right || 'HDMI-0' %>
 
+workspace "1:sh"         output $screen_left
+workspace "2:ff"         output $screen_left
+workspace "3:emacs"      output $screen_left
+workspace "4:chrome"     output $screen_right
+workspace "5:@"          output $screen_right
+workspace "6:%"          output $screen_right
+workspace "7"            output $screen_left
+workspace "8:steam"      output $screen_left
+workspace "9:music"      output $screen_right
+workspace "10:wireshark" output $screen_right
 
-#workspace "10:wireshark" output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1:sh
@@ -201,7 +215,7 @@ for_window [class="^Vncviewer$"] floating enable
 assign [class="^Vncviewer$"] 2
 
 # Separate some stuff
-assign [class="^(Firefox|Iceweasel)"] 2:dd
+assign [class="^(Firefox|Iceweasel)"] 2:ff
 assign [class="^Emacs"] 3:emacs
 assign [class="^Chromium"] 4:chrome
 assign [class="^Claws-mail"] 5:@
