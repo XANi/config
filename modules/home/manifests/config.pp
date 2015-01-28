@@ -35,7 +35,8 @@ class home::config (
         tilda:
             target => '.config/tilda/config_0';
 #        "i3status.conf":;
-        "i3blocks.conf":;
+        "i3blocks.conf":
+            target => '.config/i3blocks/config';
         "i3-config":
             target => '.i3/config';
         "gtkrc-2.0":;
@@ -60,6 +61,8 @@ class home::config (
     home::dir {
         '.config':;
         '.config/terminator':;
+        '.config/i3blocks':;
+        '.config/i3blocks/blocks':;
         'src':;
         'src/lib':;
         'src/lib/go':;
