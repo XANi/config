@@ -31,6 +31,9 @@ hide_edge_borders both
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
+# dont follow focus ( I dont want focus change when I put cup on table)
+focus_follows_mouse no
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -174,17 +177,25 @@ bindsym $mod+End move workspace to output bottom
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 
-for_window [class="(Firefox|Iceweasel)" instance="Dialog"] floating enable
-for_window [class="(Firefox|Iceweasel)" instance="Extension"] floating enable
-for_window [class="(Firefox|Iceweasel)" instance="Abp"] floating enable
-for_window [class="(Firefox|Iceweasel)" instance="Febe"] floating enable
-for_window [class="Gimp"] floating enable
-for_window [class="Krita" instance="Dialog"] floating enable
-for_window [class="(pinentry|Pinentry)"] floating enable
+for_window [class="^(Firefox|Iceweasel)" instance="Dialog"] floating enable
+for_window [class="^(Firefox|Iceweasel)" instance="Extension"] floating enable
+for_window [class="^(Firefox|Iceweasel)" instance="Abp"] floating enable
+for_window [class="^(Firefox|Iceweasel)" instance="Febe"] floating enable
+for_window [class="^Gimp"] floating enable
+for_window [class="^Krita" instance="Dialog"] floating enable
+for_window [class="^(pinentry|Pinentry)"] floating enable
+
+# fix realvnc shittines
+for_window [class="^Vncviewer$"] floating enable
+assign [class="^Vncviewer$"] 2
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
+
+# app shortcuts
+bindsym $mod+l exec xscreensaver-command -lock
 # autostart
 
 exec --no-startup-id dropboxd
 exec --no-startup-id nm-applet
+exec --no-startup-id xscreensaver
