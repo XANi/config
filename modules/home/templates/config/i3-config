@@ -181,7 +181,7 @@ for_window [class="^(Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Extension"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Abp"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Febe"] floating enable
-for_window [class="^(Firefox|Iceweasel)" name="^Remote Console"] floating enable
+for_window [class="^(Firefox|Iceweasel)" title="^Remote Console"] floating enable
 
 for_window [class="^Gimp"] floating enable
 for_window [class="^Krita" instance="Dialog"] floating enable
