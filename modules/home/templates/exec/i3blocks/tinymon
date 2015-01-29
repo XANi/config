@@ -1,0 +1,3 @@
+#!/bin/sh
+# needs icmp raw socket
+sudo /usr/local/bin/tinymon
