@@ -196,6 +196,7 @@ bindsym $mod+End move workspace to output bottom
 
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
+for_window [class="^Chrom(e|ium)"] border 1pixel
 
 for_window [class="^(Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(Firefox|Iceweasel)" instance="Extension"] floating enable
@@ -218,7 +219,7 @@ assign [class="^Vncviewer$"] 2
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] 2:ff
 assign [class="^Emacs"] 3:emacs
-assign [class="^Chromium"] 4:chrome
+assign [class="^Chrom(e|ium)"] 4:chrome
 assign [class="^Claws-mail"] 5:@
 assign [class="Pidgin"] 6:%
 assign [class="^Steam"] 8:steam
