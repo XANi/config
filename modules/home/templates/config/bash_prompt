@@ -235,11 +235,14 @@ export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib').join(':') %>"
 
 if [ ! -r $GPG_AGENT_INFO ] ; then
     #   echo "no gpg agent in session!"
-    export GPG_AGENT_FILE="/home/xani/.gnupg/gpg-agent-info-$HOSTNAME"
+    export GPG_AGENT_FILE="/home/xani/.cache/gpg-agent-info"
     if [ -e $GPG_AGENT_FILE ] ; then
         #        echo "adding one from $GPG_AGENT_FILE"
         source $GPG_AGENT_FILE
         export GPG_AGENT_INFO
+        export SSH_AUTH_SOCK
+        export SSH_AGENT_PID
+
     fi
 fi
 
