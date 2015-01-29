@@ -23,7 +23,7 @@ if [ -e /usr/bin/nvidia-settings ] && [ /home/xani/.nvidia-settings-rc ] ; then
 fi
 
 if [ -e /home/xani/.screenlayout/default.sh ] ; then
-    bash -c 'sleep 20 ;  /home/xani/.screenlayout/default.sh' &
+    /home/xani/.screenlayout/default.sh
     bash -c 'sleep 240 ;  /home/xani/.screenlayout/default.sh' &
 fi
 
@@ -43,6 +43,7 @@ fi
 # capslock as ctrl
 # setxkbmap -option ctrl:nocaps
 # capslock as super
+
 setxkbmap -option caps:super
 xmodmap ~/.xmodmap
 true
