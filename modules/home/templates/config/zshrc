@@ -1,3 +1,5 @@
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -90,7 +92,16 @@ fi
 <%= scope.function_template(['home/config/sh-alias-portable']) %>
 
 <%= scope.function_template(['home/config/sh-alias-desktop']) %>
-
-
-
 source  /usr/lib/git-core/git-sh-prompt
+
+# tune history
+
+HISTSIZE=1200
+SAVEHIST=10000
+HISTFILE=$HOME/.zhistory
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
