@@ -206,6 +206,8 @@ for_window [class="^(Firefox|Iceweasel)" title="^Remote Console"] floating enabl
 for_window [class="^Gimp"] floating enable
 for_window [class="^Krita" instance="Dialog"] floating enable
 for_window [class="^(pinentry|Pinentry)"] floating enable
+for_window [class="^Virt-manager"] floating enable
+
 
 # fix realvnc shittines
 for_window [class="^Vncviewer$"] floating enable
@@ -220,6 +222,8 @@ assign [class="Pidgin"] 6:%
 assign [class="^Steam"] 8:steam
 assign [class="^(Spotify)"] 9:music
 assign [class="^Wireshark"] 10:wireshark
+assign [class="^Virt-manager"] 7
+
 
 
 
