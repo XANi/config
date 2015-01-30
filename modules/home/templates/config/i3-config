@@ -210,6 +210,7 @@ for_window [class="^(pinentry|Pinentry)"] floating enable
 for_window [class="^Virt-manager"] floating enable
 for_window [class="^Xfce4-notes"] floating enable
 for_window [class="^Pavucontrol"] floating enable
+for_window [class="^Thunar"] floating enable
 
 
 # fix realvnc shittines
