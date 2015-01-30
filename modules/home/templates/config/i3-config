@@ -211,6 +211,8 @@ for_window [class="^Virt-manager"] floating enable
 for_window [class="^Xfce4-notes"] floating enable
 for_window [class="^Pavucontrol"] floating enable
 for_window [class="^Thunar"] floating enable
+for_window [class="^(vdpau|mplayer2)"] floating enable
+
 
 
 # fix realvnc shittines
