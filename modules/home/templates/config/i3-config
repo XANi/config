@@ -179,7 +179,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    strip_workspace_numbers yes
+#    strip_workspace_numbers yes
     status_command i3blocks
     position top
     # does not work :(
