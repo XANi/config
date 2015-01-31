@@ -182,10 +182,10 @@ bar {
 #    strip_workspace_numbers yes
     status_command i3blocks
     position top
-    # does not work :(
-    #tray_output primary
+    # 'primary' does not work :(
+    tray_output  $screen_left
 
-     workspace_buttons yes
+    # workspace_buttons yes
 }
 
 bindsym $mod+Next move workspace to output left
