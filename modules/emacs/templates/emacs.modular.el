@@ -100,6 +100,7 @@
 (require 'xani-develock)
 (require 'xani-company)
 (require 'xani-yasnippet)
+(require 'xani-web)
 (require 'xani-testing)
 <%- if @deploy_arte_config -%>
 (require 'xani-arte)
