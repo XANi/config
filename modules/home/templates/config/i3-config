@@ -241,6 +241,7 @@ for_window [instance="Dialog"] floating enable
 
 # app shortcuts
 bindsym $mod+l exec xscreensaver-command -lock
+bindsym $mod+F12 exec bash -c 'chromium & firefox & pidgin & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %>'
 # autostart
 
 exec --no-startup-id /home/xani/.dropbox-dist/dropboxd
