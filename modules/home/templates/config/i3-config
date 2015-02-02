@@ -192,7 +192,7 @@ bar {
 
 bar {
 #    strip_workspace_numbers yes
-    status_command /home/xani/my/uberstatus/uberstatus
+    status_command /home/xani/src/my/uberstatus/uberstatus
     position top
     output $screen_right
     # workspace_buttons yes
