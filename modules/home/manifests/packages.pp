@@ -1,7 +1,8 @@
 class home::packages {
     include home::common
     if $type == "Notebook" {
-        include home::packages::notebook {
+        include home::packages::notebook
+    }
     package {
         [
          # system
