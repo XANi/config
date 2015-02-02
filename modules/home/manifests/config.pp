@@ -66,13 +66,14 @@ class home::config (
     }
     home::dir {
         '.config':;
-        '.config/terminator':;
         '.config/i3blocks':;
         '.config/i3blocks/blocks':;
+        '.config/terminator':;
+        '.i3':;
+        '.tilda':;
         'src':;
         'src/lib':;
         'src/lib/go':;
-        '.tilda':;
     }
 
     # disable ssh's own agent, preferring GPG one
