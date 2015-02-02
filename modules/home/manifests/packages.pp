@@ -44,6 +44,7 @@ class home::packages {
          youtube-dl,
          zenity,
          zile,
+         aspell-en,
          #dev crap
          carton,
          cpanminus,
