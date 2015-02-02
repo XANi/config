@@ -54,6 +54,8 @@ class home::config (
             target => "$homedir/.config/i3blocks/blocks/vpn";
         'i3blocks/tinymon':
             target => "$homedir/.config/i3blocks/blocks/tinymon";
+        'i3blocks/network':
+            target => "$homedir/.config/i3blocks/blocks/network";
     }
     home::config::code_tmp {
         erb:;
