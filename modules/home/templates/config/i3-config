@@ -189,6 +189,15 @@ bar {
     # workspace_buttons yes
 }
 
+
+bar {
+#    strip_workspace_numbers yes
+    status_command /home/xani/my/uberstatus/uberstatus
+    position top
+    output $screen_right
+    # workspace_buttons yes
+}
+
 bindsym $mod+Next move workspace to output left
 bindsym $mod+Delete move workspace to output right
 bindsym $mod+Home move workspace to output top
