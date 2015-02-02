@@ -235,8 +235,6 @@ assign [class="^Wireshark"] 10:wireshark
 assign [class="^Virt-manager"] 7
 
 
-
-
 #test if it is workable
 for_window [instance="Dialog"] floating enable
 
@@ -246,8 +244,32 @@ bindsym $mod+l exec xscreensaver-command -lock
 bindsym $mod+F9 exec /home/xani/emacs/org/arte/update_ticket_list.pl
 <%- end -%>
 bindsym $mod+F12 exec bash -c 'chromium & firefox & pidgin & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %>'
-# autostart
 
+<% if @type == 'Notebook' %>
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+<% end %>
+
+# Multimedia keys
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% # increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% # decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+
+# Media player controls https://github.com/acrisci/playerctl
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+
+
+
+# autostart
 exec --no-startup-id /home/xani/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
