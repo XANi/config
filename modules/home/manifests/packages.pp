@@ -1,5 +1,8 @@
 class home::packages {
     include home::common
+    if $type == "Notebook" {
+        include home::packages::notebook
+    }
     package {
         [
          # system
@@ -44,6 +47,7 @@ class home::packages {
          youtube-dl,
          zenity,
          zile,
+         aspell-en,
          #dev crap
          carton,
          cpanminus,
@@ -80,5 +84,13 @@ class home::packages {
          manpages-pl-dev,
          ]:
              ensure => absent;
+    }
+}
+
+class home::packages::notebook {
+    package {[
+              'xbacklight'
+              ]:
+                  ensure => installed,
     }
 }

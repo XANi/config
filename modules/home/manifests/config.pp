@@ -54,6 +54,8 @@ class home::config (
             target => "$homedir/.config/i3blocks/blocks/vpn";
         'i3blocks/tinymon':
             target => "$homedir/.config/i3blocks/blocks/tinymon";
+        'i3blocks/network':
+            target => "$homedir/.config/i3blocks/blocks/network";
     }
     home::config::code_tmp {
         erb:;
@@ -64,13 +66,14 @@ class home::config (
     }
     home::dir {
         '.config':;
-        '.config/terminator':;
         '.config/i3blocks':;
         '.config/i3blocks/blocks':;
+        '.config/terminator':;
+        '.i3':;
+        '.tilda':;
         'src':;
         'src/lib':;
         'src/lib/go':;
-        '.tilda':;
     }
 
     # disable ssh's own agent, preferring GPG one
