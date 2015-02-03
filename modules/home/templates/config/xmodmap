@@ -2,6 +2,7 @@
 # sadly comments ara not supported
 # 135 is menu key
 -%>
+keycode 66= Hyper_L
 keycode 135 = Hyper_L
 clear Mod4
 add Mod3 = Hyper_L Hyper_R

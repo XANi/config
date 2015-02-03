@@ -194,6 +194,7 @@ bar {
 #    strip_workspace_numbers yes
     status_command /home/xani/src/my/uberstatus/uberstatus
     position top
+    tray_output  none
     output $screen_right
     # workspace_buttons yes
 }

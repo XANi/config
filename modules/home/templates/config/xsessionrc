@@ -44,6 +44,7 @@ fi
 # setxkbmap -option ctrl:nocaps
 # capslock as super
 
-setxkbmap -option caps:super
+# moved to xmodmap
+# setxkbmap -option caps:super
 xmodmap ~/.xmodmap
 true
