@@ -185,7 +185,16 @@ bar {
     position top
     # 'primary' does not work :(
     tray_output  $screen_left
+    output $screen_left
+    # workspace_buttons yes
+}
 
+
+bar {
+#    strip_workspace_numbers yes
+    status_command /home/xani/src/my/uberstatus/uberstatus
+    position top
+    output $screen_right
     # workspace_buttons yes
 }
 
