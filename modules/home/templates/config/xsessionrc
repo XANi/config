@@ -44,7 +44,11 @@ fi
 # setxkbmap -option ctrl:nocaps
 # capslock as super
 
-# moved to xmodmap
-# setxkbmap -option caps:super
+# so for some reason that is required to rebind capslock in xmodmap
+# and if it is not present it just dies not parsing rest of file
+# i'm not bothering to find workaround in xmodmap because that piece of shit
+# doesn't even accept comments in xmodmap file...
+setxkbmap -option caps:super
+
 xmodmap ~/.xmodmap
 true
