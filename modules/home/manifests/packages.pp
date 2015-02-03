@@ -66,6 +66,7 @@ class home::packages {
          #
          i3,
          i3blocks,
+         parcellite, # clipboard manager
          arbtt,
          ]:
              ensure => installed,

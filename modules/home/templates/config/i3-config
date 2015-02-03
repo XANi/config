@@ -273,3 +273,4 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 exec --no-startup-id /home/xani/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
+exec --no-startup-id parcellite
