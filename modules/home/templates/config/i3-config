@@ -253,6 +253,7 @@ bindsym $mod+l exec xscreensaver-command -lock
 <%- if @location == 'arte' -%>
 bindsym $mod+F9 exec /home/xani/emacs/org/arte/update_ticket_list.pl
 <%- end -%>
+bindsym $mod+F11 exec wireshark /tmp/dump
 bindsym $mod+F12 exec bash -c 'chromium & firefox & pidgin & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %>'
 
 <% if @type == 'Notebook' %>
