@@ -5,6 +5,12 @@ class zsh {
         source   => 'https://github.com/robbyrussell/oh-my-zsh.git',
         user     => 'xani'
     }
+    file {'/home/xani/.oh-my-zsh/themes/xani.zsh-theme':
+        content => template('zsh/xani.zsh-theme'),
+        owner   => xani,
+        group   => xani,
+        mode    => 644,
+    }
     include zsh::common
 }
 
