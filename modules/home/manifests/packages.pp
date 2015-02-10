@@ -66,7 +66,8 @@ class home::packages {
          #
          i3,
          i3blocks,
-         compton,
+         compton, # compositing
+         feh, # wallpaper
          parcellite, # clipboard manager
          arbtt,
          ]:
