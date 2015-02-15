@@ -35,6 +35,7 @@ node default {
     class {
         'apt::update':;
         'bug':;
+        'common::utils':;
         'custom':;
         'dev::haproxy':;
         'dpp':;
@@ -50,7 +51,6 @@ node default {
         'token':;
         'util::etckeeper':;
         'util::generic':;
-        'util::packages':;
         'util::fuse':;
         'xfce':;
         'zsh':;
