@@ -40,7 +40,6 @@ class home::packages {
          shutter,
          sshfs,
          tilda,
-         tree,
          unrar,
          wireshark,
          xtightvncviewer,
