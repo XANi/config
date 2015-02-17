@@ -49,7 +49,6 @@ node default {
         'systemd::poweroff_on_halt':;
         'puppet':;
         'token':;
-        'util::etckeeper':;
         'util::generic':;
         'util::fuse':;
         'xfce':;
