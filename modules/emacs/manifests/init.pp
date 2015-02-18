@@ -24,6 +24,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'twittering-mode',
                'wmctrl',
                'xprintidle', # mostly for jabber mode
+               'shellcheck', # sh lint
                'yaml-mode',
                'nethack-el',
 #               'wl-beta',
