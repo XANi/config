@@ -3,6 +3,7 @@ class home::packages {
     if $type == "Notebook" {
         include home::packages::notebook
     }
+    include common::utils
     package {
         [
          # system
@@ -34,19 +35,16 @@ class home::packages {
          pkg-mozilla-archive-keyring,
          pwgen,
          rlwrap,
-         screen,
          scrot,
          seahorse,
          shutter,
          sshfs,
          tilda,
-         tree,
          unrar,
          wireshark,
          xtightvncviewer,
          youtube-dl,
          zenity,
-         zile,
          aspell-en,
          #dev crap
          carton,
@@ -60,9 +58,7 @@ class home::packages {
          # R analysis tools
          rkward,
          # network
-         nmap,
          hping3,
-         mtr-tiny,
          #
          i3,
          i3blocks,

@@ -295,6 +295,7 @@ exec --no-startup-id parcellite
 # -D ms between fade steps
 # -f enable fading
 
-exec --no-startup-id compton -b --unredir-if-possible -i 0.95 -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
+#exec --no-startup-id compton -b --unredir-if-possible -i 0.95 -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
+exec --no-startup-id compton -b --unredir-if-possible -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
