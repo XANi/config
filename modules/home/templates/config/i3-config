@@ -35,7 +35,7 @@ hide_edge_borders both
 floating_modifier $alt
 
 # dont follow focus ( I dont want focus change when I put cup on table)
-#focus_follows_mouse no
+focus_follows_mouse no
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
