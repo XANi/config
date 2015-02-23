@@ -57,3 +57,17 @@ class dev::haproxy (
     }
 
 }
+
+class dev::haproxy::ssl {
+    exec {'generate-ss-cert':
+        path => '/usr/bin:/usr/sbin:/bin:sbin',
+        command => 'echo "\n\n\n\n\n443.localhost\n\n" |   openssl req -x509 -newkey rsa:2048 -keyout /etc/haproxy/selfsigned.pem -out /etc/haproxy/selfsigned.pem -nodes -days 30',
+        creates => '/etc/haproxy/selfsigned.pem',
+        require => Tidy['selfsigned-cert-rotation'],
+    }
+    tidy {'selfsigned-cert-rotation':
+        path =>'/etc/haproxy/selfsigned.pem',
+        age  => '1w',
+        backup => false,
+    }
+}
