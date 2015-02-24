@@ -181,7 +181,7 @@ bindsym $mod+r mode "resize"
 
 bar {
 #    strip_workspace_numbers yes
-    status_command i3blocks
+    status_command /home/xani/src/my/uberstatus/uberstatus
     position top
     # 'primary' does not work :(
     tray_output  $screen_left
@@ -192,7 +192,7 @@ bar {
 
 bar {
 #    strip_workspace_numbers yes
-    status_command /home/xani/src/my/uberstatus/uberstatus
+    status_command i3blocks
     position top
     tray_output  none
     output $screen_right
