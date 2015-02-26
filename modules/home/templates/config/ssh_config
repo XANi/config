@@ -21,6 +21,7 @@ Host github.com
 Host devrandom.pl
     ControlMaster no
     ControlPersist no
+    VisualHostKey yes
 
 <% end %>
 
