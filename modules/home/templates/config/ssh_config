@@ -9,6 +9,12 @@ ConnectTimeout 30
 HashKnownHosts no
 CheckHostIP no
 
+Host devrandom.pl
+    VisualHostKey yes
+
+Host *.zxz.li
+    VisualHostKey yes
+
 <% if @multiplex_ssh %>
 ControlPath <%= @homedir %>/.ssh/mux/%r@%h:%p
 ControlMaster auto
@@ -21,9 +27,8 @@ Host github.com
 Host devrandom.pl
     ControlMaster no
     ControlPersist no
-    VisualHostKey yes
-
 <% end %>
+
 
 <% if File.exists?(scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom') %>
 <%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom']) %>
