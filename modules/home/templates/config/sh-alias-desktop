@@ -8,4 +8,4 @@ alias pup='cd ~/src/puppet 2>/dev/null || cd ~/src/my/cluster'
 alias noproxy='unset http_proxy ; unset https_proxy ; unset ftp_proxy ; unset no_proxy'
 alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; echo "no /etc/environment!" ; fi'
 # force encodings because it uses raw when going to localhost which is useless when using ssh tunnel
-alias vncviewer='vncviewer -encodings  "copyrect tight hextile zlib corre rre raw"
+alias vncviewer='vncviewer -encodings  "copyrect tight hextile zlib corre rre raw"'
