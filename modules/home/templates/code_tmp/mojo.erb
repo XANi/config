@@ -3,7 +3,7 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 use Mojolicious::Lite;
 
-app->secret(scalar time() . '<%= scope.function_md5([scope.function_fqdn_rand([1000000000000000])]) %>');
+app->secrets([scalar time() . '<%= scope.function_md5([scope.function_fqdn_rand([1000000000000000])]) %>]');
 
 # Simple plain text response
 get '/' => 'routes';
@@ -84,7 +84,7 @@ __DATA__
   <%= '%' %> my ($walk, $route, $depth) = @_;
   <tr>
     <td>
-      <%= '%' %> my $pattern = $route->pattern->pattern || '/';
+      <%= '%' %> my $pattern = $route->pattern->unparsed || '/';
       <%= '%' %> $pattern = "+$pattern" if $depth;
       <pre><a href='<%%= $pattern %>'><<%= '%' %>= '  ' x $depth <%= '%' %>><<%= '%' %>= $pattern <%= '%' %>></a></pre>
     </td>
