@@ -63,6 +63,9 @@
  '(show-paren-match ((t (:inherit region))))
 ;; '(hl-line ((t (:inherit fringe))))
  '(hl-line  ((t nil)))
+ '(flycheck-fringe-warning ((t (:inherit highlight))))
+ '(flycheck-warning ((t (:underline "RoyalBlue4"))))
+
 )
 (set-face-foreground 'hl-line nil)
 
