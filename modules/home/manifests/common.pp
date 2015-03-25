@@ -27,6 +27,12 @@ class home::common (
             user  => 'xani',
             group => 'fuse',
     }
+    # for serial ports
+    util::add_user_to_group {
+        'xani-dialout':
+            user  => 'xani',
+            group => 'dialout',
+    }
     file {'/var/tmp/xani':
         ensure => directory,
         owner  => xani,
