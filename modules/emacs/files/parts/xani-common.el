@@ -10,8 +10,11 @@
 ;; fix yes no questions
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; moving between frames
 
+;; set default buffer to fundamental, I rarely use it for actual lisp
+(setq initial-major-mode 'fundamental-mode)
+
+;; moving between frames
 
 (global-set-key [s-left] 'windmove-left)          ; move to left windnow
 (global-set-key [s-right] 'windmove-right)        ; move to right window
