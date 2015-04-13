@@ -233,9 +233,9 @@ for_window [class="^(Eog|ristretto)"] floating enable
 for_window [class="Emacs" urgent="latest"] focus
 
 
-# fix realvnc shittines
-for_window [class="^Vncviewer$"] floating enable
-assign [class="^Vncviewer$"] 2:ff
+# fix realvnc shittines, float IBM's IMM kvm
+for_window [class="(^Vncviewer$|Video Viewer$)"] floating enable
+assign [class="(^Vncviewer$|Video Viewer$)"] 2:ff
 
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] 2:ff
