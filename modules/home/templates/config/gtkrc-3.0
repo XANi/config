@@ -1,2 +1,3 @@
 [Settings]
-gtk-theme-name = Xfce-dusk-xani
+gtk-theme-name=Adwaita
+gtk-application-prefer-dark-theme=1
