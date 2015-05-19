@@ -91,7 +91,7 @@
 ;; Indentation definitions.
 (defun cisco-router-indent-line ()
   "Indent current line as cisco router config line"
-  (let ((indent0 "^interface\\|redundancy\\|policy group\\|^line\\|^ip vrf \\|^ip access-list\\|policy group\\|^webvpn\\|^controller\\|^class-map\\|^policy-map\\|router\\|access-list\\|^ip access-list\\|route-map")
+  (let ((indent0 "^interface\\|redundancy\\|policy group\\|^line\\|^ip route\\|^ip vrf \\|^ip access-list\\|policy group\\|^webvpn\\|^controller\\|^class-map\\|^policy-map\\|router\\|access-list\\|^ip access-list\\|route-map")
 	(indent1 " *main-cpu\\| *class\\W"))
     (beginning-of-line)
     (let ((not-indented t)
