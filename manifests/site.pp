@@ -25,9 +25,9 @@ node default {
         'firefox':;
         'spotify':;
         'dropbox':;
-        'emdebian':;
+#        'emdebian':;
         'main-testing':;
-        'bareos':;
+#        'bareos':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
@@ -119,6 +119,10 @@ node 'vm-debian' inherits default {
     include emacs::wl
 }
 node hydra inherits default {
+    apt::source {
+        "emdebian":;
+        "bareos":;
+    }
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
