@@ -183,7 +183,7 @@
    ("\\(^\s+\\|^\\)\\(frontend\\|listen\\|backend\\|defaults\\|global\\|description\\).*" . 'font-lock-constant-face)
 ;;   ("\\(option\\)" . 'font-lock-keyword-face)
    ("\\(if\\|unless\\|\s-[a-zA-Z]\s\\)" . 'font-lock-string-face)
-   ("\\(acl\s+[a-zA-Z_\\-]*\\)" . 'font-lock-builtin-face)
+   ("\\(acl\s+[0-9a-zA-Z_\\-]*\\)" . 'font-lock-builtin-face)
 ;;   ("\\^.+" . 'font-lock-keyword-face)
    ("\\(use_backend\\|default-server\\|server\\)" . font-lock-variable-name-face)
    ("\\(block\\|capture\\|stats\\|default_backend\\)" . font-lock-type-face)
