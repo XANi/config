@@ -46,6 +46,7 @@ class home::packages {
          youtube-dl,
          zenity,
          aspell-en,
+         ncdu, # ncurses interactive du
          #dev crap
          carton,
          cpanminus,
