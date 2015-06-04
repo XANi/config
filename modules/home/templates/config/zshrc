@@ -105,3 +105,7 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
+
+# leave backgrounded processes untouched
+setopt nohup
+setopt nocheckjobs
