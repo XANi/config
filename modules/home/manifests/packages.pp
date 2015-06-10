@@ -29,6 +29,7 @@ class home::packages {
          libdevel-nytprof-perl,
          libnotify-bin,
          mc,
+         ncdu,
          meld,
          perlconsole,
          perltidy,
