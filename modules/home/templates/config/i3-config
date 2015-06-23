@@ -237,6 +237,10 @@ for_window [class="Emacs" urgent="latest"] focus
 for_window [class="(^Vncviewer$|com-sun-javaws)"] floating enable
 assign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
 
+# float virtualbox vm
+for_window [name="(Oracle VM VirtualBox$)"] floating enable
+
+
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] 2:ff
 assign [class="^Emacs"] 3:emacs
