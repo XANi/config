@@ -27,8 +27,6 @@
     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
-
-
 <%- if @rainbow && @rainbow !~ /over/ -%>
 ;; load this before theme so it have chance to override it
 (require 'xani-rainbow)
@@ -51,81 +49,6 @@
  '(linum-format "%4d")
 )
 <%- end -%>
-;; tweak X shit
-;; this part doesn't work well when done in provide/require
-(defun setup-window-system-frame-colours (&rest frame)
-(if window-system
-    (progn
-      (custom-set-faces
-       '(cperl-array-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
-       '(cperl-hash-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
-       '(cua-rectangle ((default (:inherit region)) (((class color)) nil)))
-       '(develock-long-line-2 ((t (:inherit secondary-selection :underline "#000000"))))
-       '(develock-lonely-parentheses ((t (:inherit secondary-selection :foreground "PaleTurquoise"))))
-       '(develock-reachable-mail-address ((t (:inherit font-lock-warning-face :underline "#775500"))))
-       '(develock-upper-case-tag ((t (:foreground "Snow"))))
-       '(develock-whitespace-1 ((t (:background "#550000"))))
-       '(develock-whitespace-2 ((t (:background "#440000"))))
-       '(develock-whitespace-3 ((t (:background "#333300"))))
-       '(diff-added ((t (:inherit diff-changed :background "#114411"))))
-       '(diff-removed ((t (:inherit diff-changed :background "#441111"))))
-       '(org-document-info ((((class color) (background light)) (:foreground "#555599"))))
-       '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
-       '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))
-       '(org-table ((((class color) (min-colors 88) (background light)) (:foreground "#ffffff"))))
-       '(tabbar-selected ((t (:inherit default))))
-       '(tabbar-unselected ((t (:inherit mode-line-inactive))))
-       '(tabbar-unselected-modified ((t (:inherit mode-line :weight bold))))
-       '(undo-tree-visualizer-active-branch-face ((((class color) (background light)) (:foreground "#aaaaff" :weight bold))))
-       '(whitespace-hspace ((((class color) (background light)) (:background "#444400" :foreground "lightgray"))))
-       '(whitespace-newline ((t (:foreground "lightgray" :weight bold))))
-       '(whitespace-space ((((class color) (background light)) (:background "#333377" :foreground "lightgray"))))
-       '(whitespace-tab ((((class color) (background light)) (:background "#551111" :foreground "lightgray"))))
-     )
-      (add-hook 'window-configuration-change-hook
-                (lambda ()
-                  (setq frame-title-format
-                        (concat ;;
-                         invocation-name ": "
-                         (replace-regexp-in-string
-                          (concat "/home/" user-login-name) "~"
-                          (or buffer-file-name "%b"))
-;;                        "[" system-name "]"
-                         ))))
-      )
-  )
-)
-(require 'server)
- (defadvice server-create-window-system-frame
-   (after set-window-system-frame-colours ())
-;;   "Set custom frame colours when creating the first frame on a display"
-   (message "Running after frame-initialize")
-   (setup-window-system-frame-colours)
-;;   (load-theme 'solarized-dark t)
-   ;;(load-theme '<%= @emacs_theme %> t)
-;;   (tool-bar-mode -1)
- ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
-   (custom-set-faces
-    '(term-color-black ((t (:background "black" :foreground "dim gray"))))
-    '(term-color-blue ((t (:background "dark blue" :foreground "royal blue"))))
-    )
-   (defun maximize (&optional f)
-     (interactive)
-     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                            '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                            '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
-   ;;(maximize)
-   (global-set-key [f11] 'toggle-frame-fullscreen)
-   (global-set-key [f12] 'menu-bar-mode)
-   (scroll-bar-mode -1)
-   (tool-bar-mode -1)
-   (menu-bar-mode -1)
-   )
- (ad-activate 'server-create-window-system-frame)
- ;;(add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
-
-
 
 ;; smaller font with decent progreamming/pliterki
 (set-face-attribute 'default nil :height 90 :family "DejaVu Sans Mono")
@@ -238,6 +161,78 @@
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . diff-mode))
 
 
+;; this part doesn't work well when done in provide/require
+(defun setup-window-system-frame-colours (&rest frame)
+(if window-system
+    (progn
+      (custom-set-faces
+       '(cperl-array-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
+       '(cperl-hash-face ((((class color) (background light)) (:inherit font-lock-variable-name-face))))
+       '(cua-rectangle ((default (:inherit region)) (((class color)) nil)))
+       '(develock-long-line-2 ((t (:inherit secondary-selection :underline "#000000"))))
+       '(develock-lonely-parentheses ((t (:inherit secondary-selection :foreground "PaleTurquoise"))))
+       '(develock-reachable-mail-address ((t (:inherit font-lock-warning-face :underline "#775500"))))
+       '(develock-upper-case-tag ((t (:foreground "Snow"))))
+       '(develock-whitespace-1 ((t (:background "#550000"))))
+       '(develock-whitespace-2 ((t (:background "#440000"))))
+       '(develock-whitespace-3 ((t (:background "#333300"))))
+       '(diff-added ((t (:inherit diff-changed :background "#114411"))))
+       '(diff-removed ((t (:inherit diff-changed :background "#441111"))))
+       '(org-document-info ((((class color) (background light)) (:foreground "#555599"))))
+       '(org-drawer ((((class color) (min-colors 88) (background light)) (:foreground "#4444aa"))))
+       '(org-habit-clear-face ((((background light)) (:background "#8270f9" :foreground "black"))))
+       '(org-table ((((class color) (min-colors 88) (background light)) (:foreground "#ffffff"))))
+       '(tabbar-selected ((t (:inherit default))))
+       '(tabbar-unselected ((t (:inherit mode-line-inactive))))
+       '(tabbar-unselected-modified ((t (:inherit mode-line :weight bold))))
+       '(undo-tree-visualizer-active-branch-face ((((class color) (background light)) (:foreground "#aaaaff" :weight bold))))
+       '(whitespace-hspace ((((class color) (background light)) (:background "#444400" :foreground "lightgray"))))
+       '(whitespace-newline ((t (:foreground "lightgray" :weight bold))))
+       '(whitespace-space ((((class color) (background light)) (:background "#333377" :foreground "lightgray"))))
+       '(whitespace-tab ((((class color) (background light)) (:background "#551111" :foreground "lightgray"))))
+     )
+      (add-hook 'window-configuration-change-hook
+                (lambda ()
+                  (setq frame-title-format
+                        (concat ;;
+                         invocation-name ": "
+                         (replace-regexp-in-string
+                          (concat "/home/" user-login-name) "~"
+                          (or buffer-file-name "%b"))
+;;                        "[" system-name "]"
+                         ))))
+      )
+  )
+)
+(require 'server)
+ (defadvice server-create-window-system-frame
+   (after set-window-system-frame-colours ())
+;;   "Set custom frame colours when creating the first frame on a display"
+   (message "Running after frame-initialize")
+   (setup-window-system-frame-colours)
+;;   (load-theme 'solarized-dark t)
+   ;;(load-theme '<%= @emacs_theme %> t)
+;;   (tool-bar-mode -1)
+ ;;  (set-frame-parameter nil 'fullboth) ;; 'fullboth - maximize; 'fullscreen - fullscreen
+   (custom-set-faces
+    '(term-color-black ((t (:background "black" :foreground "dim gray"))))
+    '(term-color-blue ((t (:background "dark blue" :foreground "royal blue"))))
+    )
+   (defun maximize (&optional f)
+     (interactive)
+     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                            '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+     (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                            '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
+   ;;(maximize)
+   (global-set-key [f11] 'toggle-frame-fullscreen)
+   (global-set-key [f12] 'menu-bar-mode)
+   (scroll-bar-mode -1)
+   (tool-bar-mode -1)
+   (menu-bar-mode -1)
+   )
+ (ad-activate 'server-create-window-system-frame)
+ ;;(add-hook 'after-make-frame-functions 'setup-window-system-frame-colours t)
 ;;
 ;; ---------------------------------------------
 ;;
