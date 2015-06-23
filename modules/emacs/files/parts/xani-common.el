@@ -158,7 +158,7 @@
 )
 
 ;; colors
-(global-rainbow-delimiters-mode)
+(ignore-errors (global-rainbow-delimiters-mode))
 (rainbow-mode)
 
 ;; minibuffer depth
