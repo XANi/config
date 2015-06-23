@@ -55,7 +55,7 @@ class dev::haproxy (
                    ip => $host_ip
         }
     }
-
+    include dev::haproxy::ssl
 }
 
 class dev::haproxy::ssl {
