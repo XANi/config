@@ -51,4 +51,14 @@ fi
 setxkbmap -option caps:super
 
 xmodmap ~/.xmodmap
+<% if @type =~ /otebook/ %>
+# man synaptics
+# fix for synaptic mouse clicking
+synclient TapButton1=1
+synclient TapButton2=3 # righ click
+synclient TapButton3=2 # middle click
+
+synclient VertEdgeScroll=1
+synclient VertTwoFingerScroll=0
+<% end %>
 true

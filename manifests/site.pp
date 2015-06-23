@@ -108,6 +108,13 @@ node ghroth inherits efi {
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
     }
+    # bot development
+    service {'prosody':
+        ensure => running,
+    }
+    package {'prosody':
+        ensure => installed,
+    }
 }
 
 node yidhra inherits efi {
