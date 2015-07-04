@@ -28,6 +28,7 @@ node default {
 #        'emdebian':;
         'main-testing':;
 #        'bareos':;
+        'syncthing':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
