@@ -38,6 +38,10 @@ if [ -e ~/mouse.sh ] ; then
     ~/mouse.sh
 fi
 
+if [ -e ~/.xsessionrc-local ] ; then
+    ~/.xsessionrc-local
+fi
+
 # grep cap /usr/share/X11/xkb/rules/xorg.lst
 # "setxkbmap -option" to clear
 # capslock as ctrl
