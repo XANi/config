@@ -10,7 +10,7 @@ class syncthing  {
 
 
 define syncthing::instance {
-    include syncthing::instance
+    include syncthing
     file {"/etc/systemd/system/syncthing-${title}":
         content => template('syncthing/systemd'),
         mode => 644,
