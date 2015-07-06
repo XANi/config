@@ -39,7 +39,6 @@ node default {
         'custom':;
         'dev::haproxy':;
         'dpp':;
-        'emacs::org::sync':;
         'emacs::org':;
         'emacs':;
         'env':;
