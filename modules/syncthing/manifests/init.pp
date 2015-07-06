@@ -9,7 +9,7 @@ class syncthing  {
 }
 
 
-class syncthing::instance {
+define syncthing::instance {
     include syncthing::instance
     file {"/etc/systemd/system/syncthing-${title}":
         content => template('syncthing/systemd'),
