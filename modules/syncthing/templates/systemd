@@ -1,6 +1,6 @@
 [Unit]
 Description=Syncthing[<%= @title %>]
-
+RequiresMountsFor=/home/<%= @title %>
 
 [Service]
 ExecStart=/usr/bin/syncthing
@@ -9,6 +9,7 @@ Restart=always
 RestartSec=30s
 #WorkingDirectory
 User=<%= @title %>
+
 
 [Install]
 WantedBy=multi-user.target
