@@ -1,0 +1,15 @@
+[Unit]
+Description=Syncthing[<%= @title %>]
+
+
+[Service]
+WantedBy=multi-user.target
+ExecStart=/usr/bin/syncthing
+TimeoutStopSec=30
+Restart=always
+RestartSec=30s
+#WorkingDirectory
+User=<%= @title %>
+
+[Install]
+WantedBy=multi-user.target
