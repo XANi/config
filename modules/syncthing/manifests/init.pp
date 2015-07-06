@@ -17,6 +17,6 @@ define syncthing::instance {
     }
     service {"syncthing-${title}":
         enable => true,
-        require => File["/etc/systemd/system/syncthing-${title}"]
+        require => File["/etc/systemd/system/syncthing-${title}.service"]
     }
 }
