@@ -50,4 +50,8 @@
        '(jabber-roster-user-online ((t (:foreground "#5577aa" :slant normal :weight bold))))
 )
 
+;; this is supposed to make clicking url work http://www.emacswiki.org/emacs/JabberEl#toc5
+
+(add-hook 'jabber-chat-mode-hook 'goto-address)
+
 (provide 'xani-jabber)
