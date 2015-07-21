@@ -35,6 +35,7 @@ fi
 cd ~/.local/share/orage || exit 0
 cp orage.ics orage.ics.b
 cp $SYNCFILE orage.ics
+cp $SYNCFILE ~/Dropbox/Org
 killall -HUP orage
 
 # get toplevel window process
