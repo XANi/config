@@ -51,6 +51,7 @@ class dev::haproxy (
             '3009.localhost',
             '8080.localhost',
             '8081.localhost',
+            'sync',
                ]:
                    ip => $host_ip
         }

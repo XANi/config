@@ -28,7 +28,6 @@ node default {
 #        'emdebian':;
         'main-testing':;
 #        'bareos':;
-        'syncthing':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
@@ -40,7 +39,6 @@ node default {
         'custom':;
         'dev::haproxy':;
         'dpp':;
-        'emacs::org::sync':;
         'emacs::org':;
         'emacs':;
         'env':;
@@ -55,6 +53,8 @@ node default {
         'xfce':;
         'zsh':;
     }
+
+    syncthing::instance {'xani':;}
 
     monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }

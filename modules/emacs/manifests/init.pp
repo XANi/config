@@ -413,29 +413,6 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
 }
 
-class emacs::org::sync ( $mountpoint = '/mnt/mobile.org', $target = '/home/xani/emacs/org/mobile.org' ) {
-    file { $mountpoint:
-        ensure => directory,
-        mode   => 750,
-        owner  => xani,
-        group  => xani,
-    }
-    file { $target:
-        ensure => link,
-        target => $mountpoint,
-    }
-    exec { mount-orgshare:
-        #cwd      => "${homedir}/emacs/org",
-        unless    => "/usr/bin/sudo -u xani /usr/bin/test -e ${mountpoint}/remote", # fuse works in a way that forbids root to have access to user-mounted files, so we sudo to mounting user
-        logoutput => true,
-        command   => $hostname ? {
-            'ghroth' => "/usr/bin/sudo -u xani -i /usr/bin/tsocks /usr/bin/sshfs orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
-            default  => "/usr/bin/sudo -u xani -i /usr/bin/sshfs -o allow_root orgmode@devrandom.eu:/home/orgmode ${mountpoint}/",
-        },
-        require   => [Package['sshfs'],]
-    }
-}
-
 define emacs::autoinsert {
     $homedir = hiera('homedir','/home/xani')
     file {"${homedir}/emacs/autoinsert/${title}":
