@@ -4,9 +4,9 @@
  '(Man-overstrike ((t (:inherit font-lock-variable-name-face :weight bold))))
  '(Man-underline ((t (:inherit font-lock-string-face :underline t))))
  )
-(setq
- Man-notify-method "pushy"
- )
 
+(custom-set-variables
+ '(Man-notify-method (quote pushy))
+ )
 
 (provide 'xani-man)

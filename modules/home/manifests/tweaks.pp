@@ -6,4 +6,15 @@ class home::tweaks {
            ]:
                ensure => absent
     }
+    # nuke it from orbit, it is only way to be sure (non-current translation is useless)
+    file {[
+           '/usr/share/man/pl',
+           '/usr/share/man/pl.ISO8859-2',
+           ]:
+               backup => false,
+               purge  => true,
+               recurse => true,
+               ensure => directory,
+    }
+
 }
