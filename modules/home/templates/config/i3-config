@@ -33,7 +33,7 @@ font pango:DejaVu Sans Mono 9
 
 # class                 border  backgr. text    indicator
 
-client.focused          #1b333e #1b333e #7e9fc9 #2e9ef4
+client.focused          #7e9fc9 #1b333e #7e9fc9 #2e9ef4
 client.focused_inactive #1b333e #181d23 #7e9fc9 #484e50
 client.unfocused        #1b333e #14191f #716d73 #292d2e
 client.urgent           #b23f1e #272122 #d97a35 #900000
