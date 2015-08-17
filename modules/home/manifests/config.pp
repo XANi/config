@@ -42,6 +42,8 @@ class home::config (
         "gtkrc-2.0":;
         "gtkrc-3.0":
             target => '.config/gtk-3.0/settings.ini';
+        "dunstrc":
+            target => '.config/dunst/dunstrc';
     }
     home::config::exec {
         git-wtf:;
@@ -69,6 +71,7 @@ class home::config (
         '.config/i3blocks':;
         '.config/i3blocks/blocks':;
         '.config/terminator':;
+        '.config/dunst':;
         '.i3':;
         '.tilda':;
         'src':;

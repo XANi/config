@@ -20,7 +20,7 @@
     "org.freedesktop.Notifications" "Notify" ; Method
     "emacs"
     0
-    "/usr/share/icons/hicolor/128x128/apps/emacs.png" ; icon
+    "/usr/share/icons/hicolor/16x16/apps/emacs.png" ; icon, dunst doesnt handle resizing ;/
     summary
     body
     '(:array)
