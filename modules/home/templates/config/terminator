@@ -4,6 +4,13 @@
   enabled_plugins = CustomCommandsMenu, ActivityWatch, TerminalShot
   dbus = True
   handle_size = 3
+  title_transmit_fg_color = "#7e9fc9"
+  title_inactive_fg_color = "#716d73"
+  title_receive_bg_color = "#181d23"
+  title_transmit_bg_color = "#244352"
+  title_receive_fg_color = "#7e9fc9"
+  title_inactive_bg_color = "#14191f"
+
 [keybindings]
   go_up = <Super>Up
   go_down = <Super>Down
