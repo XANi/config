@@ -15,7 +15,8 @@
  '(jabber-alert-presence-hooks nil)
  '(jabber-auto-reconnect t)
  '(jabber-libnotify-timeout 20000)
- '(jabber-libnotify-icon "/usr/share/icons/hicolor/16x16/apps/emacs-snapshot.png") ;; dunst cant handle 128x128
+ '(jabber-libnotify-icon "emacs") ;; dunst cant handle 128x128
+ ;; '(jabber-libnotify-icon "/usr/share/icons/hicolor/16x16/apps/emacs-snapshot.png") ;; dunst cant handle 128x128
  '(jabber-autoaway-method (quote jabber-xprintidle-get-idle-time))
  '(jabber-autoaway-priority -10)
  '(jabber-autoaway-status "AFK")
