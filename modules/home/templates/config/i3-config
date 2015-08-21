@@ -12,8 +12,8 @@ set $alt Mod1
 xrandr_left  = scope.function_hiera(["xrandr_left","HDMI-0"])
 xrandr_right = scope.function_hiera(["xrandr_right","DVI-I-1"])
 %>
-set $screen_left <%= xrand_left %>
-set $screen_right <%= xrand_right %>
+set $screen_left <%= xrandr_left %>
+set $screen_right <%= xrandr_right %>
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -219,7 +219,7 @@ bar {
 }
 
 
-<% if xrand_left != xrand_right %>
+<% if xrandr_left != xrandr_right %>
 bar {
 #    strip_workspace_numbers yes
     status_command i3blocks
