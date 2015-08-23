@@ -50,8 +50,8 @@ draw_shades no
 #draw_graph_borders yes
 use_xft yes
 xftfont DejaVu Sans Mono:size=12
-gap_x 50
-gap_y 60
+gap_x 40
+gap_y 50
 minimum_size 5 5
 net_avg_samples 2
 no_buffers yes
@@ -68,14 +68,13 @@ imap host user pass
 top_cpu_separate true
 
 TEXT
-${scroll 16 $nodename - $sysname $kernel on $machine | }
+${scroll 50 3 $nodename - $sysname $kernel on $machine [$uptime] | }
 $hr
-${color1}Uptime:$color4 $uptime
-${color1}Frequency (in MHz):$color4 $freq
-${color1}Frequency (in GHz):$color4 $freq_g
-${color1}RAM Usage:$color4 $mem/$memmax - $memperc% ${membar 4}
-${color1}Swap Usage:$color4 $swap/$swapmax - $swapperc% ${swapbar 4}
-${color1}CPU Usage:$color4 $cpu% ${cpubar 4}
+${color1}Frequency (in GHz):$color4 $freq_g [$freq]
+${color1}RAM Usage:$color4 $mem/$memmax - $memperc% ${membar 8}
+${color1}Swap Usage:$color4 $swap/$swapmax - $swapperc% ${swapbar 8}
+${color1}CPU Usage:$color4 $cpu% ${cpubar 8}
+${loadgraph 50,500 00ff00 0000ff -t}
 ${color1} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color1}Processes:$color4 $processes  ${color1}Running:$color4 $running_processes
 $hr
