@@ -1,3 +1,6 @@
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+
 alignment top_left
 
 own_window yes
@@ -80,15 +83,15 @@ $hr
 ${color1}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color1}Diskio
-${color gray} sda ${color 11aa11} ${diskio_read sda} ${color aa1111} ${diskio_write sda}
+${color gray} sda ${color ffcc00} ${diskio_read sda} ${color 00ffcc} ${diskio_write sda}
 ${color1}${diskiograph sda 50,500 0000ff 00ff00 -t -f}
 ${color1}Diskio
-${color1} sdb ${color 11aa11} ${diskio_read sdb} ${color aa1111} ${diskio_write sdb}
+${color1} sdb ${color ffcc00} ${diskio_read sdb} ${color 00ffcc} ${diskio_write sdb}
 ${color1}${diskiograph sdb 50,500 cc4400 ffaa00 -t -l}
 $hr
 ${color1}Networking:
 ${if_gw}GW: ${gw_ip} on ${gw_iface}${endif}
-Up:${color red} ${upspeed eth0} ${color1} - Down:${color green} ${downspeed eth0}
+Up:${color ffcc00} ${upspeed eth0} ${color1} - Down:${color 00ffcc} ${downspeed eth0}
 ${color4} ${upspeedgraph eth0 50,500 0000ff ff0000 -l -t}
 ${color4} ${downspeedgraph eth0 50,500 0000ff 00ff00 -l -t}
 ${color}
