@@ -8,9 +8,12 @@
 set $mod Mod3
 
 set $alt Mod1
-
-set $screen_left <%= scope.function_hiera(["xrandr_left","HDMI-0"]) %>
-set $screen_right <%= scope.function_hiera(["xrandr_right","DVI-I-1"]) %>
+<%
+xrandr_left  = scope.function_hiera(["xrandr_left","HDMI-0"])
+xrandr_right = scope.function_hiera(["xrandr_right","DVI-I-1"])
+%>
+set $screen_left <%= xrandr_left %>
+set $screen_right <%= xrandr_right %>
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -216,13 +219,14 @@ bar {
 }
 
 
+<% if xrandr_left != xrandr_right %>
 bar {
 #    strip_workspace_numbers yes
     status_command i3blocks
     position top
     tray_output  none
     output $screen_right
-    # workspace_buttons yes
+    #  workspace_buttons yes
     colors {
         background #14191f
         statusline #ffffff
@@ -235,6 +239,7 @@ bar {
     }
 
 }
+<% end %>
 
 bindsym $mod+Next move workspace to output left
 bindsym $mod+Delete move workspace to output right
