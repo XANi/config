@@ -17,6 +17,7 @@ class home::config (
         bash_prompt:;
         bash_functions:;
         bashrc:;
+        conkyrc:;
         gitconfig:;
         gitignore_global:;
         htoprc:;

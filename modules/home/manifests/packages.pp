@@ -62,6 +62,7 @@ class home::packages {
          #
          i3,
          i3blocks,
+         conky,
          compton, # compositing
          feh, # wallpaper
          parcellite, # clipboard manager
