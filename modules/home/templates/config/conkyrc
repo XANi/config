@@ -43,8 +43,8 @@ color4 8c86e4
 #background no
 
 border_width 1
-cpu_avg_samples 5
-net_avg_samples 5
+cpu_avg_samples 1
+net_avg_samples 1
 double_buffer yes
 draw_borders no
 draw_graph_borders no
@@ -56,7 +56,6 @@ xftfont DejaVu Sans Mono:size=12
 gap_x 40
 gap_y 50
 minimum_size 5 5
-net_avg_samples 2
 no_buffers yes
 out_to_console no
 out_to_stderr no
