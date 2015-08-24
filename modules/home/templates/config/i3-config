@@ -339,7 +339,7 @@ exec --no-startup-id /home/xani/.dropbox-dist/dropboxd
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
 exec --no-startup-id parcellite
-exec --no-startup-id conky
+exec --no-startup-id bash -c 'LC_ALL=C conky'
 # -i - inactive windows -e borders -m menu
 # -D ms between fade steps
 # -f enable fading
