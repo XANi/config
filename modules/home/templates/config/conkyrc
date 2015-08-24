@@ -92,7 +92,7 @@ ${color1} sdb ${color ffcc00} ${diskio_read sdb} ${color 00ffcc} ${diskio_write 
 ${color1}${diskiograph sdb 50,500 cc4400 ffaa00 -t -l}
 $hr
 ${color1}Networking:
-${if_gw}GW: ${color6}${gw_ip} ${color}on ${color4}${gw_iface}${endif}${color}
+${if_gw}GW: ${color6}${gw_ip} ${color}[DNS: ${color6}${nameserver}$color] ${color}on ${color4}${gw_iface}${endif}${color}
 Up:${color ffcc00} ${upspeed eth0} ${color1} - Down:${color 00ffcc} ${downspeed eth0}
 ${color4} ${upspeedgraph eth0 50,500 ffff00 ff0000 -l -t}
 ${color4} ${downspeedgraph eth0 50,500 0000ff 00ff00 -l -t}
