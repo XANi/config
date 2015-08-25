@@ -14,6 +14,7 @@ class home::tweaks {
                backup => false,
                purge  => true,
                recurse => true,
+               force  => true,
                ensure => directory,
     }
 
