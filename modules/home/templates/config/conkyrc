@@ -99,9 +99,9 @@ ${color1}${diskiograph sdb 50,500 cc4400 ffaa00 -t -l}
 $hr
 ${color1}Networking:
 ${if_gw}GW: ${color6}${gw_ip} ${color}[DNS: ${color6}${nameserver}$color] ${color}on ${color4}${gw_iface}${endif}${color}
-Up:${color ffcc00} ${upspeed <%= wan_if %>} ${color1} - Down:${color 00ffcc} ${downspeed eth0}
-${color4} ${upspeedgraph eth0 50,500 ffff00 ff0000 -l -t}
-${color4} ${downspeedgraph eth0 50,500 0000ff 00ff00 -l -t}
+Up:${color ffcc00} ${upspeed <%= wan_if %>} ${color1} - Down:${color 00ffcc} ${downspeed <%= wan_if %>}
+${color4} ${upspeedgraph <%= wan_if %> 50,500 ffff00 ff0000 -l -t}
+${color4} ${downspeedgraph <%= wan_if %> 50,500 0000ff 00ff00 -l -t}
 ${color}
 $hr
 
