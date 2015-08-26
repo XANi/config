@@ -116,6 +116,7 @@ node ghroth inherits efi {
     package {'prosody':
         ensure => installed,
     }
+    include dev::rabbitmq
 }
 
 node yidhra inherits efi {
