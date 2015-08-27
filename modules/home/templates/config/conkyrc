@@ -6,6 +6,7 @@ alignment top_right
 wan_if = "eth0"
 if @interfaces =~ /wlan0/
    wan_if = "wlan0"
+   have_wifi = true
 end
 %>
 
@@ -80,9 +81,9 @@ TEXT
 ${scroll 50 1 $nodename - $sysname $kernel on $machine [$uptime] | }
 $hr
 ${color1}Frequency (in GHz):$color4 $freq_g [$freq]
-${color1}RAM Usage:$color4 $mem/$memmax - $memperc% ${color6}${membar 8}
-${color1}Swap Usage:$color4 $swap/$swapmax - $swapperc% ${color6}${swapbar 8}
-${color1}CPU Usage:$color4 $cpu% ${color6}${cpubar 8}
+${color1}RAM:$color4 $mem/$memmax - $memperc% ${color6}${alignr 10}${membar 8,230}
+${color1}Swap:$color4 $swap/$swapmax - $swapperc% ${color6}${alignr 10}${swapbar 8,230}
+${color1}CPU:$color4 $cpu% ${color6}${alignr 10}${cpubar 8,230}
 ${loadgraph 50,500 00ff00 0000ff -t}
 ${color1} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color1}Processes:$color4 $processes  ${color1}Running:$color4 $running_processes
@@ -93,18 +94,19 @@ ${color1}File systems:
 ${color1}Diskio
 ${color gray} sda ${color ffcc00} ${diskio_read sda} ${color6} ${diskio_write sda}
 ${color1}${diskiograph sda 50,500 0000ff 00ff00 -t -f}
-${color1}Diskio
 ${color1} sdb ${color ffcc00} ${diskio_read sdb} ${color6} ${diskio_write sdb}
 ${color1}${diskiograph sdb 50,500 cc4400 ffaa00 -t -l}
 $hr
-${color1}Networking:
+${color1}Networking: <% if have_wifi %>AP ${wireless_ap wlan0}<% end %>
 ${if_gw}GW: ${color6}${gw_ip} ${color}[DNS: ${color6}${nameserver}$color] ${color}on ${color4}${gw_iface}${endif}${color}
+<%- if have_wifi -%>
+${color}WiFi: ${color6}${wireless_essid wlan0}$color[${wireless_bitrate wlan0} ${color}ch:${color6}${wireless_channel wlan0}${color}]${alignr}${wireless_link_bar 10,100 wlan0}
+<%- end -%>
 Up:${color ffcc00} ${upspeed <%= wan_if %>} ${color1} - Down:${color 00ffcc} ${downspeed <%= wan_if %>}
 ${color4} ${upspeedgraph <%= wan_if %> 50,500 ffff00 ff0000 -l -t}
 ${color4} ${downspeedgraph <%= wan_if %> 50,500 0000ff 00ff00 -l -t}
 ${color}
 $hr
-
 ${color1}Name              PID   CPU%   MEM%
 ${if_match ${top cpu 1} > 40}${color ffaa00}${else}${color6}${endif} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${if_match ${top cpu 2} > 40}${color ffaa00}${else}${color6}${endif} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
