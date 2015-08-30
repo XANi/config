@@ -139,30 +139,30 @@ workspace "F4:music"      output $screen_right
 workspace "F5:wireshark" output $screen_right
 
 # switch to workspace
-bindsym $mod+1 workspace number 1:sh
-bindsym $mod+2 workspace number 2:ff
-bindsym $mod+3 workspace number 3:emacs
-bindsym $mod+4 workspace number 4:
-bindsym $mod+5 workspace number 5:steam
-bindsym $mod+F1 workspace number F1:chrome
-bindsym $mod+F2 workspace number F2:@
-bindsym $mod+F3 workspace number F3:%
-bindsym $mod+F4 workspace number F4:music
-bindsym $mod+F5 workspace number F5:wireshark
+bindsym $mod+1 workspace 1:sh
+bindsym $mod+2 workspace 2:ff
+bindsym $mod+3 workspace 3:emacs
+bindsym $mod+4 workspace 4:
+bindsym $mod+5 workspace 5:steam
+bindsym $mod+F1 workspace F1:chrome
+bindsym $mod+F2 workspace F2:@
+bindsym $mod+F3 workspace F3:%
+bindsym $mod+F4 workspace F4:music
+bindsym $mod+F5 workspace F5:wireshark
 
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1:sh
-bindsym $mod+Shift+2 move container to workspace number 2:ff
-bindsym $mod+Shift+3 move container to workspace number 3:emacs
-bindsym $mod+Shift+4 move container to workspace number 4:chrome
-bindsym $mod+Shift+5 move container to workspace number 5:@
-bindsym $mod+Shift+F1 move container to workspace number F1:chrom
-bindsym $mod+Shift+F2 move container to workspace number F2:@
-bindsym $mod+Shift+F3 move container to workspace number F3:%
-bindsym $mod+Shift+F4 move container to workspace number F4:music
-bindsym $mod+Shift+F5 move container to workspace number F5:wireshark
+bindsym $mod+Shift+1 move container to workspace 1:sh
+bindsym $mod+Shift+2 move container to workspace 2:ff
+bindsym $mod+Shift+3 move container to workspace 3:emacs
+bindsym $mod+Shift+4 move container to workspace 4:chrome
+bindsym $mod+Shift+5 move container to workspace 5:@
+bindsym $mod+Shift+F1 move container to workspace F1:chrom
+bindsym $mod+Shift+F2 move container to workspace F2:@
+bindsym $mod+Shift+F3 move container to workspace F3:%
+bindsym $mod+Shift+F4 move container to workspace F4:music
+bindsym $mod+Shift+F5 move container to workspace F5:wireshark
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
