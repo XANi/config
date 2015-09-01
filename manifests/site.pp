@@ -42,6 +42,7 @@ node default {
         'emacs::org':;
         'emacs':;
         'env':;
+        'fonts':;
         'home':;
         'monit':;
         'ntp::client':;
