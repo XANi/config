@@ -113,10 +113,14 @@ ${if_gw}GW: ${color6}${gw_ip} ${color}[DNS: ${color6}${nameserver}$color] ${colo
 ${color}WiFi: ${color6}${wireless_essid wlan0}$color[${wireless_bitrate wlan0} ${color}ch:${color6}${wireless_channel wlan0}${color}]${alignr}${wireless_link_bar 10,100 wlan0}
 <%- end -%>
 Up:${color ffcc00} ${upspeed <%= wan_if %>} ${color} - Down:${color 00ffcc} ${downspeed <%= wan_if %>}
+<%- if have_wifi -%>
+${color4} ${upspeedgraph eth0 50,230 ffff00 ff0000 -l -t} ${color4} ${upspeedgraph <%= wan_if %> 50,230 ffff00 ff0000 -l -t}
+${color4} ${downspeedgraph eth0 50,230 0000ff 00ff00 -l -t}${color4} ${downspeedgraph <%= wan_if %> 50,230 0000ff 00ff00 -l -t}
+<%- else -%>
 ${color4} ${upspeedgraph <%= wan_if %> 50,500 ffff00 ff0000 -l -t}
 ${color4} ${downspeedgraph <%= wan_if %> 50,500 0000ff 00ff00 -l -t}
-${color}
-$hr
+<%- end -%>
+${color}$hr
 ${color}Name              PID   CPU%   MEM%
 ${if_match ${top cpu 1} > 40}${color ffaa00}${else}${color6}${endif} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${if_match ${top cpu 2} > 40}${color ffaa00}${else}${color6}${endif} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
