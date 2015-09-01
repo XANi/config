@@ -89,7 +89,7 @@ ${scroll 50 1 $nodename - $sysname $kernel on $machine [$uptime] | }
 $hr
 <%- if laptop -%>
 ${color}Battery: ${color4}${battery_short}${color}[${color4}${battery_time}${color}]${alignr 10}${color6}${battery_bar 8,230}
-<$- end -%>
+<%- end -%>
 ${color}Frequency (in GHz):$color4 $freq_g [$freq]
 ${color}RAM:$color4 $mem/$memmax - $memperc% ${color6}${alignr 10}${membar 8,230}
 ${color}Swap:$color4 $swap/$swapmax - $swapperc% ${color6}${alignr 10}${swapbar 8,230}
