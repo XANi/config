@@ -4,9 +4,13 @@ alignment top_right
 <%
 # dumb but dont have time to fix it now
 wan_if = "eth0"
+laptop = false
 if @interfaces =~ /wlan0/
    wan_if = "wlan0"
    have_wifi = true
+end
+if @type =~ /(book|blet)/
+   laptop = true
 end
 %>
 
@@ -76,11 +80,14 @@ show_graph_range no
 short_units yes
 imap host user pass
 top_cpu_separate true
+<%- if laptop -%>
+update_interval_on_battery 3
+<%- end -%>
 
 TEXT
 ${scroll 50 1 $nodename - $sysname $kernel on $machine [$uptime] | }
 $hr
-<%- if $type =~ /(book|blet)/ -%>
+<%- if laptop -%>
 ${color}Battery: ${color4}${battery_short}${color}[${color4}${battery_time}${color}]${alignr 10}${color6}${battery_bar 8,230}
 <$- end -%>
 ${color}Frequency (in GHz):$color4 $freq_g [$freq]
