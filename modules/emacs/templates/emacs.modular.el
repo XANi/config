@@ -51,7 +51,7 @@
 <%- end -%>
 
 ;; smaller font with decent progreamming/pliterki
-(set-face-attribute 'default nil :height 90 :family "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 98 :family "DejaVu Sans Mono")
 ;; my customisations
 
 (require 'autoinsert)
