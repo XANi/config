@@ -99,8 +99,9 @@ ${color} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color}Processes:$color4 $processes  ${color}Running:$color4 $running_processes
 $hr
 ${color}File systems:
- ${if_match ${fs_free_perc} < 10}${color3}${else}${color6}${endif} / ${fs_used /}/${fs_size /} ${fs_bar 8 /}
- ${if_match ${fs_free_perc} < 10}${color3}${else}${color6}${endif} /home ${fs_used /home}/${fs_size /home} ${fs_bar 8 /home}
+<%- ['/','/home'].each do |fs| -%>
+ ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,230 <%= fs %>}
+<%- end -%>
 ${color}Diskio
 ${color gray} sda ${color ffcc00} ${diskio_read sda} ${color6} ${diskio_write sda}
 ${color}${diskiograph sda 50,500 0000ff 00ff00 -t -f}
