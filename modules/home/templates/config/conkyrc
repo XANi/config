@@ -114,7 +114,7 @@ ${color}Processes:$color4 $processes  ${color}Running:$color4 $running_processes
 $hr
 ${color}File systems:
 <%- mounts.each do |fs| -%>
- ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,230 <%= fs %>}
+ ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,130 <%= fs %>}
 <%- end -%>
 ${color}Diskio
 ${color gray} sda ${color ffcc00} ${diskio_read sda} ${color6} ${diskio_write sda}
