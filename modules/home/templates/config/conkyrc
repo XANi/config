@@ -37,7 +37,7 @@ own_window_type override
 #own_window_type override
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_colour 000000
-own_window_argb_value 150
+own_window_argb_value 180
 maximum_width 500
 draw_shades yes
 default_shade_color 000000
@@ -55,7 +55,9 @@ default_shade_color 1b333e
 
 # default bg/fg
 color0 1b333e
-#color1 7e9fc9
+
+# box draw
+color1 7e9fc9
 
 # urgent bg/fg
 color2 272122
@@ -99,22 +101,21 @@ update_interval_on_battery 3
 <%- end -%>
 
 TEXT
-${scroll 50 1 $nodename - $sysname $kernel on $machine [$uptime] | }
-$hr
+${color1}╔${color6}$nodename [$kernel/$machine] [${uptime_short}]
 <%- if laptop -%>
-${color}Battery: ${color4}${battery_short}${color}[${color4}${battery_time}${color}]${alignr 10}${color6}${battery_bar 8,230}
+${color1}╠${color}Battery: ${color4}${battery_short}${color}[${color4}${battery_time}${color}]${alignr 10}${color6}${battery_bar 8,230}
 <%- end -%>
-${color}Frequency (in GHz):$color4 $freq_g [$freq]
-${color}RAM:$color4 $mem/$memmax - $memperc% ${color6}${alignr 10}${membar 8,230}
-${color}Swap:$color4 $swap/$swapmax - $swapperc% ${color6}${alignr 10}${swapbar 8,230}
-${color}CPU:$color4 $cpu% ${color6}${alignr 10}${cpubar 8,230}
+${color1}╠${color}Frequency (in GHz):$color4 $freq_g [$freq]
+${color1}╠${color}RAM:$color4 $mem/$memmax - $memperc% ${color6}${alignr 10}${membar 8,230}
+${color1}╠${color}Swap:$color4 $swap/$swapmax - $swapperc% ${color6}${alignr 10}${swapbar 8,230}
+${color1}╚${color}CPU:$color4 $cpu% ${color6}${alignr 10}${cpubar 8,230}
 ${loadgraph 50,500 00ff00 0000ff -t}
 ${color} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color}Processes:$color4 $processes  ${color}Running:$color4 $running_processes
 $hr
-${color}File systems:
+${color1}╔${color}File systems:
 <%- mounts.each do |fs| -%>
- ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,130 <%= fs %>}
+${color1}<% if mounts.last == fs %>╚<% else %>╠<% end %>${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif}<%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,180 <%= fs %>}
 <%- end -%>
 ${color}Diskio
 ${color gray} sda ${color ffcc00} ${diskio_read sda} ${color6} ${diskio_write sda}
