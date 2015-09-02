@@ -23,6 +23,7 @@ File.open('/proc/mounts').each_line do |l|
    if mount =~/\/boot/
      next
    end
+   mounts.push(mount)
 end
 
 %>
@@ -112,7 +113,7 @@ ${color} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color}Processes:$color4 $processes  ${color}Running:$color4 $running_processes
 $hr
 ${color}File systems:
-<%- fs.each do |fs| -%>
+<%- mounts.each do |fs| -%>
  ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,230 <%= fs %>}
 <%- end -%>
 ${color}Diskio
