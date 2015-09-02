@@ -12,6 +12,19 @@ end
 if @type =~ /(book|blet)/
    laptop = true
 end
+
+mounts = []
+re = /^(?<dev>.+) /# on (.+) type (.+) \(/
+File.open('/proc/mounts').each_line do |l|
+  (dev,mount,type) = l.split(/ /)
+   if type !~ /(xfs|ext)/
+     next
+   end
+   if mount =~/\/boot/
+     next
+   end
+end
+
 %>
 
 own_window yes
@@ -99,7 +112,7 @@ ${color} ${cpugraph 50,500 0000aa ff0000 -t}
 ${color}Processes:$color4 $processes  ${color}Running:$color4 $running_processes
 $hr
 ${color}File systems:
-<%- ['/','/home'].each do |fs| -%>
+<%- fs.each do |fs| -%>
  ${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif} <%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,230 <%= fs %>}
 <%- end -%>
 ${color}Diskio
