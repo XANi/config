@@ -45,6 +45,7 @@ node default {
         'fonts':;
         'home':;
         'monit':;
+        'motd':;
         'ntp::client':;
         'systemd::poweroff_on_halt':;
         'puppet':;
