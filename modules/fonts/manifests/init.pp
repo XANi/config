@@ -7,6 +7,6 @@ class fonts {
         ensure => present,
         mode   => 644,
         recurse => true,
-        source => 'puppet://modules/fonts/otf/',
+        source => 'puppet:///modules/fonts/otf/',
     }
 }
