@@ -80,7 +80,7 @@ draw_outline no
 draw_shades no
 #draw_graph_borders yes
 use_xft yes
-xftfont DejaVu Sans Mono:size=12
+xftfont Inconsolata:size=12
 gap_x 40
 gap_y 50
 minimum_size 5 5
@@ -94,7 +94,7 @@ use_spacer none
 show_graph_scale no
 show_graph_range no
 short_units yes
-imap host user pass
+imap host user pass3
 top_cpu_separate true
 <%- if laptop -%>
 update_interval_on_battery 3
