@@ -80,7 +80,7 @@ draw_outline no
 draw_shades no
 #draw_graph_borders yes
 use_xft yes
-xftfont Inconsolata:size=12
+xftfont Fantasque Sans Mono:size=12
 gap_x 40
 gap_y 50
 minimum_size 5 5
