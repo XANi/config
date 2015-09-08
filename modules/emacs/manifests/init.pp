@@ -107,6 +107,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'twittering-mode',
                        'undo-tree',
                        'vcl-mode',
+                       'wanderlust',
                        'web-mode',
                        'yasnippet',
                        'zenburn-theme',

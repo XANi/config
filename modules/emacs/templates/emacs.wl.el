@@ -1,7 +1,7 @@
 ;; <%= @puppet_header %>
 ;; <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
-(require 'bbdb-wl)
-(bbdb-wl-setup)
+;;(require 'bbdb-wl)
+;;(bbdb-wl-setup)
 (require 'mime-bbdb)
 (autoload 'bbdb         "bbdb-com" "Insidious Big Brother Database" t)
 (autoload 'bbdb-name    "bbdb-com" "Insidious Big Brother Database" t)
@@ -75,6 +75,12 @@
 (setq wl-trash-folder "%INBOX.Trash")
 
 (setq wl-folder-check-async t)
+
+;; Look and feel
+(setq wl-summary-indent-length-limit 200)
+(setq wl-summary-line-format "%n%T%P%Y-%M-%D(%W)%h:%m %t%[%17(%c %f%) %] %s")
+
+
 ;; let gmail do it
 ;;   (setq wl-insert-message-id nil)
 ;;(setq wl-message-id-domain "devrandom.pl")
