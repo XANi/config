@@ -88,6 +88,10 @@
 
 ;;(setq elmo-imap4-use-modified-utf7 t)
 
+(setq
+  wl-forward-subject-prefix "Fwd: " )    ;; use "Fwd: " not "Forward: "
+
+
 (autoload 'wl-user-agent-compose "wl-draft" nil t)
 (if (boundp 'mail-user-agent)
     (setq mail-user-agent 'wl-user-agent))
