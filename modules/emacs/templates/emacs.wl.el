@@ -52,7 +52,7 @@
    ;; IMAP
    <% if @mail_imap_server %>(setq elmo-imap4-default-server "<%= @mail_imap_server %>")<% end %>
    <% if @mail_user %>(setq elmo-imap4-default-user "<%= @mail_user %>")<% end %>
-   (setq elmo-imap4-default-authenticate-type 'plain)
+   (setq elmo-imap4-default-authenticate-type 'clear)
    (setq elmo-imap4-default-port '993)
    (setq elmo-imap4-default-stream-type 'ssl)
 
@@ -61,11 +61,11 @@
 ;; SMTP
 (setq wl-from "<%= @mail_from %>")
 
-(setq wl-organization "Artegence")
+(setq wl-organization "Efigence")
 (setq wl-user-mail-address-list (quote (<% Array(@mail_address_list).each do |email| %>"<%= email %>" <% end %> )))
 (setq wl-smtp-connection-type 'starttls)
 (setq wl-smtp-posting-port 587)
-(setq wl-smtp-authenticate-type "plain")
+(setq wl-smtp-authenticate-type "clear")
 (setq wl-smtp-posting-user "<%= @mail_smtp_user %>")
 <% if @mail_smtp_server %>(setq wl-smtp-posting-server "<%= @mail_smtp_server %>")<% end %>
 <% if @mail_domain %>(setq wl-local-domain "<%= @mail_domain %>")<% end %>
@@ -77,7 +77,8 @@
 (setq wl-folder-check-async t)
 
 ;; Look and feel
-(setq wl-summary-indent-length-limit 200)
+(setq wl-summary-indent-length-limit 50)
+(setq wl-summary-width 200)
 (setq wl-summary-line-format "%n%T%P%Y-%M-%D(%W)%h:%m %t%[%17(%c %f%) %] %s")
 
 

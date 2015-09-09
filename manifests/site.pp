@@ -41,6 +41,7 @@ node default {
         'dpp':;
         'emacs::org':;
         'emacs':;
+        'emacs::wl':;
         'env':;
         'fonts':;
         'home':;
