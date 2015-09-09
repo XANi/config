@@ -6,7 +6,12 @@
 # If you edit this file by hand, be sure that comment lines
 # will be washed out by wl-fldmgr.
 #
-
+<% if @project == 'arte' %>
+%INBOX
+%0_Read
+%admin
+%all
+%for_me
 OTRS{
 	%OTRS.New
 	%OTRS.Calendar
@@ -14,7 +19,15 @@ OTRS{
 	%OTRS
 	%OTRS.reminders
 }
+Mailing lists {
+        %Mailing_list.ceph
+        %Mailing_list.openstack
+        %Mailing_list.haproxy
+}
 SRV {
+    %daemon_spam
+    %Nagios
+    %non_3dart_com
 	%srv.Bcp
 	%srv.Cacti
 	%srv.Cron
@@ -26,10 +39,21 @@ SRV {
 	%srv.heartbeat
 	%srv.mailman
 }
+Crap {
+     %Junk
+     %SPAM
+     %TBR
+     %WTF
+}
+<% end %>
 <%-%>%/
 
+<% if @project == 'arte' %>
 # petname definition (access group, folder in access group)
-=	%	"Arte"
-=	%INBOX	"0.INBOX"
-
+=	%	"All"
+=	%0_Read                 "Read mail"
+=   %Mailing_list.ceph      "Ceph"
+=   %Mailing_list.openstack "Openstack"
+=   %Mailing_list.haproxy   "Haproxy"
+<% end %>
 # end of file.

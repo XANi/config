@@ -428,7 +428,7 @@ class emacs::wl {
     require emacs
     $homedir = $emacs::homedir
     $mail_domain = hiera('wl_mail_domain','devrandom.pl')
-    $mail_from = hiera('wl_mail_from')
+    $mail_from = hiera('wl_mail_from','')
     $mail_smtp_server = hiera('wl_smtp_server','imap.gmail.com')
     $mail_imap_server = hiera('wl_imap_server','smtp.gmail.com')
     $mail_user = hiera('wl_mail_user',false)
