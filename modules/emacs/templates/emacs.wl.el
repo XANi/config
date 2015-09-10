@@ -65,7 +65,7 @@
 (setq wl-user-mail-address-list (quote (<% Array(@mail_address_list).each do |email| %>"<%= email %>" <% end %> )))
 (setq wl-smtp-connection-type 'starttls)
 (setq wl-smtp-posting-port 587)
-(setq wl-smtp-authenticate-type "clear")
+(setq wl-smtp-authenticate-type "plain")
 (setq wl-smtp-posting-user "<%= @mail_smtp_user %>")
 <% if @mail_smtp_server %>(setq wl-smtp-posting-server "<%= @mail_smtp_server %>")<% end %>
 <% if @mail_domain %>(setq wl-local-domain "<%= @mail_domain %>")<% end %>
