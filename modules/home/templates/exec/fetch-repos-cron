@@ -1,0 +1,7 @@
+#!/bin/bash
+FILE="/tmp/fetch-repos.log"
+sudo -u xani touch $FILE
+echo -n "Starting fetch" > $FILE
+date >> $FILE
+sudo -u xani -i /usr/local/bin/fetch-repos >>$FILE 2>&1
+date >> $FILE

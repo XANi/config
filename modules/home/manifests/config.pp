@@ -52,6 +52,8 @@ class home::config (
         notify-wrapper:;
         puppet-notify:;
         fetch-repos:;
+        fetch-repos-cron:
+            target => "/etc/cron.daily/fetch-repos";
         meta:;
         'i3blocks/vpn':
             target => "$homedir/.config/i3blocks/blocks/vpn";
