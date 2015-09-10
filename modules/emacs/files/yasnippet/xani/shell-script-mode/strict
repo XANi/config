@@ -1,0 +1,6 @@
+#name : sdir ... { ... }
+#key : sdir
+# --
+set -euo pipefail
+#IFS=$'\n    '
+$0
