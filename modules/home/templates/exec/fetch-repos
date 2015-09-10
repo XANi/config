@@ -1,8 +1,7 @@
 #!/usr/bin/env perl
-# puppet managed file, for more info 'puppet-find-resources $filename'
-# BEFORE YOU MAKE ANY CHANGES, READ https://stonka.non.3dart.com/wiki/wiki/Puppet#Zarz.C4.85dzanie_konfiguracjami
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
-# template for new commandline scripts
 use v5.10;
 use lib '/usr/local/lib/perl5'; # arte libs
 use strict;
@@ -14,6 +13,7 @@ use Pod::Usage;
 
 my $cfg = { # default config values go here
     'repo-root'  => '/home/xani/src',
+    'fetch-all' => 0,
     'ignore-regexp' => '(src/os/|src/old)',
     'depth'         => 4,
 };
@@ -21,7 +21,8 @@ my $help;
 
 GetOptions(
 #    'daemon'        => \$cfg->{'daemon'},
-#    'pidfile=s'       => \$cfg->{'pidfile'},
+    #    'pidfile=s'       => \$cfg->{'pidfile'},
+    'fetch-all'     => \$cfg->{'fetch-all'},
     'help'          => \$help,
 ) or pod2usage(
     -verbose => 2,  #2 is "full man page" 1 is usage + options ,0/undef is only usage
@@ -66,7 +67,11 @@ while(<$repos>) {
     system('git','remote','show','-n','origin');
     my $out = $? >> 8;
     if ($out == 0) {
-        system('git','fetch','--all');
+        if ($cfg->{'fetch-all'}) {
+            system('git','fetch','--all');
+        } else {
+            system('git','fetch','--all');
+        }
     }
 }
 
