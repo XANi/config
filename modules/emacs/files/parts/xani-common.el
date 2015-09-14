@@ -14,9 +14,6 @@
 ;; set default buffer to fundamental, I rarely use it for actual lisp
 (setq initial-major-mode 'fundamental-mode)
 
-;; treat "-" as part of the word
-(modify-syntax-entry ?- "w" standard-syntax-table)
-
 ;; moving between frames
 
 (global-set-key [s-left] 'windmove-left)          ; move to left windnow
