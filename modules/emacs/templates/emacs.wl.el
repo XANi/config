@@ -65,7 +65,7 @@
 (setq wl-user-mail-address-list (quote (<% Array(@mail_address_list).each do |email| %>"<%= email %>" <% end %> )))
 (setq wl-smtp-connection-type 'starttls)
 (setq wl-smtp-posting-port 587)
-(setq wl-smtp-authenticate-type "clear")
+(setq wl-smtp-authenticate-type "plain")
 (setq wl-smtp-posting-user "<%= @mail_smtp_user %>")
 <% if @mail_smtp_server %>(setq wl-smtp-posting-server "<%= @mail_smtp_server %>")<% end %>
 <% if @mail_domain %>(setq wl-local-domain "<%= @mail_domain %>")<% end %>
@@ -81,6 +81,28 @@
 (setq wl-summary-width 200)
 (setq wl-summary-line-format "%n%T%P%Y-%M-%D(%W)%h:%m %t%[%17(%c %f%) %] %s")
 
+;; http://www.gohome.org/wl/doc/wl_36.html
+(custom-set-variables
+ '(wl-interactive-send nil) ;; dont ask on sending msg
+ '(wl-message-window-size (quote (1 . 2)))
+ '(wl-message-ignored-field-list
+   (quote
+    (".*Received:"
+     ".*Path:"
+     ".*Id:"
+     "^References:"
+     "^Replied:"
+     "^Errors-To:"
+     "^Lines:"
+     "^Sender:"
+     ".*Host:"
+     "^Xref:"
+     "^Content-Type:"
+     "^Precedence:"
+     "^Status:"
+     "^X-VM-.*:")))
+
+ )
 
 ;; let gmail do it
 ;;   (setq wl-insert-message-id nil)
@@ -90,8 +112,8 @@
 
 (setq
   wl-forward-subject-prefix "Fwd: " )    ;; use "Fwd: " not "Forward: "
-
-
+(setq elmo-folder-update-threshold 40000)
+(setq elmo-message-fetch-threshold 500000)
 (autoload 'wl-user-agent-compose "wl-draft" nil t)
 (if (boundp 'mail-user-agent)
     (setq mail-user-agent 'wl-user-agent))

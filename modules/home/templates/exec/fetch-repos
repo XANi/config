@@ -12,7 +12,7 @@ use Pod::Usage;
 #use Data::Dumper;
 
 my $cfg = { # default config values go here
-    'repo-root'  => '/home/xani/src',
+    'repo-root'  => '/home/xani/src/my',
     'fetch-all' => 0,
     'ignore-regexp' => '(src/os/|src/old)',
     'depth'         => 4,

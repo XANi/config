@@ -176,8 +176,10 @@
 
 ;; mouse+ show position when holding paste
 (global-set-key [down-mouse-2]  'mouse-flash-position-or-M-x)
+;;
 
-(global-set-key (kbd "<escape>") 'god-local-mode)
+;;(global-set-key (kbd "<escape>") 'god-local-mode)
+(global-set-key (kbd "<escape>") 'abort-recursive-edit)
 
 ;; revert files if they changed on disk (git)
 (global-auto-revert-mode)
