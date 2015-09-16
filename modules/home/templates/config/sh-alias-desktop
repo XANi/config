@@ -10,3 +10,5 @@ alias proxy='if [ -e /etc/environment ] ; then source /etc/environment; else ; e
 alias my='cd ~/src/my'
 # force encodings because it uses raw when going to localhost which is useless when using ssh tunnel
 alias vncviewer='vncviewer -encodings  "copyrect tight hextile zlib corre rre raw"'
+alias sc='systemctl'
+alias vm='virsh'
