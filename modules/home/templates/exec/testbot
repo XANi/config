@@ -4,7 +4,6 @@
 
 # run tests, output only if changed
 
-set -euo pipefail
 GIT_ROOT=$(git rev-parse --show-toplevel)
 cd "$GIT_ROOT"
 
@@ -35,7 +34,7 @@ while sleep 1 ; do
     if diff  tmp/test-new tmp/test-old >/dev/null 2>&1 ;then
         echo -n "."
     else
-        echo "\n";
+        clear
         cat tmp/test-new
         cp tmp/test-new tmp/test-old
     fi
