@@ -1,0 +1,6 @@
+#name : strict ... { ... }
+#key : strict
+# --
+set -euo pipefail
+#IFS=$'\n    '
+$0

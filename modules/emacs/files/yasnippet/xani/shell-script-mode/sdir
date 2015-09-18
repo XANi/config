@@ -1,5 +1,0 @@
-#name : sdir ... { ... }
-#key : sdir
-# --
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-$0
