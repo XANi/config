@@ -1,0 +1,6 @@
+#name : gdir ... { ... }
+#key : ggir
+# --
+GIT_ROOT=\$(git rev-parse --show-toplevel)
+cd "$GIT_ROOT"
+$0
