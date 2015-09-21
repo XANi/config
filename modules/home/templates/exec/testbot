@@ -29,10 +29,12 @@ fi
 echo "running tests"
 rm tmp/test-new tmp/test-old || true
 touch tmp/test-new tmp/test-old
+spinner='/-\|'
 while sleep 1 ; do
     $TESTCMD_PREFIX $TESTCMD 2>&1 | grep -v -P 'wallclock secs' > tmp/test-new
     if diff  tmp/test-new tmp/test-old >/dev/null 2>&1 ;then
-        echo -n "."
+        printf '\b%.1s' "$spinner"
+        spinner=${spinner#?}${spinner%???}
     else
         clear
         cat tmp/test-new
