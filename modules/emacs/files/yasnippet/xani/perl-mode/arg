@@ -1,4 +1,3 @@
 #name: my $arg = shift;
 # --
-my $$1 = shift;
-$0
+my $$1 = shift;$0
