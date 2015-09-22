@@ -29,6 +29,11 @@
 (global-set-key (kbd "M-s-d") 'forward-word)
 (global-set-key (kbd "M-s-a") 'backward-word)
 
+
+;; make M- kill in same direction C- does in right direcion
+(global-set-key (kbd "M-DEL") 'kill-word)
+(global-set-key (kbd "<M-backspace>") 'backward-kill-word)
+
 ;; use ibuffer by default
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
