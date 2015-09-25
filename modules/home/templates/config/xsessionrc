@@ -2,19 +2,19 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
-if [ -e ~/.cache/gpg-agent-info ] ; then
-    . ~/.cache/gpg-agent-info
-fi
-if kill -0 $SSH_AGENT_PID ; then
-    echo 'agent exist, using existing one'
-else
-    echo 'starting new agent'
-    /usr/bin/gpg-agent --sh --daemon --enable-ssh-support --write-env-file ~/.cache/gpg-agent-info
-    . ~/.cache/gpg-agent-info
-fi
-export GPG_AGENT_INFO
-export SSH_AUTH_SOCK
-export SSH_AGENT_PID
+# if [ -e ~/.cache/gpg-agent-info ] ; then
+#     . ~/.cache/gpg-agent-info
+# fi
+# if kill -0 $SSH_AGENT_PID ; then
+#     echo 'agent exist, using existing one'
+# else
+#     echo 'starting new agent'
+#     /usr/bin/gpg-agent --sh --daemon --enable-ssh-support --write-env-file ~/.cache/gpg-agent-info
+#     . ~/.cache/gpg-agent-info
+# fi
+# export GPG_AGENT_INFO
+# export SSH_AUTH_SOCK
+# export SSH_AGENT_PID
 
 echo $STARTUP >~/tmp/.xsesssion_basestartup
 
