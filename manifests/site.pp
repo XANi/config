@@ -19,6 +19,15 @@ $location = hiera('location','default')
 $project = hiera('project','default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
+schedule {'once-per-day':
+    period => daily,
+    repeat => 1,
+}
+
+notify {"First run of the day":
+    schedule => 'once-per-day',
+}
+
 node default {
     apt::source {
         'chromium':;

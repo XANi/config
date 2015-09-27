@@ -2,7 +2,7 @@ class zsh {
     vcsrepo {'/home/xani/.oh-my-zsh':
         ensure => present,
         provider => 'git',
-        source   => 'https://github.com/robbyrussell/oh-my-zsh.git',
+        source   => 'https://github.com/XANi/oh-my-zsh.git',
         user     => 'xani'
     }
     file {'/home/xani/.oh-my-zsh/themes/xani.zsh-theme':
