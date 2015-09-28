@@ -33,7 +33,9 @@ spinner='/-\|'
 while sleep 1 ; do
     $TESTCMD_PREFIX $TESTCMD 2>&1 | grep -v -P 'wallclock secs' > tmp/test-new
     if diff  tmp/test-new tmp/test-old >/dev/null 2>&1 ;then
-        printf '\b%.1s' "$spinner"
+        if [ "z$NOSPIN" = "z" ] ; then
+           printf '\b%.1s' "$spinner"
+        fi
         spinner=${spinner#?}${spinner%???}
     else
         clear
