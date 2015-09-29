@@ -124,3 +124,10 @@
       'wl-draft-send
       'wl-draft-kill
       'mail-send-hook))
+
+;; add signature automatically
+(add-hook 'wl-mail-setup-hook
+          '(lambda ()
+             (save-excursion
+               (end-of-buffer)
+               (wl-draft-insert-signature))))
