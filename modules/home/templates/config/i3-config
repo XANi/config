@@ -274,14 +274,12 @@ for_window [class="^(Eog|ristretto)"] floating enable
 # autofocus urgent window
 for_window [class="Emacs" urgent="latest"] focus
 
-
 # fix realvnc shittines, float IBM's IMM kvm
 for_window [class="(^Vncviewer$|com-sun-javaws)"] floating enable
 assign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
 
 # float virtualbox vm
 for_window [title="(Oracle VM VirtualBox$)"] floating enable
-
 
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] 2:ff
@@ -330,9 +328,6 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
-
-
-
 
 # autostart
 exec --no-startup-id /home/xani/.dropbox-dist/dropboxd

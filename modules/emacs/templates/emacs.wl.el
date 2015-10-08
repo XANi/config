@@ -33,8 +33,6 @@
    '(lambda ()
    (auto-fill-mode 1)))
 
-   ;;(setq wl-message-visible-field-list '("^To" "^Subject" "^From" "^Date" "^Cc"))
-   ;;(setq wl-message-ignored-field-list '("^"))
 
    ;;; popup display of record in the .bbdb
    (setq bbdb-use-pop-up t)
@@ -103,6 +101,9 @@
      "^X-VM-.*:")))
 
  )
+;; less headers
+   (setq wl-message-visible-field-list '("^To" "^Subject" "^From" "^Date" "^Cc"))
+   (setq wl-message-ignored-field-list '("^"))
 
 ;; let gmail do it
 ;;   (setq wl-insert-message-id nil)

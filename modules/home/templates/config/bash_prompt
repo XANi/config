@@ -176,7 +176,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 #export GIT_PS1_SHOWCOLORHINTS=1
 # branch - in relation to current branch/tag, best in repo with no tags
 # contains - how many commits behind tag
-# descrive - git describe format
+# describe - git describe format
 export GIT_PS1_DESCRIBE_STYLE=branch
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
@@ -196,8 +196,6 @@ export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
 <%= scope.function_template(['home/config/sh-alias-desktop']) %>
-
-
 # shortcut for quick sshfs
 sshmount() {
     SSHFS_SERVER_DIR='/home/xani'
