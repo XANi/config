@@ -56,7 +56,7 @@ floating_modifier $alt
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $alt+F4 kill
@@ -330,7 +330,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 #bindsym XF86AudioPrev exec playerctl previous
 
 # autostart
-exec --no-startup-id /home/xani/.dropbox-dist/dropboxd
+exec --no-startup-id  "sh -c 'sleep 60; exec /usr/bin/dropbox start'"
 <%- if @location == 'arte' -%>
 exec --no-startup-id owncloud
 <%- end -%>
