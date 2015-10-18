@@ -132,11 +132,11 @@ workspace "2:ff"         output $screen_left
 workspace "3:emacs"      output $screen_left
 workspace "4:"            output $screen_left
 workspace "5:steam"      output $screen_left
-workspace "F1:chrome"     output $screen_right
-workspace "F2:@"          output $screen_right
-workspace "F3:%"          output $screen_right
-workspace "F4:music"      output $screen_right
-workspace "F5:wireshark" output $screen_right
+workspace "1F:chrome"     output $screen_right
+workspace "2F:@"          output $screen_right
+workspace "3F:%"          output $screen_right
+workspace "4F:music"      output $screen_right
+workspace "5F:wireshark" output $screen_right
 
 # switch to workspace
 bindsym $mod+1 workspace 1:sh
@@ -144,11 +144,11 @@ bindsym $mod+2 workspace 2:ff
 bindsym $mod+3 workspace 3:emacs
 bindsym $mod+4 workspace 4:
 bindsym $mod+5 workspace 5:steam
-bindsym $mod+F1 workspace F1:chrome
-bindsym $mod+F2 workspace F2:@
-bindsym $mod+F3 workspace F3:%
-bindsym $mod+F4 workspace F4:music
-bindsym $mod+F5 workspace F5:wireshark
+bindsym $mod+F1 workspace 1F:chrome
+bindsym $mod+F2 workspace 2F:@
+bindsym $mod+F3 workspace 3F:%
+bindsym $mod+F4 workspace 4F:music
+bindsym $mod+F5 workspace 5F:wireshark
 
 
 
@@ -158,11 +158,11 @@ bindsym $mod+Shift+2 move container to workspace 2:ff
 bindsym $mod+Shift+3 move container to workspace 3:emacs
 bindsym $mod+Shift+4 move container to workspace 4:
 bindsym $mod+Shift+5 move container to workspace 5:steam
-bindsym $mod+Shift+F1 move container to workspace F1:chrom
-bindsym $mod+Shift+F2 move container to workspace F2:@
-bindsym $mod+Shift+F3 move container to workspace F3:%
-bindsym $mod+Shift+F4 move container to workspace F4:music
-bindsym $mod+Shift+F5 move container to workspace F5:wireshark
+bindsym $mod+Shift+F1 move container to workspace 1F:chrom
+bindsym $mod+Shift+F2 move container to workspace 2F:@
+bindsym $mod+Shift+F3 move container to workspace 3F:%
+bindsym $mod+Shift+F4 move container to workspace 4F:music
+bindsym $mod+Shift+F5 move container to workspace 5F:wireshark
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -284,12 +284,12 @@ for_window [title="(Oracle VM VirtualBox$)"] floating enable
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] 2:ff
 assign [class="^Emacs"] 3:emacs
-assign [class="^Chrom(e|ium)"] F1:chrome
-assign [class="^Claws-mail"] F2:@
-assign [class="Pidgin"] F3:%
+assign [class="^Chrom(e|ium)"] 1F:chrome
+assign [class="^Claws-mail"] 2F:@
+assign [class="Pidgin"] 3F:%
 assign [class="^Steam"] 5:steam
-assign [class="^(Spotify)"] F4:music
-assign [class="^Wireshark"] F5:wireshark
+assign [class="^(Spotify)"] 4F:music
+assign [class="^Wireshark"] 5F:wireshark
 assign [class="^Virt-manager"] 4:
 
 
@@ -330,14 +330,25 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 #bindsym XF86AudioPrev exec playerctl previous
 
 # autostart
+<<<<<<< HEAD
 exec --no-startup-id  "dropbox start"
 <%- if @location == 'arte' -%>
+=======
+exec --no-startup-id  "sh -c 'sleep 60; exec /usr/bin/dropbox start'"
+<%- if @project == 'arte' -%>
+>>>>>>> b541710c42e805ab3dcd06c10645fa26009c8b8c
 exec --no-startup-id owncloud
 <%- end -%>
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
 exec --no-startup-id parcellite
+
+<% if @type =~ /book/ %>
+# for some reason conky sometimes segfaults if it is started too early, probably because of no network...
+exec --no-startup-id bash -c 'sleep 120 ;LC_ALL=C.UTF-8 conky'
+<% else %>
 exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
+<% end %>
 # -i - inactive windows -e borders -m menu
 # -D ms between fade steps
 # -f enable fading
