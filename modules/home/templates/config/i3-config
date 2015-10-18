@@ -330,7 +330,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 #bindsym XF86AudioPrev exec playerctl previous
 
 # autostart
-exec --no-startup-id  "sh -c 'sleep 60; exec /usr/bin/dropbox start'"
+exec --no-startup-id  "dropbox start"
 <%- if @location == 'arte' -%>
 exec --no-startup-id owncloud
 <%- end -%>
