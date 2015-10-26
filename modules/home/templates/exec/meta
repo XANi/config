@@ -16,7 +16,7 @@ my $cfg = {
     out => 'yaml',
 };
 GetOptions(
-    'format|out=s', \$cfg->{'out'},
+    'format|output|to=s', \$cfg->{'out'},
     'ugly',  \$cfg->{'ugly'},
 ) or pod2usage(
     -verbose => 2,  #2 is "full man page" 1 is usage + options ,0/undef is only usage
