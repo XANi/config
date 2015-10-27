@@ -76,8 +76,14 @@
 
 [status]
     relativePaths = true
-[grep]
-	patternType = perl
 
+[grep]
+    patternType = perl
+
+[rebase]
+    autoStash = true
+
+<% if @project == 'arte' %>
 [branch "stable"]
     mergeoptions = --no-ff
+<% end %>
