@@ -158,7 +158,7 @@ bindsym $mod+Shift+2 move container to workspace 2:ff
 bindsym $mod+Shift+3 move container to workspace 3:emacs
 bindsym $mod+Shift+4 move container to workspace 4:
 bindsym $mod+Shift+5 move container to workspace 5:steam
-bindsym $mod+Shift+F1 move container to workspace 1F:chrom
+bindsym $mod+Shift+F1 move container to workspace 1F:chrome
 bindsym $mod+Shift+F2 move container to workspace 2F:@
 bindsym $mod+Shift+F3 move container to workspace 3F:%
 bindsym $mod+Shift+F4 move container to workspace 4F:music
