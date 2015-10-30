@@ -11,5 +11,7 @@
 (define-auto-insert "puppet.*\.init$" "erb")
 (define-auto-insert "puppet.*\.pl$" "perl.pl")
 (define-auto-insert "puppet.*\.sh$" "sh")
+(define-auto-insert ".*\_test\.go$" "test.go")
+
 
 (provide 'xani-auto-insert)
