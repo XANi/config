@@ -337,6 +337,7 @@ exec --no-startup-id owncloud
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
 exec --no-startup-id parcellite
+exec --no-startup-id tasque
 
 <% if @type =~ /book/ %>
 # for some reason conky sometimes segfaults if it is started too early, probably because of no network...
