@@ -70,6 +70,8 @@ bindsym $alt+F1 move scratchpad
 # bindsym $alt+F2 exec dmenu_run
 
 # rofi test
+# colors and rest of config is in ~/.Xresources
+# to reload it while running, run xrdb ~/.Xresources then send HUP to rofi
 exec --no-startup-id rofi -key-window mod1+Tab -key-run mod1+F2
 
 
