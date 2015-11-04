@@ -66,6 +66,7 @@ class home::packages {
          compton, # compositing
          feh, # wallpaper
          parcellite, # clipboard manager
+         rofi, # window title search, run menu
          arbtt,
          ]:
              ensure => installed,

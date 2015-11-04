@@ -1,0 +1,16 @@
+! <%= @puppet_header %>
+! <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-enabled: true
+rofi.color-normal: argb:cc222222,  #888888,  argb:ff333333,  #285577,  #ffffff
+rofi.color-urgent: argb:cc603000,  #cc5555,  argb:ff603000,  #906000,  #ffffff
+rofi.color-active: argb:cc287744,  #ffffff,  argb:ff287744,  #449966,  #ffff00
+
+!                  'background', 'border'
+rofi.color-window: argb:bb222222,      #002b36
+
+rofi.lines: 30
+rofi.fixed-num-lines: true
+rofi.font: DejaVu Sans Mono 10
+rofi.columns: 1
+rofi.sidebar-mode: true

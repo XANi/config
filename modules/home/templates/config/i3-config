@@ -64,11 +64,15 @@ bindsym $alt+F4 kill
 bindsym F1 scratchpad show
 bindsym $alt+F1 move scratchpad
 
-bindsym $alt+Tab focus right
-bindsym $alt+Shift+Tab focus left
-
+# bindsym $alt+Tab focus right
+# bindsym $alt+Shift+Tab focus left
 # start dmenu (a program launcher)
-bindsym $alt+F2 exec dmenu_run
+# bindsym $alt+F2 exec dmenu_run
+
+# rofi test
+exec --no-startup-id rofi -key-window mod1+Tab -key-run mod1+F2
+
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed
