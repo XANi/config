@@ -18,6 +18,7 @@ class home::config (
         bash_functions:;
         bashrc:;
         conkyrc:;
+        ctags:;
         gitconfig:;
         gitignore_global:;
         htoprc:;
