@@ -112,6 +112,11 @@ class home::config (
         }
     }
 
+    file { 'xani-git-template':
+        path   => "${homedir}/.src/git-template",
+        source => "puppet:///modules/home/git-template",
+    }
+
     file { 'xani-ssh-config':
         path    => "${homedir}/.ssh/config",
         content => template('home/config/ssh_config'),
