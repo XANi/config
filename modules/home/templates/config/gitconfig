@@ -83,9 +83,6 @@
 [rebase]
     autoStash = true
 
-[init]
-	templatedir = ~/.src/git-template
-
 <% if @project == 'arte' %>
 [branch "stable"]
     mergeoptions = --no-ff
