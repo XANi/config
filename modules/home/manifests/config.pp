@@ -111,19 +111,14 @@ class home::config (
             ensure => directory,
         }
     }
-
-    file { 'xani-git-template':
-        path   => "${homedir}/.src/git-template",
-        source => "puppet:///modules/home/git-template",
-    }
-
-    file { 'xani-ssh-config':
-        path    => "${homedir}/.ssh/config",
-        content => template('home/config/ssh_config'),
-        mode    => 600,
-        require => File['xani-ssh-config-dir'],
+    file { '/usr/share/git-core/templates/hooks/post-checkout':
+        content => template('home/git/post-checkout'),
+        mode    => 644,
     }
 }
+
+
+
 
 define home::config::file (
         $source = "home/config/${title}",
