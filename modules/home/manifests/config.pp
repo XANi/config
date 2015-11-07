@@ -113,7 +113,7 @@ class home::config (
     }
     file { '/usr/share/git-core/templates/hooks/post-checkout':
         content => template('home/git/post-checkout'),
-        mode    => 644,
+        mode    => 755,
     }
 }
 
