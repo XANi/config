@@ -11,7 +11,7 @@ class puppet {
      content => template('puppet/info.yaml'),
     }
     package {
-        'puppet':
+        'puppet-common':
             ensure => latest;
         'ruby-deep-merge':
             ensure => installed;
