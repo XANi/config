@@ -18,6 +18,7 @@ class home::config (
         bash_functions:;
         bashrc:;
         conkyrc:;
+        ctags:;
         gitconfig:;
         gitignore_global:;
         htoprc:;
@@ -110,14 +111,14 @@ class home::config (
             ensure => directory,
         }
     }
-
-    file { 'xani-ssh-config':
-        path    => "${homedir}/.ssh/config",
-        content => template('home/config/ssh_config'),
-        mode    => 600,
-        require => File['xani-ssh-config-dir'],
+    file { '/usr/share/git-core/templates/hooks/post-checkout':
+        content => template('home/git/post-checkout'),
+        mode    => 755,
     }
 }
+
+
+
 
 define home::config::file (
         $source = "home/config/${title}",
