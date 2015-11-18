@@ -16,11 +16,7 @@ class puppet {
         'ruby-deep-merge':
             ensure => installed;
     }
-    service { 'puppet':
-        ensure  => stopped,
-        enable  => false,
-        require => Package['puppet'],
-    }
+    util::service_disable {'puppet':;}
 
     file {
         '/etc/hiera.yaml':
