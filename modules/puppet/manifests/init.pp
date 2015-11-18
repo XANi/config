@@ -16,8 +16,6 @@ class puppet {
         'ruby-deep-merge':
             ensure => installed;
     }
-    util::service_disable {'puppet':;}
-
     file {
         '/etc/hiera.yaml':
             mode    => 600,
