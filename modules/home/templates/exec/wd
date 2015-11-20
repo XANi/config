@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if pkill -f -9 "wireshark /tmp/dump" ;then
+    sleep 0.5
+    for a in 0.5 1 1 2 2 ; do
+       if pkill -f -9 "wireshark /tmp/dump" ;then
+          sleep $a
+       else
+           break
+       fi
+    done
+fi
+wireshark /tmp/dump

@@ -55,6 +55,7 @@ class home::config (
         puppet-notify:;
         fetch-repos:;
         testbot:;
+        wd:;
         fetch-repos-cron:
             target => "/etc/cron.daily/fetch-repos";
         meta:;
