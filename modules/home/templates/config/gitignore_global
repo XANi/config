@@ -5,7 +5,7 @@
 \#*\#
 .\#*
 DEADJOE
-.ZILESAVE
+*.ZILESAVE
 
 # Logs, temps and databases #
 *.log
