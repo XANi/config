@@ -82,6 +82,7 @@
 
 
 ;; Languages
+(require 'xani-go)
 (require 'xani-html-mode)
 (require 'xani-markdown)
 (require 'xani-org-mode)
