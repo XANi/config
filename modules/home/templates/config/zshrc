@@ -107,7 +107,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
 
 # sensible cdpath
-cdpath=( ~ ~/src ~/src/my ~/src/os )
+cdpath=( ~/src ~/src/my ~/src/os )
 
 # leave backgrounded processes untouched
 setopt nohup
