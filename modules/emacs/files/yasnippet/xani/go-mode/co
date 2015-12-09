@@ -1,0 +1,6 @@
+#name : co ... { ... }
+#key : co
+# --
+Convey("$1",t,func() {
+  $0
+})
