@@ -29,6 +29,7 @@ class home::packages {
          libnotify-bin,
          mc,
          meld,
+         parallel,
          perlconsole,
          perltidy,
          pkg-mozilla-archive-keyring,
@@ -78,6 +79,8 @@ class home::packages {
     package { 'epdfviewer': ensure => absent }
     # another software that tries to open PDFs but fails at doing that correctly
     package { 'vprerex': ensure => absent }
+    # moreutils conflicts with parallel
+    package { 'moreutils': ensure => absent }
     # polish translations are crap and/or outdated
     package {
         [
