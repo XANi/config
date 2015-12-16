@@ -300,6 +300,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         'perl.pm':;
         'erb':;
         'sh':;
+        'test.go':;
     }
     file { puppet-lint-wrapper:
         path    => '/usr/local/bin/puppet-lint-wrapper',
