@@ -18,6 +18,10 @@
 
 echo $STARTUP >~/tmp/.xsesssion_basestartup
 
+# qt5 doesnt do that by default and doesnt copy settings from qt4 ;/
+export QT_STYLE_OVERRIDE=gtk
+
+
 if [ -e /usr/bin/nvidia-settings ] && [ /home/xani/.nvidia-settings-rc ] ; then
     echo $(sleep 30 ; /usr/bin/nvidia-settings -l) &
 fi
