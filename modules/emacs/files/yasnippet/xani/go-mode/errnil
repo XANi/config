@@ -1,0 +1,5 @@
+#name : errnil ... { ... }
+#key : errnil
+# --
+So(err,ShouldEqual,nil)
+$0

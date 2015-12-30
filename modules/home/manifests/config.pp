@@ -30,6 +30,8 @@ class home::config (
         xmodmap:;
         zshrc:;
         Xresources:;
+        ssh_config:
+            target => '.ssh/config';
         terminator:
             target => ".config/terminator/config";
         arbtt:
