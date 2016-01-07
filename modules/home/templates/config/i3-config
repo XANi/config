@@ -150,11 +150,19 @@ bindsym $mod+2 workspace 2:ff
 bindsym $mod+3 workspace 3:emacs
 bindsym $mod+4 workspace 4:
 bindsym $mod+5 workspace 5:steam
+bindsym $mod+6 workspace 6:
+bindsym $mod+7 workspace 7:
+bindsym $mod+8 workspace 8:
+bindsym $mod+9 workspace 9:
 bindsym $mod+F1 workspace 1F:chrome
 bindsym $mod+F2 workspace 2F:@
 bindsym $mod+F3 workspace 3F:%
 bindsym $mod+F4 workspace 4F:music
 bindsym $mod+F5 workspace 5F:wireshark
+bindsym $mod+F6 workspace 6F:
+bindsym $mod+F6 workspace 7F:
+bindsym $mod+F6 workspace 8F:
+bindsym $mod+F6 workspace 9F:
 
 
 
@@ -164,11 +172,19 @@ bindsym $mod+Shift+2 move container to workspace 2:ff
 bindsym $mod+Shift+3 move container to workspace 3:emacs
 bindsym $mod+Shift+4 move container to workspace 4:
 bindsym $mod+Shift+5 move container to workspace 5:steam
+bindsym $mod+Shift+6 move container to workspace 6:
+bindsym $mod+Shift+7 move container to workspace 7:
+bindsym $mod+Shift+8 move container to workspace 8:
+bindsym $mod+Shift+9 move container to workspace 9:
 bindsym $mod+Shift+F1 move container to workspace 1F:chrome
 bindsym $mod+Shift+F2 move container to workspace 2F:@
 bindsym $mod+Shift+F3 move container to workspace 3F:%
 bindsym $mod+Shift+F4 move container to workspace 4F:music
 bindsym $mod+Shift+F5 move container to workspace 5F:wireshark
+bindsym $mod+Shift+F6 move container to workspace 6F:
+bindsym $mod+Shift+F7 move container to workspace 7F:
+bindsym $mod+Shift+F8 move container to workspace 8F:
+bindsym $mod+Shift+F9 move container to workspace 9F:
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
