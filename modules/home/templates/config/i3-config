@@ -160,9 +160,9 @@ bindsym $mod+F3 workspace 3F:%
 bindsym $mod+F4 workspace 4F:music
 bindsym $mod+F5 workspace 5F:wireshark
 bindsym $mod+F6 workspace 6F:
-bindsym $mod+F6 workspace 7F:
-bindsym $mod+F6 workspace 8F:
-bindsym $mod+F6 workspace 9F:
+bindsym $mod+F7 workspace 7F:
+bindsym $mod+F8 workspace 8F:
+bindsym $mod+F9 workspace 9F:
 
 
 
