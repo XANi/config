@@ -184,7 +184,6 @@ bindsym $mod+Shift+F5 move container to workspace 5F:wireshark
 bindsym $mod+Shift+F6 move container to workspace 6F:
 bindsym $mod+Shift+F7 move container to workspace 7F:
 bindsym $mod+Shift+F8 move container to workspace 8F:
-bindsym $mod+Shift+F9 move container to workspace 9F:
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -308,7 +307,7 @@ for_window [title="(Oracle VM VirtualBox$)"] floating enable
 assign [class="^(Firefox|Iceweasel)"] 2:ff
 assign [class="^Emacs"] 3:emacs
 assign [class="^(Chrome|Chromium|chromium-browser)"] 1F:chrome
-assign [class="^Claws-mail"] 2F:@
+assign [class"^Claws-mail"] 2F:@
 assign [class="^(Pidgin|Tasque)"] 3F:%
 assign [class="^Steam"] 5:steam
 assign [class="^(Spotify)"] 4F:music
