@@ -135,22 +135,22 @@ bindsym $mod+c focus child
 
 <%
 wspace =  {
-     '01' => { name => "1:sh"         , "out" => '$screen_left',  "key"    => '1', },
-     '02' => { name => "2:ff"         , "out" => '$screen_left',  "key"    => '2', },
-     '03' => { name => "3:emacs"      , "out" => '$screen_left',  "key"    => '3', },
-     '04' => { name => "4:"           , "out" => '$screen_left',  "key"    => '4', },
-     '05' => { name => "5:steam"      , "out" => '$screen_left',  "key"    => '5', },
-     '06' => { name => "6:"           , "out" => '$screen_left',  "key"    => '6', },
-     '07' => { name => "7:"           , "out" => '$screen_left',  "key"    => '7', },
-     '08' => { name => "8:"           , "out" => '$screen_left',  "key"    => '8', },
-     '11' => { name => "1F:chrome"    , "out" => '$screen_right', "key"   => 'F1', },
-     '12' => { name => "2F:✉"         , "out" => '$screen_right', "key"   => 'F2', },
-     '13' => { name => "3F:%"         , "out" => '$screen_right', "key"   => 'F3', },
-     '14' => { name => "4F:music"     , "out" => '$screen_right', "key"   => 'F4', },
-     '15' => { name => "5F:wireshark" , "out" => '$screen_right', "key"   => 'F5', },
-     '16' => { name => "6F:"          , "out" => '$screen_right', "key"   => 'F6', },
-     '17' => { name => "7F:"          , "out" => '$screen_right', "key"   => 'F7', },
-     '18' => { name => "8F:"          , "out" => '$screen_right', "key"   => 'F8', },
+     '01' => { "name" => "1:sh"         , "out" => '$screen_left',  "key"    => '1', },
+     '02' => { "name" => "2:ff"         , "out" => '$screen_left',  "key"    => '2', },
+     '03' => { "name" => "3:emacs"      , "out" => '$screen_left',  "key"    => '3', },
+     '04' => { "name" => "4:"           , "out" => '$screen_left',  "key"    => '4', },
+     '05' => { "name" => "5:steam"      , "out" => '$screen_left',  "key"    => '5', },
+     '06' => { "name" => "6:"           , "out" => '$screen_left',  "key"    => '6', },
+     '07' => { "name" => "7:"           , "out" => '$screen_left',  "key"    => '7', },
+     '08' => { "name" => "8:"           , "out" => '$screen_left',  "key"    => '8', },
+     '11' => { "name" => "1F:chrome"    , "out" => '$screen_right', "key"   => 'F1', },
+     '12' => { "name" => "2F:✉"         , "out" => '$screen_right', "key"   => 'F2', },
+     '13' => { "name" => "3F:%"         , "out" => '$screen_right', "key"   => 'F3', },
+     '14' => { "name" => "4F:music"     , "out" => '$screen_right', "key"   => 'F4', },
+     '15' => { "name" => "5F:wireshark" , "out" => '$screen_right', "key"   => 'F5', },
+     '16' => { "name" => "6F:"          , "out" => '$screen_right', "key"   => 'F6', },
+     '17' => { "name" => "7F:"          , "out" => '$screen_right', "key"   => 'F7', },
+     '18' => { "name" => "8F:"          , "out" => '$screen_right', "key"   => 'F8', },
 }
 %>
 
