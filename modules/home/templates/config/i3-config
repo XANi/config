@@ -282,15 +282,15 @@ assign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
 for_window [title="(Oracle VM VirtualBox$)"] floating enable
 
 # Separate some stuff
-assign [class="^(Firefox|Iceweasel)"] 2:ff
-assign [class="^Emacs"] 3:emacs
-assign [class="^(Chrome|Chromium|chromium-browser)"] 1F:chrome
-assign [class="^Claws-mail"] 2F:@
-assign [class="^(Pidgin|Tasque)"] 3F:%
-assign [class="^Steam"] 5:steam
-assign [class="^(Spotify)"] 4F:music
-assign [class="^Wireshark"] 5F:wireshark
-assign [class="^Virt-manager"] 4:
+assign [class="^(Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
+assign [class="^Emacs"] <%= wspace['03']['name'] %>
+assign [class="^(Chrome|Chromium|chromium-browser)"] <%= wspace['11']['name'] %>
+assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
+assign [class="^(Pidgin|Tasque)"] <%= wspace['13']['name'] %>
+assign [class="^Steam"] <%= wspace['05']['name'] %>
+assign [class="^(Spotify)"] <%= wspace['14']['name'] %>
+assign [class="^Wireshark"] <%= wspace['15']['name'] %>
+assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
 
 
 #test if it is workable
