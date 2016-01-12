@@ -28,6 +28,7 @@ class home::config (
         toprc:;
         xsessionrc:;
         xmodmap:;
+        zile:;
         zshrc:;
         Xresources:;
         ssh_config:
