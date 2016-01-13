@@ -281,6 +281,9 @@ assign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
 # float virtualbox vm
 for_window [title="(Oracle VM VirtualBox$)"] floating enable
 
+# float "Follow steam" from wireshark
+for_window [title="^Wireshark.*Follow.*"] floating enable
+
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
