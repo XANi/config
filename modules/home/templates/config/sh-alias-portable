@@ -13,3 +13,8 @@ alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$
 alias se='service'
 alias dk='docker'
 alias sctl='systemctl'
+<% if $operatingsystem == 'CentOS' and $lsbmajdistrelease <= 6 %>
+alias mtrr='mtr -r -w'
+<% else %>
+alias mtrr='mtr -r -w -b'
+<% end %>
