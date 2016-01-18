@@ -188,6 +188,8 @@ if [ "$SUDO_USER" = "xani" ] ; then
         export HOME=~xani
     fi
 fi
+# to cleanup lingering screen sessions
+export TMOUT=864000
 export EDITOR=emacs
 <% else -%>
 export GOPATH=/home/xani/src/lib/go
