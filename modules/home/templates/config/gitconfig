@@ -63,6 +63,7 @@
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     pop = stash pop
+    re = reset HEAD~1
     s = status -s -b
     st = !git fetch -p && git status -s -b
     # cleanup everything but tags, ask
