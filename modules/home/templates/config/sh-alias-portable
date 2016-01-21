@@ -19,7 +19,7 @@ else
     alias tcpdump='sudo tcpdump -n -s 0'
 fi
 
-<% if $operatingsystem == 'CentOS' and $lsbmajdistrelease <= 6 %>
+<% if @location == 'arte' %>
 alias mtrr='mtr -r -w'
 <% else %>
 alias mtrr='mtr -r -w -b'
