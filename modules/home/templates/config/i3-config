@@ -55,6 +55,9 @@ floating_modifier $alt
 # dont follow focus ( I dont want focus change when I put cup on table)
 focus_follows_mouse no
 
+# dont touch my mouse
+mouse_warping none
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
