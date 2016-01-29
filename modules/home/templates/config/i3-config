@@ -248,7 +248,7 @@ bindsym $mod+Delete move workspace to output right
 bindsym $mod+Home move workspace to output top
 bindsym $mod+End move workspace to output bottom
 
-
+for_window [class="__scratchpad"] move scratchpad
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
