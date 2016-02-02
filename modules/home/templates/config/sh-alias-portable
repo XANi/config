@@ -10,6 +10,18 @@ alias varnishadm="rlwrap -pgreen -S'varnish> ' varnishadm"
 alias va='vagrant'
 alias sqlite="sqlite3"
 alias tdump='tcpdump -i any -s 0 -n -U -Z root -C 108 -W 5 -w dump_$(hostname)_$(date +%F_%T).'
+alias sqld='echo .dump| sqlite3'
 alias se='service'
 alias dk='docker'
 alias sctl='systemctl'
+if [ "$USER" = "root" ] ; then
+    alias tcpdump='tcpdump -n -s 0'
+else
+    alias tcpdump='sudo tcpdump -n -s 0'
+fi
+
+<% if @location == 'arte' %>
+alias mtrr='mtr -r -w'
+<% else %>
+alias mtrr='mtr -r -w -b'
+<% end %>

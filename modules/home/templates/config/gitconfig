@@ -54,6 +54,8 @@
 
 [alias]
     c = commit -v <% if gpgid != false %> -S <% end %>
+    # cleanup everything but tags, ask
+    cleanup = !git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
     co = checkout
     cx = commit -v <% if gpgid != false %> -S <% end %>
@@ -63,10 +65,9 @@
     me = merge <% if gpgid != false %> -S <% end %>
     p = !git pull --no-commit && git push -u
     pop = stash pop
+    re = reset HEAD~1
     s = status -s -b
     st = !git fetch -p && git status -s -b
-    # cleanup everything but tags, ask
-    cleanup = !git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
 
 [merge]
     tool = meld

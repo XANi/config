@@ -50,17 +50,22 @@
 ;; I edit configs a lot so if it's unknown file it's probably a config
 (setq-default major-mode 'conf-mode)
 ;; I always use server mode here do replace default kill with server-edit
-(global-set-key [(control x) (k)] '(lambda ()
-  (interactive)
-  (if server-buffer-clients
-      (server-edit)
-    (when (and (frame-live-p (selected-frame))
-               (kill-this-buffer))
-      )
-    (kill-this-buffer)
-    )
-  )
-)
+;; (global-set-key [(control x) (k)] '(lambda ()
+;;   (interactive)
+;;   (if server-buffer-clients
+;;       (server-edit)
+;;     (when (and (
+;;                frame-live-p (selected-frame))
+;;               (kill-this-buffer))
+;;      )
+;;    (kill-this-buffer)
+;;    )
+;;  )
+;;)
+;; test kill-this by default
+(global-set-key [(control x) (k)] 'kill-this-buffer )
+
+
 ;; workaround for menu-bar-non-minibuffer-window-p: Wrong type argument: frame-live-p
 (setq menu-updating-frame nil)
 

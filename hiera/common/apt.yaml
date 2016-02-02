@@ -11,25 +11,25 @@ repos:
         comment: Main Debian repo - Squeeze (oldstable)
         url:
             deb:
-                - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+                - http://ftp.de.debian.org/debian/ squeeze main non-free contrib
             deb-src:
-                - http://ftp.pl.debian.org/debian/ squeeze main non-free contrib
+                - http://ftp.de.debian.org/debian/ squeeze main non-free contrib
 
     main-wheezy:
         comment: Main Debian repo - Wheezy (stable)
         url:
             deb:
-                - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+                - http://ftp.de.debian.org/debian/ wheezy main non-free contrib
             deb-src:
-                - http://ftp.pl.debian.org/debian/ wheezy main non-free contrib
+                - http://ftp.de.debian.org/debian/ wheezy main non-free contrib
 
     main-testing:
         comment: Main Debian repo - Testing
         url:
             deb:
-                - http://ftp.pl.debian.org/debian/ testing main non-free contrib
+                - http://ftp.de.debian.org/debian/ testing main non-free contrib
             deb-src:
-                - http://ftp.pl.debian.org/debian/ testing main non-free contrib
+                - http://ftp.de.debian.org/debian/ testing main non-free contrib
     puppet:
         comment: Puppet repo
         keyid: 4BD6EC30
