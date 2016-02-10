@@ -10,4 +10,5 @@ if pkill -f -9 "wireshark /tmp/dump" ;then
        fi
     done
 fi
-wireshark /tmp/dump
+mv /tmp/dump /tmp/dump.w
+wireshark /tmp/dump.w
