@@ -31,6 +31,10 @@
 (global-set-key (kbd "C-x f") 'find-file-other-window)
 
 
+;; insert is useless most of the time, rebind it to something harder to mistype
+(global-set-key (kbd "<insert>") nil)
+(global-set-key (kbd "<M-insert>") 'overwrite-mode)
+
 
 ;; make M- kill in same direction C- does in right direcion
 (global-set-key (kbd "M-DEL") 'kill-word)
