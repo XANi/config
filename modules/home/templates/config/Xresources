@@ -14,3 +14,5 @@ rofi.fixed-num-lines: true
 rofi.font: DejaVu Sans Mono 10
 rofi.columns: 1
 rofi.sidebar-mode: true
+! dont spam yellow text
+xscreensaver.verbose: false
