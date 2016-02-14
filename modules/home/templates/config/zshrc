@@ -99,12 +99,20 @@ source  /usr/lib/git-core/git-sh-prompt
 HISTSIZE=1200
 SAVEHIST=10000
 HISTFILE=$HOME/.zhistory
-setopt APPEND_HISTORY
+#setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
+# testing
+setopt AUTO_PUSHD
+setopt CDABLE_VARS
+setopt ALWAYS_TO_END # completion
+setopt HIST_REDUCE_BLANKS
+setopt HIST_FCNTL_LOCK
+setopt CORRECT
+export CORRECT_IGNORE="rm shutdown poweroff reboot halt"
 
 # sensible cdpath
 cdpath=( ~/src ~/src/my ~/src/os )
