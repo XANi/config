@@ -111,7 +111,7 @@ setopt CDABLE_VARS
 setopt ALWAYS_TO_END # completion
 setopt HIST_REDUCE_BLANKS
 setopt HIST_FCNTL_LOCK
-setopt CORRECT
+# setopt CORRECT
 export CORRECT_IGNORE="rm shutdown poweroff reboot halt"
 
 # sensible cdpath

@@ -55,7 +55,7 @@
 [alias]
     c = commit -v <% if gpgid != false %> -S <% end %>
     # cleanup everything but tags, ask
-    cleanup = !git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
+    cleanup = !git remote prune origin;git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
     co = checkout
     cx = commit -v <% if gpgid != false %> -S <% end %>
