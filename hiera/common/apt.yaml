@@ -36,3 +36,9 @@ repos:
         url:
             deb:
                 - http://apt.puppetlabs.com wheezy main dependencies
+    sysdig:
+        comment: Sysdig
+        keyid: EC51E8C4
+        url:
+            deb:
+                deb http://download.draios.com/stable/deb stable-amd64/

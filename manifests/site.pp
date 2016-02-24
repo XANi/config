@@ -116,7 +116,7 @@ node ghroth inherits efi {
     apt::source {
         'rabbitmq':;
         'oracle_java':;
-        'elasticsearch09':;
+        'sysdig':;
     }
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
