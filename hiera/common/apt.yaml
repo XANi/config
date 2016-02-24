@@ -41,4 +41,4 @@ repos:
         keyid: EC51E8C4
         url:
             deb:
-                deb http://download.draios.com/stable/deb stable-amd64/
+                - http://download.draios.com/stable/deb stable-amd64/
