@@ -14,6 +14,7 @@ alias sqld='echo .dump| sqlite3'
 alias se='service'
 alias dk='docker'
 alias sctl='systemctl'
+alias trace='traceroute -e -A --back'
 if [ "$USER" = "root" ] ; then
     alias tcpdump='tcpdump -n -s 0'
 else
