@@ -291,7 +291,7 @@ for_window [title="^Wireshark.*Follow.*"] floating enable
 # Separate some stuff
 assign [class="^(Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
-assign [class="^(Chrome|Chromium|chromium-browser)"] <%= wspace['11']['name'] %>
+assign [class="^(Chrome|Chromium|chromium-browser|chromium)"] <%= wspace['11']['name'] %>
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
 assign [class="^(Pidgin|Tasque)"] <%= wspace['13']['name'] %>
 assign [class="^Steam"] <%= wspace['05']['name'] %>
