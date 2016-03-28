@@ -1,0 +1,4 @@
+#!/bin/bash
+# so gpg developers hate their users again
+export DISPLAY=:0
+perl -pe'$|=1;s/allow-external-password-cache/broken/'| /usr/bin/pinentry-gnome3
