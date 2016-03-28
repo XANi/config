@@ -14,9 +14,12 @@
 ;;    ("marmalade" . "http://marmalade-repo.org/packages/")))
 (require 'package)
 (add-to-list 'package-archives
-         '("marmalade" . "http://marmalade-repo.org/packages/")
-         '("melpa" . "http://melpa.milkbox.net/packages/"))
-
+         '("marmalade" . "https://marmalade-repo.org/packages/")
+         '("melpa" . "http://melpa.milkbox.net/packages/")
+	 '("gnu" . "http://elpa.gnu.org/packages/")
+	 '("ELPA" . "http://tromey.com/elpa/")
+)
+		
 (package-initialize)
 (package-refresh-contents)
 (setq package-list '(
