@@ -1,5 +1,12 @@
 ;;; install-packages.el ---
 
+
+;; gnutls needs that for domains with fucked up SSL (no intermediates)
+;; you'd need to fire gnutls-cli --tofu marmalade-repo.org once to make it trusted
+;; tofu means "trust on first usage"
+(setq tls-program '("gnutls-cli --tofu -p %p %h"))
+
+
 ;;(setq package-archives '(
 ;;    ("ELPA" . "http://tromey.com/elpa/")
 ;;   ("gnu" . "http://elpa.gnu.org/packages/")
