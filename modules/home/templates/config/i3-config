@@ -59,7 +59,7 @@ focus_follows_mouse no
 mouse_warping none
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id <%  File.exist?('/usr/local/bin/terminator') %>/usr/local/bin/terminator<% else %>i3-sensible-terminal<% end %>
 
 # kill focused window
 bindsym $alt+F4 kill
@@ -360,4 +360,4 @@ exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
 exec --no-startup-id compton -b --unredir-if-possible -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
-exec --no-startup-id  /usr/bin/terminator -c __scratchpad
+exec --no-startup-id  <%  File.exist?('/usr/local/bin/terminator') %>/usr/local/bin/terminator<% else %>/usr/bin/terminator<% end %> -c __scratchpad
