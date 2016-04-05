@@ -105,10 +105,11 @@ setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS
+unsetopt HIST_IGNORE_SPACE
 # testing
 setopt AUTO_PUSHD
-setopt CDABLE_VARS
-setopt ALWAYS_TO_END # completion
+#setopt CDABLE_VARS
+#setopt ALWAYS_TO_END # completion
 setopt HIST_REDUCE_BLANKS
 setopt HIST_FCNTL_LOCK
 # setopt CORRECT
