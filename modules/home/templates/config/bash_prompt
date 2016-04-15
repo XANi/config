@@ -262,3 +262,5 @@ export GIT_AUTHOR_EMAIL="<%= @git['author']['email'] %>"
 export GIT_COMMITTER_NAME="<%= @git['committer']['name'] %>"
 export GIT_COMMITTER_EMAIL="<%= @git['committer']['email'] %>"
 fi
+
+export __PS1_SETUP_DONE=1
