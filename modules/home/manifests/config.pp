@@ -60,6 +60,7 @@ class home::config (
         testbot:;
         gpg-pinentry:;
         wd:;
+        mouse-acc-fix:;
         fetch-repos-cron:
             target => "/etc/cron.daily/fetch-repos";
         meta:;
