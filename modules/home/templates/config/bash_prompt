@@ -190,7 +190,16 @@ if [ "$SUDO_USER" = "xani" ] ; then
 fi
 # to cleanup lingering screen sessions
 export TMOUT=864000
-export EDITOR=emacs
+if [ -e /usr/bin/emacs ] ; then
+    export EDITOR=emacs
+elif [ -e /usr/bin/zile ] ; then
+    export EDITOR=zile
+elif [ -e /usr/bin/e3em ] ; then
+    export EDITOR=e3em
+elif [ -e /usr/bin/nano ] ; then
+    export EDITOR=nano
+fi
+
 <% else -%>
 export GOPATH=/home/xani/src/lib/go
 export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
