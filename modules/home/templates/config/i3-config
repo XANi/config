@@ -228,6 +228,10 @@ bar {
     position top
     tray_output  none
     output $screen_right
+    # hide bar until urgent or modifier is pressed
+    mode hide
+    hidden_state hide
+    modifier $mod
     #  workspace_buttons yes
     colors {
         background #14191f
