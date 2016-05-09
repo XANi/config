@@ -186,6 +186,9 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 if [ "$SUDO_USER" = "xani" ] ; then
     if [ "$SUDO_COMMAND" != "/bin/su" ]; then
         export HOME=~xani
+        if [ "$PWD" = "root" ]; then
+            cd ~
+        fi
     fi
 fi
 # to cleanup lingering screen sessions
