@@ -18,7 +18,7 @@ if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
     alias stop='systemctl stop'
     alias start='systemctl start'
     alias re='systemctl restart'
-    alias st='systemctl -v status'
+    alias s='systemctl -l status'
 fi
 alias trace='traceroute -e -A --back'
 if [ "$USER" = "root" ] ; then
