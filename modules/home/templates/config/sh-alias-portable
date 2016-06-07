@@ -1,6 +1,7 @@
 # sh-alias-portable
 
 alias d="git diff --word-diff --no-prefix"
+alias df="df -P -h"
 alias g='git'
 alias man="LC_ALL=C man"
 alias kj="killall -9 java"
