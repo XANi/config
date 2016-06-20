@@ -336,7 +336,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls https://github.com/acrisci/playerctl
 <%- if File.executable? ('/usr/bin/playerctl')  or File.executable? ('/usr/local/bin/playerctl')  -%>
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
