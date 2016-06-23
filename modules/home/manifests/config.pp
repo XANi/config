@@ -26,6 +26,7 @@ class home::config (
         perlconsolerc:;
         screenrc:;
         toprc:;
+        "tmux.conf":;
         xsessionrc:;
         xmodmap:;
         zile:;
