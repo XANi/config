@@ -15,8 +15,24 @@ alias sqld='echo .dump| sqlite3'
 alias se='service'
 alias dk='docker'
 alias tm='tmux new-session -A -s main'
-alias tn='tmux new-session -A -s'
 alias tl='tmux list-sessions'
+mux() {
+    sessions=$(tmux list-sessions)
+    if echo $sessions |grep -q -P '^main:'; then
+        session_id=$$
+        # create new detached session
+        tmux new-session -t main -s $session_id -d
+        if [ "z$1" != "z" ]; then
+            # if we have any command, create window with it
+           window=$(tmux new-window -d -P -- $@)
+        fi
+        # attach to that session with new session as slave, set autodestroy on detach; select window "" just doesn't change current window
+        tmux attach-session -t $session_id \; set-option destroy-unattached on \; select-window -t "$window"
+    else
+        tmux new-session -A -s main $@
+    fi
+}
+
 if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
     alias sctl='systemctl'
     alias stop='systemctl stop'
