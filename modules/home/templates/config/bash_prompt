@@ -37,6 +37,8 @@ fi
 
 
 bad_terms='(linux|eterm-color)'
+terms256='(256color)'
+screen_re='(screen)'
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0000000" #black
     echo -en "\e]P8333333" #darkgrey
@@ -59,11 +61,17 @@ fi
 if [[ $TERM =~ $bad_terms ]] ; then
     TERMTITLE=""
 else
-    export TERM=xterm-256color
     if [ $SHOW_HOSTNAME -eq 1 ] ; then
         TERMTITLE='\[\033]0;\h[\u]:\w\007\]'
     else
         TERMTITLE='\[\033]0;[\u]:\w\007\]'
+    fi
+    if [[ $TERM !~ $terms256 ]]; then
+        if [[ $TERM =~ screen ]] ; then
+            TERM=screen-256color
+        else
+            TERM=xterm-256color
+        fi
     fi
 fi
 
