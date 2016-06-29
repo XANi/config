@@ -12,7 +12,7 @@ class puppet {
     }
     package {
         'puppet-common':
-            ensure => latest;
+            ensure => installed;
         'ruby-deep-merge':
             ensure => installed;
     }
