@@ -55,7 +55,7 @@ class home::packages {
          libfile-slurp-perl,
          gdb-multiarch,
          # decent pdf viewer
-         evince,
+         okular,
          # R analysis tools
          rkward,
          # network
