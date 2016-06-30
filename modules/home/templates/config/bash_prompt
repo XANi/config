@@ -66,12 +66,15 @@ else
     else
         TERMTITLE='\[\033]0;[\u]:\w\007\]'
     fi
-    if [[ $TERM !~ $terms256 ]]; then
+    if [[ $TERM =~ $terms256 ]]; then
+        echo -n
+    else
         if [[ $TERM =~ screen ]] ; then
             TERM=screen-256color
         else
             TERM=xterm-256color
         fi
+
     fi
 fi
 
