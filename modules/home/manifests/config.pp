@@ -12,7 +12,7 @@ class home::config (
         owner => xani,
         group => xani,
     }
-    $git = hiera_hash('git'),
+    $git = hiera_hash('git')
     home::config::file {
         bash_prompt:;
         bash_functions:;
