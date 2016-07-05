@@ -11,7 +11,7 @@ class env {
     }
     file { '/etc/environment':
         content => $env_content,
-        mode    => 644,
+        mode    => "644",
         owner   => root,
     }
 }

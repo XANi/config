@@ -6,7 +6,7 @@ package {'ruby-hiera-puppet':
 
 file {
     '/etc/hiera.yaml':
-        mode    => 644,
+        mode    => "644",
         owner   => root,
         content => template('puppet/hiera.yaml.erb');
     '/etc/puppet/hiera.yaml':

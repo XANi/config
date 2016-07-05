@@ -3,7 +3,7 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 use Mojolicious::Lite;
 
-app->secrets([scalar time() . '<%= scope.function_md5([scope.function_fqdn_rand([1000000000000000])]) %>]');
+app->secrets([scalar time() . '<%= scope.function_md5([scope.function_fqdn_rand([1000000000000000]).to_s]) %>]');
 
 # Simple plain text response
 get '/' => 'routes';

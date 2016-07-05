@@ -10,7 +10,7 @@ class zsh {
         content => template('zsh/xani.zsh-theme'),
         owner   => xani,
         group   => xani,
-        mode    => 644,
+        mode    => "644",
     }
     include zsh::common
 }

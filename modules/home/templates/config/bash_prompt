@@ -238,20 +238,20 @@ sshmount() {
     sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR && cd $SSHFS_TARGET_DIR
 }
 
-<%- if scope.lookupvar('home::common::http_proxy') -%>
-export http_proxy="<%= scope.lookupvar('home::common::http_proxy') %>"
+<%- if scope.lookupvar('home::vars::http_proxy') -%>
+export http_proxy="<%= scope.lookupvar('home::vars::http_proxy') %>"
 <%- end -%>
 
-<%- if scope.lookupvar('home::common::https_proxy') -%>
-export https_proxy="<%= scope.lookupvar('home::common::https_proxy') %>"
+<%- if scope.lookupvar('home::vars::https_proxy') -%>
+export https_proxy="<%= scope.lookupvar('home::vars::https_proxy') %>"
 <%- end -%>
 
-<%- if scope.lookupvar('home::common::no_proxy') -%>
-export no_proxy="<%= scope.lookupvar('home::common::no_proxy') %>"
+<%- if scope.lookupvar('home::vars::no_proxy') -%>
+export no_proxy="<%= scope.lookupvar('home::vars::no_proxy') %>"
 <%- end -%>
 
-<%- if scope.lookupvar('home::common::perl5lib') -%>
-export PERL5LIB="<%= scope.lookupvar('home::common::perl5lib').join(':') %>"
+<%- if scope.lookupvar('home::vars::perl5lib') -%>
+export PERL5LIB="<%= scope.lookupvar('home::vars::perl5lib').join(':') %>"
 <%- end -%>
 
 # load gpg agent info if shell (like anything in xsession) gets loaded before gpg-agent started
@@ -275,18 +275,18 @@ if [ ! -e /usr/local/bin/e ] && [ ! -e /usr/bin/e ]  ; then
     alias e='emacs'
 fi
 <% if has_variable?('portable_config') then -%>
-<% if File.exists?(scope.lookupvar('home::common::homedir') + '/.bash_prompt_custom') %>
+<% if File.exists?(scope.lookupvar('home::vars::homedir') + '/.bash_prompt_custom') %>
 
-<%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.bash_prompt_custom']) %>
+<%= scope.function_template([scope.lookupvar('home::vars::homedir') + '/.bash_prompt_custom']) %>
 <% end %>
 <% end %>
-<% if 1 == 1 %>
-<%= YAML.dump(@git) %>
-<% else %>
+<% if @git %>
 export GIT_AUTHOR_NAME="<%= @git['author']['name'] %>"
 export GIT_AUTHOR_EMAIL="<%= @git['author']['email'] %>"
 export GIT_COMMITTER_NAME="<%= @git['committer']['name'] %>"
 export GIT_COMMITTER_EMAIL="<%= @git['committer']['email'] %>"
+<% else %>
+<%= YAML.dump @git %>
 <% end %>
 HISTCONTROL=ignoredups
 HISTSIZE=10000

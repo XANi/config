@@ -1,6 +1,5 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
-<%- gpgid = scope.lookupvar('home::config::gpgid') -%>
 [user]
 <%- if @deploy_arte_config == true -%>
     name = Mariusz Gronczewski
@@ -53,16 +52,16 @@
     autosetupmerge = true
 
 [alias]
-    c = commit -v <% if gpgid != false %> -S <% end %>
+    c = commit -v <% if @gpgid  %> -S <% end %>
     # cleanup everything but tags, ask
     cleanup = !git remote prune origin;git clean -i -x -d -e "TAGS" -e 'tags' ; git fetch -p
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
     co = checkout
-    cx = commit -v <% if gpgid != false %> -S <% end %>
+    cx = commit -v <% if @gpgid != false %> -S <% end %>
     d = diff --word-diff -C -M
     l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
     lo = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s' --stat-count=7
-    me = merge <% if gpgid != false %> -S <% end %>
+    me = merge <% if @gpgid %> -S <% end %>
     p = !git pull --no-commit && git push -u
     pop = stash pop
     re = reset HEAD~1

@@ -18,17 +18,17 @@ class puppet {
     }
     file {
         '/etc/hiera.yaml':
-            mode    => 600,
+            mode    => "600",
             owner   => root,
             content => template('puppet/hiera.yaml.erb');
         '/etc/puppet/hiera.yaml':
-            mode    => 600,
+            mode    => "600",
             owner   => root,
             content => template('puppet/hiera.yaml.erb');
     }
     file {'/etc/cron.weekly/clean-puppet-reports':
         content => "#!/bin/bash\n/usr/bin/find /var/lib/puppet/reports -mtime +30 -type f -delete\n",
-        mode    => 755,
+        mode    => "755",
     }
 
 }

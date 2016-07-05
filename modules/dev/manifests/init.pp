@@ -18,12 +18,12 @@ class dev::haproxy (
     }
     file {'/etc/haproxy/haproxy.cfg':
         content => template("${module_name}/haproxy.cfg"),
-        mode    => 644,
+        mode    => "644",
         notify  => Service['haproxy'],
     }
     file {'/etc/haproxy/errors/':
         ensure  => directory,
-        mode    => 644,
+        mode    => "644",
         source  => "puppet:///modules/${module_name}/haproxy/errors",
         recurse => true,
         force   => true,

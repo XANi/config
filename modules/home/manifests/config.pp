@@ -1,8 +1,8 @@
 class home::config (
-    $gpgid = hiera('gpgid',false),
     $multiplex_ssh = hiera('multiplex_ssh', false),
 ) {
     include home::common
+    require home::vars
     $homedir = $home::common::homedir
     user { xani:
         ensure => present,
@@ -12,7 +12,11 @@ class home::config (
         owner => xani,
         group => xani,
     }
-    $git = hiera_hash('git')
+    $git = $home::vars::git
+    $xrandr_left=hiera('xrandr_left',"HDMI-0")
+    $xrandr_right=hiera('xrandr_right',"DVI-I-1")
+    $gpgid = hiera('gpgid')
+
     home::config::file {
         bash_prompt:;
         bash_functions:;
@@ -99,7 +103,7 @@ class home::config (
 
     home::config::autostart {'tilda': command => 'bash -c "echo $(sleep 20 ; tilda) &"'}
     file {'/home/xani/autostart.sh':
-        mode   => 700,
+        mode   => "700",
         owner  => xani,
         ensure => present,
     }
@@ -111,7 +115,7 @@ class home::config (
     file {'xani-ssh-config-dir':
         path   => "$homedir/.ssh",
         ensure => directory,
-        mode   => 700,
+        mode   => "700",
     }
     if $multiplex_ssh {
         file {"${homedir}/.ssh/mux":
@@ -120,7 +124,7 @@ class home::config (
     }
     file { '/usr/share/git-core/templates/hooks/post-checkout':
         content => template('home/git/post-checkout'),
-        mode    => 755,
+        mode    => "755",
     }
 }
 
@@ -130,10 +134,20 @@ class home::config (
 define home::config::file (
         $source = "home/config/${title}",
         $target = ".${title}",
-        $mode   = 644,
+        $mode   = "644",
     ) {
-    include home::common
-    $homedir = $home::common::homedir
+    require home::vars
+    $xrandr_left  = $home::vars::xrandr_left
+    $xrandr_right = $home::vars::xrandr_right
+    $git          = $home::vars::git
+    $gpgid        = $home::vars::gpgid
+    $homedir      = $home::vars::homedir
+    $perl5lib     = $home::vars::perl5lib
+    $http_proxy   = $home::vars::http_proxy
+    $https_proxy  = $home::vars::https_proxy
+    $socks_proxy  = $home::vars::socks_proxy
+    $no_proxy     = $home::vars::no_proxy
+#    $     = $home::vars::
     file { "${homedir}/$target":
         content => template($source),
         owner   => xani,
@@ -158,7 +172,7 @@ define home::config::code_tmp (
     ) {
     file { $target:
         content => template($source),
-        mode    => 755,
+        mode    => "755",
         owner   => xani,
         replace => no,
     }
@@ -170,7 +184,7 @@ define home::config::exec (
     ) {
     file { $target:
         content => template("home/exec/${source}"),
-        mode    => 755,
+        mode    => "755",
         owner   => xani,
     }
 }
@@ -189,11 +203,11 @@ define home::config::autostart (
     $icon = "",
     $terminal = false,
 ) {
-    require home::common
-    $homedir = $home::common::homedir
+    require home::vars
+    $homedir = $home::vars::homedir
     file {"${homedir}/.config/autostart/${title}.desktop":
         content => template('home/autostart.desktop'),
-        mode    => 644,
+        mode    => "644",
         owner   => xani,
         group   => xani,
     }

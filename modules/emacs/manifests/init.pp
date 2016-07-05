@@ -13,7 +13,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     File {
         owner => xani,
         group => xani,
-        mode  => 644,
+        mode  => "644",
     }
     package { [
                'bbdb',
@@ -119,15 +119,15 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => xani,
         group   => xani,
         notify  => Exec['refresh-emacs-packages'],
-        mode    => 644,
+        mode    => "644",
     }
     file { "${homedir}/.emacs.d/.gitignore":
         content => template('emacs/emacs.d.gitignore'),
-        mode    => 644,
+        mode    => "644",
     }
     file { "${homedir}/emacs/install-packages.sh":
         content => template('emacs/install-packages.sh'),
-        mode    => 755,
+        mode    => "755",
         require => File["${homedir}/.emacs.d/.gitignore"],
     }
 
@@ -157,14 +157,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
            "${homedir}/emacs/backup",
            ]:
                ensure => directory,
-               mode   => 750,
+               mode   => "750",
     }
 
     file { 'run_emacs':
         path    => '/usr/local/bin/e',
         content => template('emacs/e'),
         owner   => root,
-        mode    => 755,
+        mode    => "755",
     }
 #    file { 'git-emacs':
 #        path    => '/usr/lib/git-core/emacs',
@@ -174,14 +174,14 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         path    => "${homedir}/.emacs-legacy",
         owner   => xani,
         group   => xani,
-        mode    => 644,
+        mode    => "644",
         content => template('emacs/emacs.legacy.el'),
     }
     file { emacs-config-modular:
         path    => "${homedir}/.emacs",
         owner   => xani,
         group   => xani,
-        mode    => 644,
+        mode    => "644",
         content => template('emacs/emacs.modular.el'),
     }
     file { xani-emacs-dir:
@@ -215,7 +215,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         require => File['xani-emacs-dir'],
     }
     file {"${homedir}/emacs/xani-lib/mklib":
-        mode    => 755,
+        mode    => "755",
     }
 
     file { xani-emacs-xani-libs:
@@ -237,7 +237,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         replace => no,
         owner   => xani,
         group   => xani,
-        mode    => 700,
+        mode    => "700",
     }
 
     file { xani-emacs-icons:
@@ -304,7 +304,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     }
     file { puppet-lint-wrapper:
         path    => '/usr/local/bin/puppet-lint-wrapper',
-        mode    => 755,
+        mode    => "755",
         owner   => root,
         content => template('emacs/puppet-lint-wrapper'),
     }
@@ -315,7 +315,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
             path    => "${homedir}/src/svn-puppet/modules/artegence/files/xani/emacs",
             owner   => xani,
             group   => xani,
-            mode    => 644,
+            mode    => "644",
             content => template('emacs/emacs.legacy.el'),
         }
     }
@@ -326,13 +326,13 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         ensure  => directory,
         owner   => xani,
         group   => xani,
-        mode    => 0700,
+        mode    => "0700",
         require => File['xani-emacs-dir'],
     }
     file { xani-emacs-secure-local-config:
         path    => "${homedir}/emacs/secure/local.el.gpg",
         ensure  => present,
-        mode    => 600,
+        mode    => "600",
         owner   => xani,
         group   => xani,
         require => File['xani-emacs-libs-secure'],
@@ -400,7 +400,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     file { update-orage-calendar:
         path    => '/usr/local/bin/update-orage-calendar',
         content => template('emacs/update-orage-calendar'),
-        mode    => 755,
+        mode    => "755",
         owner   => root,
     }
     file { update-ical:
@@ -420,7 +420,7 @@ define emacs::autoinsert {
     $homedir = hiera('homedir','/home/xani')
     file {"${homedir}/emacs/autoinsert/${title}":
         content => template("emacs/autoinsert/${title}"),
-        mode    => 644,
+        mode    => "644",
         owner   => xani,
     }
 }
@@ -440,14 +440,14 @@ class emacs::wl {
         path    => "${homedir}/.wl",
         owner   => xani,
         group   => xani,
-        mode    => 600,
+        mode    => "600",
         content => template('emacs/emacs.wl.el'),
     }
     file { emacs-wanderlust-folder-config:
         path    => "${homedir}/.folders",
         owner   => xani,
         group   => xani,
-        mode    => 600,
+        mode    => "600",
         content => template('emacs/emacs.folders'),
     }
 

@@ -9,8 +9,8 @@ set $mod Mod3
 
 set $alt Mod1
 <%
-xrandr_left  = scope.function_hiera(["xrandr_left","HDMI-0"])
-xrandr_right = scope.function_hiera(["xrandr_right","DVI-I-1"])
+xrandr_left  = @xrandr_left
+xrandr_right = @xrandr_right
 %>
 set $screen_left <%= xrandr_left %>
 set $screen_right <%= xrandr_right %>

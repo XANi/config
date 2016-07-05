@@ -17,7 +17,7 @@ class dota2::autoexec {
     file { "${basedir}/dota/cfg/autoexec.cfg":
         content => template('dota2/autoexec.cfg'),
         owner   => xani,
-        mode    => 644,
+        mode    => "644",
     }
 }
 
@@ -27,7 +27,7 @@ class dota2::icons {
     File {
         owner => xani,
         group => xani,
-        mode  => 644,
+        mode  => "644",
     }
     file { "${basedir}/dota/resource/flash3/images":
         ensure => directory,
