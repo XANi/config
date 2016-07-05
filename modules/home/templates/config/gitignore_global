@@ -6,6 +6,8 @@
 .\#*
 DEADJOE
 *.ZILESAVE
+TAGS
+tags
 
 # Logs, temps and databases #
 *.log
