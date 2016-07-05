@@ -280,11 +280,14 @@ fi
 <%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.bash_prompt_custom']) %>
 <% end %>
 <% end %>
+<% if 1 == 1 %>
+<%= YAML.dump(@git) %>
+<% else %>
 export GIT_AUTHOR_NAME="<%= @git['author']['name'] %>"
 export GIT_AUTHOR_EMAIL="<%= @git['author']['email'] %>"
 export GIT_COMMITTER_NAME="<%= @git['committer']['name'] %>"
 export GIT_COMMITTER_EMAIL="<%= @git['committer']['email'] %>"
-fi
+<% end %>
 HISTCONTROL=ignoredups
 HISTSIZE=10000
 # append to the history file, don't overwrite it
