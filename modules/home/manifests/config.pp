@@ -31,7 +31,7 @@ class home::config (
         xmodmap:;
         zile:;
         zshrc:;
-        Xresources:;
+        "Xresources":;
         ssh_config:
             target => '.ssh/config';
         terminator:
