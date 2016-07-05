@@ -8,10 +8,8 @@ rundir=/var/run/puppet
 factpath=<%= @puppet_repo_path %>/puppet/facts:<%= @puppet_fact_path %>
 factdest=<%= @puppet_fact_path %>
 templatedir=$confdir/templates
-modulepath=<%= @puppet_repo_path %>/puppet/modules
 prerun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
 postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
-config_version=<%= @puppet_repo_path %>/puppet/bin/config_version /var/lib/dpp/repos/shared/
 pluginsync=true
 factsync=true
 trusted_node_data=true
