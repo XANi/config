@@ -28,7 +28,7 @@ notify {"First run of the day":
     schedule => 'once-per-day',
 }
 
-node default {
+class core {
     apt::source {
         'chromium':;
         'firefox':;
@@ -108,11 +108,13 @@ node default {
     }
 }
 
-node efi inherits default {
+class core::efi {
+    include core
     ssl::cert {'arte':;}
 }
 
-node ghroth inherits efi {
+node ghroth {
+    include core::efi
     apt::source {
         'rabbitmq':;
         'oracle_java':;
@@ -131,15 +133,18 @@ node ghroth inherits efi {
     include dev::rabbitmq
 }
 
-node yidhra inherits efi {
+node yidhra {
+    include core::efi
     include util::mobile::laptop
     include dota2
     include hw::vaiopro
 }
-node 'vm-debian' inherits default {
+node 'vm-debian' {
+    include core
     include emacs::wl
 }
-node hydra inherits default {
+node hydra {
+    include core
     apt::source {
         "emdebian":;
         "bareos":;
