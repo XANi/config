@@ -15,26 +15,26 @@ if [ $TERM = 'dumb' ] ; then
     echo -n ''
 else
 
-if [ $TERM = 'xterm-256color' ] ; then
-    export TERM=$ORIGTERM
-else
-    export ORIGTERM=$TERM
-fi
-
-home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
-if [[ $HOSTNAME =~ $home_host_regex ]] ; then
-    SHOW_HOSTNAME=0
-    if [ "$USER" = "root" ] ; then
-        PROMPT_NO_HOST='\[\033[1;31m\] (!) \[\033[1;30m\]$NICKNAME\[\033[0m\]'
-#    elif [ "$USER" = "root" ] ; then
-#        PROMPT_NO_HOST='\[\033[40;1;32m\] =!!> \[\033[1;30m\]$NICKNAME\[\033[0m\]'
-#    else
-#        PROMPT_NO_HOST='\[\033[40;1;32m\] ==> \[\033[1;30m\]$NICKNAME\[\033[0m\]'
+    if [ $TERM = 'xterm-256color' ] ; then
+        export TERM=$ORIGTERM
+    else
+        export ORIGTERM=$TERM
     fi
-else
-    SHOW_HOSTNAME=1
-fi
 
+    home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
+    if [[ $HOSTNAME =~ $home_host_regex ]] ; then
+        SHOW_HOSTNAME=0
+        if [ "$USER" = "root" ] ; then
+            PROMPT_NO_HOST='\[\033[1;31m\] (!) \[\033[1;30m\]$NICKNAME\[\033[0m\]'
+#    elif [ "$USER" = "root" ] ; then
+            #        PROMPT_NO_HOST='\[\033[40;1;32m\] =!!> \[\033[1;30m\]$NICKNAME\[\033[0m\]'
+            #    else
+            #        PROMPT_NO_HOST='\[\033[40;1;32m\] ==> \[\033[1;30m\]$NICKNAME\[\033[0m\]'
+        fi
+    else
+        SHOW_HOSTNAME=1
+    fi
+fi
 
 bad_terms='(linux|eterm-color)'
 terms256='(256color)'
