@@ -132,7 +132,7 @@ Up:${color ffcc00} ${upspeed <%= wan_if %>} ${color} - Down:${color 00ffcc} ${do
 ${color4} ${upspeedgraph eth0 25,250 ffff00 ff0000 -l -t} ${color4} ${alignr} ${upspeedgraph <%= wan_if %> 25,250 ffff00 ff0000 -l -t}
 ${color4} ${downspeedgraph eth0 25,250 0000ff 00ff00 -l -t}${color4} ${alignr} ${downspeedgraph <%= wan_if %> 25,250 0000ff 00ff00 -l -t}
 <%- else -%>
-${color4} ${upspeedgraph <%= wan_if %> 50,250 ffff00 ff0000 -l -t} $(alignr) ${color4} ${downspeedgraph <%= wan_if %> 50,250 0000ff 00ff00 -l -t}
+${color4} ${upspeedgraph <%= wan_if %> 50,250 ffff00 ff0000 -l -t} ${alignr} ${color4} ${downspeedgraph <%= wan_if %> 50,250 0000ff 00ff00 -l -t}
 <%- end -%>
 ${color}$hr
 ${color}╔ Name              PID   CPU%   MEM% ${color}P:${color6}$running_processes${color}/$processes${alignr 10}En: ${entropy_bar 10,80}
