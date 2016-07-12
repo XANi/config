@@ -308,6 +308,12 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         owner   => root,
         content => template('emacs/puppet-lint-wrapper'),
     }
+    file { puppet-parser-wrapper:
+        path    => '/usr/local/bin/puppet-parser-wrapper',
+        mode    => "755",
+        owner   => root,
+        content => template('emacs/puppet-parser-wrapper'),
+    }
     # this have to be at end
     if $deploy_portable_config {
         $portable_config = 1

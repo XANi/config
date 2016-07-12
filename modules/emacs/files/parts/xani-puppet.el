@@ -13,5 +13,6 @@
  puppet-include-indent 4
  puppet-indent-level 4
  flycheck-puppet-lint-executable "/usr/local/bin/puppet-lint-wrapper"
+ flycheck-puppet-parser-executable "/usr/local/bin/puppet-parser-wrapper"
 )
 (provide 'xani-puppet)
