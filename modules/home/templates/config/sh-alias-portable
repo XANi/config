@@ -37,6 +37,8 @@ if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
     alias sctl='systemctl'
     alias stop='systemctl stop'
     alias start='systemctl start'
+    alias ena='systemctl enable'
+    alias dis='systemctl disable'
     alias re='systemctl restart'
     alias s='systemctl -l status'
     alias st='systemctl -l status'
