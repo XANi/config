@@ -96,9 +96,9 @@ source  /usr/lib/git-core/git-sh-prompt
 # tune history
 
 HISTSIZE=1200
-SAVEHIST=10000
+SAVEHIST=50000
 HISTFILE=$HOME/.zhistory
-#setopt APPEND_HISTORY
+setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
