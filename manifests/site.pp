@@ -54,7 +54,6 @@ class core {
         'env':;
         'fonts':;
         'home':;
-        'monit':;
         'motd':;
         'ntp::client':;
         'systemd::poweroff_on_halt':;
@@ -68,10 +67,11 @@ class core {
 
     syncthing::instance {'xani':;}
 
-    monit::monitor { dpp:; }
     xfce::theme { 'Nodoka-Midnight-XANi':; }
     xfce::theme { 'Xfce-dusk-xani':; }
-
+    package {'monit':
+        ensure => absent
+    }
 
     if $is_virtual == 'true' {
         include vm
