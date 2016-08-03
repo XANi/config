@@ -62,6 +62,7 @@ class home::config (
         notify-wrapper:;
         puppet-notify:;
         fetch-repos:;
+        from-template:;
         testbot:;
         gpg-pinentry:;
         wd:;

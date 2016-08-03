@@ -1,0 +1,23 @@
+#!/bin/bash
+tmpl_dir="/home/xani/src/my/toolbox/project-templates"
+if [ "z$1" = "z" ]; then
+    echo "Usage: $0 template [dir]"
+    echo "Templates:"
+    ls $tmpl_dir |cat
+    exit 1
+fi
+if [ ! -e "$tmpl_dir/$1" ]; then
+     echo "Unknown template [$1], pick one of:"
+     ls $tmpl_dir |cat
+     exit 1
+fi
+
+
+if [ "z$2" = "z" ]; then
+    echo "creating project in current dir"
+else
+    echo "creating project in $2"
+    mkdir -p "$2"
+    cd "$2"
+fi
+rsync -av --exclude='.git/' "$tmpl_dir/$1/" .
