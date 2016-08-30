@@ -297,7 +297,7 @@ assign [class="^(Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
 assign [class="^(Chrome|Chromium|chromium-browser|chromium)"] <%= wspace['11']['name'] %>
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
-assign [class="^(Pidgin|Tasque)"] <%= wspace['13']['name'] %>
+assign [class="^(Pidgin|Tasque|[rR]emember)"] <%= wspace['13']['name'] %>
 assign [class="^Steam"] <%= wspace['05']['name'] %>
 assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
 assign [class="^Wireshark"] <%= wspace['15']['name'] %>
@@ -352,7 +352,7 @@ exec --no-startup-id owncloud
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
 exec --no-startup-id parcellite
-exec --no-startup-id tasque
+exec --no-startup-id "Remember The Milk"
 
 <% if @type =~ /book/ %>
 # for some reason conky sometimes segfaults if it is started too early, probably because of no network...
