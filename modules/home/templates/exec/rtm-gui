@@ -1,0 +1,4 @@
+#!/bin/bash
+# <%= @puppet_header %>
+# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+exec "/usr/local/bin/Remember The Milk"

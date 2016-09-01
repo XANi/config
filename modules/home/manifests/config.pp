@@ -58,6 +58,7 @@ class home::config (
     }
     home::config::exec {
         git-wtf:;
+        rtm-gui:;
         ssh-askpass-wrapper:;
         notify-wrapper:;
         puppet-notify:;
