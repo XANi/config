@@ -115,7 +115,7 @@ class home::config (
     }
 
     file {'xani-ssh-config-dir':
-        path   => "$homedir/.ssh",
+        path   => "${homedir}/.ssh",
         ensure => directory,
         mode   => "700",
     }
@@ -127,6 +127,13 @@ class home::config (
     file { '/usr/share/git-core/templates/hooks/post-checkout':
         content => template('home/git/post-checkout'),
         mode    => "755",
+    }
+    logrotate::rule {'arbtt-xani':
+        path => '/home/xani/.arbtt/capture.log',
+        rotate_every => 'month',
+        minsize => '20M',
+        compress => false,
+        maxsize => '200M',
     }
 }
 
