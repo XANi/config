@@ -134,6 +134,7 @@ class home::config (
         minsize => '20M',
         compress => false,
         maxsize => '200M',
+        prerotate => '/usr/bin/killall arbtt-capture',
     }
 }
 
