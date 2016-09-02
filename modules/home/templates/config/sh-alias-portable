@@ -42,6 +42,7 @@ if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
     alias re='systemctl restart'
     alias s='systemctl -l status'
     alias st='systemctl -l status'
+    alias log='journalctl -a -e -n10000 -u'
 fi
 alias trace='traceroute -e -A --back'
 if [ "$USER" = "root" ] ; then

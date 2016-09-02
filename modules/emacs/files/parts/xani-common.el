@@ -35,6 +35,9 @@
 (global-set-key (kbd "<insert>") nil)
 (global-set-key (kbd "<M-insert>") 'overwrite-mode)
 
+;; MAN shortcut
+(global-set-key (kbd "<C-f1>") 'man)
+
 
 ;; make M- kill in same direction C- does in right direcion
 (global-set-key (kbd "M-DEL") 'kill-word)
