@@ -130,6 +130,7 @@ class home::config (
     }
     logrotate::rule {'arbtt-xani':
         path => '/home/xani/.arbtt/capture.log',
+        rotate => 24,
         rotate_every => 'month',
         minsize => '20M',
         compress => false,
