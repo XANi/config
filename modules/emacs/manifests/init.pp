@@ -65,6 +65,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'go-mode',
                        'god-mode',
                        'haskell-mode',
+                       'highlight-indentation',
                        'httprepl',
                        'ido-better-flex',
                        'ido-ubiquitous',

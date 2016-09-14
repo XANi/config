@@ -1,0 +1,4 @@
+# name:  content => template()
+# --
+content => template('$1'),
+$0
