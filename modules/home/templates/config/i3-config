@@ -276,6 +276,9 @@ for_window [class="^(vdpau|mplayer2)"] floating enable
 for_window [class="^(erbal)"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="^(Eog|ristretto)"] floating enable
+for_window [class="^(Dwarf|dwarf)"] floating enable
+for_window [title="^PyLNP"] floating enable
+
 
 
 
