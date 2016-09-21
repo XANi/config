@@ -3,7 +3,6 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
-Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
 Exec {
       path => [
                '/sbin',

@@ -1,4 +1,11 @@
 #!/bin/bash
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
-puppet "$@" |grep -v "Unrecognized escape seq'
+puppet "$@" |tee /dev/shm/out
+e=$?
+
+if grep -q Error /dev/shm/out ; then
+    exit 1
+else
+    exit $e
+fi
