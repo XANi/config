@@ -75,8 +75,10 @@ bindsym $alt+F1 move scratchpad
 # rofi test
 # colors and rest of config is in ~/.Xresources
 # to reload it while running, run xrdb ~/.Xresources then send HUP to rofi
-exec --no-startup-id rofi -key-window Alt+Tab -key-run Alt+F2
-
+#daemon mode unsupported in latest :(
+#exec --no-startup-id rofi -key-window Alt+Tab -key-run Alt+F2
+bindsym $alt+F2  exec rofi -show run
+bindsym $alt+Tab exec rofi -show window
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
