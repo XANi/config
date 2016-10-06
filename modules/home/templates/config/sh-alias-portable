@@ -40,8 +40,8 @@ if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
     alias ena='systemctl enable'
     alias dis='systemctl disable'
     alias re='systemctl restart'
-    alias s='systemctl -l status'
-    alias st='systemctl -l status'
+    alias s='systemctl -l status -n 20'
+    alias st='systemctl -l status -n 20'
     alias log='journalctl -a -e -n10000 -u'
 fi
 alias trace='traceroute -e -A --back'
