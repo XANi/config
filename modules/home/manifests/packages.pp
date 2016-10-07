@@ -12,6 +12,7 @@ class home::packages {
          xfonts-terminus,
          xfonts-terminus-dos,
          xfonts-terminus-oblique,
+         fonts-noto, # covers most of unicode missing in rest of the fonts
          ttf-dejavu,
          terminator,
          # utils
