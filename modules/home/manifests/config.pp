@@ -15,6 +15,7 @@ class home::config (
     $git = $home::vars::git
     $xrandr_left=hiera('xrandr_left',"HDMI-0")
     $xrandr_right=hiera('xrandr_right',"DVI-I-1")
+    $conky_xinerama_head=hiera('conky_xinerama_head',1)
     $gpgid = hiera('gpgid')
 
     home::config::file {
