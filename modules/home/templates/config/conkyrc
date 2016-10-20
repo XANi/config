@@ -1,7 +1,7 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 alignment top_right
-xinerama_head <%= @conky_xinerama_head || 0 %>
+xinerama_head <%= @conky_xinerama_head || 0 %> # <%= @xrandr_left %> | <%= @xrandr_right %>
 
 <%
 # dumb but dont have time to fix it now
