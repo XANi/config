@@ -12,6 +12,7 @@ class home::config (
         owner => xani,
         group => xani,
     }
+    # Also add in home::config::file because of scoping
     $git = $home::vars::git
     $xrandr_left=hiera('xrandr_left',"HDMI-0")
     $xrandr_right=hiera('xrandr_right',"DVI-I-1")
@@ -149,16 +150,17 @@ define home::config::file (
         $mode   = "644",
     ) {
     require home::vars
-    $xrandr_left  = $home::vars::xrandr_left
-    $xrandr_right = $home::vars::xrandr_right
-    $git          = $home::vars::git
-    $gpgid        = $home::vars::gpgid
-    $homedir      = $home::vars::homedir
-    $perl5lib     = $home::vars::perl5lib
-    $http_proxy   = $home::vars::http_proxy
-    $https_proxy  = $home::vars::https_proxy
-    $socks_proxy  = $home::vars::socks_proxy
-    $no_proxy     = $home::vars::no_proxy
+    $xrandr_left          = $home::vars::xrandr_left
+    $xrandr_right         = $home::vars::xrandr_right
+    $git                  = $home::vars::git
+    $gpgid                = $home::vars::gpgid
+    $homedir              = $home::vars::homedir
+    $perl5lib             = $home::vars::perl5lib
+    $http_proxy           = $home::vars::http_proxy
+    $https_proxy          = $home::vars::https_proxy
+    $socks_proxy          = $home::vars::socks_proxy
+    $no_proxy             = $home::vars::no_proxy
+    $conky_xinerama_head  = $home::vars::conky_xinerama_head
 #    $     = $home::vars::
     file { "${homedir}/$target":
         content => template($source),
