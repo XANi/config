@@ -11,5 +11,5 @@ class home::vars (
     $gpgid               = hiera('gpgid'),
     $conky_xinerama_head = 2,
     $zupa = hiera('wat',3),
-    $zupa2 = hiera('conky_xinerama_head',false),
+    $zupa2 = hiera('conky_xineramalama_head',false),
     ) {}
