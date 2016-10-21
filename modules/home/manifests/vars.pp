@@ -1,5 +1,4 @@
 class home::vars (
-    $conky_xinerama_head = hiera('conky_xinerama_head',false),
     $homedir             = hiera('homedir','/home/xani'),
     $http_proxy          = hiera('http_proxy',false),
     $https_proxy         = hiera('https_proxy',false),
@@ -10,4 +9,7 @@ class home::vars (
     $xrandr_left         = hiera('xrandr_left',"HDMI-0"),
     $xrandr_right        = hiera('xrandr_right',"DVI-I-1"),
     $gpgid               = hiera('gpgid'),
+    $conky_xinerama_head = 2
+    $zupa = hiera('wat',3),
+    $zupa = hiera('conky_xinerama_head',false),
     ) {}
