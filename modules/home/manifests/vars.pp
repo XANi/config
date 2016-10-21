@@ -9,7 +9,7 @@ class home::vars (
     $xrandr_left         = hiera('xrandr_left',"HDMI-0"),
     $xrandr_right        = hiera('xrandr_right',"DVI-I-1"),
     $gpgid               = hiera('gpgid'),
-    $conky_xinerama_head = 2
+    $conky_xinerama_head = 2,
     $zupa = hiera('wat',3),
-    $zupa = hiera('conky_xinerama_head',false),
+    $zupa2 = hiera('conky_xinerama_head',false),
     ) {}
