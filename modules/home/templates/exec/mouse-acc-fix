@@ -5,6 +5,8 @@ while(<DEVLIST>) {
         my $dev_id=$1;
         if ($_ =~ /pointer/ && $_ !~ /keyboard/i && $dev_id > 4) {
             system('xinput', 'set-prop', $dev_id, 'Device Accel Profile', '-1');
+            # also called "libinput Accel Speed" or "shit actually worked so we had to refactor it to break it again"
+            system('xinput', 'set-prop', $dev_id, '274', '-1');
         }
     }
 }
