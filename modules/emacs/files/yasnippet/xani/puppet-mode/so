@@ -1,4 +1,4 @@
 # name:  source => 'puppet://puppet/module/file
 # --
-source => 'puppet://puppet/$1/$2',
+source => 'puppet://puppet/modules/$1/$2',
 $0
