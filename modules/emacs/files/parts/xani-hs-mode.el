@@ -9,7 +9,8 @@
 (add-hook 'perl-mode-hook       'hs-minor-mode)
 (add-hook 'sh-mode-hook         'hs-minor-mode)
 (add-hook 'json-mode-hook       'hs-minor-mode)
-(add-hook 'go-mode-hook       'hs-minor-mode)
+(add-hook 'go-mode-hook         'hs-minor-mode)
+(add-hook 'clojure-mode-hook    'hs-minor-mode)
 
     (defun display-code-line-counts (ov)
       (when (eq 'code (overlay-get ov 'hs))
