@@ -351,7 +351,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # autostart
-exec --no-startup-id  "dropbox start"
+#exec --no-startup-id  "dropbox start"
 <%- if @project == 'arte' -%>
 exec --no-startup-id owncloud
 <%- end -%>
