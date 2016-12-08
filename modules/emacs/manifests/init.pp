@@ -19,7 +19,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'bbdb',
                'exuberant-ctags',
                'puppet-lint',
-               'sepia', # Simple Emacs-Perl InterAction
+#               'sepia', # Simple Emacs-Perl InterAction
                'texlive-latex-base',
                'twittering-mode',
                'wmctrl',
