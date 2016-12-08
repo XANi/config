@@ -3,7 +3,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
     $emacs_theme    = 'twilight-anti-bright'
-    $emacs_version  = 'emacs24'
+    $emacs_version  = 'emacs25'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
     $deploy_arte_config = hiera('deploy_arte_config',false)
