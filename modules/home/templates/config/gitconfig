@@ -86,4 +86,9 @@
 <% if @project == 'arte' %>
 [branch "stable"]
     mergeoptions = --no-ff
-<% end %>
+[gpg]
+	program = gpg1
+<% else %>
+#[gpg]
+#	program = gpg1
+<% end >
