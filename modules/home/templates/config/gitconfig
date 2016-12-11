@@ -91,4 +91,4 @@
 <% else %>
 #[gpg]
 #	program = gpg1
-<% end >
+<% end %>
