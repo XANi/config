@@ -1,7 +1,7 @@
 class dota2 {
-    include dota2::vars
-    include dota2::autoexec
-    include dota2::icons
+#    include dota2::vars
+#    include dota2::autoexec
+#    include dota2::icons
 }
 
 
