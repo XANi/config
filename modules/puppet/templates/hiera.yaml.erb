@@ -13,40 +13,40 @@
 
 # hack around not being able to specify more than one datadir, at least till they fix it
 :hierarchy:
-  - private/host/%{hostname}/%{calling_module}
-  - shared/host/%{hostname}/%{calling_module}
-  - public/host/%{hostname}/%{calling_module}
-  - private/host/%{hostname}/common
-  - shared/host/%{hostname}/common
-  - public/host/%{hostname}/common
-  - private/project/%{project}/%{calling_module}
-  - shared/project/%{project}/%{calling_module}
-  - public/project/%{project}/%{calling_module}
-  - private/project/%{project}/common
-  - shared/project/%{project}/common
-  - public/project/%{project}/common
-  - private/location/%{location}/%{calling_module}
-  - shared/location/%{location}/%{calling_module}
-  - public/location/%{location}/%{calling_module}
-  - private/location/%{location}/common
-  - shared/location/%{location}/common
-  - public/location/%{location}/common
-  - private/env/%{environment}/%{calling_module}
-  - shared/env/%{environment}/%{calling_module}
-  - public/env/%{environment}/%{calling_module}
-  - private/env/%{environment}/common
-  - shared/env/%{environment}/common
-  - public/env/%{environment}/common
-  - private/common/%{calling_module}
-  - shared/common/%{calling_module}
-  - public/common/%{calling_module}
-  - private/common/common
-  - shared/common/common
-  - public/common/common
+  - private/hiera/host/%{hostname}/%{calling_module}
+  - shared/hiera/host/%{hostname}/%{calling_module}
+  - public/hiera/host/%{hostname}/%{calling_module}
+  - private/hiera/host/%{hostname}/common
+  - shared/hiera/host/%{hostname}/common
+  - public/hiera/host/%{hostname}/common
+  - private/hiera/project/%{project}/%{calling_module}
+  - shared/hiera/project/%{project}/%{calling_module}
+  - public/hiera/project/%{project}/%{calling_module}
+  - private/hiera/project/%{project}/common
+  - shared/hiera/project/%{project}/common
+  - public/hiera/project/%{project}/common
+  - private/hiera/location/%{location}/%{calling_module}
+  - shared/hiera/location/%{location}/%{calling_module}
+  - public/hiera/location/%{location}/%{calling_module}
+  - private/hiera/location/%{location}/common
+  - shared/hiera/location/%{location}/common
+  - public/hiera/location/%{location}/common
+  - private/hiera/env/%{environment}/%{calling_module}
+  - shared/hiera/env/%{environment}/%{calling_module}
+  - public/hiera/env/%{environment}/%{calling_module}
+  - private/hiera/env/%{environment}/common
+  - shared/hiera/env/%{environment}/common
+  - public/hiera/env/%{environment}/common
+  - private/hiera/common/%{calling_module}
+  - shared/hiera/common/%{calling_module}
+  - public/hiera/common/%{calling_module}
+  - private/hiera/common/common
+  - shared/hiera/common/common
+  - public/hiera/common/common
 
 
 :yaml:
-   :datadir: /var/lib/dpp/hiera
+   :datadir: /var/lib/dpp
 
 # :gpg:
 #   :datadir: /home/gitsync/puppet/%{environment}/hiera-gpg
