@@ -3,7 +3,7 @@
 
 <% if @memorysize_mb.to_i > 1024 %>
 ;; gc less to work more
-(setq gc-cons-threshold (* 10 1024 1024))
+;; (setq gc-cons-threshold (* 10 1024 1024))
 <% end %>
 ;; in case of fuckery break glass
 ;;(when (file-executable-p "/usr/bin/gpg1") (setq epg-gpg-program "/usr/bin/gpg1"))
