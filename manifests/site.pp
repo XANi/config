@@ -47,7 +47,10 @@ class core {
         'common::utils':;
         'custom':;
         'dev::haproxy':;
-        'dpp':;
+        'dpp':
+            schedule_run => 3600,
+            poll_interval => 600,
+            ;
         'emacs::org':;
         'emacs':;
         'emacs::wl':;
