@@ -53,7 +53,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bash_functions
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -82,7 +82,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
 export GOPATH=/home/xani/src/lib/go
-export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games
+export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games:$HOME/bin
 export EDITOR='/usr/local/bin/e'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
