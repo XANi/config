@@ -1,0 +1,4 @@
+#name : puppet tpl variable (<%= @var %>
+#key : var
+# --
+<%= @$1 %>$0
