@@ -36,7 +36,8 @@ class core {
         'dropbox':;
 #        'emdebian':;
         'main-testing':;
-#        'bareos':;
+        #        'bareos':;
+        'nodesource-5':;
     }
     package {'emdebian-archive-keyring':
         ensure => installed,
