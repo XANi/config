@@ -14,6 +14,7 @@
 )
 (setq company-idle-delay 0.3)
 (setq company-abort-manual-when-too-short t)
-
+(setq company-go-show-annotation t)
+;;(setq company-tooltip-align-annotations t)
 
 (provide 'xani-company)
