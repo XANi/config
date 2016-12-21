@@ -27,7 +27,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'shellcheck', # sh lint
                'yaml-mode',
                'nethack-el',
-               'gocode',
 #               'wl-beta',
                ]:
         ensure  => installed,
@@ -41,6 +40,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'magit',
                'emacs-jabber',
                'lua-mode',
+               'gocode', # use latest via go get
                'e2wm',
                ]:
                    ensure => absent,
