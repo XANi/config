@@ -12,7 +12,8 @@
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection))))
  '(company-tooltip-selection ((t (:inherit company-tooltip :background "dark red"))))
 )
-(setq company-idle-delay nil)
+(setq company-idle-delay 0.3)
+(setq company-abort-manual-when-too-short t)
 
 
 (provide 'xani-company)
