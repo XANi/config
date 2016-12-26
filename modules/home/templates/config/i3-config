@@ -255,7 +255,7 @@ bindsym $mod+Home move workspace to output top
 bindsym $mod+End move workspace to output bottom
 
 for_window [class="__scratchpad"] move scratchpad
-for_window [instance="__scratchpad"] move scratchpad
+for_window [window_role="__scratchpad"] move scratchpad
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
@@ -376,4 +376,4 @@ exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsyn
 exec --no-startup-id xfce4-notes
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
-exec --no-startup-id  /usr/bin/terminator -c __scratchpad
+exec --no-startup-id  /usr/bin/terminator -r __scratchpad
