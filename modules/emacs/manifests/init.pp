@@ -62,6 +62,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'ecb',
                        'flycheck',
                        'flycheck-tip',
+                       'flycheck-gometalinter',
                        'go-mode',
                        'god-mode',
                        'haskell-mode',

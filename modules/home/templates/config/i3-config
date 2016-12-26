@@ -59,7 +59,7 @@ focus_follows_mouse no
 mouse_warping none
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id <% if  File.exist?('/usr/local/bin/terminator') %>/usr/local/bin/terminator<% else %>i3-sensible-terminal<% end %>
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $alt+F4 kill
@@ -274,7 +274,7 @@ for_window [class="^Xfce4-notes"] floating enable
 for_window [class="^Pavucontrol"] floating enable
 for_window [class="^Thunar"] floating enable
 for_window [class="^Tasque"] floating enable
-for_window [class="^(vdpau|mplayer2)"] floating enable
+for_window [class="^(vdpau|mplayer2|mpv)"] floating enable
 for_window [class="^(erbal)"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="^(Eog|ristretto)"] floating enable
@@ -371,8 +371,9 @@ exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
 # -f enable fading
 
 #exec --no-startup-id compton -b --unredir-if-possible -i 0.95 -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
-exec --no-startup-id compton -b --unredir-if-possible -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
+# -e lower than 1.0 fucks up mpv ( transparent bar at the top )
+exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsync opengl --backend glx
 exec --no-startup-id xfce4-notes
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
-exec --no-startup-id  <% if  File.exist?('/usr/local/bin/terminator') %>/usr/local/bin/terminator<% else %>/usr/bin/terminator<% end %> -c __scratchpad
+exec --no-startup-id  /usr/bin/terminator -c __scratchpad
