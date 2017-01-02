@@ -148,6 +148,8 @@
  '(load-home-init-file t t)
  '(mouse-yank-at-point 1)
  '(save-abbrevs (quote silently))
+ ;; always ask for what to search after M-.
+ '(xref-prompt-for-identifier t)
  ;; magick needed to make jabber-mode work with gmail and arte jabber servers
  ;;'(starttls-extra-arguments (quote ("--insecure")))
  ;; for wanderlust
