@@ -2,6 +2,10 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
+# for emacs
+export GOPATH=/home/xani/src/lib/go
+
+
 if [ -e ~/.cache/gpg-agent-info ] ; then
     . ~/.cache/gpg-agent-info
 fi
