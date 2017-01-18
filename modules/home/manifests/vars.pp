@@ -7,7 +7,7 @@ class home::vars (
     $perl5lib            = hiera('perl5lib',false),
     $git                 = hiera_hash('git'),
     $xrandr_left         = hiera('xrandr_left',"HDMI-0"),
-    $xrandr_right        = hiera('xrandr_right',"DVI-I-1"),
+    $xrandr_right        = hiera('xrandr_right',"DVI-D-0"),
     $gpgid               = hiera('gpgid'),
     $conky_xinerama_head = hiera('conky_xinerama_head',false),
     ) {}
