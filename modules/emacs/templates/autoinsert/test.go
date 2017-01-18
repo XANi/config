@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestService(t *testing.T) {
+func TestDummy(t *testing.T) {
 	Convey("N", t, func() {
 		So(nil, ShouldEqual, nil)
 	})
