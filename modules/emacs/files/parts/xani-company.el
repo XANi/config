@@ -15,6 +15,7 @@
 (setq company-idle-delay 0.3)
 (setq company-abort-manual-when-too-short t)
 (setq company-go-show-annotation t)
+(setq company-global-modes (quote (not fundamental-mode jabber-chat-mode yaml-mode)))
 ;;(setq company-tooltip-align-annotations t)
  ;; '(company-backends
  ;;  (quote
