@@ -4,7 +4,7 @@ stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
 # Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
-exec {
+Exec {
       path => [
                '/sbin',
                '/bin',
