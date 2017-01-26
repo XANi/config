@@ -28,7 +28,7 @@ notify {"First run of the day":
     schedule => 'once-per-day',
 }
 
-class core {
+class desktop {
 #     apt::source {
 #         'chromium':;
 #         'firefox':;
@@ -43,6 +43,7 @@ class core {
         ensure => installed,
     }
     class {
+        'core':;
         'bug':;
         'common::utils':;
         'custom':;
@@ -111,13 +112,13 @@ class core {
     }
 }
 
-class core::efi {
-    include core
+class desktop::efi {
+    include desktop
     ssl::cert {'arte':;}
 }
 
 node ghroth {
-    include core::efi
+    include desktop::efi
     # apt::source {
     #     'rabbitmq':;
     #     'oracle_java':;
@@ -137,17 +138,17 @@ node ghroth {
 }
 
 node yidhra {
-    include core::efi
+    include desktop::efi
     include util::mobile::laptop
     include dota2
     include hw::vaiopro
 }
 node 'vm-debian' {
-    include core
+    include desktop
     include emacs::wl
 }
 node hydra {
-    include core
+    include desktop
     # apt::source {
     #     "emdebian":;
     #     "bareos":;
