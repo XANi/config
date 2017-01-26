@@ -3,8 +3,8 @@ stage { 'init': before => Stage['pre'] }
 stage { 'pre': before => Stage['main'] }
 stage { 'post': require => Stage['main'] }
 stage { 'last': require => Stage['post'] }
-Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
-Exec {
+# Apt::Source <| |>-> Exec['apt-update'] -> Package <| |>
+exec {
       path => [
                '/sbin',
                '/bin',
@@ -29,21 +29,20 @@ notify {"First run of the day":
 }
 
 class core {
-    apt::source {
-        'chromium':;
-        'firefox':;
-        'spotify':;
-        'dropbox':;
-#        'emdebian':;
-        'main-testing':;
-        #        'bareos':;
-        'nodesource-5':;
-    }
+#     apt::source {
+#         'chromium':;
+#         'firefox':;
+#         'spotify':;
+#         'dropbox':;
+# #        'emdebian':;
+#         'main-testing':;
+#         #        'bareos':;
+#         'nodesource-5':;
+#     }
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
     class {
-        'apt::update':;
         'bug':;
         'common::utils':;
         'custom':;
@@ -119,11 +118,11 @@ class core::efi {
 
 node ghroth {
     include core::efi
-    apt::source {
-        'rabbitmq':;
-        'oracle_java':;
-        'sysdig':;
-    }
+    # apt::source {
+    #     'rabbitmq':;
+    #     'oracle_java':;
+    #     'sysdig':;
+    # }
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
     }
@@ -149,10 +148,10 @@ node 'vm-debian' {
 }
 node hydra {
     include core
-    apt::source {
-        "emdebian":;
-        "bareos":;
-    }
+    # apt::source {
+    #     "emdebian":;
+    #     "bareos":;
+    # }
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
