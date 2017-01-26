@@ -465,7 +465,7 @@ class emacs::wl {
 class emacs::install ($version = 'emacs-snapshot') {
     if ($version =~ /snapshot/) {
         $alternative = $version
-        apt::source {'emacs-snapshot':;}
+        realize Apt::Source['emacs-snapshot']
     } else {
         $alternative = "${version}-x"
     }
