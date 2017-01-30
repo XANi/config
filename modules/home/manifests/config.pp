@@ -13,6 +13,10 @@ class home::config (
         group => xani,
     }
 
+    if $::type !~ /aptop|otebook|ablet/ {
+        include home::tweaks::disable_maccel
+    }
+
     home::config::file {
         bash_prompt:;
         bash_functions:;
