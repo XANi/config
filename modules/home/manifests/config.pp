@@ -16,7 +16,9 @@ class home::config (
     if $::type !~ /aptop|otebook|ablet/ {
         include home::tweaks::disable_maccel
     }
-
+    if $location == 'arte' {
+        include home::tweaks::disable_pcspeaker
+    }
     home::config::file {
         bash_prompt:;
         bash_functions:;

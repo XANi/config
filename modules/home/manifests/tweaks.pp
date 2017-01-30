@@ -19,3 +19,16 @@ class home::tweaks {
     }
 
 }
+
+
+class home::tweaks::disable_maccel {
+    file {'/usr/share/X11/xorg.conf.d/50-mouse-acceleration.conf':
+        content => template('home/xorg-mouse-fix.conf'),
+    }
+}
+
+class home::tweaks::disable_pcspeaker {
+    file {'/etc/modprobe.d/99-nobeep.conf':
+        content => "# puppet managed file\nblacklist pcspkr\n"
+    }
+}
