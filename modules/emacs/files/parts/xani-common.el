@@ -31,6 +31,10 @@
 (global-set-key (kbd "C-x f") 'find-file-other-window)
 
 
+;; utterly useless in graphical + emacsclient mode, disable
+;; killall -CONT emacs helps tho, or just resize window
+(global-unset-key (kbd "C-z"))
+
 ;; insert is useless most of the time, rebind it to something harder to mistype
 (global-set-key (kbd "<insert>") nil)
 (global-set-key (kbd "<M-insert>") 'overwrite-mode)
