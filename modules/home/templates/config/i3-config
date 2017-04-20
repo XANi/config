@@ -286,6 +286,7 @@ for_window [title="^PyLNP"] floating enable
 
 
 
+
 # autofocus urgent window
 for_window [class="Emacs" urgent="latest"] focus
 
@@ -309,7 +310,7 @@ assign [class="^Steam"] <%= wspace['05']['name'] %>
 assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
 assign [class="^Wireshark"] <%= wspace['15']['name'] %>
 assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
-
+assign [class="^(S|s)potify"] <%= wspace['14']['name'] %>
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
