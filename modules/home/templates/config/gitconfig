@@ -88,6 +88,8 @@
     mergeoptions = --no-ff
 [gpg]
 	program = gpg1
+[url "git@git.efigence.com:"]
+        insteadof = https://git.efigence.com/
 <% else %>
 #[gpg]
 #	program = gpg1
