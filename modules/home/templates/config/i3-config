@@ -283,7 +283,7 @@ for_window [class="^(Dwarf|dwarf)"] floating enable
 for_window [title="^(Dwarf|dwarf)"] floating enable
 for_window [title="^PyLNP"] floating enable
 
-
+for_window [window_role="pop-up"] floating enable #border normal
 
 
 
