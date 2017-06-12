@@ -224,29 +224,29 @@ bar {
 
 
 <% if xrandr_left != xrandr_right %>
-bar {
-#    strip_workspace_numbers yes
-    status_command i3blocks
-    position bottom
-    tray_output  none
-    output $screen_right
-    # hide bar until urgent or modifier is pressed
-    # mode hide
-    # hidden_state hide
-    # modifier $mod
-    #  workspace_buttons yes
-    colors {
-        background #14191f
-        statusline #ffffff
-        separator #666666
-        #                  border  background text
-        focused_workspace  #4c7899 #1b333e #7e9fc9
-        active_workspace   #333333 #1b333e #7e9fc9
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #b23f1e #272122 #d97a35
-    }
+# bar {
+# #    strip_workspace_numbers yes
+#     status_command i3blocks
+#     position bottom
+#     tray_output  none
+#     output $screen_right
+#     # hide bar until urgent or modifier is pressed
+#     # mode hide
+#     # hidden_state hide
+#     # modifier $mod
+#     #  workspace_buttons yes
+#     colors {
+#         background #14191f
+#         statusline #ffffff
+#         separator #666666
+#         #                  border  background text
+#         focused_workspace  #4c7899 #1b333e #7e9fc9
+#         active_workspace   #333333 #1b333e #7e9fc9
+#         inactive_workspace #333333 #222222 #888888
+#         urgent_workspace   #b23f1e #272122 #d97a35
+#     }
 
-}
+# }
 <% end %>
 
 bindsym $mod+Next move workspace to output left
