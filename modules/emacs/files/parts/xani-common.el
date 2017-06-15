@@ -31,6 +31,10 @@
 (global-set-key (kbd "C-x f") 'find-file-other-window)
 
 
+;; utterly useless in graphical + emacsclient mode, disable
+;; killall -CONT emacs helps tho, or just resize window
+(global-unset-key (kbd "C-z"))
+
 ;; insert is useless most of the time, rebind it to something harder to mistype
 (global-set-key (kbd "<insert>") nil)
 (global-set-key (kbd "<M-insert>") 'overwrite-mode)
@@ -158,7 +162,7 @@
  '(ssl-program-name "gnutls-cli")
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify))
  '(uniquify-min-dir-content 2)
- '(whitespace-global-modes (quote (not go-mode)))
+ '(whitespace-global-modes (quote (not go-mode erc-mode)))
  '(whitespace-line-column 200)
  '(whitespace-style (quote (face tabs trailing lines tab-mark)))
 )

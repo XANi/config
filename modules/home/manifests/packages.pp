@@ -21,6 +21,7 @@ class home::packages {
          cups-pdf,
          eog,
          git,
+         pv,
          gnupg,
          gnupg-agent,
          gtklp,
