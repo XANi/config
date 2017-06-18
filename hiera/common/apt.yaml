@@ -7,22 +7,6 @@ repos:
         url:
             deb:
                 - http://ppa.launchpad.net/webupd8team/java/ubuntu precise main
-    main-squeeze:
-        comment: Main Debian repo - Squeeze (oldstable)
-        url:
-            deb:
-                - http://ftp.de.debian.org/debian/ squeeze main non-free contrib
-            deb-src:
-                - http://ftp.de.debian.org/debian/ squeeze main non-free contrib
-
-    main-wheezy:
-        comment: Main Debian repo - Wheezy (stable)
-        url:
-            deb:
-                - http://ftp.de.debian.org/debian/ wheezy main non-free contrib
-            deb-src:
-                - http://ftp.de.debian.org/debian/ wheezy main non-free contrib
-
     main-testing:
         comment: Main Debian repo - Testing
         url:

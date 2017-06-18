@@ -29,16 +29,15 @@ notify {"First run of the day":
 }
 
 class desktop {
-#     apt::source {
-#         'chromium':;
-#         'firefox':;
-#         'spotify':;
-#         'dropbox':;
-# #        'emdebian':;
-#         'main-testing':;
-#         #        'bareos':;
-#         'nodesource-5':;
-#     }
+    apt::source {
+        #         'chromium':;
+        #         'firefox':;
+        #         'spotify':;
+        #         'dropbox':;
+        # #        'emdebian':;
+        'main-stretch':;
+        #         'nodesource-5':;
+    }
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
