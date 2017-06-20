@@ -55,6 +55,10 @@ floating_modifier $alt
 # dont follow focus ( I dont want focus change when I put cup on table)
 focus_follows_mouse no
 
+# do not steal focus via urgent windows for no reason (i'm looking at you chrome devs)
+focus_on_window_activation urgent
+
+
 # dont touch my mouse
 mouse_warping none
 
