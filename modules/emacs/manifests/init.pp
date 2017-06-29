@@ -77,6 +77,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                        'jabber',
                        'js2-mode',
                        'json-mode',
+                       'ldap-mode',
                        'lua-mode',
                        'magit',
                        'markdown-mode',
