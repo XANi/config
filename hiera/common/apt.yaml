@@ -26,3 +26,9 @@ repos:
         url:
             deb:
                 - http://download.draios.com/stable/deb stable-amd64/
+    nextcloud:
+        comment: nextcloud
+        keyid: E52838E6
+        url:
+            deb:
+                - http://download.opensuse.org/repositories/home:/ivaradi/Debian_9.0/ /
