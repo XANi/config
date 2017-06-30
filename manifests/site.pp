@@ -35,7 +35,6 @@ class desktop {
         #         'spotify':;
         #         'dropbox':;
         # #        'emdebian':;
-        'main-stretch':;
         #         'nodesource-5':;
     }
     package {'emdebian-archive-keyring':
