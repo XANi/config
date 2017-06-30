@@ -124,7 +124,7 @@ node ghroth {
     #     'sysdig':;
         # }
     apt::source {
-        'nextcloud'
+        'nextcloud':;
     }
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
