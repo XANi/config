@@ -74,4 +74,4 @@ synclient VertEdgeScroll=1
 synclient VertTwoFingerScroll=0
 <% end %>
 true
-echo UPDATESTARTUPTTY | gpg-connect-agent
+echo UPDATESTARTUPTTY | gpg-connect-agent &

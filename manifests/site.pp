@@ -29,14 +29,14 @@ notify {"First run of the day":
 }
 
 class desktop {
-    apt::source {
+#    apt::source {
         #         'chromium':;
         #         'firefox':;
         #         'spotify':;
         #         'dropbox':;
         # #        'emdebian':;
         #         'nodesource-5':;
-    }
+#    }
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
