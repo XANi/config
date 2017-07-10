@@ -29,14 +29,8 @@ notify {"First run of the day":
 }
 
 class desktop {
-#    apt::source {
-        #         'chromium':;
-        #         'firefox':;
-        #         'spotify':;
-        #         'dropbox':;
-        # #        'emdebian':;
-        #         'nodesource-5':;
-#    }
+    realize Apt::Source['main-stretch']
+    realize Apt::Source['spotify']
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
