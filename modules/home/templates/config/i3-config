@@ -359,7 +359,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # autostart
 #exec --no-startup-id  "dropbox start"
 <%- if @project == 'arte' -%>
-exec --no-startup-id owncloud
+exec --no-startup-id nextcloud
 <%- end -%>
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
