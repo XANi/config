@@ -27,7 +27,6 @@ schedule {'once-per-day':
 notify {"First run of the day":
     schedule => 'once-per-day',
 }
-create_resources("@apt::source", hiera_hash(repos))
 
 class desktop {
 #    apt::source {
