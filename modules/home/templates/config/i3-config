@@ -227,10 +227,10 @@ bar {
 }
 
 
-<% if xrandr_left != xrandr_right %>
+<% if xrandr_left != xrandr_right && File.exist?('/home/xani/.config/uberstatus/panel2.config') %>
  bar {
+     status_command /home/xani/src/my/uberstatus/uberstatus -config /home/xani/.config/uberstatus/panel2.config
 # #    strip_workspace_numbers yes
-#     status_command i3blocks
      position bottom
      tray_output  none
      output $screen_right
