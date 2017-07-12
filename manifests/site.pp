@@ -106,6 +106,7 @@ class desktop {
 
 class desktop::efi {
     include desktop
+    realize Apt::Source['nextcloud']
     ssl::cert {'arte':;}
 }
 
@@ -116,7 +117,6 @@ node ghroth {
     #     'oracle_java':;
     #     'sysdig':;
         # }
-    realize Apt::Source['nextcloud']
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
     }
