@@ -15,6 +15,7 @@ alias se='service'
 alias dk='docker'
 alias tm='tmux new-session -A -s main'
 alias tl='tmux list-sessions'
+alias kubesys='kubectl --namespace=kube-system'
 mux() {
     sessions=$(tmux list-sessions)
     if echo $sessions |grep -q -P '^main:'; then
