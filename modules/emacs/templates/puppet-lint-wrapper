@@ -6,6 +6,7 @@ system(qw{/usr/bin/puppet-lint
           --no-double_quoted_strings-check --no-unquoted_resource_title-check
           --no-autoloader_layout-check --no-ensure_first_param-check
           --no-80chars-check --no-2sp_soft_tabs-check --no-trailing_whitespace-check
+          --no-140chars-check
           --no-unquoted_file_mode-check --no-file_mode-check
           --no-unquoted_node_name-check
           --no-arrow_alignment-check
