@@ -83,6 +83,7 @@ class home::config (
     home::config::code_tmp {
         erb:;
         pl:;
+        pl6:;
         pp:;
         sh:;
         mojo:;
