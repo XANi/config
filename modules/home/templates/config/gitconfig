@@ -44,6 +44,7 @@
 
 [push]
     default = current
+    followTags = true
 
 [svn]
     authorsfile = /home/xani/src/users_svn.txt
@@ -70,6 +71,7 @@
 
 [merge]
     tool = meld
+    stat = true
 
 [rerere] # ooo macarena
     enabled = true
@@ -82,7 +84,8 @@
 
 [rebase]
     autoStash = true
-
+[stash]
+    showPatch = true
 <% if @project == 'arte' %>
 [branch "stable"]
     mergeoptions = --no-ff
