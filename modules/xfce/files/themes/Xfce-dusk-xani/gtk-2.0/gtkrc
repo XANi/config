@@ -26,10 +26,10 @@ style "default"
     GtkWidget::focus_padding                     = 1
     GtkWidget::interior_focus                    = 1
     GtkWidget::internal_padding                  = 2
-    GtkEntry::cursor_color                       = "#fcfcfc"
-    GtkEntry::secondary_cursor_color             = "#fcfcfc"
-    GtkTextView::cursor_color                    = "#fcfcfc"
-    GtkTextView::secondary_cursor_color          = "#fcfcfc"
+    GtkEntry::cursor_color                       = "#4c4cac"
+    GtkEntry::secondary_cursor_color             = "#ac4cac"
+    GtkTextView::cursor_color                    = "#4c4cac"
+    GtkTextView::secondary_cursor_color          = "#ac4cac"
     GtkEntry::cursor_aspect_ratio                = 0.1
     GtkEntry::cursor_aspect_ratio                = 0.1
     # shade alternates
@@ -41,29 +41,29 @@ style "default"
     ythickness             = 1
 
 
-    base[ACTIVE]      = "#2f519a"
-    base[INSENSITIVE] = "#303030"
-    base[NORMAL]      = "#121212"
-    base[PRELIGHT]    = "#002849"
-    base[SELECTED]    = "#003263"
+    base[ACTIVE]      = "#4f71aa"
+    base[INSENSITIVE] = "#202020"
+    base[NORMAL]      = "#979797"
+    base[PRELIGHT]    = "#304889"
+    base[SELECTED]    = "#4072a3"
 
-    bg[ACTIVE]        = "#151515"
-    bg[INSENSITIVE]   = "#303030"
-    bg[NORMAL]        = "#232323"
-    bg[PRELIGHT]      = "#003263"
-    bg[SELECTED]      = "#002849"
+    bg[ACTIVE]        = "#252545"
+    bg[INSENSITIVE]   = "#202020"
+    bg[NORMAL]        = "#333333"
+    bg[PRELIGHT]      = "#104273"
+    bg[SELECTED]      = "#103859"
 
     fg[ACTIVE]        = "#dadada"
-    fg[INSENSITIVE]   = "#151515"
-    fg[NORMAL]        = "#ffffff"
+    fg[INSENSITIVE]   = "#656585"
+    fg[NORMAL]        = "#afafdf"
     fg[PRELIGHT]      = "#fcfcfc"
     fg[SELECTED]      = "#fcfcfc"
 
-    text[ACTIVE]      = "#fcfcfc"
-    text[INSENSITIVE] = "#fcfcfc"
-    text[NORMAL]      = "#fcfcfc"
-    text[PRELIGHT]    = "#fcfcfc"
-    text[SELECTED]    = "#fcfcfc"
+    text[ACTIVE]      = "#000000"
+    text[INSENSITIVE] = "#222244"
+    text[NORMAL]      = "#000000"
+    text[PRELIGHT]    = "#000000"
+    text[SELECTED]    = "#000000"
 
     engine "xfce"
     {
@@ -170,7 +170,7 @@ style "titlebar"
     bg[SELECTED]      = "#003263"
     fg[SELECTED]      = "#ffffff"
     bg[INSENSITIVE]   = "#002849"
-    fg[INSENSITIVE]   = "#9a9ada"
+    fg[INSENSITIVE]   = "#aa9ada"
 }
 widget "xfwm"                      style "titlebar"
 class "MetaFrames"                 style "titlebar"
