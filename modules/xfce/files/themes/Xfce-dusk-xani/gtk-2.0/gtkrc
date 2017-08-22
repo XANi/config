@@ -189,7 +189,10 @@ style "clawsfix"
 
 
 }
+style "listfix" {
+    fg[NORMAL]        = "#000000"
+}
 
-class "*Tree*"     style "clawsfix"
-widget_class "*Tree*"     style "clawsfix"
-
+#class "*Tree*"     style "clawsfix"
+#widget_class "*Tree*"     style "clawsfix"
+widget "*SCTree*"     style "clawsfix"
