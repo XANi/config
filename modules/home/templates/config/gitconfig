@@ -35,7 +35,10 @@
     untracked = bold magenta
     branch = bold green
     nobranch = bold red
-
+<% if @gpgid %>
+[commit]
+	gpgSign = true
+<% end %>
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     pager = less
@@ -54,16 +57,16 @@
     autosetupmerge = true
 
 [alias]
-    c = commit -v <% if @gpgid  %> -S <% end %>
+    c = commit -v
     # cleanup everything but tags, ask
     cleanup = "!git remote prune origin;git clean -i -x -d -e 'TAGS' -e 'tags' ; git fetch -p"
-    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"<% if @gpgid %> -S <% end %>
+    cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"
     co = checkout
-    cx = commit -v <% if @gpgid != false %> -S <% end %>
+    cx = commit -v
     d = diff --word-diff -C -M
     l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
     lo = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s' --stat-count=7
-    me = merge <% if @gpgid %> -S <% end %>
+    me = merge
     p = !git pull --no-commit && git push -u
     pop = stash pop
     re = reset HEAD~1
