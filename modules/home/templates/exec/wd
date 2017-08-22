@@ -12,4 +12,4 @@ if pkill -f -9 "wireshark $file" ;then
        fi
     done
 fi
-exec wireshark "$file"
+wireshark "$file" &
