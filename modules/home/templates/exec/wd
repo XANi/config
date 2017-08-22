@@ -1,14 +1,15 @@
 #!/bin/bash
+# Puppet: <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+file=$(find /tmp -maxdepth 1 -type f |grep -P '^/tmp/(dump.*|.*pcap)$' |sort|rofi -dmenu)
 
-if pkill -f -9 "wireshark /tmp/dump" ;then
+if pkill -f -9 "wireshark $file" ;then
     sleep 0.5
     for a in 0.5 1 1 2 2 ; do
-       if pkill -f -9 "wireshark /tmp/dump" ;then
+       if pkill -f -9 "wireshark $file" ;then
           sleep $a
        else
            break
        fi
     done
 fi
-mv /tmp/dump /tmp/dump.w
-wireshark /tmp/dump.w
+exec wireshark "$file"
