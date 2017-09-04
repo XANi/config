@@ -112,12 +112,11 @@ class desktop::efi {
 
 node ghroth {
     include desktop::efi
-    apt::source {
-        'testing':;
+    realize Apt::Source['testing']
     #     'rabbitmq':;
     #     'oracle_java':;
     #     'sysdig':;
-    }
+    #    }
     package {['oracle-java7-installer','oracle-java7-set-default']:
         ensure => installed,
     }
