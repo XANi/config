@@ -112,7 +112,7 @@ class desktop::efi {
 
 node ghroth {
     include desktop::efi
-    realize Apt::Source['testing']
+    realize Apt::Source['main-testing']
     #     'rabbitmq':;
     #     'oracle_java':;
     #     'sysdig':;
