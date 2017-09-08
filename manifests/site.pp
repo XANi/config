@@ -30,6 +30,7 @@ notify {"First run of the day":
 
 class desktop {
     realize Apt::Source['main-stretch']
+    realize Apt::Source['main-testing']
     realize Apt::Source['spotify']
     package {'emdebian-archive-keyring':
         ensure => installed,
@@ -112,21 +113,10 @@ class desktop::efi {
 
 node ghroth {
     include desktop::efi
-    realize Apt::Source['main-testing']
     #     'rabbitmq':;
     #     'oracle_java':;
     #     'sysdig':;
     #    }
-    package {['oracle-java7-installer','oracle-java7-set-default']:
-        ensure => installed,
-    }
-    # bot development
-    service {'prosody':
-        ensure => running,
-    }
-    package {'prosody':
-        ensure => installed,
-    }
     include dev::rabbitmq
 }
 
