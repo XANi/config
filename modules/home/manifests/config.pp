@@ -1,5 +1,6 @@
 class home::config (
     $multiplex_ssh = hiera('multiplex_ssh', false),
+    $ssh_canonical_domains = hiera('ssh_canonical_domains',['zxz.li'])
 ) {
     include home::common
     require home::vars
