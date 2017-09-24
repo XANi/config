@@ -9,10 +9,15 @@ ConnectTimeout 30
 HashKnownHosts no
 CheckHostIP no
 
-CanonicalDomains <%= Array(scope.function_hiera(['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
+CanonicalDomains <%= Array(scope().call_function('hiera',['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
 CanonicalizeFallbackLocal yes
 CanonicalizeHostname yes
 CanonicalizeMaxDots 1
+#Host *
+#     CanonicalizeHostname yes
+#     CanonicalizeFallbackLocal no
+#     CanonicalDomains <%= Array(scope().call_function('hiera',['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
+
 
 Host devrandom.pl
     VisualHostKey yes
