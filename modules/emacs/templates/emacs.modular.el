@@ -65,6 +65,7 @@
 (require 'xani-notify) ;; this have to be before modules using it
 (require 'xani-functions)
 (require 'xani-cua)
+(require 'xani-c)
 (require 'xani-auto-insert)
 (require 'xani-undo-tree)
 (require 'xani-common)
