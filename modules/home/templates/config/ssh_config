@@ -12,7 +12,7 @@ CheckHostIP no
 CanonicalDomains <%= Array(scope().call_function('hiera',['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
 CanonicalizeFallbackLocal yes
 CanonicalizeHostname yes
-CanonicalizeMaxDots <%= scope().call_function('hiera',['ssh_canonical_max_dots',['0']]) %>
+CanonicalizeMaxDots <%= scope().call_function('hiera',['ssh_canonical_max_dots','0']) %>
 #Host *
 #     CanonicalizeHostname yes
 #     CanonicalizeFallbackLocal no
