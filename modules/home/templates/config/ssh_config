@@ -9,11 +9,26 @@ ConnectTimeout 30
 HashKnownHosts no
 CheckHostIP no
 
+CanonicalDomains <%= Array(scope().call_function('hiera',['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
+CanonicalizeFallbackLocal yes
+CanonicalizeHostname yes
+CanonicalizeMaxDots <%= scope().call_function('hiera',['ssh_canonical_max_dots','0']) %>
+#Host *
+#     CanonicalizeHostname yes
+#     CanonicalizeFallbackLocal no
+#     CanonicalDomains <%= Array(scope().call_function('hiera',['ssh_canonical_domains',['zxz.li']]) ).join(" ") %>
+
+
 Host devrandom.pl
     VisualHostKey yes
+    User root
 
 Host *.zxz.li
     VisualHostKey yes
+    User root
+
+Host github.com
+     User git
 
 <% if @multiplex_ssh %>
 ControlPath <%= @homedir %>/.ssh/mux/%r@%h:%p
@@ -48,7 +63,6 @@ Host 172.16.*
      UserKnownHostsFile /dev/null
      User root
      LogLevel QUIET
-
-Host *
-     User root
+Match canonical Host *
+    User root
 <% end %>
