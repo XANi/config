@@ -133,8 +133,9 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
         mode    => "755",
         require => File["${homedir}/.emacs.d/.gitignore"],
     }
-    file {'/usr/local/bin/emacsclient-get-unsaved-files'
+    file {'/usr/local/bin/emacsclient-get-unsaved-files':
         mode    => "755",
+        source  => "puppet:///modules/emacs/emacsclient-get-unsaved-files",
     }
 
     exec { "create-emacs-packages":
