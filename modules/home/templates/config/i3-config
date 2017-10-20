@@ -380,7 +380,7 @@ exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
 <% if @i3_composite %>
 #exec --no-startup-id compton -b --unredir-if-possible -i 0.95 -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
 # -e lower than 1.0 fucks up mpv ( transparent bar at the top )
-exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsync opengl --backend glx<% if @i3_composite_backend %> --backend <%= @i3_composite_backend %> <% end %>
+exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsync opengl <% if @i3_composite_backend %> --backend <%= @i3_composite_backend %> <% end %>
 <% end %>
 exec --no-startup-id xfce4-notes
 
