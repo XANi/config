@@ -10,4 +10,4 @@ emacsclient -e '
      (buffer-file-name buf)
       (buffer-modified-p buf)
   )
-    (concat (buffer-file-name buf) ) ))) "\n")' 2>/dev/null |perl -pe 's{\\n}{\n};s{^"}{};s{"$}{};'
+    (concat (buffer-file-name buf) ) ))) "\n")' 2>/dev/null |perl -pe 's{\\n}{\n}g;s{^"}{};s{"$}{};'
