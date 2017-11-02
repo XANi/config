@@ -110,6 +110,7 @@ class desktop {
 class desktop::efi {
     include desktop
     realize Apt::Source['nextcloud']
+    realize Apt::Source['nodesource-8']
     ssl::cert {'arte':;}
 }
 
