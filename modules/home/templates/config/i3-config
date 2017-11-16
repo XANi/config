@@ -389,7 +389,7 @@ exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
 exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsync opengl <% if @i3_composite_backend %> --backend <%= @i3_composite_backend %> <% end %>
 <% end %>
 exec --no-startup-id zim
-exec --no-startup-id tomboy
+#exec --no-startup-id tomboy
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
 exec --no-startup-id  /usr/bin/terminator -r __scratchpad
