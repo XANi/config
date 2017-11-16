@@ -278,7 +278,7 @@ for_window [class="^Krita" instance="Dialog"] floating enable
 for_window [class="^(pinentry|Pinentry)"] floating enable
 for_window [class="^Virt-manager"] floating enable
 for_window [class="^Xfce4-notes"] floating enable
-for_window [class="Zim"] floating enable
+#for_window [class="Zim"] floating enable
 for_window [class="Tomboy"] floating enable
 for_window [class="^Pavucontrol"] floating enable
 for_window [class="^Thunar"] floating enable
@@ -320,6 +320,7 @@ assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
 assign [class="^Wireshark"] <%= wspace['15']['name'] %>
 assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
 assign [class="^(S|s)potify"] <%= wspace['14']['name'] %>
+assign [class="Zim"]  <%= wspace['13']['name'] %>
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
