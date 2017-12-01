@@ -34,6 +34,7 @@ class desktop {
     realize Apt::Source['spotify']
     realize Apt::Source['gns3-stretch']
     realize Apt::Source['docker']
+    realize Apt::Source['yarn']
     realize Apt::Source['zim']
     package {'emdebian-archive-keyring':
         ensure => installed,
