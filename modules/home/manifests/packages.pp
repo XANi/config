@@ -72,6 +72,8 @@ class home::packages {
          parcellite, # clipboard manager
          rofi, # window title search, run menu
          arbtt,
+         tomboy, # notes
+         zim, # desktop wiki
          ]:
              ensure => installed,
 

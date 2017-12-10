@@ -32,6 +32,10 @@ class desktop {
     realize Apt::Source['main-stretch']
     realize Apt::Source['main-testing']
     realize Apt::Source['spotify']
+    realize Apt::Source['gns3-stretch']
+    realize Apt::Source['docker']
+    realize Apt::Source['yarn']
+    realize Apt::Source['zim']
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
@@ -108,6 +112,7 @@ class desktop {
 class desktop::efi {
     include desktop
     realize Apt::Source['nextcloud']
+    realize Apt::Source['nodesource-8']
     ssl::cert {'arte':;}
 }
 

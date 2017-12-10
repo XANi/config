@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# DPP/Puppet managed file at location arte, DO NOT EDIT BY HAND, changes will be overwritten.
+# ghroth.non.3dart.com:modules/home/templates/code_tmp/sh.erb
+
+emacsclient -e '
+(string-join (delq nil(cl-loop for buf in (buffer-list)
+ collect (
+   if (and
+     (buffer-file-name buf)
+      (buffer-modified-p buf)
+  )
+    (concat (buffer-file-name buf) ) ))) "\n")' 2>/dev/null |perl -pe 's{\\n}{\n}g;s{^"}{};s{"$}{};'

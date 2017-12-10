@@ -154,6 +154,8 @@ define home::config::file (
     require home::vars
     $xrandr_left          = $home::vars::xrandr_left
     $xrandr_right         = $home::vars::xrandr_right
+    $i3_composite         = $home::vars::i3_composite
+    $i3_composite_backend = $home::vars::i3_composite_backend
     $git                  = $home::vars::git
     $gpgid                = $home::vars::gpgid
     $homedir              = $home::vars::homedir

@@ -5,6 +5,10 @@
 # for emacs
 export GOPATH=/home/xani/src/lib/go
 
+if [ -e ~/.screenlayout/default.sh ] ; then
+    ~/.screenlayout/default.sh
+fi
+
 
 if [ -e ~/.cache/gpg-agent-info ] ; then
     . ~/.cache/gpg-agent-info

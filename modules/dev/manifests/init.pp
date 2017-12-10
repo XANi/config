@@ -19,6 +19,7 @@ class dev::haproxy (
     file {'/etc/haproxy/haproxy.cfg':
         content => template("${module_name}/haproxy.cfg"),
         mode    => "644",
+        owner   => xani,
         notify  => Service['haproxy'],
     }
     file {'/etc/haproxy/errors/':
