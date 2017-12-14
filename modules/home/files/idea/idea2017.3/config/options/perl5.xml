@@ -1,0 +1,39 @@
+<application>
+  <component name="Perl5ApplicationSettings">
+    <option name="pluginVersion" value="2017.4" />
+    <option name="popupShown" value="true" />
+  </component>
+  <component name="PerlInterpreters">
+    <perl version="2">
+      <name value="Perl v5.24.1" />
+      <type value="Perl5 Interpreter" />
+      <version value="v5.24.1 for x86_64-linux-gnu-thread-multi" />
+      <homePath value="/usr/bin" />
+      <roots>
+        <annotationsPath>
+          <root type="composite" />
+        </annotationsPath>
+        <classPath>
+          <root type="composite">
+            <root url="file:///etc/perl" type="simple" />
+            <root url="file:///usr/local/lib/x86_64-linux-gnu/perl/5.24.1" type="simple" />
+            <root url="file:///usr/local/share/perl/5.24.1" type="simple" />
+            <root url="file:///usr/lib/x86_64-linux-gnu/perl5/5.24" type="simple" />
+            <root url="file:///usr/share/perl5" type="simple" />
+            <root url="file:///usr/lib/x86_64-linux-gnu/perl/5.24" type="simple" />
+            <root url="file:///usr/share/perl/5.24" type="simple" />
+            <root url="file:///usr/local/lib/site_perl" type="simple" />
+            <root url="file:///usr/lib/x86_64-linux-gnu/perl-base" type="simple" />
+          </root>
+        </classPath>
+        <javadocPath>
+          <root type="composite" />
+        </javadocPath>
+        <sourcePath>
+          <root type="composite" />
+        </sourcePath>
+      </roots>
+      <additional />
+    </perl>
+  </component>
+</application>

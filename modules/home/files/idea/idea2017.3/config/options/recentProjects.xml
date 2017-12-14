@@ -1,0 +1,91 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/src/puppet" />
+        <option value="$USER_HOME$/mnt" />
+        <option value="$USER_HOME$/src/lib/go/src/git.efigence.com/efigence-admin/kotbot" />
+        <option value="$USER_HOME$/src/lib/go/src/zegit.non.3dart.com/red/efigence-admin/wifitoken.git" />
+        <option value="$USER_HOME$/src/lib/go/src/github.com/efigence/go-mon" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/src/puppet" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/src/puppet" />
+    <option name="pid" value="20617" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/IdeaProjects/untitled">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-173.3727.127" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1512740200592" />
+              <option name="buildTimestamp" value="1511791623937" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/mnt">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-173.3727.127" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1513174904166" />
+              <option name="buildTimestamp" value="1511788710595" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/src/lib/go/src/git.efigence.com/efigence-admin/kotbot">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-173.3727.127" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1513160156667" />
+              <option name="buildTimestamp" value="1511788716929" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/src/lib/go/src/github.com/efigence/go-mon">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-173.3727.127" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1513010377838" />
+              <option name="buildTimestamp" value="1511788680880" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/src/lib/go/src/zegit.non.3dart.com/red/efigence-admin/wifitoken.git">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-173.3727.127" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1513010852000" />
+              <option name="buildTimestamp" value="1511788680880" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/src/puppet">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IU-173.3727.127" />
+              <option name="productionCode" value="IU" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1513273557572" />
+              <option name="buildTimestamp" value="1511788687736" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/src/lib/go/src/git.efigence.com/efigence-admin" />
+  </component>
+</application>
