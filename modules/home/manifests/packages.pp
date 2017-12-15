@@ -26,6 +26,7 @@ class home::packages {
          gnupg-agent,
          gtklp,
          ipcalc,
+         jq,
          libcapture-tiny-perl,
          libdevel-nytprof-perl,
          libnotify-bin,
