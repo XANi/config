@@ -1,4 +1,4 @@
-# editor temp files
+# editor files
 *~
 .*.sw?
 .sw?
@@ -8,6 +8,7 @@ DEADJOE
 *.ZILESAVE
 TAGS
 tags
+.idea/*
 
 # Logs, temps and databases #
 *.log
