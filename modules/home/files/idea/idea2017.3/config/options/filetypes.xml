@@ -11,6 +11,7 @@
       <mapping ext="pkg" type="DBN-PSQL" />
       <mapping ext="pkb" type="DBN-PSQL" />
       <mapping ext="vw" type="DBN-SQL" />
+      <mapping pattern="deploy-login-wrapper" type="PLAIN_TEXT" />
       <mapping ext="pl" type="Perl5 script" />
       <removed_mapping ext="pl" type="Prolog resource" />
       <removed_mapping ext="prolog" type="Prolog resource" />
