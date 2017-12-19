@@ -16,4 +16,7 @@
 **/config/port
 **/config/port.lock
 **/config/options/window.manager.xml
+**/config/options/usage.statistics.xml
+**/config/options/window.state.xml
+**/config/disabled_update.txt
 **/eval/
