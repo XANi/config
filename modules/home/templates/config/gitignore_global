@@ -9,7 +9,7 @@ DEADJOE
 TAGS
 tags
 .idea/*
-
+*.iml
 # Logs, temps and databases #
 *.log
 #*.sql
