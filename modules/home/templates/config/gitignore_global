@@ -12,7 +12,7 @@ tags
 
 # Logs, temps and databases #
 *.log
-*.sql
+#*.sql
 *.sqlite
 log/*
 tmp/*

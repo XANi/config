@@ -51,6 +51,7 @@
   "monitor fail"
   "monitor-net"
   "monitor-uri"
+  "nameserver"
   "nbproc"
   "option abortonclose"
   "option accept-invalid-http-request"
@@ -180,7 +181,7 @@
 ;;  "use_backend"
   "use-server")
  '(
-   ("\\(^\s+\\|^\\)\\(frontend\\|listen\\|backend\\|defaults\\|global\\|description\\).*" . 'font-lock-constant-face)
+   ("\\(^\s+\\|^\\)\\(frontend\\|listen\\|backend\\|resolvers\\|defaults\\|global\\|description\\).*" . 'font-lock-constant-face)
 ;;   ("\\(option\\)" . 'font-lock-keyword-face)
    ("\\(if\\|unless\\|\s-[a-zA-Z]\s\\)" . 'font-lock-string-face)
    ("\\(acl\s+[0-9a-zA-Z_\\-]*\\)" . 'font-lock-builtin-face)
