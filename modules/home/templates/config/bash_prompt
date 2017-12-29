@@ -8,18 +8,20 @@
 # fixing centos 6 default crap
 unalias -a
 export SHELL=/bin/bash # mc fix
-                       #
+bad_terms='(linux|eterm-color)'
+terms256='(256color)'
+screen_re='(screen)'
 if [ $TERM = 'dumb' ] ; then
     # not a real term, dont bother with setting up env
     # cant just exit here because for some reason it fucks up scp to centos6
     echo -n ''
 else
 
-    if [ $TERM = 'xterm-256color' ] ; then
-        export TERM=$ORIGTERM
-    else
-        export ORIGTERM=$TERM
-    fi
+    # if [ $TERM = 'xterm-256color' ] ; then
+    #     export TERM=$ORIGTERM
+    # else
+    #     export ORIGTERM=$TERM
+    # fi
 
     home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
     if [[ $HOSTNAME =~ $home_host_regex ]] ; then
@@ -36,9 +38,6 @@ else
     fi
 fi
 
-bad_terms='(linux|eterm-color)'
-terms256='(256color)'
-screen_re='(screen)'
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0000000" #black
     echo -en "\e]P8333333" #darkgrey
@@ -69,11 +68,12 @@ else
     if [[ $TERM =~ $terms256 ]]; then
         echo -n
     else
-        if [[ $TERM =~ screen ]] ; then
-            TERM=screen-256color
-        else
-            TERM=xterm-256color
-        fi
+         if [[ $TERM =~ screen ]] ; then
+             TERM=screen-256color
+         fi
+        # else
+        #     TERM=xterm-256color
+        # fi
 
     fi
 fi
