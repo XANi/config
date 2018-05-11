@@ -58,6 +58,8 @@ class home::config (
             target => '.config/gtk-3.0/settings.ini';
         "dunstrc":
             target => '.config/dunst/dunstrc';
+        "mpv.input":
+            target => '.config/mpv/input.conf';
     }
     home::config::exec {
         git-wtf:;
@@ -96,6 +98,7 @@ class home::config (
         '.config/i3blocks/blocks':;
         '.config/terminator':;
         '.config/dunst':;
+        '.config/mpv':;
         '.i3':;
         '.tilda':;
         'src':;
