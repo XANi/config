@@ -74,6 +74,7 @@ class home::packages {
          arbtt,
          tomboy, # notes
          zim, # desktop wiki
+         syslinux-utils, # for isohybrid
          ]:
              ensure => installed,
 
