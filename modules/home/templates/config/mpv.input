@@ -2,5 +2,8 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
 # fix for retarded sound engineers
-F2 af toggle "lavfi=[dynaudnorm=f=500:g=41:n=0:p=0.95]"
+# m - max volume multiplier
+# s - compression, lower is higher
+# g - frames, must be even
+F2 af toggle "lavfi=[dynaudnorm=f=500:g=41:n=0:p=0.95:m=5:s=20]"
 F3 af toggle "volume=softclip=yes"
