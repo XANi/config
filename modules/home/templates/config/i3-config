@@ -392,7 +392,7 @@ exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsyn
 exec --no-startup-id zim
 #exec --no-startup-id tomboy
 
-<% if @hostname == hydra %>
+<% if @hostname == "hydra" %>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/wallpapers
 <% else %>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
