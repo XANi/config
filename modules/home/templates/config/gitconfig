@@ -59,7 +59,7 @@
 [alias]
     c = commit -v
     # cleanup everything but tags, ask
-    cleanup = "!git remote prune origin;git clean -i -x -d -e 'TAGS' -e 'tags' ; git fetch -p"
+    cleanup = "!git remote prune origin;git clean -i -x -d -e 'TAGS' -e 'tags' -e '*.iml' -e '.idea/' ; git fetch -p"
     cm = commit --author \"Mariusz Gronczewski <xani666@gmail.com>\"
     co = checkout
     cx = commit -v
