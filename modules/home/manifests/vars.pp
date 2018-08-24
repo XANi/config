@@ -9,7 +9,7 @@ class home::vars (
     $xrandr_left          = hiera('xrandr_left',"DVI-D-0"),
     $xrandr_right         = hiera('xrandr_right',"HDMI-0"),
     $i3_composite         = hiera('i3_composite',true),
-    $i3_composite_backend = hiera('i3_composite_backend','glx'),
+    $i3_composite_backend = hiera('i3_composite_backend',false),
     $gpgid                = hiera('gpgid'),
     $conky_xinerama_head  = hiera('conky_xinerama_head',false),
     ) {}
