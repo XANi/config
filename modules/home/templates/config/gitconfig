@@ -47,7 +47,7 @@
 
 [push]
     default = current
-    # this aauto pushes tags relevant to normal push
+    # this auto pushes tags relevant to normal push
     followTags = true
 
 [svn]
