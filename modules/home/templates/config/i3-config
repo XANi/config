@@ -388,6 +388,8 @@ exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
 #exec --no-startup-id compton -b --unredir-if-possible -i 0.95 -e 0.9 -m 0.9 -f -D 3 --vsync opengl --backend glx
 # -e lower than 1.0 fucks up mpv ( transparent bar at the top )
 #exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 --vsync opengl <% if @i3_composite_backend %> --backend <%= @i3_composite_backend %> <% end %>
+# on NVIDIA do NOT turn on vsync, instead of that turn on "forced composition pipeline" under advanced display settings
+
 exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 <%- -%>
   <%- if @vsync -%>--vsync <%= @vsync_mode || 'opengl' %> <% end -%>
   <%- if @i3_composite_backend %> --backend <%= @i3_composite_backend %> <% end -%>
@@ -395,6 +397,7 @@ exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 <%- -%
 <% end %>
 
 exec --no-startup-id zim
+exec --no-startup-id redshift
 #exec --no-startup-id tomboy
 
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>

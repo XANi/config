@@ -60,6 +60,8 @@ class home::config (
             target => '.config/dunst/dunstrc';
         "mpv.input":
             target => '.config/mpv/input.conf';
+        "redshift.conf":
+            target => '.config/redshift.conf';
     }
     home::config::exec {
         git-wtf:;

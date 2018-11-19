@@ -71,6 +71,7 @@ class home::packages {
          feh, # wallpaper
          parcellite, # clipboard manager
          rofi, # window title search, run menu
+         redshift, # change color balance depending on time of day
          arbtt,
          tomboy, # notes
          zim, # desktop wiki
