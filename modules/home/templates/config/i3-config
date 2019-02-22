@@ -401,6 +401,7 @@ exec --no-startup-id zim
 
 <% if @hostname == "hydra" %>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/wallpapers
+exec --no-startup-id systemd-run --user --unit=xani-wallpaper --on-calendar='*:0,15,30,45' feh --recursive --randomize --no-fehbg --bg-max ~/wallpapers
 <% else %>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max ~/Dropbox/Share/wallpaper<% if @location == 'arte' %>/sfw<% end %>
 <% end %>
