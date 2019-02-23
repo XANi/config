@@ -401,9 +401,9 @@ exec --no-startup-id zim
 
 <%-
 if @location == 'arte'
-  wp_path = ~/Dropbox/Share/wallpaper/sfw
+  wp_path = '~/Dropbox/Share/wallpaper/sfw'
 else
-  wp_path = ~/Dropbox/Share/wallpaper
+  wp_path = '~/Dropbox/Share/wallpaper'
 end
 -%>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max <%= wp_path %>
