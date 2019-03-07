@@ -76,6 +76,7 @@ class home::packages {
          tomboy, # notes
          zim, # desktop wiki
          syslinux-utils, # for isohybrid
+         keepassxc,
          ]:
              ensure => installed,
 
@@ -88,6 +89,8 @@ class home::packages {
     package { 'vprerex': ensure => absent }
     # moreutils conflicts with parallel
     package { 'moreutils': ensure => absent }
+    #fork is better
+    package { 'keepassx': ensure => absent }
     # polish translations are crap and/or outdated
     package {
         [
