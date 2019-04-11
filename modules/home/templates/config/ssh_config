@@ -63,6 +63,13 @@ Host 172.16.*
      UserKnownHostsFile /dev/null
      User root
      LogLevel QUIET
+
+
+## GCP and other public IP crap
+Host 3?.*
+    UserKnownHostsFile /dev/null
+     LogLevel QUIET
+
 Match canonical Host *
     User root
 <% end %>
