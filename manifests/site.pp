@@ -29,8 +29,8 @@ notify {"First run of the day":
 }
 
 class desktop {
-    realize Apt::Source['main-stretch']
-    realize Apt::Source['main-testing']
+    realize Apt::Source['main-stable']
+    #realize Apt::Source['main-testing']
     realize Apt::Source['mono']
     realize Apt::Source['spotify']
     realize Apt::Source['gns3-stretch']
