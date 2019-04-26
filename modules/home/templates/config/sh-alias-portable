@@ -15,6 +15,7 @@ alias se='service'
 alias dk='docker'
 alias tm='tmux new-session -A -s main'
 alias tl='tmux list-sessions'
+alias cr='openssl x509 -text'
 alias kubesys='kubectl --namespace=kube-system'
 alias crm_status='crm_mon --inactive -n -f -t'
 mux() {
