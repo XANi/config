@@ -52,7 +52,7 @@ class home::config (
         "i3blocks.conf":
             target => '.config/i3blocks/config';
         "i3-config":
-            target => '.i3/config';
+            target => '.config/i3/config';
         "gtkrc-2.0":;
         "gtkrc-3.0":
             target => '.config/gtk-3.0/settings.ini';
@@ -63,6 +63,11 @@ class home::config (
         "redshift.conf":
             target => '.config/redshift.conf';
     }
+    file { 'i3-legacy':
+        source => "${homedir}/.config/.i3/config",
+        path   => "${homedir}/.i3/config",
+    }
+
     home::config::exec {
         git-wtf:;
         ssh-askpass-wrapper:;
@@ -100,6 +105,7 @@ class home::config (
         '.config/terminator':;
         '.config/dunst':;
         '.config/mpv':;
+        '.config/i3':;
         '.i3':;
         '.tilda':;
         'src':;
