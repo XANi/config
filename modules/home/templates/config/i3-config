@@ -215,8 +215,11 @@ bar {
     # 'primary' does not work :(
     tray_output  $screen_left
     output $screen_left
-    # workspace_buttons yes
-        colors {
+     # disable scrollwheel desktop change
+     bindsym button4 nop
+     bindsym button5 nop
+     # workspace_buttons yes
+    colors {
         background #14191f
         statusline #ffffff
         separator #666666
@@ -237,10 +240,14 @@ bar {
      position bottom
      tray_output  none
      output $screen_right
+     #
+     # disable scrollwheel desktop change
+     bindsym button4 nop
+     bindsym button5 nop
 #     # hide bar until urgent or modifier is pressed
-#     # mode hide
-#     # hidden_state hide
-#     # modifier $mod
+      mode hide
+      hidden_state hide
+      modifier $mod
 #     #  workspace_buttons yes
      colors {
          background #14191f
