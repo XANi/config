@@ -99,6 +99,11 @@ class home::packages {
          ]:
              ensure => absent;
     }
+    # remove Useless FireWall
+    package {[
+        'ufw'
+    ]: ensure => absent
+    }
 }
 
 class home::packages::notebook {
