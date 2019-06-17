@@ -244,10 +244,11 @@ bar {
      # disable scrollwheel desktop change
      bindsym button4 nop
      bindsym button5 nop
+     # do not enable, fucks with fullscreen
 #     # hide bar until urgent or modifier is pressed
-      mode hide
-      hidden_state hide
-      modifier $mod
+#      mode hide
+#      hidden_state hide
+#      modifier $mod
 #     #  workspace_buttons yes
      colors {
          background #14191f
