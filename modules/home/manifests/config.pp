@@ -14,7 +14,7 @@ class home::config (
         group => xani,
     }
 
-    if $::type !~ /aptop|otebook|ablet/ {
+    if "${type}" !~ /aptop|otebook|ablet/ {
         include home::tweaks::disable_maccel
     }
     if $location == 'arte' {
