@@ -275,11 +275,11 @@ for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
 
-for_window [class="^(Firefox|Iceweasel)" instance="Dialog"] floating enable
-for_window [class="^(Firefox|Iceweasel)" instance="Extension"] floating enable
-for_window [class="^(Firefox|Iceweasel)" instance="Abp"] floating enable
-for_window [class="^(Firefox|Iceweasel)" instance="Febe"] floating enable
-for_window [class="^(Firefox|Iceweasel)" title="^Remote Console"] floating enable
+for_window [class="^(firefox|Firefox|Iceweasel)" instance="Dialog"] floating enable
+for_window [class="^(firefox|Firefox|Iceweasel)" instance="Extension"] floating enable
+for_window [class="^(firefox|Firefox|Iceweasel)" instance="Abp"] floating enable
+for_window [class="^(firefox|Firefox|Iceweasel)" instance="Febe"] floating enable
+for_window [class="^(firefox|Firefox|Iceweasel)" title="^Remote Console"] floating enable
 
 for_window [class="^Gimp"] floating enable
 for_window [class="^Krita" instance="Dialog"] floating enable
@@ -318,7 +318,7 @@ for_window [title="(Oracle VM VirtualBox$)"] floating enable
 for_window [title="^Wireshark.*Follow.*"] floating enable
 
 # Separate some stuff
-assign [class="^(Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
+assign [class="^(firefox|Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
 assign [class=".*jetbrains.*"] <%= wspace['04']['name'] %>
 assign [class="^(Chrome|Chromium|chromium-browser|chromium)"] <%= wspace['11']['name'] %>
