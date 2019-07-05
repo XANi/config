@@ -37,6 +37,7 @@ class desktop {
     realize Apt::Source['docker']
     realize Apt::Source['yarn']
     realize Apt::Source['zim']
+    realize Apt::Source['asbru']
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
