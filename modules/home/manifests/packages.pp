@@ -18,7 +18,7 @@ class home::packages {
          # utils
          aspell-en,
          colordiff,
-         cups-pdf,
+         printer-driver-cups-pdf,
          eog,
          git,
          pv,
