@@ -109,6 +109,7 @@ class desktop {
         'watchdog':;
         'wd_keepalive':;
     }
+    include core::suspend::disable
 }
 
 class desktop::efi {

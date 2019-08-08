@@ -64,7 +64,7 @@ class home::config (
             target => '.config/redshift.conf';
     }
     file { 'i3-legacy':
-        source => "${homedir}/.config/.i3/config",
+        source => "${homedir}/.config/i3/config",
         path   => "${homedir}/.i3/config",
     }
 
