@@ -77,7 +77,8 @@ class home::packages {
          tomboy, # notes
          zim, # desktop wiki
          syslinux-utils, # for isohybrid
-         keepassxc,
+            keepassxc,
+            gcalcli,
          ]:
              ensure => installed,
 
