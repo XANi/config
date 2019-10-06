@@ -22,10 +22,12 @@
 
 
 (setq package-archives '(
-    ("ELPA" . "http://tromey.com/elpa/")
-    ("gnu" . "http://elpa.gnu.org/packages/")
-    ("melpa" . "http://melpa.milkbox.net/packages/")
-    ("marmalade" . "http://marmalade-repo.org/packages/")))
+    ("ELPA" . "https://tromey.com/elpa/")
+    ("gnu" . "https://elpa.gnu.org/packages/")
+    ("melpa" . "https://melpa.net/packages/")
+    ("org" . "https://orgmode.org/elpa/")
+    ;;    ("marmalade" . "http://marmalade-repo.org/packages/")
+    ))
 (package-initialize)
 
 <%- if @rainbow && @rainbow !~ /over/ -%>
