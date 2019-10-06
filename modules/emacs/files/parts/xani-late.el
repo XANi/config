@@ -9,7 +9,7 @@
 (diminish 'global-whitespace-mode "")
 (diminish 'whitespace-newline-mode "")
 (diminish 'whitespace-mode "")
-(diminish 'undo-tree-mode "")
+;(diminish 'undo-tree-mode "")
 (diminish 'server-buffer-clients "")
 (diminish 'overwrite-mode "✗")
 (diminish 'company-mode "ᴒ")
