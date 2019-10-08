@@ -417,5 +417,6 @@ end
 -%>
 exec --no-startup-id feh --recursive --randomize --no-fehbg --bg-max <%= wp_path %>
 exec --no-startup-id systemd-run --user --unit=xani-wallpaper --on-calendar='*:0,15,30,45' feh --recursive --randomize --no-fehbg --bg-max <%= wp_path %>
+exec --no-startup-id systemd-run --user --unit=xani-cal --on-calendar='*:0/5' -- bash -c 'LANG=en_GB.UTF-8 /usr/bin/gcalcli remind 1440 "echo %s"  |head -n1 > /home/xani/.config/uberstatus/gcalcli.pipe'
 exec --no-startup-id  /usr/bin/terminator -r __scratchpad
 exec --no-startup-id  /usr/bin/tilda
