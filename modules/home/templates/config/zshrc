@@ -124,6 +124,9 @@ setopt nocheckjobs
 
 # stop randomly CDing to system user homes
 unsetopt cdablevars
+# stop randomly CDing on any fucking typo
+unsetopt auto_cd
+
 
 # stop fucking up scp
 unsetopt no_match
