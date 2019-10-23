@@ -40,6 +40,7 @@ class home::packages {
          rlwrap,
          scrot,
          seahorse,
+         vbindiff,
           # shutter, # not ported to gtk3, removed from debian ;/,
          flameshot,
          silversearcher-ag,
