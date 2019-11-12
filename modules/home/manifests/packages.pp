@@ -71,6 +71,7 @@ class home::packages {
          conky,
          compton, # compositing
          feh, # wallpaper
+         playerctl, # media player controls
          parcellite, # clipboard manager
          rofi, # window title search, run menu
          redshift, # change color balance depending on time of day
