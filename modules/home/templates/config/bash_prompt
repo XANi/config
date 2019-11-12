@@ -216,7 +216,7 @@ fi
 
 <% else -%>
 export GOPATH=/home/xani/src/lib/go
-export PATH=$PATH:/home/xani/src/lib/go/bin:/usr/games:/home/xani/.local/bin
+export PATH=$PATH:/home/xani/go/bin:/usr/games:/home/xani/.local/bin
 export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
