@@ -94,7 +94,8 @@
 (require 'xani-puppet)
 (require 'xani-ruby)
 (require 'xani-vc)
-(require 'xani-vcl)
+;; FIXME gone from packages
+;;(require 'xani-vcl)
 (require 'xani-xml)
 
 ;; Other
@@ -157,7 +158,8 @@
 ;; ))
 
 (add-hook 'sgml-mode-hook 'zencoding-mode)
-(add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))
+;; FIXME package gone
+;;(add-to-list 'auto-mode-alist '("\\.\\([vV][cC][lL]\\)\\'" . vcl-mode))
 (add-to-list 'auto-mode-alist '(".*/hiera.*\\.\\(gpg\\)\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '(".*/apache/.*httpd.*" . apache-mode))
 

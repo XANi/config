@@ -184,8 +184,9 @@
 )
 
 ;; colors
-(ignore-errors (global-rainbow-delimiters-mode))
-(rainbow-mode)
+;; FIXME package gone...
+;;(ignore-errors (global-rainbow-delimiters-mode))
+;;(rainbow-mode)
 
 ;; minibuffer depth
 (minibuffer-depth-indicate-mode 99)

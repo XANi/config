@@ -1,8 +1,9 @@
-#!/bin/bash
-# <%= @puppet_header %>
+#!/bin/sh
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
+# WARNING! THIS IS ALWAYS RAN VIA /bin/sh, and CANT fail else session wont start
 # for emacs
+# ALWAYS wrap sourcing (. /something) in if checking whether it exists else it fails
 export GOPATH=/home/xani/src/lib/go
 
 if [ -e ~/.screenlayout/default.sh ] ; then
@@ -18,7 +19,9 @@ if kill -0 $SSH_AGENT_PID ; then
 else
     echo 'starting new agent'
     /usr/bin/gpg-agent --sh --daemon --enable-ssh-support --write-env-file ~/.cache/gpg-agent-info
-    . ~/.cache/gpg-agent-info
+    if [ -e ~/.cache/gpg-agent-info ] ; then
+        . ~/.cache/gpg-agent-info
+    fi
 fi
 # export GPG_AGENT_INFO
 # export SSH_AUTH_SOCK
