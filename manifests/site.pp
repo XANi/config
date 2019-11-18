@@ -116,7 +116,8 @@ class desktop::efi {
     include desktop
     realize Apt::Source['nextcloud']
     realize Apt::Source['nodesource-8']
-    ssl::cert {'arte':;}
+    ensure_packages(['librt-client-rest-perl'])
+    ssl::cert {'efi':;}
 }
 
 node ghroth {
