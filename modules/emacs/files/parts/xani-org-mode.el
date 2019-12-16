@@ -6,6 +6,9 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+;; fix https://emacs.stackexchange.com/questions/42006/trouble-with-org-mode
+(setq org-element-use-cache nil)
+
 (setq
  org-agenda-restore-windows-after-quit t
  org-agenda-skip-deadline-if-done t
