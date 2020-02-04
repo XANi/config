@@ -215,7 +215,6 @@ elif [ -e /usr/bin/nano ] ; then
 fi
 
 <% else -%>
-export GOPATH=/home/xani/src/lib/go
 export PATH=$PATH:/home/xani/go/bin:/usr/games:/home/xani/.local/bin
 export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
