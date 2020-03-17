@@ -467,24 +467,24 @@ class emacs::wl {
 
 
 class emacs::install ($version = 'emacs-snapshot') {
-    if ($version =~ /snapshot/) {
-        $alternative = $version
-        realize Apt::Source['emacs-snapshot']
-    } else {
-        $alternative = "${version}-x"
-    }
+    # if ($version =~ /snapshot/) {
+    #     $alternative = $version
+    #     realize Apt::Source['emacs-snapshot']
+    # } else {
+    #     $alternative = "${version}-x"
+    # }
     package { $version:
         alias  => 'emacs', # for deps
         ensure => installed,
     }
-    util::update_alternatives {
-        emacs:
-            target  => "/usr/bin/${alternative}",
-            require => Package[$version];
-        emacsclient:
-            target  => "/usr/bin/emacsclient.${version}",
-            require => Package[$version];
-    }
+    # util::update_alternatives {
+    #     emacs:
+    #         target  => "/usr/bin/${alternative}",
+    #         require => Package[$version];
+    #     emacsclient:
+    #         target  => "/usr/bin/emacsclient.${version}",
+    #         require => Package[$version];
+    # }
     if $version =~ /emacs24/ {
         file {'/usr/share/emacs/24.3/lisp/org/':
             ensure => absent,
