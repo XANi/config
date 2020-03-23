@@ -122,6 +122,8 @@ class desktop::efi {
 
 node ghroth {
     include desktop::efi
+    include kanboard::server
+
     #     'rabbitmq':;
     #     'oracle_java':;
     #     'sysdig':;
@@ -148,4 +150,5 @@ node hydra {
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
+    include kanboard::server
 }
