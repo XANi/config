@@ -7,6 +7,7 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_DESCRIBE_STYLE=branch
 source  /usr/lib/git-core/git-sh-prompt
 setopt PROMPT_SUBST
+setopt RM_STAR_SILENT
 autoload -U regexp-replace
 no_processors=$(cat /proc/cpuinfo | grep ^processor|wc -l)
 home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
