@@ -20,12 +20,7 @@ reporturl = <%= @puppet_reporturl %>
 <% end -%>
 graph=true
 graphdir=/tmp
-# randomly broken
-# parser=future
-
-[master]
-# These are needed when the puppetmaster is run by passenger
-# and can safely be removed if webrick is used.
-ssl_client_header = SSL_CLIENT_S_DN
-ssl_client_verify_header = SSL_CLIENT_VERIFY
-priority = idle
+# puppet confuses itself with hostname/fqdn sometimes
+# and does not find itself in manifest when working in standalone mode
+# so force certname to hostname when used without certs
+certname=<%= @hostname %>
