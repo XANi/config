@@ -79,5 +79,6 @@ synclient TapButton3=2 # middle click
 synclient VertEdgeScroll=1
 synclient VertTwoFingerScroll=0
 <% end %>
+export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin
 true
 echo UPDATESTARTUPTTY | gpg-connect-agent &
