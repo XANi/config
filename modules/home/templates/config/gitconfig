@@ -65,6 +65,7 @@
     cx = commit -v
     d = diff --word-diff -C -M
     l = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s'
+    ll = !"git log --color=always --abbrev-commit --relative-date --format='%Cred%h%Creset sign:%G? %Cgreen%aN %Cblue%x09%ai [%ar] %Creset %s' $* | perl -MTerm::ANSIColor -pi -e 's/sign:(.)/$c=(\"$1\"=~\"([GU])\")?\"yellow\":\"magenta\";$c=(\"$1\"=~\"([U])\")?\"red\":$c;colored [$c], \"$1\"/e;s/($ENV{LOGNAME}|#?\\d{16})/colored [\"cyan\"], \"$1\"/ge' | less -R # "
     lo = log -30  --abbrev-commit --relative-date --format='%Cred%h%Cgreen %aN%Cblue %ar %Creset%x09 %s' --stat-count=7
     me = merge
     p = !git pull --no-commit && git push -u
