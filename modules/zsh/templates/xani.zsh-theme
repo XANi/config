@@ -11,7 +11,10 @@ setopt RM_STAR_SILENT
 autoload -U regexp-replace
 no_processors=$(cat /proc/cpuinfo | grep ^processor|wc -l)
 home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
-
+# some dumbfuck decided to add "r" alias for previous command
+# because presumably he couldn't find up arrow on his keyboard
+# disable that garbage
+disable r
 # fallback default
 get_load_color() {
     read load </proc/loadavg

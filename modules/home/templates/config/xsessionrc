@@ -80,5 +80,6 @@ synclient VertEdgeScroll=1
 synclient VertTwoFingerScroll=0
 <% end %>
 export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin
+export VST_PATH=/home/xani/sync/sync/music_producing/vst/dll:/home/xani/sync/sync/music_producing/vst/linvst:/usr/lib/vst:/usr/lib/lxvst
 true
 echo UPDATESTARTUPTTY | gpg-connect-agent &
