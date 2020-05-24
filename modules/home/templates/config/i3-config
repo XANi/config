@@ -333,6 +333,8 @@ assign [class="Zim"]  <%= wspace['13']['name'] %>
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
+for_window [class=".*rubigos.*"] floating enable
+
 
 # app shortcuts
 bindsym $mod+l exec xscreensaver-command -lock
