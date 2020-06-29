@@ -274,6 +274,7 @@ for_window [window_role="__scratchpad"] move scratchpad
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
+for_window [class="^(Gg)oogle-chrome"] border 1pixel
 
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Extension"] floating enable
@@ -321,7 +322,7 @@ for_window [title="^Wireshark.*Follow.*"] floating enable
 assign [class="^(firefox|Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
 assign [class=".*jetbrains.*"] <%= wspace['04']['name'] %>
-assign [class="^(Chrome|Chromium|chromium-browser|chromium)"] <%= wspace['11']['name'] %>
+assign [class="^(Chrome|Chromium|chromium-browser|chromium|Google-chrome|google-chrome)"] <%= wspace['11']['name'] %>
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
 assign [class="^(Pidgin|Tasque|[rR]emember)"] <%= wspace['13']['name'] %>
 assign [class="^Steam"] <%= wspace['05']['name'] %>
