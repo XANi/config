@@ -274,7 +274,7 @@ for_window [window_role="__scratchpad"] move scratchpad
 for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
-for_window [class="^(Gg)oogle-chrome"] border 1pixel
+for_window [class="^(G|g)oogle-chrome"] border 1pixel
 
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Extension"] floating enable
