@@ -52,9 +52,9 @@ if [ -e /bin/systemctl ] || [ -e /usr/bin/systemctl ] ; then
 fi
 alias trace='traceroute -e -A --back'
 if [ "$USER" = "root" ] ; then
-    alias tcpdump='tcpdump -n -s 0'
+    alias td='tcpdump -n -s 0 -Z root'
 else
-    alias tcpdump='sudo tcpdump -n -s 0'
+    alias td='sudo tcpdump -n -s 0 -Z root'
 fi
 
 alias mtrr='mtr -r -w -b'

@@ -216,6 +216,7 @@ fi
 
 <% else -%>
 export PATH=$PATH:/home/xani/go/bin:/usr/games:/home/xani/.local/bin
+export GOPRIVATE='git.efigence.com'
 export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
