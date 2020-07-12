@@ -137,6 +137,10 @@ node yidhra {
     include dota2
     include hw::vaiopro
 }
+node erise {
+    include util::mobile::laptop
+    include desktop
+}
 node 'vm-debian' {
     include desktop
     include emacs::wl
