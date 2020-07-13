@@ -106,6 +106,7 @@ class home::config (
         '.config/dunst':;
         '.config/mpv':;
         '.config/i3':;
+        '.config/autostart':;
         '.i3':;
         '.tilda':;
         'src':;
