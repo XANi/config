@@ -116,7 +116,7 @@ class desktop::efi {
     include desktop
     realize Apt::Source['nextcloud']
     realize Apt::Source['nodesource-8']
-    realize Apt::Source['cloud-sdk']
+    realize Apt::Source['google-cloud-sdk']
     ensure_packages(['librt-client-rest-perl'])
     ssl::cert {'efi':;}
 }
@@ -152,7 +152,7 @@ node hydra {
     #     "emdebian":;
     #     "bareos":;
     # }
-    realize Apt::Source['cloud-sdk']
+    realize Apt::Source['google-cloud-sdk']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
