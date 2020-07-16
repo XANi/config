@@ -86,7 +86,10 @@
 
 [grep]
     patternType = perl
-
+# default stopped being default
+# use the default
+[pull]
+	rebase = false
 [rebase]
     autoStash = true
 [stash]
