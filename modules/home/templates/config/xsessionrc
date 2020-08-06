@@ -4,6 +4,7 @@
 # WARNING! THIS IS ALWAYS RAN VIA /bin/sh, and CANT fail else session wont start
 # for emacs
 # ALWAYS wrap sourcing (. /something) in if checking whether it exists else it fails
+export QT_STYLE_OVERRIDE=gtk
 
 if [ -e ~/.screenlayout/default.sh ] ; then
     ~/.screenlayout/default.sh
@@ -22,6 +23,7 @@ else
         . ~/.cache/gpg-agent-info
     fi
 fi
+tmux new-session -d -s main
 # export GPG_AGENT_INFO
 # export SSH_AUTH_SOCK
 # export SSH_AGENT_PID
@@ -29,7 +31,6 @@ fi
 echo $STARTUP >~/tmp/.xsesssion_basestartup
 
 # qt5 doesnt do that by default and doesnt copy settings from qt4 ;/
-export QT_STYLE_OVERRIDE=gtk
 
 
 if [ -e /usr/bin/nvidia-settings ] && [ /home/xani/.nvidia-settings-rc ] ; then
@@ -83,3 +84,5 @@ export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bi
 export VST_PATH=/home/xani/sync/sync/music_producing/vst/dll:/home/xani/sync/sync/music_producing/vst/linvst:/usr/lib/vst:/usr/lib/lxvst
 true
 echo UPDATESTARTUPTTY | gpg-connect-agent &
+tmux new-window -P /home/xani/go/bin/purrbot
+

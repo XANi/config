@@ -413,9 +413,6 @@ exec --no-startup-id zim
 #exec --no-startup-id redshift
 #exec --no-startup-id tomboy
 
-# tmux
-exec --no-startup-id tmux new-session -d -s main
-exec --no-startup-id tmux new-window -P /home/xani/go/bin/purrbot
 <%-
 if @location == 'arte'
   wp_path = '~/Dropbox/Share/wallpaper/sfw'
