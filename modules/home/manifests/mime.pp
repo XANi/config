@@ -16,6 +16,7 @@ define home::mime(
     $type = $title,
     $app,
 )   {
+    include home::mime::common
     concat::fragment { "mime-${title}":
         order => "1000",
         target  => '/usr/share/applications/mimeapps.list',
