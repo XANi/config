@@ -45,16 +45,6 @@ class home::common (
         content => template('home/cleanup_tmp.sh'),
         mode    => "755",
     }
-    file { [
-        "${homedir}/.local/",
-        "${homedir}/.local/share/",
-        "${homedir}/.local/share/applications",
-    ]:
-        ensure => directory,
-        mode   => "750",
-        owner  => "xani",
-        group  => "xani",
-    }
 
 
 }

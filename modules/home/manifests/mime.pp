@@ -20,6 +20,6 @@ define home::mime(
     concat::fragment { "mime-${title}":
         order => "1000",
         target  => '/usr/share/applications/defaults.list',
-        content => inline_template("${type}:${app}.desktop\n")
+        content => inline_template("${type}=${app}.desktop\n")
     }
 }
