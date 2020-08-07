@@ -153,6 +153,9 @@ class home::config (
         maxsize => '200M',
         prerotate => '/usr/bin/killall arbtt-capture',
     }
+    home::mime {
+        'inode/directory': app => 'thunar',
+    }
 }
 
 
