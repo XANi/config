@@ -428,5 +428,5 @@ exec --no-startup-id  /usr/bin/tilda
 
 <% if File.file?('/home/xani/.config/i3/config-local') %>
 # included from /home/xani/.config/i3/config-local
-<% scope.call_function('template',["/home/xani/.config/i3/config-local"]) %>
+<%= scope.call_function('template',["/home/xani/.config/i3/config-local"]) %>
 <% end %>
