@@ -425,3 +425,8 @@ exec --no-startup-id systemd-run --user --unit=xani-wallpaper --on-calendar='*:0
 exec --no-startup-id systemd-run --user --unit=xani-cal --on-calendar='*:0/5' -- bash -c 'LANG=en_GB.UTF-8 /usr/bin/gcalcli remind 1440 "echo %s"  |head -n1 > /home/xani/.config/uberstatus/gcalcli.pipe'
 exec --no-startup-id  /usr/bin/terminator -r __scratchpad
 exec --no-startup-id  /usr/bin/tilda
+
+<% if File.file?('/home/xani/.config/i3/config-local') %>
+# included from /home/xani/.config/i3/config-local
+<% scope.call_function('template',["/home/xani/.config/i3/config-local"]) %>
+<% end %>
