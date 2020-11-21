@@ -100,9 +100,9 @@ end
 	short_units = true,
 	imap = 'host user pass3',
 	top_cpu_separate = true,
-	<%- = 'if laptop -%>',
+	<% if laptop %>,
 	update_interval_on_battery = 3,
-	<%- = 'end -%>',
+	<% end %>,
 
 };
 
