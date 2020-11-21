@@ -24,7 +24,8 @@ class home::config (
         bash_prompt:;
         bash_functions:;
         bashrc:;
-        conkyrc:;
+        'conky.lua': target => '.config/conky/conky.conf';
+        'conky2.lua': target => '.config/conky/conky2.conf';
         ctags:;
         gitconfig:;
         gitignore_global:;
@@ -107,6 +108,7 @@ class home::config (
         '.config/mpv':;
         '.config/i3':;
         '.config/autostart':;
+        '.config/conky':;
         '.i3':;
         '.tilda':;
         'src':;
