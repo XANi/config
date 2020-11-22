@@ -2,7 +2,7 @@ conky.config = {
 -- <%= @puppet_header %>
 -- <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 	alignment = 'top_right',
-	xinerama_head = '<%= @conky_xinerama_head || "0" %>',
+	xinerama_head = <%= @conky_xinerama_head || "0" %>,
 
 <%
 # dumb but dont have time to fix it now
@@ -34,11 +34,11 @@ end
 
 	own_window = true,
 	own_window_argb_visual = true,
---own_window_argb_value 254
+-- own_window_argb_value 254
 	own_window_transparent = false,
 	own_window_class = 'Conky',
 	own_window_type = 'override',
---own_window_type override
+-- own_window_type override
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_colour = '#000000',
 	own_window_argb_value = 180,
@@ -46,12 +46,12 @@ end
 	draw_shades = true,
 	default_shade_color = '#000000',
 
---own_window yes
---own_window_class Conky
---own_window_type desktop
---own_window_type dock
---own_window_hints above,sticky,skip_taskbar,skip_pager
---own_window_transparent yes
+-- own_window yes
+-- own_window_class Conky
+-- own_window_type desktop
+-- own_window_type dock
+-- own_window_hints above,sticky,skip_taskbar,skip_pager
+-- own_window_transparent yes
 
 	default_color = '#7e9fc9',
 	default_outline_color = 'white',
@@ -72,7 +72,7 @@ end
 
 -- purple
 	color4 = '#8c86e4',
---background no
+-- background no
 
 	border_width = 1,
 	cpu_avg_samples = 1,
@@ -82,7 +82,7 @@ end
 	draw_graph_borders = false,
 	draw_outline = false,
 	draw_shades = false,
---draw_graph_borders yes
+-- draw_graph_borders yes
 	use_xft = true,
 	font = 'Fantasque Sans Mono:size=12',
 	gap_x = 40,
@@ -100,9 +100,9 @@ end
 	short_units = true,
 	imap = 'host user pass3',
 	top_cpu_separate = true,
-	<% if laptop %>,
+	<% if laptop %>
 	update_interval_on_battery = 3,
-	<% end %>,
+	<% end %>
 
 };
 
