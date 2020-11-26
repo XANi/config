@@ -391,8 +391,8 @@ exec --no-startup-id flameshot
 exec --no-startup-id bash -c 'sleep 120 ;LC_ALL=C.UTF-8 conky -d'
 exec --no-startup-id bash -c 'sleep 120 ;LC_ALL=C.UTF-8 conky -d  /home/xani/.config/conky/conky2.conf'
 <% else %>
-exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky -d'
-exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky -d /home/xani/.config/conky/conky2.conf'
+exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky'
+exec --no-startup-id bash -c 'LC_ALL=C.UTF-8 conky /home/xani/.config/conky/conky2.conf'
 <% end %>
 # -i - inactive windows -e borders -m menu
 # -D ms between fade steps
