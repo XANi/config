@@ -44,9 +44,6 @@ class home::config (
             target => '.ssh/config';
         terminator:
             target => ".config/terminator/config";
-        arbtt:
-            source => 'home/config/arbtt-categorize.cfg',
-            target => '.arbtt/categorize.cfg';
         tilda:
             target => '.config/tilda/config_0';
 #        "i3status.conf":;
@@ -145,15 +142,6 @@ class home::config (
     file { '/usr/share/git-core/templates/hooks/post-checkout':
         content => template('home/git/post-checkout'),
         mode    => "755",
-    }
-    logrotate::rule {'arbtt-xani':
-        path => '/home/xani/.arbtt/capture.log',
-        rotate => 24,
-        rotate_every => 'month',
-        minsize => '20M',
-        compress => false,
-        maxsize => '200M',
-        prerotate => '/usr/bin/killall arbtt-capture',
     }
     home::mime {
         'inode/directory': app => 'thunar',
