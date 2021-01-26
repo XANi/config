@@ -1,9 +1,9 @@
 # DPP/Puppet managed file at location home, DO NOT EDIT BY HAND, changes will be overwritten.
 # hydra.home.zxz.li:modules/home/templates/config/conkyrc
-alignment top_right
-xinerama_head 2
+alignment top_left
+xinerama_head 1
 
-gap_x 650
+gap_x 200
 gap_y 50
 #maximum_width 600
 
