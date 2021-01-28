@@ -282,6 +282,10 @@ for_window [class="^(firefox|Firefox|Iceweasel)" instance="Abp"] floating enable
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Febe"] floating enable
 for_window [class="^(firefox|Firefox|Iceweasel)" title="^Remote Console"] floating enable
 
+for_window [class="^(Kicad|kicad|KiCad)" title="^KiCad"] floating enable
+for_window [class="^(Kicad|kicad|KiCad)" title="^Footprint Editor"] floating enable
+for_window [class="^(Kicad|kicad|KiCad)" title="^Assign"] floating enable
+
 for_window [class="^Gimp"] floating enable
 for_window [class="^Krita" instance="Dialog"] floating enable
 for_window [class="^(pinentry|Pinentry)"] floating enable
