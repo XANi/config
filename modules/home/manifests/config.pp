@@ -58,8 +58,6 @@ class home::config (
             target => '.config/dunst/dunstrc';
         "mpv.input":
             target => '.config/mpv/input.conf';
-        "redshift.conf":
-            target => '.config/redshift.conf';
     }
     file { 'i3-legacy':
         source => "${homedir}/.config/i3/config",

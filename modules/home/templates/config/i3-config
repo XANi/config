@@ -416,8 +416,6 @@ exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 <%- -%
 <% end %>
 
 exec --no-startup-id zim
-#exec --no-startup-id redshift
-#exec --no-startup-id tomboy
 
 <%-
 if @location == 'arte'

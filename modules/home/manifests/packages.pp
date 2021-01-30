@@ -74,7 +74,6 @@ class home::packages {
          playerctl, # media player controls
          parcellite, # clipboard manager
          rofi, # window title search, run menu
-         redshift, # change color balance depending on time of day
          tomboy, # notes
          zim, # desktop wiki
          syslinux-utils, # for isohybrid
