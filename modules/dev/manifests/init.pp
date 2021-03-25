@@ -22,6 +22,11 @@ class dev::haproxy (
         owner   => xani,
         notify  => Service['haproxy'],
     }
+    file { '/etc/haproxy/auth.spoe':
+        content => template("${module_name}/spoe.cfg"),
+        replace => false,
+        owner   => xani,
+    }
     file {'/etc/haproxy/errors/':
         ensure  => directory,
         mode    => "644",
