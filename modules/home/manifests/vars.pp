@@ -12,4 +12,5 @@ class home::vars (
     $i3_composite_backend = hiera('i3_composite_backend',false),
     $gpgid                = hiera('gpgid'),
     $conky_xinerama_head  = hiera('conky_xinerama_head',false),
+    $goprivate             = hiera('goprivate',false),
     ) {}

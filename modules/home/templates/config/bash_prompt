@@ -191,7 +191,9 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_DESCRIBE_STYLE=branch
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
-
+<%- if @goprivate -%>
+export GOPRIVATE="<%= @goprivate %>"
+<%- end -%>
 <% if @portable_config -%>
 # fix another c6 fucktardness
 if [ "$SUDO_USER" = "xani" ] ; then
@@ -216,7 +218,6 @@ fi
 
 <% else -%>
 export PATH=$PATH:/home/xani/go/bin:/usr/games:/home/xani/.local/bin
-export GOPRIVATE='git.efigence.com'
 export EDITOR='/usr/local/bin/e'
 export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
 
