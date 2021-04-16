@@ -13,4 +13,4 @@ class home::vars (
     $gpgid                = hiera('gpgid'),
     $conky_xinerama_head  = hiera('conky_xinerama_head',false),
     $goprivate             = hiera('goprivate',false),
-    ) {}
+) {}

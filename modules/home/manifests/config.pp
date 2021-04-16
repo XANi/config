@@ -168,6 +168,7 @@ define home::config::file (
     $socks_proxy          = $home::vars::socks_proxy
     $no_proxy             = $home::vars::no_proxy
     $conky_xinerama_head  = $home::vars::conky_xinerama_head
+    $goprivate            = $home::vars::goprivate
 #    $     = $home::vars::
     file { "${homedir}/$target":
         content => template($source),

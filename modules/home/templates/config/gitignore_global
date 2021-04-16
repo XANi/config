@@ -45,3 +45,4 @@ script/hypnotoad.pid
 *.LOCAL.[0-9]*
 *.REMOTE.[0-9]*
 *.BACKUP.[0-9]*
+/*.patch
