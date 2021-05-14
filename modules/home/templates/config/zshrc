@@ -81,7 +81,7 @@ source ~/.bash_functions
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
-export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin
+export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin:/usr/lib/go-1.16/bin/
 export EDITOR='/usr/local/bin/e'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
