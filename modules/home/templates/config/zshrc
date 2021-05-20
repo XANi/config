@@ -86,7 +86,9 @@ export EDITOR='/usr/local/bin/e'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-
+<%- if @goprivate -%>
+export GOPRIVATE="<%= @goprivate %>"
+<%- end -%>
 <%= scope.function_template(['home/config/sh-alias-portable']) %>
 
 <%= scope.function_template(['home/config/sh-alias-desktop']) %>
