@@ -103,6 +103,9 @@
 #[gpg]
 #	program = gpg1
 <% end %>
+[filter "gofmt"]
+	clean = gofmt
+	smudge = cat
 [url "git@git.efigence.com:"]
         insteadof = https://git.efigence.com/
 [url "git@github.com:"]
