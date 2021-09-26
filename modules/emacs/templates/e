@@ -3,6 +3,7 @@
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 use Fcntl qw(S_IWUSR);
 use File::stat;
+use strict;
 use Cwd;
 my $cur_dir = getcwd;
 my $home;
@@ -15,6 +16,7 @@ else {
 my $puppet_path = [
     $home . '/src/svn-puppet',
     $home . '/src/puppet',
+    $home . '/src/arte/puppet',
     $home . '/src/my/cluster',
     $home . '/src/my/puppet',
     $home . '/src/my/xani-puppet',
@@ -26,7 +28,7 @@ my $prepend='/sudo::';
 my $v = {};
 
 # check if emacs window already exists, have to be done before dropping any privs.
-$xlsclients = qx{wmctrl -l -p};
+my $xlsclients = qx{wmctrl -l -p};
 $v->{'open_window'} = 1;
 foreach(split(/\n/, $xlsclients)) {
     my($id, $desktop, $pid, $host, $program) = split(/\s+/,$_,5);
@@ -60,13 +62,14 @@ foreach my $file (@ARGV) {
             next;
         }
         else {
-            push @no_access_files;
+            push @no_access_files,$file;
+            next
         }
     }
     elsif ($file =~ m{puppet://(.*?)/(.+)}) {
         my $puppet_file = $2;
         $puppet_file =~ s{modules/(.+?)/}{modules/$1/files/};
-        foreach $path (@$puppet_path) {
+        foreach my $path (@$puppet_path) {
             my $pfile = $path . '/' . $puppet_file;
             print "Checking $pfile \n";
             if ( -e $pfile ) {
@@ -110,6 +113,7 @@ sub check_file_access {
         }
         return 1;
     } else {
+        print "$file inaccessible\n";
         if(defined($no_access)) {
             push @$no_access, $file;
         }
@@ -133,7 +137,7 @@ foreach(@sudo_files) {
     }
 }
 
-my @params = ( @no_access_files, @normal_files, @sudo_files);
+my @params = ( @no_access_files, @normal_files, @sudo_files, @puppet_files);
 
 if ($v->{'open_window'}) {
     print "emacs window does not exists, creating new one";
