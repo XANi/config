@@ -158,3 +158,11 @@ node hydra {
     include emacs::wl
     include kanboard::server
 }
+
+node typer-rpi {
+    ensure_packages([
+        'bluez',
+        'bluez-firmware',
+        'rfkill',
+    ])
+}
