@@ -89,6 +89,10 @@ class desktop {
     file { "/tmp/i_am_puppet":
         content => "DPP: puppet ver $puppetversion on $hostname; facter ver $facterversion",
     }
+    # else vscode opens dirs
+    file {'/usr/share/applications/code.desktop':
+        ensure => absent
+    }
     ssl::cert {'devrandom':;}
     # disable things that might be installed for tools but autostart service
     util::service_disable {
