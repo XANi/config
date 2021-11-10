@@ -114,7 +114,6 @@ class desktop {
 
 class desktop::efi {
     include desktop
-    realize Apt::Source['nextcloud']
     realize Apt::Source['nodesource-8']
     realize Apt::Source['google-cloud-sdk']
     ensure_packages(['librt-client-rest-perl'])
