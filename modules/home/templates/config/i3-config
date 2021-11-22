@@ -351,7 +351,17 @@ bindsym $mod+F9 exec /home/xani/emacs/org/arte/update_ticket_list.pl --notify
 <%- end -%>
 bindsym $mod+F10 exec thunar
 bindsym $mod+F11 exec /usr/local/bin/wd
-bindsym $mod+F12 exec bash -c 'chromium --check-for-update-interval=604800  & firefox & pidgin & /usr/local/bin/idea & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %> & echo "done"'
+# bindsym $mod+F12 exec bash -c 'chromium --check-for-update-interval=604800  & firefox & pidgin & /usr/local/bin/idea & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %> & echo "done"'
+
+exec --no-startup-id chromium --check-for-update-interval=604800
+exec --no-startup-id firefox
+exec --no-startup-id pidgin
+exec --no-startup-id /usr/local/bin/idea
+exec --no-startup-id /usr/local/bin/e
+<%- if @location == 'arte' -%>
+exec --no-startup-id claws-mail
+<%- end -%>
+
 
 <% if @type == 'Notebook' %>
 # Screen brightness controls
