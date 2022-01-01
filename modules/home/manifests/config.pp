@@ -59,7 +59,7 @@ class home::config (
         "mpv.input":
             target => '.config/mpv/input.conf';
         "rofi.theme":
-            target => '/usr/share/rofi/themes/xani.rasi
+            target => '.local/share/rofi/themes/xani.rasi';
     }
     file { 'i3-legacy':
         source => "${homedir}/.config/i3/config",
@@ -111,6 +111,10 @@ class home::config (
         'src':;
         'src/lib':;
         'src/lib/go':;
+        '.local':;
+        '.local/share':;
+        '.local/share/rofi':;
+        '.local/share/rofi/themes':;
     }
 
     # disable ssh's own agent, preferring GPG one
