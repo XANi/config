@@ -58,6 +58,8 @@ class home::config (
             target => '.config/dunst/dunstrc';
         "mpv.input":
             target => '.config/mpv/input.conf';
+        "rofi.theme":
+            target => '/usr/share/rofi/themes/xani.rasi
     }
     file { 'i3-legacy':
         source => "${homedir}/.config/i3/config",
