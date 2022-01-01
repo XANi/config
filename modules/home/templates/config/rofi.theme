@@ -70,7 +70,11 @@ listview {
     spacing:      2px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
+  	lines: 30;
+	columns: 3;
 }
+
+
 element {
     border:  0;
     padding: 1px ;
