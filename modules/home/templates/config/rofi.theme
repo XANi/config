@@ -9,14 +9,14 @@
     background-color:            #22222266;
     background:                  #22222266;
     /* headers and stuff */
-    foreground:                  #ffff00;
+    foreground:                  #00cc00;
 
-    blue:                        #ff0000;
+    blue:                        #2222cc;
+    red:                         #cc0000;
     border-color:                #002b36 ;
-    lightbg:                     #ffff00;
-    lightfg:                     #ffff00;
-    red:                         #ff0000;
-    separatorcolor:              #ffff00;
+    lightbg:                     #555500;
+    lightfg:                     #ff0000;
+    separatorcolor:              #888888;
     spacing:                     2;
 
 
@@ -56,7 +56,7 @@ background-color: @background;
     padding: 5;
 }
 message {
-    border:       2px 0px 0px ;
+    border:       2px dash 0px 0px ;
     border-color: @separatorcolor;
     padding:      1px ;
 }
@@ -65,7 +65,7 @@ textbox {
 }
 listview {
     fixed-height: 0;
-    border:       2px 0px 0px ;
+    border:       2px dash 0px ;
     border-color: @separatorcolor;
     spacing:      2px ;
     scrollbar:    true;
