@@ -159,6 +159,7 @@ node hydra {
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
+    include bareos::fd
     include kanboard::server
 }
 
