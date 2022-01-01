@@ -60,6 +60,8 @@ class home::config (
             target => '.config/mpv/input.conf';
         "rofi.theme":
             target => '.local/share/rofi/themes/xani.rasi';
+        "rofi.config":
+            target => '.config/rofi/config.rasi';
     }
     file { 'i3-legacy':
         source => "${homedir}/.config/i3/config",
@@ -106,6 +108,7 @@ class home::config (
         '.config/i3':;
         '.config/autostart':;
         '.config/conky':;
+        '.config/rofi':;
         '.i3':;
         '.tilda':;
         'src':;
