@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 
 # WARNING! THIS IS ALWAYS RAN VIA /bin/sh, and CANT fail else session wont start
@@ -80,4 +80,3 @@ export VST_PATH=/home/xani/sync/sync/music_producing/vst/dll:/home/xani/sync/syn
 true
 echo UPDATESTARTUPTTY | gpg-connect-agent &
 tmux new-window -P /home/xani/go/bin/purrbot
-
