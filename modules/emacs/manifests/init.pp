@@ -26,7 +26,6 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
                'xprintidle', # mostly for jabber mode
                'shellcheck', # sh lint
                'yaml-mode',
-               'nethack-el',
 #               'wl-beta',
                ]:
         ensure  => installed,

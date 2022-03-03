@@ -10,7 +10,6 @@ factdest=<%= @puppet_fact_path %>
 templatedir=$confdir/templates
 prerun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
 postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
-pluginsync=true
 factsync=true
 trusted_node_data=true
 <% if @puppet_reporturl -%>

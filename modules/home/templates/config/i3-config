@@ -335,6 +335,7 @@ assign [class="^Wireshark"] <%= wspace['15']['name'] %>
 assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
 assign [class="^(S|s)potify"] <%= wspace['14']['name'] %>
 assign [class="Zim"]  <%= wspace['13']['name'] %>
+assign [class="QOwnNotes"]  <%= wspace['13']['name'] %>
 
 #test if it is workable
 for_window [instance="Dialog"] floating enable
@@ -425,7 +426,8 @@ exec --no-startup-id compton -b --unredir-if-possible -e 1 -m 0.9 -f -D 3 <%- -%
   <%- %>
 <% end %>
 
-exec --no-startup-id zim
+# exec --no-startup-id zim
+exec --no-startup-id QOwnNotes
 
 <%-
 if @location == 'arte'
