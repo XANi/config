@@ -1,6 +1,6 @@
 class home::packages {
     include home::common
-    if $type == "Notebook" {
+    if $laptop {
         include home::packages::notebook
     }
     include common::utils
@@ -76,6 +76,7 @@ class home::packages {
          rofi, # window title search, run menu
          tomboy, # notes
          zim, # desktop wiki
+         qownnotes, # desktop wiki
          syslinux-utils, # for isohybrid
             keepassxc,
             gcalcli,

@@ -36,7 +36,7 @@ class desktop {
     realize Apt::Source['gns3-stretch']
     realize Apt::Source['docker']
     realize Apt::Source['yarn']
-    realize Apt::Source['zim']
+    realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
     package {'emdebian-archive-keyring':
         ensure => installed,
