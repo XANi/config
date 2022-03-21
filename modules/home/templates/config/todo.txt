@@ -1,0 +1,7 @@
+# <%=  __FILE__.gsub(/.*?modules\//,'puppet://modules/') %>
+export TODO_DIR=/home/xani/sync/mobile/notes
+
+# Your todo/done/report.txt locations
+export TODO_FILE="$TODO_DIR/todo.txt"
+export DONE_FILE="$TODO_DIR/archive/todo-archive.txt"
+export REPORT_FILE="$TODO_DIR/archive/todo-report.txt"

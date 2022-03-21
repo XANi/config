@@ -62,6 +62,8 @@ class home::config (
             target => '.local/share/rofi/themes/xani.rasi';
         "rofi.config":
             target => '.config/rofi/config.rasi';
+        "todo.txt":
+            target => '.config/todo/config';
     }
     file { 'i3-legacy':
         source => "${homedir}/.config/i3/config",
