@@ -111,6 +111,7 @@ class home::config (
         '.config/autostart':;
         '.config/conky':;
         '.config/rofi':;
+        '.config/todo':;
         '.i3':;
         '.tilda':;
         'src':;
