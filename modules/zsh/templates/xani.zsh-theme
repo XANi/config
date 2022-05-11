@@ -77,9 +77,16 @@ user_color() {
     fi
 }
 
+kube_config() {
+   if [ "z$KUBECONFIG" != "z" ]; then
+       echo -n "%{$fg_bold[blue]%}k8s:${KUBECONFIG//~\/.kube\/config./} "
+   fi
+}
+
+
 P1=$'%{$fg_bold[black]%}%D{[%H:%M:%S]}%{$reset_color%} $(whoami) $(user_color)[%~]%{$reset_color%}%{$fg_bold[white]%} '
 P2='%{$reset_color%}
-$(get_load_color)->%{$fg_bold[blue]%} $(user_prompt)%{$reset_color%} '
+$(kube_config)$(get_load_color)->%{$fg_bold[blue]%} $(user_prompt)%{$reset_color%} '
 precmd () { __git_ps1 $P1 $P2 '{%s}' }
 
 PS2="%{$fg_bold[blue]%}%_> %{$reset_color%}"

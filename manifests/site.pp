@@ -168,5 +168,7 @@ node typer-rpi {
         'bluez',
         'bluez-firmware',
         'rfkill',
+        'i2c-tools',
+        'usbutils',
     ])
 }
