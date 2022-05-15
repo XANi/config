@@ -170,5 +170,7 @@ node typer-rpi {
         'rfkill',
         'i2c-tools',
         'usbutils',
+        'psmisc',
     ])
+    include util::shell
 }
