@@ -163,14 +163,3 @@ node hydra {
     include kanboard::server
 }
 
-node typer-rpi {
-    ensure_packages([
-        'bluez',
-        'bluez-firmware',
-        'rfkill',
-        'i2c-tools',
-        'usbutils',
-        'psmisc',
-    ])
-    include util::shell
-}
