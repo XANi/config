@@ -14,9 +14,7 @@ else {
     $home = '/home/xani';
 }
 my $puppet_path = [
-    $home . '/src/svn-puppet',
-    $home . '/src/puppet',
-    $home . '/src/arte/puppet',
+    $home . '/src/efi/puppet',
     $home . '/src/my/cluster',
     $home . '/src/my/puppet',
     $home . '/src/my/xani-puppet',
