@@ -56,6 +56,8 @@ Host *.non.3dart.com
     User xani
     ForwardAgent yes
     ForwardX11 no
+    HostKeyAlgorithms +ssh-rsa,ssh-dss
+
 
 # if its not named host, it is most likely some rescue or other crap,
 #   dont save in known_hosts
