@@ -51,6 +51,10 @@ Host devrandom.pl
 
 ForwardX11 yes
 
+# else old shit doesn't work...
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+
 Host *.non.3dart.com
     IdentityFile ~/.ssh/arte
     User xani
