@@ -20,4 +20,4 @@ else
     mkdir -p "$2"
     cd "$2"
 fi
-rsync -av --exclude='.git/' "$tmpl_dir/$1/" .
+rsync -av --exclude='.git/' --exclude='.idea/' "$tmpl_dir/$1/" .
