@@ -356,7 +356,7 @@ bindsym $mod+F11 exec /usr/local/bin/wd
 
 exec --no-startup-id chromium --check-for-update-interval=604800
 exec --no-startup-id firefox
-exec --no-startup-id pidgin
+# exec --no-startup-id pidgin
 exec --no-startup-id /usr/local/bin/idea
 exec --no-startup-id /usr/local/bin/e
 <%- if @location == 'arte' -%>
