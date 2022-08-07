@@ -11,7 +11,9 @@ templatedir=$confdir/templates
 prerun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
 postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
 factsync=true
-trusted_node_data=true
+strict_hostname_checking=false
+
+
 <% if @puppet_reporturl -%>
 report=true
 reports = store, http

@@ -114,6 +114,19 @@ class desktop {
         'wd_keepalive':;
     }
     include core::suspend::disable
+    file { [
+        '/home/xani/.cache/.nobackup',
+        '/home/xani/.config/google-chrome/.nobackup',
+        '/home/xani/go/.nobackup',
+        '/home/xani/.mozilla/.nobackup',
+        '/home/xani/.gradle/.nobackup',
+        '/home/xani/.cargo/.nobackup',
+        '/home/xani/.debug/.nobackup',
+        '/home/xani/.rustup/.nobackup',
+    ]:
+        content => "# this file makes bareos exclude directory it is in | puppet",
+        owner => 'xani',
+    }
 }
 
 class desktop::efi {
