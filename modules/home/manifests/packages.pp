@@ -81,6 +81,7 @@ class home::packages {
             keepassxc,
             gcalcli,
             todotxt-cli,
+            qt5ct, # qt5 theme config without KDE
         ]:
             ensure => installed,
 
