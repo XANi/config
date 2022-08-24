@@ -4,7 +4,8 @@
 # WARNING! THIS IS ALWAYS RAN VIA /bin/sh, and CANT fail else session wont start
 # for emacs
 # ALWAYS wrap sourcing (. /something) in if checking whether it exists else it fails
-export QT_STYLE_OVERRIDE=gtk
+# for qt5ct
+QT_QPA_PLATFORMTHEME=qt5ct
 
 if [ -e ~/.screenlayout/default.sh ] ; then
     ~/.screenlayout/default.sh
