@@ -140,11 +140,6 @@ class desktop::efi {
 node ghroth {
     include desktop::efi
     include kanboard::server
-
-    #     'rabbitmq':;
-    #     'oracle_java':;
-    #     'sysdig':;
-    #    }
     include dev::rabbitmq
 }
 
