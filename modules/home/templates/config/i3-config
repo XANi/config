@@ -332,7 +332,11 @@ assign [class=".*jetbrains.*"] <%= wspace['04']['name'] %>
 assign [class="^(Chrome|Chromium|chromium-browser|chromium|Google-chrome|google-chrome)"] <%= wspace['11']['name'] %>
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
 # thunderbird-default
+<%- if @location == 'arte' -%>
 assign [class="^Mail"] <%= wspace['12']['name'] %>
+<%- else -%>
+assign [class="^Mail"] <%= wspace['16']['name'] %>
+<%- end -%>
 assign [class="^(Pidgin|Tasque|[rR]emember)"] <%= wspace['13']['name'] %>
 assign [class="^Steam"] <%= wspace['05']['name'] %>
 assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
@@ -357,16 +361,17 @@ bindsym $mod+F9 exec /home/xani/emacs/org/arte/update_ticket_list.pl --notify
 <%- end -%>
 bindsym $mod+F10 exec thunar
 bindsym $mod+F11 exec /usr/local/bin/wd
-# bindsym $mod+F12 exec bash -c 'chromium --check-for-update-interval=604800  & firefox &  /usr/local/bin/idea & /usr/local/bin/e<% if @location == 'arte' %> & claws-mail<% end %> & echo "done"'
+# bindsym $mod+F12 exec bash -c 'chromium --check-for-update-interval=604800  & firefox &  /usr/local/bin/idea & /usr/local/bin/e<% if @location != 'arte' %> & claws-mail<% end %> & echo "done"'
 
 exec --no-startup-id chromium --check-for-update-interval=604800
 exec --no-startup-id firefox
 # exec --no-startup-id pidgin
 exec --no-startup-id /usr/local/bin/idea
 exec --no-startup-id /usr/local/bin/e
-<%- if @location == 'arte' -%>
+<%- if @location != 'arte' -%>
 exec --no-startup-id claws-mail
 <%- end -%>
+exec --no-startup-id thunderbird
 
 
 <% if @type == 'Notebook' %>
