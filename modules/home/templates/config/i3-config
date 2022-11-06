@@ -333,9 +333,9 @@ assign [class="^(Chrome|Chromium|chromium-browser|chromium|Google-chrome|google-
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
 # thunderbird-default
 <%- if @location == 'arte' -%>
-assign [class="^Mail"] <%= wspace['12']['name'] %>
+assign [class="^(thunderbird-default|Mail)"] <%= wspace['12']['name'] %>
 <%- else -%>
-assign [class="^Mail"] <%= wspace['16']['name'] %>
+assign [class="^(thunderbird|default|Mail)"] <%= wspace['16']['name'] %>
 <%- end -%>
 assign [class="^(Pidgin|Tasque|[rR]emember)"] <%= wspace['13']['name'] %>
 assign [class="^Steam"] <%= wspace['05']['name'] %>
