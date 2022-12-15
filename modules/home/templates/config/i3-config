@@ -371,7 +371,7 @@ exec --no-startup-id /usr/local/bin/e
 <%- if @location != 'arte' -%>
 exec --no-startup-id claws-mail
 <%- end -%>
-exec --no-startup-id thunderbird
+# exec --no-startup-id thunderbird
 
 
 <% if @type == 'Notebook' %>
