@@ -91,6 +91,8 @@ class home::config (
             target => "$homedir/.config/i3blocks/blocks/tinymon";
         'i3blocks/network':
             target => "$homedir/.config/i3blocks/blocks/network";
+        'ask-k8s-env':
+            target => "$homedir/bin/ask-k8s-env";
     }
     home::config::code_tmp {
         erb:;

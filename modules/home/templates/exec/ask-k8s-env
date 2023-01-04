@@ -1,0 +1,21 @@
+#!/bin/bash
+# puppet managed template, for more info 'puppet-find-resources $filename'
+# <%=  __FILE__.gsub(/.*?modules\//,'puppet://modules/') %>
+if [ "$1" = "reset" ] ; then
+  unset KUBECONFIG
+  return
+fi
+
+if [ "z$1" != "z" ] ; then
+    if [ -e $HOME/.kube/config.$1 ] ; then
+      cfg=$HOME/.kube/config.$
+      export KUBECONFIG=$cfg
+      echo $cfg
+      return
+    fi
+fi
+
+envfile=$(ls ~/.kube/config.* |perl -p -e "s{$HOME/.kube/config\.}{}" | rofi -dmenu)
+cfg=$HOME/.kube/config.$envfile
+export KUBECONFIG=$cfg
+echo $cfg
