@@ -12,6 +12,8 @@ if [ "z$1" != "z" ] ; then
       export KUBECONFIG=$cfg
       echo $cfg
       return
+    else
+      >&2 echo "env $1 not found"
     fi
 fi
 
