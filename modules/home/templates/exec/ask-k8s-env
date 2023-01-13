@@ -8,7 +8,7 @@ fi
 
 if [ "z$1" != "z" ] ; then
     if [ -e $HOME/.kube/config.$1 ] ; then
-      cfg=$HOME/.kube/config.$
+      cfg=$HOME/.kube/config.$1
       export KUBECONFIG=$cfg
       echo $cfg
       return
