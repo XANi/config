@@ -11,7 +11,7 @@ if @interfaces =~ /wlan0/
    wan_if = "wlan0"
    have_wifi = true
 end
-if @type =~ /(book|blet)/
+if @dmi['chassis']['type'] =~ /(book|blet)/
    laptop = true
 end
 
