@@ -3,6 +3,8 @@
 alignment top_right
 xinerama_head <%= @conky_xinerama_head || "0" %>
 
+
+# type: <%= @dmi['chassis']['type'] %>
 <%
 # dumb but dont have time to fix it now
 wan_if = "eth0"

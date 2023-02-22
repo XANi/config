@@ -12,7 +12,7 @@ if @interfaces =~ /wlan0/
    wan_if = "wlan0"
    have_wifi = true
 end
-if @type =~ /(book|blet)/
+if @dmi['chassis']['type'] =~ /(book|blet)/
    laptop = true
 end
 
@@ -30,7 +30,7 @@ File.open('/proc/mounts').each_line do |l|
 end
 
 %>
-
+-- chassis: <%= @dmi['chassis']['type'] %>
 
 	own_window = true,
 	own_window_argb_visual = true,
