@@ -1,7 +1,7 @@
 class env {
-    $proxy_domain = hiera('proxy_domain',false)
-    $proxy = hiera('proxy',false)
-    $no_proxy = hiera('no_proxy',false)
+    $proxy_domain = lookup('proxy_domain',undef,undef,false)
+    $proxy = lookup('proxy',undef,undef,false)
+    $no_proxy = lookup('no_proxy',undef,undef,false)
     notify {"Proxy_domain: ${proxy_domain}, proxy ${proxy}":;}
     if $proxy_domain and $::domain == $proxy_domain and $proxy {
         $env_content = template('env/env.erb')

@@ -15,8 +15,8 @@ Exec {
                ],
 }
 
-$location = hiera('location','default')
-$project = hiera('project','default')
+$location = lookup('location',undef,undef,'default')
+$project = lookup('project',undef,undef,'default')
 $puppet_header = "DPP/Puppet managed file at location $location, DO NOT EDIT BY HAND, changes will be overwritten."
 
 schedule {'once-per-day':

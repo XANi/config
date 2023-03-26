@@ -1,4 +1,7 @@
-class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config = hiera('deploy_portable_config',false) ) {
+class emacs (
+    $homedir = lookup('homedir',undef,undef,'/home/xani'),
+    $deploy_portable_config = lookup('deploy_portable_config',undef,undef,false)
+) {
     # default config
     # Theme name
     #   $emacs_theme    = 'purple-haze'
@@ -6,7 +9,7 @@ class emacs ( $homedir = hiera('homedir','/home/xani'),  $deploy_portable_config
     $emacs_version  = 'emacs'
     # activate rainbow-delimiters coloring, for themes that dont have it
     $rainbow = true
-    $deploy_arte_config = hiera('deploy_arte_config',false)
+    $deploy_arte_config = lookup('deploy_arte_config',undef,undef,false)
     class { 'emacs::install':
         version => $emacs_version,
     }
@@ -359,7 +362,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
         group   => xani,
         require => File['xani-emacs-org'],
     }
-    $deploy_arte_config = hiera('deploy_arte_config',false)
+    $deploy_arte_config = lookup('deploy_arte_config',undef,undef,false)
     if $::location == 'arte' {
         file { xani-emacs-org-arte:
             path    => "${homedir}/emacs/org/arte",
@@ -428,7 +431,7 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
 }
 
 define emacs::autoinsert {
-    $homedir = hiera('homedir','/home/xani')
+    $homedir = lookup('homedir',undef,undef,'/home/xani')
     file {"${homedir}/emacs/autoinsert/${title}":
         content => template("emacs/autoinsert/${title}"),
         mode    => "644",
@@ -440,13 +443,13 @@ define emacs::autoinsert {
 class emacs::wl {
     require emacs
     $homedir = $emacs::homedir
-    $mail_domain = hiera('wl_mail_domain','devrandom.pl')
-    $mail_from = hiera('wl_mail_from','')
-    $mail_smtp_server = hiera('wl_smtp_server','imap.gmail.com')
-    $mail_imap_server = hiera('wl_imap_server','smtp.gmail.com')
-    $mail_user = hiera('wl_mail_user',false)
-    $mail_smtp_user = hiera('wl_smtp_user',$mail_user)
-    $mail_address_list = hiera('wl_mail_address_list',false)
+    $mail_domain = lookup('wl_mail_domain',undef,undef,'devrandom.pl')
+    $mail_from = lookup('wl_mail_from',undef,undef,'')
+    $mail_smtp_server = lookup('wl_smtp_server',undef,undef,'imap.gmail.com')
+    $mail_imap_server = lookup('wl_imap_server',undef,undef,'smtp.gmail.com')
+    $mail_user = lookup('wl_mail_user',undef,undef,false)
+    $mail_smtp_user = lookup('wl_smtp_user',undef,undef,$mail_user)
+    $mail_address_list = lookup('wl_mail_address_list',undef,undef,false)
     file { emacs-wanderlust-config:
         path    => "${homedir}/.wl",
         owner   => xani,
