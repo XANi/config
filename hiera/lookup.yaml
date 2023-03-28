@@ -1,0 +1,7 @@
+---
+# global lookup options. Touch with care
+lookup_options:
+    '^.*':
+        merge:
+            strategy: deep
+            merge_hash_arrays: true

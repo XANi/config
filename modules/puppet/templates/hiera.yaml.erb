@@ -1,53 +1,46 @@
 # <%= @puppet_header %>
 # <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
 ---
-:backends:
-  - yaml
-
-:logger: console
-
-
-:merge_behavior: deeper
-
+version: 5
+defaults:
+  data_hash: yaml_data
+  datadir: /var/lib/dpp/repos
 
 
 # hack around not being able to specify more than one datadir, at least till they fix it
-:hierarchy:
-  - private/hiera/host/%{hostname}/%{calling_module}
-  - shared/hiera/host/%{hostname}/%{calling_module}
-  - public/hiera/host/%{hostname}/%{calling_module}
-  - private/hiera/host/%{hostname}/common
-  - shared/hiera/host/%{hostname}/common
-  - public/hiera/host/%{hostname}/common
-  - private/hiera/project/%{project}/%{calling_module}
-  - shared/hiera/project/%{project}/%{calling_module}
-  - public/hiera/project/%{project}/%{calling_module}
-  - private/hiera/project/%{project}/common
-  - shared/hiera/project/%{project}/common
-  - public/hiera/project/%{project}/common
-  - private/hiera/location/%{location}/%{calling_module}
-  - shared/hiera/location/%{location}/%{calling_module}
-  - public/hiera/location/%{location}/%{calling_module}
-  - private/hiera/location/%{location}/common
-  - shared/hiera/location/%{location}/common
-  - public/hiera/location/%{location}/common
-  - private/hiera/env/%{environment}/%{calling_module}
-  - shared/hiera/env/%{environment}/%{calling_module}
-  - public/hiera/env/%{environment}/%{calling_module}
-  - private/hiera/env/%{environment}/common
-  - shared/hiera/env/%{environment}/common
-  - public/hiera/env/%{environment}/common
-  - private/hiera/common/%{calling_module}
-  - shared/hiera/common/%{calling_module}
-  - public/hiera/common/%{calling_module}
-  - private/hiera/common/common
-  - shared/hiera/common/common
-  - public/hiera/common/common
-
-
-:yaml:
-   :datadir: /var/lib/dpp/repos
-
-# :gpg:
-#   :datadir: /home/gitsync/puppet/%{environment}/hiera-gpg
-#   :key_dir: /var/lib/puppet/gpg
+hierarchy:
+  - name: host
+    globs:
+      - "private/hiera/host/%{hostname}/%{calling_module}"
+      - "shared/hiera/host/%{hostname}/%{calling_module}"
+      - "public/hiera/host/%{hostname}/%{calling_module}"
+      - "private/hiera/host/%{hostname}/*.yaml"
+      - "shared/hiera/host/%{hostname}/*.yaml"
+      - "public/hiera/host/%{hostname}/*.yaml"
+  - name: project
+    globs:
+      - "private/hiera/host/%{project}/%{calling_module}"
+      - "shared/hiera/host/%{project}/%{calling_module}"
+      - "public/hiera/host/%{project}/%{calling_module}"
+      - "private/hiera/host/%{project}/*.yaml"
+      - "shared/hiera/host/%{project}/*.yaml"
+      - "public/hiera/host/%{project}/*.yaml"
+  - name: location
+    globs:
+      - "private/hiera/location/%{location}/%{calling_module}"
+      - "shared/hiera/location/%{location}/%{calling_module}"
+      - "public/hiera/location/%{location}/%{calling_module}"
+      - "private/hiera/location/%{location}/common"
+      - "shared/hiera/location/%{location}/common"
+      - "public/hiera/location/%{location}/common"
+  - name: top
+    globs:
+      - "private/hiera/common/%{calling_module}"
+      - "shared/hiera/common/%{calling_module}"
+      - "public/hiera/common/%{calling_module}"
+      - "private/hiera/common/*.yaml"
+      - "shared/hiera/common/*.yaml"
+      - "public/hiera/common/*.yaml"
+      - "private/hiera/lookup.yaml"
+      - "shared/hiera/lookup.yaml"
+      - "public/hiera/lookup.yaml"
