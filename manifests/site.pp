@@ -168,14 +168,16 @@ node hydra {
     include bareos::fd
     include kanboard::server
     include collectd::client
-        file { '/etc/sensors.d/disable_bad_temp':
+    file { '/etc/sensors.d/disable_bad_temp':
         content => '
-chip "it8728-isa-0a30"
+chip "it8620-isa-0a30"
   ignore temp2
   ignore fan3
   ignore fan4
   ignore fan5
-'
+  ignore cpu0_vid
+',
+        notify => Service['collectd'],
     }
 }
 
