@@ -167,5 +167,6 @@ node hydra {
     include emacs::wl
     include bareos::fd
     include kanboard::server
+    include collectd::client
 }
 
