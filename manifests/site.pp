@@ -176,6 +176,9 @@ chip "it8620-isa-0a30"
   ignore fan4
   ignore fan5
   ignore cpu0_vid
+chip "acpitz-acpi-0"
+  ignore temp1
+  ignore temp2
 ',
         notify => Service['collectd'],
     }
