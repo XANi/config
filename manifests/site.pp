@@ -179,5 +179,6 @@ chip "it8620-isa-0a30"
 ',
         notify => Service['collectd'],
     }
+    collectd::plugin::perl {'PSI':;}
 }
 
