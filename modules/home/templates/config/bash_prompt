@@ -167,7 +167,7 @@ if [ -e /etc/redhat-release ] ; then # yum is yuck
     alias apt-cache="yum"
 fi
 
-<%= scope.function_template(['home/config/sh-alias-portable']) %>
+<%= scope.function_template(['common/sh-alias-portable']) %>
 chmod go-rwx ~/.saved >/dev/null 2>&1
 
 disc() {

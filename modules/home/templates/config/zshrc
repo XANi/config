@@ -89,7 +89,7 @@ fi
 <%- if @goprivate -%>
 export GOPRIVATE="<%= @goprivate %>"
 <%- end -%>
-<%= scope.function_template(['home/config/sh-alias-portable']) %>
+<%= scope.function_template(['common/sh-alias-portable']) %>
 
 <%= scope.function_template(['home/config/sh-alias-desktop']) %>
 source  /usr/lib/git-core/git-sh-prompt
