@@ -44,37 +44,7 @@ Host devrandom.pl
     ControlPersist no
 <% end %>
 
-
-<% if File.exists?(scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom') %>
-<%= scope.function_template([scope.lookupvar('home::common::homedir') + '/.ssh/ssh_config_custom']) %>
-<% else %>
-
 ForwardX11 yes
-
-
-# else old shit doesn't work...
-Host *
-    Ciphers +aes128-cbc
-    MACs +hmac-sha1
-    KexAlgorithms +diffie-hellman-group1-sha1
-    HostKeyAlgorithms +ssh-dss,ssh-rsa
-    PubkeyAcceptedAlgorithms +ssh-dss,ssh-rsa
-
-
-Host *.non.3dart.com
-    IdentityFile ~/.ssh/arte
-    User xani
-    ForwardAgent yes
-    ForwardX11 no
-    HostKeyAlgorithms +ssh-rsa,ssh-dss
-
-
-# if its not named host, it is most likely some rescue or other crap,
-#   dont save in known_hosts
-Host 172.16.*
-     UserKnownHostsFile /dev/null
-     User root
-     LogLevel QUIET
 
 
 ## GCP and other public IP crap
@@ -84,4 +54,6 @@ Host 3?.*
 
 Match canonical Host *
     User root
-<% end %>
+
+<%= scope.function_template(['custom/ssh_config']) %>
+<% %>
