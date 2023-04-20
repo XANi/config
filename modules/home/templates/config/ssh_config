@@ -45,6 +45,7 @@ Host devrandom.pl
 <% end %>
 
 ForwardX11 yes
+<%= scope.function_template(['custom/ssh_config']) %>
 
 
 ## GCP and other public IP crap
@@ -55,5 +56,4 @@ Host 3?.*
 Match canonical Host *
     User root
 
-<%= scope.function_template(['custom/ssh_config']) %>
 <% %>
