@@ -29,7 +29,6 @@ notify {"First run of the day":
 }
 
 class desktop {
-    realize Apt::Source['main-bookworm']
     realize Apt::Source['mono']
     realize Apt::Source['spotify']
     realize Apt::Source['gns3-stretch']
