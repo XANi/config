@@ -316,8 +316,7 @@ for_window [window_role="pop-up"] floating enable border normal
 for_window [class="Emacs" urgent="latest"] focus
 
 # fix realvnc shittines, float IBM's IMM kvm
-for_window [class="(^Vncviewer$|com-sun-javaws)"] floating enable
-assign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
+for_window [class="(^Vncviewer$|com-sun-javaws)"] floating enableassign [class="(^Vncviewer$|com-sun-javaws$)"] 2:ff
 
 # float virtualbox vm
 for_window [title="(Oracle VM VirtualBox$)"] floating enable
@@ -370,9 +369,9 @@ exec --no-startup-id firefox
 exec --no-startup-id /usr/local/bin/idea
 exec --no-startup-id /usr/local/bin/e
 <%- if @location != 'arte' -%>
-exec --no-startup-id claws-mail
+exec --no-startup-id /usr/local/bin/weekday claws-mail
 <%- end -%>
-exec --no-startup-id thunderbird
+exec --no-startup-id /usr/local/bin/weekday thunderbird
 
 
 <% if @type == 'Notebook' %>

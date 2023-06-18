@@ -82,6 +82,7 @@ class home::config (
         wd:;
         idea:;
         mouse-acc-fix:;
+        weekday:;
         fetch-repos-cron:
             target => "/etc/cron.daily/fetch-repos";
         meta:;
