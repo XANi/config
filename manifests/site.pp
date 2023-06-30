@@ -140,7 +140,7 @@ node ghroth {
     include dev::rabbitmq
 }
 
-node yidhra {
+node yidhra,'yidhra.home.zxz.li' {
     include desktop::efi
     include util::mobile::laptop
     include dota2
