@@ -167,6 +167,7 @@ node hydra {
     include bareos::fd
     include kanboard::server
     include collectd::client
+    include collectd::plugin::turbostat
     file { '/etc/sensors.d/disable_bad_temp':
         content => '
 chip "it8620-isa-0a30"
