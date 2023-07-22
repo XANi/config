@@ -182,7 +182,5 @@ chip "acpitz-acpi-0"
         notify => Service['collectd'],
     }
     collectd::plugin::perl {'PSI':;}
-    collectd::plugin::perl {'Turbostat':;}
-
 }
 
