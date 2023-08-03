@@ -212,6 +212,10 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
+[msshit]
+    body = "*teams.microsoft.com*"
+    script = /home/xani/bin/teams-beep.sh
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh
