@@ -18,4 +18,5 @@ alias bp='beep -s -f 400 -D 50 -l 10'
 alias c='qalc'
 alias t='todo-txt'
 alias k8s='source ~/bin/ask-k8s-env'
+alias x509='openssl x509 -text -noout'
 <% %>
