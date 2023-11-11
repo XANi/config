@@ -5,6 +5,8 @@ logdir=/var/log/puppet
 vardir=/var/lib/puppet
 ssldir=/var/lib/puppet/ssl
 rundir=/var/run/puppet
+lastrunfile=/var/lib/puppet/state/last_run_summary.yaml {group = root, mode = 0640}
+lastrunreport=/var/lib/puppet/state/last_run_report.yaml  {group = root, mode = 0640}
 factpath=<%= @puppet_repo_path %>/puppet/facts:<%= @puppet_fact_path %>
 factdest=<%= @puppet_fact_path %>
 templatedir=$confdir/templates
