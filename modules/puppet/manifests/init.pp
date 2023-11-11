@@ -10,12 +10,6 @@ class puppet {
     file { '/tmp/puppet.yaml':
      content => template('puppet/info.yaml'),
     }
-    package {
-        'puppet-common':
-            ensure => installed;
-        'ruby-deep-merge':
-            ensure => installed;
-    }
     file {
         '/etc/hiera.yaml':
             mode    => "600",
