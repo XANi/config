@@ -18,4 +18,7 @@ alias bp='beep -s -f 400 -D 50 -l 10'
 alias c='qalc'
 alias t='todo-txt'
 alias k8s='source ~/bin/ask-k8s-env'
+function k8s-admin-token {
+    kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | awk '/^admin-user-token-/{print $1}') | awk '$1=="token:"{print $2}'
+}
 <% %>
