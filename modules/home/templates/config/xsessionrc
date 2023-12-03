@@ -53,6 +53,11 @@ if [ -e ~/.xsessionrc-local ] ; then
     ~/.xsessionrc-local
 fi
 
+if [ -e ~/bin/pa-split-streams2 ] ; then
+  # udev doesn't want to load it on boot
+  ~/bin/pa-split-streams2
+fi
+
 # grep cap /usr/share/X11/xkb/rules/xorg.lst
 # "setxkbmap -option" to clear
 # capslock as ctrl
