@@ -6,6 +6,7 @@ class home::vars (
     $no_proxy             = lookup('no_proxy',undef,undef,false),
     $perl5lib             = lookup('perl5lib',undef,undef,false),
     $git                  = lookup('git'),
+    $git_work             = lookup('git_work'),
     $xrandr_left          = lookup('xrandr_left',undef,undef,"DVI-D-0"),
     $xrandr_right         = lookup('xrandr_right',undef,undef,"HDMI-0"),
     $i3_composite         = lookup('i3_composite',undef,undef,true),

@@ -8,3 +8,10 @@ git:
     author:
         name: Mariusz Gronczewski
         email: xani666@gmail.com
+git_work:
+    committer:
+        name: Mariusz Gronczewski
+        email: xani@efigence.com
+    author:
+        name: Mariusz Gronczewski
+        email: xani@efigence.com
