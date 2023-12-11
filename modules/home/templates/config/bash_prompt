@@ -1,8 +1,4 @@
 #!/bin/bash
-<%- if ! @portable_config -%>
-# <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
-<%- end -%>
 # restore original term if its set to xterm-256, and save orig. term otherwise
 # needed for sudo passing $TERM in env
 # fixing centos 6 default crap
@@ -194,7 +190,6 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 <%- if @goprivate -%>
 export GOPRIVATE="<%= @goprivate %>"
 <%- end -%>
-<% if @portable_config -%>
 # fix another c6 fucktardness
 if [ "$SUDO_USER" = "xani" ] ; then
     if [ "$SUDO_COMMAND" != "/bin/su" ]; then
@@ -215,72 +210,13 @@ elif [ -e /usr/bin/e3em ] ; then
 elif [ -e /usr/bin/nano ] ; then
     export EDITOR=nano
 fi
-
-<% else -%>
-export PATH=$PATH:/home/xani/go/bin:/usr/games:/home/xani/.local/bin
-export EDITOR='/usr/local/bin/e'
-export SSH_ASKPASS="/usr/local/bin/ssh-askpass-wrapper"
-
-<%= scope.function_template(['home/config/sh-alias-desktop']) %>
-# shortcut for quick sshfs
-sshmount() {
-    SSHFS_SERVER_DIR='/home/xani'
-    if [ "z$1" == "z" ] ; then
-        echo "specify server [server_dir]"
-        return
-    fi
-    SSHFS_SERVER=$1
-    if [ "z$2" != "z" ] ; then
-        SSHFS_SERVER_DIR=$2
-    fi
-    SSHFS_TARGET_DIR="/home/xani/mnt/$SSHFS_SERVER"
-    echo "Mounting $SSHFS_SERVER:$SSHFS_SERVER_DIR into $SSHFS_TARGET_DIR"
-    mkdir -p $SSHFS_TARGET_DIR
-    sshfs -o idmap=user -o allow_other -o kernel_cache $SSHFS_SERVER:$SSHFS_SERVER_DIR $SSHFS_TARGET_DIR && cd $SSHFS_TARGET_DIR
-}
-
-<%- if scope.lookupvar('home::vars::http_proxy') -%>
-export http_proxy="<%= scope.lookupvar('home::vars::http_proxy') %>"
-<%- end -%>
-
-<%- if scope.lookupvar('home::vars::https_proxy') -%>
-export https_proxy="<%= scope.lookupvar('home::vars::https_proxy') %>"
-<%- end -%>
-
-<%- if scope.lookupvar('home::vars::no_proxy') -%>
-export no_proxy="<%= scope.lookupvar('home::vars::no_proxy') %>"
-<%- end -%>
-
-<%- if scope.lookupvar('home::vars::perl5lib') -%>
-export PERL5LIB="<%= scope.lookupvar('home::vars::perl5lib').join(':') %>"
-<%- end -%>
-
-# load gpg agent info if shell (like anything in xsession) gets loaded before gpg-agent started
-
-if [ ! -r $GPG_AGENT_INFO ] ; then
-    #   echo "no gpg agent in session!"
-    export GPG_AGENT_FILE="/home/xani/.cache/gpg-agent-info"
-    if [ -e $GPG_AGENT_FILE ] ; then
-        #        echo "adding one from $GPG_AGENT_FILE"
-        source $GPG_AGENT_FILE
-        export GPG_AGENT_INFO
-        export SSH_AUTH_SOCK
-        export SSH_AGENT_PID
-
-    fi
-fi
-
-
-<% end -%>
 if [ ! -e /usr/local/bin/e ] && [ ! -e /usr/bin/e ]  ; then
+  if [ -e '/bin/emacs' ] ; then
     alias e='emacs'
+    else
+      alias e='zile'
+  fi
 fi
-<% if has_variable?('portable_config') then -%>
-<% if File.exists?(scope.lookupvar('home::vars::homedir') + '/.bash_prompt_custom') %>
-
-<%= scope.function_template([scope.lookupvar('home::vars::homedir') + '/.bash_prompt_custom']) %>
-<% end %>
-<% end %>
 <% if @git %>
 export GIT_AUTHOR_NAME="<%= @git['author']['name'] %>"
 export GIT_AUTHOR_EMAIL="<%= @git['author']['email'] %>"
