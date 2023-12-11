@@ -128,20 +128,21 @@ class desktop {
 
 class desktop::efi {
     include desktop
-    realize Apt::Source['nodesource-8']
-    realize Apt::Source['google-cloud-sdk']
+#    realize Apt::Source['google-cloud-sdk']
     ensure_packages(['librt-client-rest-perl'])
     ssl::cert {'efi':;}
 }
 
 node ghroth {
     include desktop::efi
+    include custom::work
     include kanboard::server
     include dev::rabbitmq
 }
 
 node yidhra,'yidhra.home.zxz.li' {
     include desktop::efi
+    include custom::work
     include util::mobile::laptop
     include dota2
     include hw::vaiopro
@@ -156,6 +157,7 @@ node 'vm-debian' {
 }
 node hydra {
     include desktop
+    include custom::work
     realize Apt::Source['main-trixie']
     # apt::source {
     #     "emdebian":;
