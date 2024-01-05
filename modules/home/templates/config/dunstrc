@@ -216,6 +216,10 @@
     body = "*teams.microsoft.com*"
     script = /home/xani/bin/teams-beep.sh
 
+[msshit]
+    body = "*teams.microsoft.com*"
+    script = /home/xani/bin/log_notifications.sh
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh

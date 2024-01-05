@@ -74,8 +74,6 @@ class home::packages {
             playerctl, # media player controls
             parcellite, # clipboard manager
             rofi, # window title search, run menu
-            tomboy, # notes
-            zim, # desktop wiki
             qownnotes, # desktop wiki
             syslinux-utils, # for isohybrid
             keepassxc,
