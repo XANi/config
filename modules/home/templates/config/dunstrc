@@ -24,7 +24,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%s</b>\n%b%p"
+    format = "<b>%s</b>\n%b%p|%a"
 
     # Sort messages by urgency.
     sort = yes
@@ -67,7 +67,8 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "700x14-30+20"
+    #geometry = "700x14-30+20"
+    geometry = "x14-30+20"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -180,12 +181,12 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#888888"
-    timeout = 10
+    timeout = 20
 
 [urgency_normal]
     background = "#14191f"
     foreground = "#ccccff"
-    timeout = 10
+    timeout = 20
 
 [urgency_critical]
     background = "#272112"
@@ -216,8 +217,8 @@
     body = "*teams.microsoft.com*"
     script = /home/xani/bin/teams-beep.sh
 
-[msshit]
-    body = "*teams.microsoft.com*"
+[debuglog]
+    body = "*"
     script = /home/xani/bin/log_notifications.sh
 
 #[espeak]
