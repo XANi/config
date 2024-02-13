@@ -1,5 +1,5 @@
 ! <%= @puppet_header %>
-! <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+! <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 rofi.color-enabled: true
 rofi.color-normal: argb:cc222222,  #888888,  argb:ff333333,  #285577,  #ffffff

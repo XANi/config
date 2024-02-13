@@ -1,5 +1,5 @@
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %># comment test
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %># comment test
 [global_config]
   handle_size = 3
   title_transmit_fg_color = "#7e9fc9"

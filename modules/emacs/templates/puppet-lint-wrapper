@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
  # TODO variable_scope-check should be enabled but all manifests are broken
 system(qw{/usr/bin/puppet-lint
           --no-double_quoted_strings-check --no-unquoted_resource_title-check

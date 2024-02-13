@@ -1,6 +1,6 @@
 #!/bin/bash
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 echo "Cleaning up TMP file"
 find /var/tmp/xani -xdev -mtime +60 -type f
 find /var/tmp/xani -xdev -mtime +60 -type f -delete

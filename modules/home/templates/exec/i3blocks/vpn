@@ -1,6 +1,6 @@
 #!/bin/sh
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 if [ -e /var/run/vpnc.pid ] ; then
    /usr/share/i3blocks/network
 elif [ -e /usr/sbin/vpnc ] ; then

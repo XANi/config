@@ -1,5 +1,5 @@
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 [user]
 <%- if @deploy_arte_config == true -%>
     name = Mariusz Gronczewski

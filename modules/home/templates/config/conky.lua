@@ -1,6 +1,6 @@
 conky.config = {
 -- <%= @puppet_header %>
--- <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+-- <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 	alignment = 'top_right',
 	xinerama_head = <%= @conky_xinerama_head || "0" %>,
 

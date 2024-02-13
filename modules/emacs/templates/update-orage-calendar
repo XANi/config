@@ -1,6 +1,6 @@
 #!/bin/bash
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 # get toplevel window process
 export DISPLAY=:0
 EMACS_REGEX='\s*(|/usr/bin/)emacs.*$'

@@ -5,5 +5,5 @@
 # BEFORE YOU MAKE ANY CHANGES, READ https://stonka.non.3dart.com/wiki/wiki/Puppet#Zarz.C4.85dzanie_konfiguracjami
 <% else %>
 # <%%= @puppet_header %>
-# <%%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 <% end %>

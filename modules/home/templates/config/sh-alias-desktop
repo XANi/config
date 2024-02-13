@@ -1,5 +1,5 @@
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 alias ytd='youtube-dl -t --console-title'
 alias aptitude='sudo aptitude'
 alias cfg='cd ~/src/my/config'

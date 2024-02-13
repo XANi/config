@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Puppet: <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# Puppet: <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 
 use strict;
 use warnings;

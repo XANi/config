@@ -1,5 +1,5 @@
 # <%= @puppet_header %>
-# <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+# <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 
 mkdir "<%= @homedir %>/.emacs.d"
 emacs -Q --script "<%= @homedir %>/emacs/install-packages.el"

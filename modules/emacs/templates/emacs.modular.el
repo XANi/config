@@ -1,5 +1,5 @@
 ;; <%= @puppet_header %>
-;; <%=  __FILE__.gsub(/.*?puppet\//,@fqdn + ':') %>
+;; <%=  __FILE__.gsub(/.*?repos/,@fqdn + ':') %>
 
 <% if @memorysize_mb.to_i > 1024 %>
 ;; gc less to work more
