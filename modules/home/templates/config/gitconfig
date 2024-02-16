@@ -106,6 +106,9 @@
 [filter "gofmt"]
 	clean = gofmt -s
 	smudge = cat
+[includeIf "gitdir:~/src/efi/"]
+    path = ~/src/efi/.gitconfig
+
 [url "git@git.efigence.com:"]
         insteadof = https://git.efigence.com/
 [url "git@github.com:"]
