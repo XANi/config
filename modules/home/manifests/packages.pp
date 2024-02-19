@@ -4,8 +4,7 @@ class home::packages {
         include home::packages::notebook
     }
     include common::utils
-    package {
-        [
+    ensure_packages([
             # system
             anacron,
             # terminal
@@ -80,10 +79,7 @@ class home::packages {
             gcalcli,
             todotxt-cli,
             qt5ct, # qt5 theme config without KDE
-        ]:
-            ensure => installed,
-
-    }
+    ])
     # for some bullshit reason a lot of packages recommend apache; fuck them
     package { 'apache2.2-common': ensure => absent }
     # epdfviewer cant even print correctly
