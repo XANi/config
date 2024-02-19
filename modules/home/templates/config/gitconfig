@@ -55,6 +55,7 @@
 
 [branch]
     autosetupmerge = true
+    sort = -committerdate
 
 [alias]
     c = commit -v

@@ -171,6 +171,7 @@ node hydra {
     include kanboard::server
     include collectd::client
     include collectd::plugin::turbostat
+    include collectd::ssd
     file { '/etc/sensors.d/disable_bad_temp':
         content => '
 chip "it8620-isa-0a30"
