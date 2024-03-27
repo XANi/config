@@ -101,7 +101,7 @@
 	clean = gofmt -s
 	smudge = cat
 
-[includeIf "gitdir:/home/xani/src/efi/"]
+[includeIf "gitdir: /home/xani/src/efi/"]
     path = /home/xani/src/efi/.gitconfig
 
 
