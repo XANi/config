@@ -101,7 +101,9 @@
 	clean = gofmt -s
 	smudge = cat
 
-[includeIf "gitdir: /home/xani/src/efi/"]
+# [includeIf "gitdir: /home/xani/src/efi/"] #that doesn't work in git 1.43
+
+[includeIf "hasconfig:remote.*.url:https://*.efigence.com/**"]
     path = /home/xani/src/efi/.gitconfig
 
 
