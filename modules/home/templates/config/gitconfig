@@ -74,6 +74,7 @@
     re = reset HEAD~1
     s = status -s -b
     st = !git fetch -p && git status -s -b
+    blab = blame -w -C -C -C
 
 [merge]
     tool = meld
