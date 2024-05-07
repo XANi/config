@@ -85,6 +85,7 @@ conky.config = {
 
 };
 
-conky.text = [[
-${execpi 300 /home/xani/bin/gcalcli.sh calm --monday}
-]];
+--conky.text = [[
+--${execpi 300 /home/xani/bin/gcalcli.sh calm --monday}
+--]];
+conky.text [[ "fuck google" ]]
