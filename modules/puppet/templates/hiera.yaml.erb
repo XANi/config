@@ -11,12 +11,12 @@ defaults:
 hierarchy:
   - name: host
     globs:
-      - "private/hiera/host/%{hostname}/%{calling_module}"
-      - "shared/hiera/host/%{hostname}/%{calling_module}"
-      - "public/hiera/host/%{hostname}/%{calling_module}"
-      - "private/hiera/host/%{hostname}/*.yaml"
-      - "shared/hiera/host/%{hostname}/*.yaml"
-      - "public/hiera/host/%{hostname}/*.yaml"
+      - "private/hiera/host/%{networking.hostname}/%{calling_module}"
+      - "shared/hiera/host/%{networking.hostname}/%{calling_module}"
+      - "public/hiera/host/%{networking.hostname}/%{calling_module}"
+      - "private/hiera/host/%{networking.hostname}/*.yaml"
+      - "shared/hiera/host/%{networking.hostname}/*.yaml"
+      - "public/hiera/host/%{networking.hostname}/*.yaml"
   - name: project
     globs:
       - "private/hiera/host/%{project}/%{calling_module}"
