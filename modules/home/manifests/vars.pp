@@ -11,7 +11,7 @@ class home::vars (
     $xrandr_right         = lookup('xrandr_right',undef,undef,"HDMI-A-0"),
     $i3_composite         = lookup('i3_composite',undef,undef,true),
     $i3_composite_backend = lookup('i3_composite_backend',undef,undef,false),
-    $gpgid                = lookup('gpgid',undef,undef,false),
+    $gpgid                = lookup('gpgid'),
     $conky_xinerama_head  = lookup('conky_xinerama_head',undef,undef,false),
     $goprivate            = lookup('goprivate',undef,undef,false),
 ) {}
