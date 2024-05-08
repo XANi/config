@@ -1,6 +1,6 @@
 class home::packages {
     include home::common
-    if $laptop {
+    if defined($laptop) and $laptop {
         include home::packages::notebook
     }
     include common::utils
