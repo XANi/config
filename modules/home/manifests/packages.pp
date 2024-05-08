@@ -1,8 +1,5 @@
 class home::packages {
     include home::common
-    if defined($laptop) and $laptop {
-        include home::packages::notebook
-    }
     include common::utils
     ensure_packages([
             # system
@@ -102,13 +99,5 @@ class home::packages {
     package {[
         'ufw'
     ]: ensure => absent
-    }
-}
-
-class home::packages::notebook {
-    package {[
-              'xbacklight'
-              ]:
-                  ensure => installed,
     }
 }
