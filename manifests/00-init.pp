@@ -1,0 +1,1 @@
+$lsbdistcodename = $os['distro']['codename']
