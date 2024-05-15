@@ -1,9 +1,9 @@
-if !defined($lsbdistcodename) {
+if !$lsbdistcodename {
     $lsbdistcodename = $os['distro']['codename']
 }
-if !defined($fqdn) {
+if !$fqdn {
     $fqdn = $networking['fqdn']
 }
-if !defined($hostname) {
+if !$hostname {
     $hostname = $networking['hostname']
 }
