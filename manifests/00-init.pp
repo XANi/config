@@ -1,3 +1,9 @@
-$lsbdistcodename = $os['distro']['codename']
-$fqdn = $networking['fqdn']
-$hostname = $networking['hostname']
+if !$lsbdistcodename {
+    $lsbdistcodename = $os['distro']['codename']
+}
+if !$fqdn {
+    $fqdn = $networking['fqdn']
+}
+if !$hostname {
+    $hostname = $networking['hostname']
+}
