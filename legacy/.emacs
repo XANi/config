@@ -3,7 +3,8 @@
 (iswitchb-mode) ;; better buffer switching
 (show-paren-mode) ;; show matching ()
 (global-hl-line-mode 1) ;; lhighlight current line
-(global-linum-mode 1)  ;; show line numbers in marigin
+;;(global-linum-mode 1)  ;; show line numbers in marigin
+(display-line-numbers-mode)
 (column-number-mode 1) ;; and column at bot
 (setq-default fill-column 120)
 (setq

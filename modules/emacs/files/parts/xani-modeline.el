@@ -10,6 +10,6 @@
 ;; (sml-modeline-mode 1)
 
 
-(require 'xani-nyan)
+;;(require 'xani-nyan)
 
 (provide 'xani-modeline)

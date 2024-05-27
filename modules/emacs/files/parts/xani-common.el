@@ -82,7 +82,8 @@
 
 
 
-(global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
+;; DEPRECATED (global-linum-mode 1)  ;; show line numbers in marigin, need newer emacs than centos 5 one
+(global-display-line-numbers-mode)
 (global-hl-line-mode 1) ;; highlight current line - looks ugly on emacs21 coz no 256 color support on centos
 ;; never touch foreground when highlighting
 (custom-set-faces
@@ -210,5 +211,7 @@
 
 ;; revert files if they changed on disk (git)
 (global-auto-revert-mode)
+
+(icomplete-mode) ;; better buffer switching
 
 (provide 'xani-common)
