@@ -13,8 +13,9 @@ templatedir=$confdir/templates
 prerun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-pre
 postrun_command=<%= @puppet_repo_path %>/puppet/bin/etckeeper-commit-post
 factsync=true
-strict_hostname_checking=false
 
+# P8 fix
+strict_hostname_checking=false
 include_legacy_facts=true
 strict=warning
 
