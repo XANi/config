@@ -35,6 +35,7 @@ class desktop {
     realize Apt::Source['docker']
     realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
+    realize Apt::Source['signal']
     package {'emdebian-archive-keyring':
         ensure => installed,
     }
