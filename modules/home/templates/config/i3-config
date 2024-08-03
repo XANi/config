@@ -338,7 +338,7 @@ assign [class="^(thunderbird-default|Mail)"] <%= wspace['12']['name'] %>
 assign [class="^(thunderbird|default|Mail)"] <%= wspace['16']['name'] %>
 <%- end -%>
 assign [class="^(Pidgin|Tasque|[rR]emember)"] <%= wspace['13']['name'] %>
-assign [class="^(steam|Steam)"] <%= wspace['05']['name'] %>
+assign [class="^(steam|Steam|steamwebhelper)"] <%= wspace['05']['name'] %>
 # assign [title="^(steam|Steam)"] <%= wspace['05']['name'] %>
 assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
 assign [class="^Wireshark"] <%= wspace['15']['name'] %>
