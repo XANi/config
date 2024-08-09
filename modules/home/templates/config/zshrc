@@ -86,6 +86,7 @@ export EDITOR='/usr/local/bin/e'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+export GOTOOLCHAIN=local
 <%- if @goprivate -%>
 export GOPRIVATE="<%= @goprivate %>"
 <%- end -%>
