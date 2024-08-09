@@ -190,6 +190,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_DESCRIBE_STYLE=branch
 # "verbose" for count of changes, auto for only < >
 export GIT_PS1_SHOWUPSTREAM="verbose"
+export GOTOOLCHAIN=local
 <%- if @goprivate -%>
 export GOPRIVATE="<%= @goprivate %>"
 <%- end -%>
