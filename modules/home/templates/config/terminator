@@ -8,7 +8,7 @@
   title_receive_bg_color = "#181d23"
   title_inactive_fg_color = "#716d73"
   title_inactive_bg_color = "#14191f"
-  enabled_plugins = CustomCommandsMenu, ActivityWatch, TerminalShot
+  enabled_plugins = ActivityWatch, TerminalShot
 [keybindings]
   go_up = <Super>Up
   go_down = <Super>Down
@@ -29,6 +29,9 @@
   broadcast_off = None
   broadcast_group = None
   broadcast_all = None
+  # custom command have garbage defaults
+  plugin_add = None
+  plugin_bmk = None
 [profiles]
   [[default]]
     background_darkness = 0.85
