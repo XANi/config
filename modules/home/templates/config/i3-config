@@ -403,7 +403,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # autostart
 #exec --no-startup-id  "dropbox start"
 <%- if @project == 'arte' -%>
-# exec --no-startup-id nextcloud
+# exec --no-startup-id /usr/local/bin/weekday nextcloud
 <%- end -%>
 # WFH
 exec --no-startup-id nextcloud
