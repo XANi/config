@@ -122,7 +122,7 @@ class desktop {
         #'/home/xani/.debug/.nobackup',
         '/home/xani/.rustup/.nobackup',
     ]:
-        content => "# this file makes bareos exclude directory it is in | puppet",
+        content => "# this file makes bareos exclude directory it is in | puppet\n*\n",
         owner => 'xani',
     }
 }
