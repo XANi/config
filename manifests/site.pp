@@ -188,11 +188,12 @@ chip "acpitz-acpi-0"
         notify => Service['collectd'],
     }
     collectd::plugin::perl {'PSI':;}
-    include restic::backup::common
+    class { 'restic::backup::common':
+        backup_check => false,
+    }
     restic::backup::file { 'root':
         directory => "/",
         exclude_set => 'system',
-        backup_check => false,
     }
     restic::exclude::set { 'system':
         exclude_set => [
