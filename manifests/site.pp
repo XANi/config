@@ -218,8 +218,15 @@ chip "acpitz-acpi-0"
             '/var/lib/bareos',
             '/var/lib/libvirt/images',
             '/var/lib/docker',
-            # removeme
-            '/usr',
+        ]
+    }
+    restic::backup::file { 'home':
+        directory => "/home/xani",
+        #exclude_set => 'home,
+    }
+    restic::exclude::set { 'home':
+        exclude => [
+            #''
         ]
     }
 }
