@@ -196,7 +196,7 @@ chip "acpitz-acpi-0"
         exclude_set => 'system',
     }
     restic::exclude::set { 'system':
-        exclude_set => [
+        exclude => [
             '/dev',
             '/var/lib/bacula',
             '/proc',
