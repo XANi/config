@@ -72,7 +72,7 @@
 ;;(require 'xani-undo-tree)
 (require 'xani-common)
 (require 'xani-iedit)
-(require 'xani-iswitchb)
+;;(require 'xani-iswitchb)
 (require 'xani-hs-mode)
 (require 'xani-tramp)
 ;;(require 'xani-tabbar) ;; broken

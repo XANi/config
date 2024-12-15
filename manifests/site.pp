@@ -188,5 +188,37 @@ chip "acpitz-acpi-0"
         notify => Service['collectd'],
     }
     collectd::plugin::perl {'PSI':;}
+    include restic::backup::common
+    restic::backup::file { 'root':
+        directory => "/",
+        exclude_set => 'system'
+    }
+    restic::exclude::set { 'system':
+        exclude_set => [
+            '/dev',
+            '/var/lib/bacula',
+            '/proc',
+            '/tmp',
+            '/var/tmp',
+            '/.journal',
+            '/.fsck',
+            '/mnt',
+            '/media',
+            '/var/music',
+            '/var/torrent',
+            '/var/xani',
+            '/var/cache',
+            '/var/steam',
+            '/home',
+            '/run',
+            '/sys',
+            '/dev',
+            '/var/lib/bareos',
+            '/var/lib/libvirt/images',
+            '/var/lib/docker',
+            # removeme
+            '/usr',
+        ]
+    }
 }
 
