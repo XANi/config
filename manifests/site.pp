@@ -230,5 +230,8 @@ chip "acpitz-acpi-0"
             #''
         ]
     }
+    host {
+        "s3.cthulhu.home.zxz.li": ip => "10.66.1.2";
+    }
 }
 
