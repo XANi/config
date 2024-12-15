@@ -121,6 +121,7 @@ class desktop {
         '/home/xani/.cargo/.nobackup',
         #'/home/xani/.debug/.nobackup',
         '/home/xani/.rustup/.nobackup',
+        '/home/xani/src/os/.nobackup',
     ]:
         content => "# this file makes bareos exclude directory it is in | puppet\n*\n",
         owner => 'xani',
