@@ -191,7 +191,8 @@ chip "acpitz-acpi-0"
     include restic::backup::common
     restic::backup::file { 'root':
         directory => "/",
-        exclude_set => 'system'
+        exclude_set => 'system',
+        backup_check => false,
     }
     restic::exclude::set { 'system':
         exclude_set => [
