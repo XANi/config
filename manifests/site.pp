@@ -169,7 +169,6 @@ node hydra {
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
-    include bareos::fd
     include kanboard::server
     include collectd::client
     include collectd::plugin::turbostat
@@ -193,7 +192,7 @@ chip "acpitz-acpi-0"
         backup_check => false,
     }
     restic::backup::file { 'root':
-        directory => "/",
+        dir => "/",
         exclude_set => 'system',
     }
     restic::exclude::set { 'system':
@@ -222,7 +221,7 @@ chip "acpitz-acpi-0"
         ]
     }
     restic::backup::file { 'home':
-        directory => "/home/xani",
+        dir => "/home/xani",
         #exclude_set => 'home,
     }
     restic::exclude::set { 'home':
