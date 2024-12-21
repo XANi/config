@@ -193,40 +193,30 @@ chip "acpitz-acpi-0"
     }
     restic::backup::file { 'root':
         dir => "/",
-        exclude_set => 'system',
+        exclude_set => 'root',
     }
-    restic::exclude::set { 'system':
+    restic::exclude::set { 'root':
         exclude => [
+            '/.journal',
+            '/.fsck',
             '/dev',
-            '/var/lib/bacula',
+            '/run',
+            '/sys',
             '/proc',
             '/tmp',
             '/var/tmp',
-            '/.journal',
-            '/.fsck',
+            '/var/lib/bacula',
             '/mnt',
             '/media',
+            '/home/other',
             '/var/music',
             '/var/torrent',
             '/var/xani',
             '/var/cache',
             '/var/steam',
-            '/home',
-            '/run',
-            '/sys',
-            '/dev',
             '/var/lib/bareos',
             '/var/lib/libvirt/images',
             '/var/lib/docker',
-        ]
-    }
-    restic::backup::file { 'home':
-        dir => "/home/xani",
-        #exclude_set => 'home,
-    }
-    restic::exclude::set { 'home':
-        exclude => [
-            #''
         ]
     }
     host {
