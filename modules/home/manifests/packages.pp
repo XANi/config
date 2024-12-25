@@ -1,7 +1,7 @@
 class home::packages {
     include home::common
     include common::utils
-    ensure_packages([
+   stdlib::ensure_packages([
             # system
             anacron,
             # terminal

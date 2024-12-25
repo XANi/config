@@ -131,7 +131,7 @@ class desktop {
 class desktop::efi {
     include desktop
 #    realize Apt::Source['google-cloud-sdk']
-    ensure_packages(['librt-client-rest-perl'])
+     stdlib::ensure_packages(['librt-client-rest-perl'])
     ssl::cert {'efi':;}
 }
 
