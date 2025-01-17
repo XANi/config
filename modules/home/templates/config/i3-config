@@ -342,7 +342,7 @@ assign [class="^(steam|Steam|steamwebhelper)"] <%= wspace['05']['name'] %>
 # assign [title="^(steam|Steam)"] <%= wspace['05']['name'] %>
 assign [class="^[Ss]potify"] <%= wspace['14']['name'] %>
 assign [class="^Wireshark"] <%= wspace['15']['name'] %>
-assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
+#assign [class="^Virt-manager"] <%= wspace['04']['name'] %>
 assign [class="^(S|s)potify"] <%= wspace['14']['name'] %>
 assign [class="Zim"]  <%= wspace['13']['name'] %>
 assign [class="QOwnNotes"]  <%= wspace['13']['name'] %>
