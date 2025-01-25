@@ -8,7 +8,7 @@
 QT_QPA_PLATFORMTHEME=qt5ct
 
 # fix java font AA
-export _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=gasp
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=gasp"
 
 if [ -e ~/.screenlayout/default.sh ] ; then
     ~/.screenlayout/default.sh
