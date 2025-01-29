@@ -405,7 +405,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # WFH
 exec --no-startup-id /usr/local/bin/weekday nextcloud
-exec --no-startup-id nextcloud
 exec --no-startup-id nm-applet
 exec --no-startup-id xscreensaver
 exec --no-startup-id parcellite
