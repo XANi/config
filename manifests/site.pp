@@ -217,6 +217,7 @@ chip "acpitz-acpi-0"
             '/var/lib/bareos',
             '/var/lib/libvirt/images',
             '/var/lib/docker',
+            '/home/xani/.ollama',
         ]
     }
     host {
