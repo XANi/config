@@ -225,6 +225,7 @@ export GIT_AUTHOR_EMAIL="<%= @git['author']['email'] %>"
 export GIT_COMMITTER_NAME="<%= @git['committer']['name'] %>"
 export GIT_COMMITTER_EMAIL="<%= @git['committer']['email'] %>"
 <% end %>
+
 HISTCONTROL=ignoredups
 HISTSIZE=10000
 # append to the history file, don't overwrite it

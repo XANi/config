@@ -86,6 +86,7 @@ synclient VertTwoFingerScroll=0
 <% end %>
 export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin
 export VST_PATH=/home/xani/sync/sync/music_producing/vst/dll:/home/xani/sync/sync/music_producing/vst/linvst:/usr/lib/vst:/usr/lib/lxvst
-true
+export OLLAMA_MODELS=/home/xani/src/os/ai/ollama/models
 echo UPDATESTARTUPTTY | gpg-connect-agent &
-tmux new-window -P /home/xani/go/bin/purrbot
+# tmux new-window -P /home/xani/go/bin/purrbot
+true
