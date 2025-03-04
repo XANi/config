@@ -36,9 +36,6 @@ class desktop {
     realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
     realize Apt::Source['signal']
-    package {'emdebian-archive-keyring':
-        ensure => installed,
-    }
     class {
         'core':;
         'bug':;
@@ -166,6 +163,7 @@ node hydra {
     #     "bareos":;
     # }
     realize Apt::Source['google-cloud-sdk']
+    realize Apt::Source['microsoft']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
