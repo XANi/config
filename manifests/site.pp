@@ -62,6 +62,17 @@ class desktop {
         'xfce':;
         'zsh':;
     }
+    # nextcloud client is actual fucking trash and will auto start any time file manager opens and bother user after losing auth again
+    file { [
+        '/usr/share/dbus-1/services/com.nextcloudgmbh.Nextcloud.service',
+        #        '/usr/lib/x86_64-linux-gnu/qt6/plugins/nextcloudsync_vfs_suffix.so',
+        #        '/usr/lib/x86_64-linux-gnu/qt6/plugins/nextcloudsync_vfs_xattr.so',
+    ]:
+        ensure => absent,
+        backup => false,
+        force => true
+    }
+
 
     syncthing::instance {'xani':;}
 
