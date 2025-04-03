@@ -36,10 +36,8 @@
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
 
-<%- if @rainbow && @rainbow =~ /over/ -%>
 ;; load this after theme so it will overwrite colors
 (require 'xani-rainbow)
-<%- end -%>
 
 <%- if @emacs_theme =~ /purple-haze/ -%>
 ;; with some customisation
