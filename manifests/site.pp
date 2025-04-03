@@ -163,6 +163,10 @@ node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
     include custom::work
     realize Apt::Source['main-trixie']
     include util::mobile::laptop
+    include collectd::client
+    include collectd::plugin::turbostat
+    include collectd::ssd
+    collectd::plugin::perl {'PSI':;}
 
 }
 node erise {
