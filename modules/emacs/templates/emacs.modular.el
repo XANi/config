@@ -30,10 +30,8 @@
     ))
 (package-initialize)
 
-<%- if @rainbow && @rainbow !~ /over/ -%>
 ;; load this before theme so it have chance to override it
 (require 'xani-rainbow)
-<%- end -%>
 
 ;; and set theme
 (load-theme '<%= @emacs_theme %> t)
