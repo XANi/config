@@ -157,6 +157,13 @@ node yidhra,'yidhra.home.zxz.li' {
     include dota2
     include hw::vaiopro
 }
+
+node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
+    include desktop::efi
+    include custom::work
+    include util::mobile::laptop
+
+}
 node erise {
     include util::mobile::laptop
     include desktop
