@@ -213,6 +213,7 @@ chip "acpitz-acpi-0"
         backup_check => false,
     }
     restic::backup::file { 'root':
+        at_boot => true,
         dir => "/",
         exclude_set => 'root',
     }
