@@ -166,6 +166,7 @@ node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
     include collectd::client
     include collectd::plugin::turbostat
     include collectd::ssd
+    include lvautoresize
     collectd::plugin::perl {'PSI':;}
 
 }
