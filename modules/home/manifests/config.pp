@@ -14,9 +14,10 @@ class home::config (
         group => xani,
     }
 
-    if $dmi.dig('chassis','type') !~ /aptop|otebook|ablet/ {
-        include home::tweaks::disable_maccel
+    if $dmi.dig('chassis','type') =~ /aptop|otebook|ablet/ {
         ensure_packages(['light'])
+    } else {
+        include home::tweaks::disable_maccel
     }
     if $location == 'arte' {
         include home::tweaks::disable_pcspeaker

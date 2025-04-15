@@ -375,7 +375,7 @@ exec --no-startup-id /usr/local/bin/weekday claws-mail
 exec --no-startup-id /usr/local/bin/weekday thunderbird
 
 
-<% if @type == 'Notebook' %>
+<% if @dmi.dig("chassis","type") =~ /otebook|aptop|ablet/ %>
 # Screen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 30 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
