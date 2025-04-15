@@ -16,6 +16,7 @@ class home::config (
 
     if $dmi.dig('chassis','type') !~ /aptop|otebook|ablet/ {
         include home::tweaks::disable_maccel
+        ensure_packages(['light'])
     }
     if $location == 'arte' {
         include home::tweaks::disable_pcspeaker
