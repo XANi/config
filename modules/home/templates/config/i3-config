@@ -380,7 +380,7 @@ exec --no-startup-id /usr/local/bin/weekday thunderbird
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 30 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 bindsym XF86MonBrightnessUp exec light -A 15 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -B 10 # decrease screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
