@@ -89,4 +89,7 @@ export VST_PATH=/home/xani/sync/sync/music_producing/vst/dll:/home/xani/sync/syn
 export OLLAMA_MODELS=/home/xani/src/os/ai/ollama/models
 echo UPDATESTARTUPTTY | gpg-connect-agent &
 # tmux new-window -P /home/xani/go/bin/purrbot
+<%- if @dmi.dig("chassis","type") =~ /otebook|aptop|ablet/ -%>
+xset dpms 0 0 600
+<%- end -%>
 true
