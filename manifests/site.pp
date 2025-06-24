@@ -31,8 +31,6 @@ notify {"First run of the day":
 class desktop {
     realize Apt::Source['mono']
     realize Apt::Source['spotify']
-    realize Apt::Source['gns3-stretch']
-    realize Apt::Source['docker']
     realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
     realize Apt::Source['signal']

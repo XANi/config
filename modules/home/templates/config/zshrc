@@ -118,7 +118,8 @@ setopt HIST_FCNTL_LOCK
 export CORRECT_IGNORE="rm shutdown poweroff reboot halt"
 
 # sensible cdpath
-cdpath=( ~/src ~/src/my ~/src/os )
+unset cdpath
+#cdpath=( ~/src ~/src/my ~/src/os )
 
 # leave backgrounded processes untouched
 setopt nohup
