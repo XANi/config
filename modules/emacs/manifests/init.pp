@@ -41,6 +41,7 @@ class emacs (
                'yasnippet',
                'magit',
                'emacs-jabber',
+               'emacs-lucid',
                'lua-mode',
                'gocode', # use latest via go get
                'e2wm',
