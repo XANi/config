@@ -178,7 +178,7 @@ node 'vm-debian' {
 node hydra {
     include desktop
     include custom::work
-    realize Apt::Source['main-trixie']
+#    realize Apt::Source['main-trixie']
     # apt::source {
     #     "emdebian":;
     #     "bareos":;
