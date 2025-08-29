@@ -158,7 +158,6 @@ node yidhra,'yidhra.home.zxz.li' {
 node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
     include desktop::efi
     include custom::work
-    realize Apt::Source['main-trixie']
     include util::mobile::laptop
     include collectd::client
     include collectd::plugin::turbostat
