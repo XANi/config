@@ -186,6 +186,7 @@ define home::config::file (
     $no_proxy             = $home::vars::no_proxy
     $conky_xinerama_head  = $home::vars::conky_xinerama_head
     $goprivate            = $home::vars::goprivate
+    $vsync                = $home::vars::vsync
 #    $     = $home::vars::
     file { "${homedir}/$target":
         content => template($source),

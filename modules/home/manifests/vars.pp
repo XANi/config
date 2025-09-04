@@ -14,4 +14,5 @@ class home::vars (
     $gpgid                = lookup('gpgid'),
     $conky_xinerama_head  = lookup('conky_xinerama_head',undef,undef,false),
     $goprivate            = lookup('goprivate',undef,undef,false),
+    $vsync                = lookup('vsync',undef,undef,false),
 ) {}
