@@ -123,10 +123,11 @@ ${color1}╔${color}File systems:
 ${color1}<% if mounts.last == fs %>╚<% else %>╠<% end %>${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif}<%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,180 <%= fs %>}
 <%- end -%>
 ${color}Diskio
-${color gray} sda ${color ffcc00} ${diskio_read sda} ${color6} ${diskio_write sda}
-${color}${diskiograph_read sda 50,250 0000ff 00ff00 -t -f}${color} ${alignr}${diskiograph_write sda 50,250 0000ff 00ff00 -t -f}
-${color} sdb ${color ffcc00} ${diskio_read sdb} ${color6} ${diskio_write sdb}
-${color}${diskiograph_read sdb 50,250 cc4400 ffaa00 -t -l}${color} ${alignr}${diskiograph_write sdb 50,250 cc4400 ffaa00 -t -l}
+<%- @disks.each do |name,data| -%>
+<%- next if name =~ /^sr/ -%>
+${color gray} <%= name %> ${color ffcc00} ${diskio_read <%= name %>} ${color6} ${diskio_write <%= name %>}
+${color}${diskiograph_read <%= name %> 50,250 0000ff 00ff00 -t -f}${color} ${alignr}${diskiograph_write <%= name %> 50,250 0000ff 00ff00 -t -f}
+<%- end -%>
 $hr
 ${color}Networking: <% if have_wifi %>AP ${wireless_ap wlan0}<% end %>
 ${if_gw}GW: ${color6}${gw_ip} ${color}[DNS: ${color6}${nameserver}$color] ${color}on ${color4}${gw_iface}${endif}${color}
