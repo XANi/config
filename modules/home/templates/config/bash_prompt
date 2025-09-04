@@ -24,7 +24,9 @@ else
 
     home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
     if [[ $HOSTNAME =~ $home_host_regex ]] ; then
-        SHOW_HOSTNAME=0
+        if [ -z "$SSH_CONNECTION" ] ;then
+            SHOW_HOSTNAME=0
+        fi
         if [ "$USER" = "root" ] ; then
             PROMPT_NO_HOST='\[\033[1;31m\] (!) \[\033[1;30m\]$NICKNAME\[\033[0m\]'
 #    elif [ "$USER" = "root" ] ; then
