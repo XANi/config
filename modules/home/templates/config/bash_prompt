@@ -10,6 +10,8 @@ export SHELL=/bin/bash # mc fix
 bad_terms='(linux|eterm-color)'
 terms256='(256color)'
 screen_re='(screen)'
+SHOW_HOSTNAME=1
+
 if [ $TERM = 'dumb' ] ; then
     # not a real term, dont bother with setting up env
     # cant just exit here because for some reason it fucks up scp to centos6
