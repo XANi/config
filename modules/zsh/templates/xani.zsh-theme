@@ -51,7 +51,7 @@ pipe_status(){
 }
 
 whoami() {
-    if [[ $HOSTNAME =~ $home_host_regexp ]] && [ -z "$SSH_CONNECTION"; then
+    if [[ $HOSTNAME =~ $home_host_regex ]] && [ -z "$SSH_CONNECTION"; then
         echo -n "%{$fg_bold[green]%}^%{$reset_color%}"
     else
         echo -ne "%{$fg_bold[green]%}$HOSTNAME%{$reset_color%}"
