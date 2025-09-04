@@ -11,7 +11,7 @@ setopt PROMPT_SUBST
 setopt RM_STAR_SILENT
 autoload -U regexp-replace
 no_processors=$(cat /proc/cpuinfo | grep ^processor|wc -l)
-home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra)'
+home_host_regex='^(ghroth|erise|arkham|vm-debian|hydra|brigid)'
 # some dumbfuck decided to add "r" alias for previous command
 # because presumably he couldn't find up arrow on his keyboard
 # then someone decided to port it to zsh for no fucking reason
@@ -51,7 +51,7 @@ pipe_status(){
 }
 
 whoami() {
-    if [[ $HOSTNAME =~ $home_host_regex ]] && [ -z "$SSH_CONNECTION"; then
+    if [[ $HOSTNAME =~ $home_host_regex ]] && [ -z "$SSH_CONNECTION" ]; then
         echo -n "%{$fg_bold[green]%}^%{$reset_color%}"
     else
         echo -ne "%{$fg_bold[green]%}$HOSTNAME%{$reset_color%}"
