@@ -5,6 +5,7 @@ export GIT_PS1_SHOWUPSTREAM="verbose name"
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWUPSTREAM="verbose"
 export GIT_PS1_DESCRIBE_STYLE=branch
+HOSTNAME=`hostname`
 source  /usr/lib/git-core/git-sh-prompt
 setopt PROMPT_SUBST
 setopt RM_STAR_SILENT
@@ -50,10 +51,10 @@ pipe_status(){
 }
 
 whoami() {
-    if [[ $HOSTNAME =~ $home_host_regexp ]]; then
+    if [[ $HOSTNAME =~ $home_host_regexp ]] && [ -z "$SSH_CONNECTION"; then
         echo -n "%{$fg_bold[green]%}^%{$reset_color%}"
     else
-        echo -ne "%{$fg_bold[green]%}$HOSTNAME%{$reset_color}"
+        echo -ne "%{$fg_bold[green]%}$HOSTNAME%{$reset_color%}"
     fi
 }
 
