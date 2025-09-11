@@ -123,11 +123,11 @@ ${color1}╔${color}File systems:
 ${color1}<% if mounts.last == fs %>╚<% else %>╠<% end %>${if_match ${fs_free_perc <%= fs %>} < 10}${color3}${else}${color6}${endif}<%= fs %> ${fs_used <%= fs %>}/${fs_size <%= fs %>} ${alignr 10}${fs_bar 8,180 <%= fs %>}
 <%- end -%>
 ${color}Diskio
-<%- graph_height = 100 / [1,@disks.length].max %>
+<%- graph_height = 100 / [1,@disks.length].max -%>
 <%- @disks.each do |name,data| -%>
 <%- next if name =~ /^sr/ -%>
 ${color gray} <%= name %> ${color ffcc00} ${diskio_read <%= name %>} ${color6} ${diskio_write <%= name %>}
-${color}${diskiograph_read <%= name %> 50,<%= graph_height %> 0000ff 00ff00 -t -f}${color} ${alignr}${diskiograph_write <%= name %> 50,<%= graph_height %> 0000ff 00ff00 -t -f}
+${color}${diskiograph_read <%= name %> <%= graph_height %>,250 0000ff 00ff00 -t -f}${color} ${alignr}${diskiograph_write <%= name %> <%= graph_height %>,250 0000ff 00ff00 -t -f}
 <%- end -%>
 $hr
 ${color}Networking: <% if have_wifi %>AP ${wireless_ap wlan0}<% end %>
