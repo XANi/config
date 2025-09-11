@@ -45,6 +45,8 @@ class home::packages {
             tilda,
             unrar,
             wireshark,
+            xscreensaver,
+            qownnotes,
             xtightvncviewer,
             youtube-dl,
             zenity,
