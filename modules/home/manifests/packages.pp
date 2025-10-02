@@ -78,6 +78,7 @@ class home::packages {
             gcalcli,
             todotxt-cli,
             qt5ct, # qt5 theme config without KDE
+            qalc,  #calculator
     ])
     # for some bullshit reason a lot of packages recommend apache; fuck them
     package { 'apache2.2-common': ensure => absent }
