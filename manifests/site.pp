@@ -136,7 +136,10 @@ class desktop {
 class desktop::efi {
     include desktop
 #    realize Apt::Source['google-cloud-sdk']
-     stdlib::ensure_packages(['librt-client-rest-perl'])
+    stdlib::ensure_packages(['librt-client-rest-perl'])
+    ensure_packages([
+        'thunderbird'
+    ])
     ssl::cert {'efi':;}
 }
 
