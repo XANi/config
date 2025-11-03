@@ -4,7 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 PROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
 RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
-
+PROMPT_EOL_MARK="%K{220} %k"
 setopt autocd extendedglob
 bindkey -e
 # End of lines configured by zsh-newuser-install
