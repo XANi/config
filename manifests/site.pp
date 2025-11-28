@@ -194,6 +194,7 @@ node hydra {
     include collectd::client
     include collectd::plugin::turbostat
     include collectd::ssd
+    include collectd::amdgpu
     file { '/etc/sensors.d/disable_bad_temp':
         content => '
 chip "it8620-isa-0a30"
