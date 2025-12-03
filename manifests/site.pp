@@ -241,6 +241,9 @@ chip "acpitz-acpi-0"
             '/var/lib/libvirt/images',
             '/var/lib/docker',
             '/home/xani/.ollama',
+            # rust stuff
+            'target/release/deps/**',
+            'target/debug/deps/**',
         ]
     }
     host {
