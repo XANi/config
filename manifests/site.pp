@@ -241,6 +241,8 @@ chip "acpitz-acpi-0"
             '/var/lib/libvirt/images',
             '/var/lib/docker',
             '/home/xani/.ollama',
+            '/usr/share/kicad/3dmodels',
+            '/home/xani/sync/cloudshare',
             # rust stuff
             'target/release/deps/**',
             'target/debug/deps/**',
