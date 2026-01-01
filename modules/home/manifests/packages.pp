@@ -70,7 +70,7 @@ class home::packages {
             picom, # compositing
             feh, # wallpaper
             playerctl, # media player controls
-            clipit, # clipboard manager
+            diodon, # clipboard manager
             rofi, # window title search, run menu
             qownnotes, # desktop wiki
             syslinux-utils, # for isohybrid
