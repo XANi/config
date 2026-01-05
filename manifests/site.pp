@@ -187,6 +187,7 @@ node hydra {
     # }
     realize Apt::Source['google-cloud-sdk']
     realize Apt::Source['microsoft']
+    realize Apt::Source['main-testing']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
