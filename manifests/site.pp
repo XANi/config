@@ -33,6 +33,7 @@ class desktop {
     realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
     realize Apt::Source['signal']
+    realize Apt::Source['firefox']
     class {
         'core':;
         'bug':;
@@ -188,7 +189,6 @@ node hydra {
     realize Apt::Source['google-cloud-sdk']
     realize Apt::Source['microsoft']
     realize Apt::Source['main-testing']
-    realize Apt::Source['firefox']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
