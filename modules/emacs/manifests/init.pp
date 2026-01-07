@@ -24,7 +24,6 @@ class emacs (
                'puppet-lint',
 #               'sepia', # Simple Emacs-Perl InterAction
                'texlive-latex-base',
-               'twittering-mode',
                'wmctrl',
                'xprintidle', # mostly for jabber mode
                'shellcheck', # sh lint
@@ -110,7 +109,6 @@ class emacs (
                        'tabbar-ruler',
                        'textile-mode',
                        'twilight-anti-bright-theme',
-                       'twittering-mode',
 #                       'undo-tree',
 #                       'vcl-mode',
                        'wanderlust',

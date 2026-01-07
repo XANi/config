@@ -1,8 +1,5 @@
 class xfce {
-  package {
-    ['gtk2-engines-nodoka']:
-      ensure => installed
-  }
+  
 }
 
 define xfce::theme {

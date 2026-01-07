@@ -96,7 +96,6 @@
 
 ;; Other
 (require 'xani-jabber)
-(require 'xani-twittering)
 (require 'xani-x)
 (require 'xani-ecb)
 (require 'xani-develock)

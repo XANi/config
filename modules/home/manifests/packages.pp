@@ -9,7 +9,7 @@ class home::packages {
             xfonts-terminus-dos,
             xfonts-terminus-oblique,
             fonts-noto, # covers most of unicode missing in rest of the fonts
-            ttf-dejavu,
+            fonts-dejavu,
             terminator,
             # utils
             aspell-en,
@@ -31,7 +31,6 @@ class home::packages {
             parallel,
             perlconsole,
             perltidy,
-            pkg-mozilla-archive-keyring,
             pwgen,
             rlwrap,
             scrot,
@@ -66,7 +65,7 @@ class home::packages {
             #
             i3,
             i3blocks,
-            conky,
+            conky-all,
             picom, # compositing
             feh, # wallpaper
             playerctl, # media player controls
