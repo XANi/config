@@ -80,20 +80,19 @@ source ~/.bash_functions
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/lib/go-1.18/bin:/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
+export PATH="/usr/kerberos/sbin:/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
 export PATH=$PATH:$HOME/go/bin:/usr/games:$HOME/bin:$HOME/go/bin:$HOME/.local/bin:/home/xani/.cargo/bin
-export EDITOR='/usr/local/bin/e'
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-export GOTOOLCHAIN=local
-<%- if @goprivate -%>
-export GOPRIVATE="<%= @goprivate %>"
-<%- end -%>
 <%= scope.function_template(['common/sh-alias-portable']) %>
+
+<%= scope.function_template(['common/sh-env']) %>
 
 <%= scope.function_template(['home/config/sh-alias-desktop']) %>
 source  /usr/lib/git-core/git-sh-prompt
+
+
 
 # tune history
 
