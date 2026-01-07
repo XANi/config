@@ -208,6 +208,15 @@ if [ "$SUDO_USER" = "xani" ] ; then
         fi
     fi
 fi
+if [ ! -e '/usr/bin/go' ] ; then
+    if [ -e '/usr/lib/go-1.27/bin' ] ; then
+      export PATH="$PATH:/usr/lib/go-1.27/bin/"
+    elif [ -e '/usr/lib/go-1.26/bin' ] ; then
+      export PATH="$PATH:/usr/lib/go-1.26/bin/"
+    elif [ -e '/usr/lib/go-1.25/bin' ] ; then
+        export PATH="$PATH:/usr/lib/go-1.25/bin/"
+    fi
+fi
 # to cleanup lingering screen sessions
 export TMOUT=864000
 if [ -e /usr/bin/emacs ] ; then
