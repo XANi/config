@@ -408,7 +408,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # WFH
 exec --no-startup-id /usr/local/bin/weekday nextcloud
+<% if @type =~ /book/ %>
 exec --no-startup-id nm-applet
+<% end %>
 exec --no-startup-id xscreensaver
 exec --no-startup-id diodon
 exec --no-startup-id flameshot
