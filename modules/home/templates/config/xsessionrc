@@ -52,6 +52,11 @@ if [ -e ~/mouse.sh ] ; then
     ~/mouse.sh
 fi
 
+
+if [ -e ~/bin/mouse.pl ] ; then
+    ~/bin/mouse.pl
+fi
+
 if [ -e ~/.xsessionrc-local ] ; then
     ~/.xsessionrc-local
 fi
