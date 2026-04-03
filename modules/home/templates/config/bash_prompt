@@ -202,6 +202,8 @@ if [ -e /usr/bin/emacs ] ; then
     export EDITOR=emacs
 elif [ -e /usr/bin/zile ] ; then
     export EDITOR=zile
+elif [ -e /usr/bin/mg ] ; then
+    export EDITOR=mg
 elif [ -e /usr/bin/e3em ] ; then
     export EDITOR=e3em
 elif [ -e /usr/bin/nano ] ; then
