@@ -141,6 +141,9 @@ class desktop::efi {
     ensure_packages([
         'thunderbird'
     ])
+    realize Apt::Source['hashicorp']
+    realize Apt::Source['microsoft']
+    realize Apt::Source['main-testing']
     ssl::cert {'efi':;}
 }
 
@@ -189,6 +192,7 @@ node hydra {
     realize Apt::Source['google-cloud-sdk']
     realize Apt::Source['microsoft']
     realize Apt::Source['main-testing']
+    realize Apt::Source['hashicorp']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
