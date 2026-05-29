@@ -33,6 +33,9 @@ class desktop {
     realize Apt::Source['qownnotes']
     realize Apt::Source['asbru']
     realize Apt::Source['signal']
+    package { 'signal-desktop':
+        ensure => latest
+    }
     realize Apt::Source['firefox']
     class {
         'core':;
