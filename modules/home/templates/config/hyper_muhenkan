@@ -1,0 +1,17 @@
+//# <%=  __FILE__.gsub(/.*?modules\//,'puppet://modules/') %>
+partial modifier_keys
+xkb_symbols "default" {
+    key <MUHE> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Hyper_L ]
+    };
+    replace key <CAPS> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Hyper_L ]
+    };
+    replace key <MENU> {
+        type[Group1] = "ONE_LEVEL",
+        symbols[Group1] = [ Hyper_L ]
+    };
+    modifier_map Mod3 { <MUHE>, <CAPS>, <MENU> };
+};

@@ -126,7 +126,16 @@ class home::config (
         '.local/share':;
         '.local/share/rofi':;
         '.local/share/rofi/themes':;
+        '.config/xkb':;
+        '.config/xkb/symbols':;
     }
+    file { [
+        '/usr/share/X11/xkb/symbols/hyper_muhenkan',
+        "${homedir}/.config/xkb/symbols/hyper_muhenkan"
+    ]:
+        content => template('home/config/hyper_muhenkan'),
+    }
+        
 
     # disable ssh's own agent, preferring GPG one
     file {'/etc/X11/Xsession.d/90x11-common_ssh-agent':
