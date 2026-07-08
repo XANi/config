@@ -16,6 +16,7 @@ tags
 *.sqlite
 log/*
 tmp/*
+.claude/*
 
 #various perl stuff
 blib/
