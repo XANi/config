@@ -10,7 +10,7 @@
 
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+                         ("melpa" . "http://www.mirrorservice.org/sites/melpa.org/packages/")))
 (package-initialize)
 (package-refresh-contents)
 (setq package-list '(
