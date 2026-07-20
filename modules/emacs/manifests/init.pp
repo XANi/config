@@ -53,11 +53,10 @@ class emacs (
                        'buffer-move',
                        'charmap',
                        'cider',
-                       'clojure-cheatsheet',
                        'clojure-mode',
                        'clojure-snippets',
                        'color-theme-sanityinc-tomorrow',
-                       'color-theme-solarized',
+                       'solarized-theme',
                        'company',
                        'company-go',
                        'diminish',
@@ -78,7 +77,6 @@ class emacs (
 #                       'jabber',
                        'js2-mode',
                        'json-mode',
-                       'ldap-mode',
                        'lua-mode',
                        'magit',
                        'markdown-mode',
@@ -342,14 +340,14 @@ class emacs (
         mode    => "0700",
         require => File['xani-emacs-dir'],
     }
-    file { xani-emacs-secure-local-config:
-        path    => "${homedir}/emacs/secure/local.el.gpg",
-        ensure  => present,
-        mode    => "600",
-        owner   => xani,
-        group   => xani,
-        require => File['xani-emacs-libs-secure'],
-    }
+    #file { xani-emacs-secure-local-config:
+    #    path    => "${homedir}/emacs/secure/local.el.gpg",
+    #    ensure  => present,
+    #    mode    => "600",
+    #    owner   => xani,
+    #    group   => xani,
+    #    require => File['xani-emacs-libs-secure'],
+    #}
 
 }
 
