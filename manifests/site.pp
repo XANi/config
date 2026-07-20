@@ -252,9 +252,20 @@ chip "acpitz-acpi-0"
             '/home/xani/.ollama',
             '/usr/share/kicad/3dmodels',
             '/home/xani/sync/cloudshare',
+            '.esphome/**',
+            '/home/xani/.local/share/containers',
+            '/home/xani/.local/share/kicad',
+            '/home/xani/.local/share/claude',
+            '/home/xani/.local/share/JetBrains',
             # rust stuff
             'target/release/deps/**',
             'target/debug/deps/**',
+            'target/release/build/**',
+            'target/debug/build/**',
+            'target/*/release/deps/**',
+            'target/*/debug/deps/**',
+            'target/*/release/build/**',
+            'target/*/debug/build/**',
         ]
     }
     host {
