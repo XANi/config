@@ -196,6 +196,7 @@ node hydra {
     realize Apt::Source['microsoft']
     realize Apt::Source['main-testing']
     realize Apt::Source['hashicorp']
+    realize Apt::Source['brave']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
