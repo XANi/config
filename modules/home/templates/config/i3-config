@@ -280,6 +280,8 @@ for_window [class=".*Pidgin.*"] floating enable
 for_window [class="Emacs"] border 1pixel
 for_window [class="^Chrom(e|ium)"] border 1pixel
 for_window [class="^(G|g)oogle-chrome"] border 1pixel
+for_window [class="^Brave-origin"] border 1pixel
+for_window [class="^brave-origin"] border 1pixel
 
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Dialog"] floating enable
 for_window [class="^(firefox|Firefox|Iceweasel)" instance="Extension"] floating enable
@@ -331,6 +333,7 @@ assign [class="^(firefox|Firefox|Iceweasel)"] <%= wspace['02']['name'] %>
 assign [class="^Emacs"] <%= wspace['03']['name'] %>
 assign [class=".*jetbrains.*"] <%= wspace['04']['name'] %>
 assign [class="^(Chrome|Chromium|chromium-browser|chromium|Google-chrome|google-chrome)"] <%= wspace['11']['name'] %>
+assign [class="^(Brave|Brave-origin|brave|brave-origin)"] <%= wspace['11']['name'] %>
 assign [class="^Claws-mail"] <%= wspace['12']['name'] %>
 # thunderbird-default
 <%- if @location == 'arte' -%>
