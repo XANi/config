@@ -173,6 +173,7 @@ node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
     include collectd::plugin::turbostat
     include collectd::ssd
     include lvautoresize
+    realize Apt::Source['brave']
     collectd::plugin::perl {'PSI':;}
 
 }
