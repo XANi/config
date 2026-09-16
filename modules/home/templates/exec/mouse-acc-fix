@@ -1,14 +1,62 @@
 #!/usr/bin/perl
-open(DEVLIST,'-|','xinput');
-while(<DEVLIST>) {
-    if ($_ =~ /id=(\d+)/) {
-        my $dev_id=$1;
-        if ($_ =~ /pointer/ && $_ !~ /keyboard/i && $dev_id > 4) {
-            system('xinput', 'set-prop', $dev_id, 'Device Accel Profile', '-1');
-            # also called "libinput Accel Speed" or "shit actually worked so we had to refactor it to break it again"
-            system('xinput', 'set-prop', $dev_id, '274', '-1');
-        }
+# Disable pointer acceleration on every real pointer device.
+#
+# Device and property IDs are not stable (they change on replug, reboot, or a
+# libinput update), so everything is looked up by name.
+#
+# Gaming mice usually register more than one slave pointer, eg:
+#   Logitech G502 HERO Gaming Mouse          id=7  [slave  pointer  (2)]
+#   Logitech G502 HERO Gaming Mouse Keyboard id=8  [slave  pointer  (2)]
+# ...so the name can't be used to tell the real mouse apart from its extra
+# button/macro endpoint. Instead we just try every slave pointer and skip the
+# ones that don't expose an acceleration property.
+
+use strict;
+use warnings;
+
+# property -> value to set, first one found on a device wins
+my @props = (
+    'libinput Accel Speed'  => '-1',  # libinput
+    'Device Accel Profile'  => '-1',  # old evdev
+);
+
+sub device_ids {
+    my @ids;
+    open(my $xi, '-|', 'xinput', 'list', '--short') or die "can't run xinput: $!\n";
+    while (my $line = <$xi>) {
+        next unless $line =~ /\[slave\s+pointer/;
+        next if $line =~ /XTEST/;
+        next unless $line =~ /\bid=(\d+)/;
+        push @ids, $1;
+    }
+    close($xi);
+    return @ids;
+}
+
+# name -> id map of a device's properties
+sub device_props {
+    my ($id) = @_;
+    my %p;
+    open(my $xi, '-|', 'xinput', 'list-props', $id) or die "can't run xinput: $!\n";
+    while (my $line = <$xi>) {
+        $p{$1} = $2 if $line =~ /^\s+(.+?)\s+\((\d+)\):/;
+    }
+    close($xi);
+    return %p;
+}
+
+my $touched = 0;
+for my $id (device_ids()) {
+    my %have = device_props($id);
+    for (my $i = 0; $i < @props; $i += 2) {
+        my ($name, $value) = @props[$i, $i + 1];
+        next unless exists $have{$name};
+        # set by property id, the names get renamed every other driver rewrite
+        system('xinput', 'set-prop', $id, $have{$name}, $value) == 0
+            or warn "failed to set '$name' on device $id\n";
+        $touched++;
+        last;
     }
 }
-system("xinput set-prop 9 'Device Accel Profile' -1");
-system("xinput set-prop 10 'Device Accel Profile' -1");
+
+warn "no pointer device with an acceleration property found\n" unless $touched;
