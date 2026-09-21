@@ -78,6 +78,8 @@ class home::packages {
             todotxt-cli,
             qt5ct, # qt5 theme config without KDE
             qalc,  #calculator
+            ratbagd, # gaming mouse control daemon
+            piper, # mouse config
     ])
     # for some bullshit reason a lot of packages recommend apache; fuck them
     package { 'apache2.2-common': ensure => absent }
