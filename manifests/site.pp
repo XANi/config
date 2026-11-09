@@ -174,6 +174,7 @@ node brigid,'brigid.home.zxz.li','brigid.non.3dart.com' {
     include collectd::ssd
     include lvautoresize
     realize Apt::Source['brave']
+    realize Apt::Source['opentofu']
     collectd::plugin::perl {'PSI':;}
 
 }
@@ -198,6 +199,7 @@ node hydra {
     realize Apt::Source['main-testing']
     realize Apt::Source['hashicorp']
     realize Apt::Source['brave']
+    realize Apt::Source['opentofu']
     include dota2
     include util::deb::pkgmaker
     include emacs::wl
