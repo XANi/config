@@ -369,10 +369,8 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
             require => File['xani-emacs-org'],
         }
         cron { 'xani-org-update-arte':
-            command => "/home/xani/emacs/org/arte/c",
+            ensure => absent,
             user    => xani,
-            hour    => '*',
-            minute  => '*/30',
         }
         file { "${homedir}/emacs/org/cal.ics":
             ensure => "${homedir}/emacs/org/arte.ics",
@@ -401,10 +399,8 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
     }
 
     cron { 'xani-org-update':
-        command => "/home/xani/emacs/org/share/c",
+        ensure => absent,
         user    => xani,
-        hour    => $cron_hour,
-        minute  => $cron_minute,
     }
 
     # Orage sync
@@ -421,9 +417,8 @@ class emacs::org ($cron_hour = '*', $cron_minute = '*/5', $homedir = '/home/xani
         group  => xani,
     }
     cron { 'xani-orage-update':
-        command => "/usr/local/bin/update-orage-calendar",
+        ensure => absent,
         user    => xani,
-        minute  => '*/5',
     }
 }
 
